@@ -4,10 +4,10 @@
 
 # Site
 title: 一生何求
-subtitle: 我在追求什么？寻找什么？执着什么？
+subtitle: 
 description: 一个笨拙的程序员
 author: signalFire
-language: zh-CN
+language: zh-Hans
 timezone: Asia/Shanghai
 since: 2017
 
@@ -85,7 +85,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
-theme: chan
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -6,6 +6,7 @@ categories: 工具
 scaffolds:
 tags: hexo
 ---
+
 ```
     Hexo常用命令：
 
@@ -15,6 +16,7 @@ tags: hexo
         hexo server               #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
         hexo deploy               #将.deploy目录部署到GitHub
 ```
+<!-- more -->
 简写
     
 ```
