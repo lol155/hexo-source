@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://signalfire2017.com/"/>
-  <updated>2017-09-03T15:29:42.869Z</updated>
+  <updated>2017-09-03T15:40:54.014Z</updated>
   <id>http://signalfire2017.com/</id>
   
   <author>
@@ -16,11 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>idea快捷键记录</title>
+    <link href="http://signalfire2017.com/2017/09/03/idea%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>http://signalfire2017.com/2017/09/03/idea快捷键记录/</id>
+    <published>2017-09-03T15:37:13.000Z</published>
+    <updated>2017-09-03T15:40:54.014Z</updated>
+    
+    <content type="html"><![CDATA[<p>查找方法,这个用于看源码的时候感觉很好用记录一下</p>
+<blockquote>
+<p>ctrl+shift+alt+n</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;查找方法,这个用于看源码的时候感觉很好用记录一下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ctrl+shift+alt+n&lt;/p&gt;
+&lt;/blockquote&gt;
+
+    
+    </summary>
+    
+      <category term="工具" scheme="http://signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="idea" scheme="http://signalfire2017.com/tags/idea/"/>
+    
+      <category term="快捷键" scheme="http://signalfire2017.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>记录下hexo常用命令自己方便看</title>
     <link href="http://signalfire2017.com/2017/09/03/%E8%AE%B0%E5%BD%95%E4%B8%8Bhexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%87%AA%E5%B7%B1%E6%96%B9%E4%BE%BF%E7%9C%8B/"/>
     <id>http://signalfire2017.com/2017/09/03/记录下hexo常用命令自己方便看/</id>
     <published>2017-09-03T14:02:00.000Z</published>
-    <updated>2017-09-03T15:29:42.869Z</updated>
+    <updated>2017-09-03T15:30:32.771Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Hexo常用命令：</div><div class="line"></div><div class="line">    hexo new &quot;postName&quot;       #新建文章</div><div class="line">    hexo new page &quot;pageName&quot;  #新建页面</div><div class="line">    hexo generate             #生成静态页面至public目录</div><div class="line">    hexo server               #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">    hexo deploy               #将.deploy目录部署到GitHub</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -29,206 +61,6 @@
 <p>复合命令</p>
 <pre><code>hexo deploy -g
 hexo server -g
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
-</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
-<pre><code>hexo clean
-</code></pre><pre><code>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧
-
-    hexo clean
 </code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
 <pre><code>hexo clean
 </code></pre>]]></content>
