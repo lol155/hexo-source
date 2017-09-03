@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: signalFire
-subtitle:
-description:
+title: 一生何求
+subtitle: 我在追求什么？寻找什么？执着什么？
+description: 一个笨拙的程序员
 author: signalFire
 language: zh-CN
 timezone: Asia/Shanghai
@@ -54,7 +54,7 @@ index_generator:
   order_by: -date
   
 # Category & Tag
-default_category: uncategorized
+default_category: 未分类
 category_map:
   编程: programming
 	生活: life
@@ -85,7 +85,7 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
-theme: yilia
+theme: chan
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
