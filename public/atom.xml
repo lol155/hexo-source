@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://signalfire2017.com/"/>
-  <updated>2017-09-03T15:40:54.014Z</updated>
+  <updated>2017-09-10T16:28:16.129Z</updated>
   <id>http://signalfire2017.com/</id>
   
   <author>
@@ -16,16 +16,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>vscode快捷键记录</title>
+    <link href="http://signalfire2017.com/2017/09/11/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>http://signalfire2017.com/2017/09/11/vscode快捷键记录/</id>
+    <published>2017-09-10T16:07:26.000Z</published>
+    <updated>2017-09-10T16:28:16.129Z</updated>
+    
+    <content type="html"><![CDATA[<p>分屏预览<br>ctrl+k v<br>ctrl+B 唤出侧边栏   </p>
+<p>切换分屏<br>ctrl+1<br>ctrl+2<br>ctrl+3  </p>
+<a id="more"></a>
+<p>alt+z  开启/取消自动换行<br>ctrl+` 打开/关闭控制台</p>
+<p>文本编辑<br>alt+↑/↓ 挪动行<br>alt+shift+↑/↓ 向上/下复制行<br>ctrl+enter 下方新建行<br>ctrl+shift+enter 上方新建行<br>ctrl+shift+k 删除当前行  </p>
+<p>ctrl+x 剪切行(光标没选中的时候)<br>ctrl+k z 编辑区域最大化  </p>
+<p>切换窗口<br>ctrl+e 最近打开的文件<br>ctrl+r 打开的工作空间  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;分屏预览&lt;br&gt;ctrl+k v&lt;br&gt;ctrl+B 唤出侧边栏   &lt;/p&gt;
+&lt;p&gt;切换分屏&lt;br&gt;ctrl+1&lt;br&gt;ctrl+2&lt;br&gt;ctrl+3  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="快捷键" scheme="http://signalfire2017.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+      <category term="vscode" scheme="http://signalfire2017.com/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>idea快捷键记录</title>
     <link href="http://signalfire2017.com/2017/09/03/idea%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
     <id>http://signalfire2017.com/2017/09/03/idea快捷键记录/</id>
     <published>2017-09-03T15:37:13.000Z</published>
-    <updated>2017-09-03T15:40:54.014Z</updated>
+    <updated>2017-09-10T16:23:29.507Z</updated>
     
     <content type="html"><![CDATA[<p>查找方法,这个用于看源码的时候感觉很好用记录一下</p>
 <blockquote>
 <p>ctrl+shift+alt+n</p>
 </blockquote>
+<p>//———————————–</p>
+<p>Navigate | Call Hierarchy命令查看一个Java方法调用树（caller和callee两个方向）</p>
+<blockquote>
+<p>ctrl+alt+H</p>
+</blockquote>
+<p>Analyze | Dataflow from/to Here两个命令查看表达式、变量和方法参数的传递关系树。</p>
+<blockquote>
+<p>Analyze | Data Flow  to Here<br>Analyze | Data Flow  from Here</p>
+</blockquote>
+<a id="more"></a>
+<p>“Find Usage”可以查看一个Java类、方法或变量的直接使用情况。 </p>
+<blockquote>
+<p>alt+F7</p>
+</blockquote>
+<p>Navigate | File Structure 查看文件的结构</p>
+<blockquote>
+<p>ctrl+F12</p>
+</blockquote>
+<p><a href="http://www.cnblogs.com/huaxingtianxia/p/5728847.html" target="_blank" rel="external">http://www.cnblogs.com/huaxingtianxia/p/5728847.html</a></p>
+<p>//———————————–</p>
 ]]></content>
     
     <summary type="html">
@@ -34,7 +86,15 @@
 &lt;blockquote&gt;
 &lt;p&gt;ctrl+shift+alt+n&lt;/p&gt;
 &lt;/blockquote&gt;
-
+&lt;p&gt;//———————————–&lt;/p&gt;
+&lt;p&gt;Navigate | Call Hierarchy命令查看一个Java方法调用树（caller和callee两个方向）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ctrl+alt+H&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Analyze | Dataflow from/to Here两个命令查看表达式、变量和方法参数的传递关系树。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Analyze | Data Flow  to Here&lt;br&gt;Analyze | Data Flow  from Here&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
