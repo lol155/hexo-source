@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>名字待定</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.signalfire2017.com/"/>
+  <updated>2017-11-14T16:00:08.994Z</updated>
+  <id>https://blog.signalfire2017.com/</id>
+  
+  <author>
+    <name>signalFire</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo-next 本地搜索</title>
+    <link href="https://blog.signalfire2017.com/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/"/>
+    <id>https://blog.signalfire2017.com/2017/11/14/hexo-next-本地搜索/</id>
+    <published>2017-11-14T15:46:14.000Z</published>
+    <updated>2017-11-14T16:00:08.994Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。</p>
+<h1 id="local-search"><a href="#local-search" class="headerlink" title="local search"></a>local search</h1><h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><p>在站点根目录通过gitbash安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="添加search字段"><a href="#添加search字段" class="headerlink" title="添加search字段"></a>添加search字段</h2><p>在站点下_config.yml中添加search字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure></p>
+<h2 id="在themes-next-config-yml主题配置中找到"><a href="#在themes-next-config-yml主题配置中找到" class="headerlink" title="在themes\next_config.yml主题配置中找到"></a>在themes\next_config.yml主题配置中找到</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: true</div></pre></td></tr></table></figure>
+<p>将enable的值改成true</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/syd192/p/6074323.html" target="_blank" rel="external">Hexo的Next主题配置</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。&lt;/p&gt;
+&lt;h1 id=&quot;local-search&quot;&gt;&lt;a href=&quot;#local-search&quot; class=&quot;headerlink&quot; title=&quot;local search&quot;&gt;&lt;/a&gt;local search&lt;/h1&gt;&lt;h2 id=&quot;安装hexo-generator-searchdb&quot;&gt;&lt;a href=&quot;#安装hexo-generator-searchdb&quot; class=&quot;headerlink&quot; title=&quot;安装hexo-generator-searchdb&quot;&gt;&lt;/a&gt;安装hexo-generator-searchdb&lt;/h2&gt;&lt;p&gt;在站点根目录通过gitbash安装&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-generator-searchdb --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据03-01-自动化部署脚本</title>
+    <link href="https://blog.signalfire2017.com/2017/11/14/%E5%A4%A7%E6%95%B0%E6%8D%AE03-01-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/"/>
+    <id>https://blog.signalfire2017.com/2017/11/14/大数据03-01-自动化部署脚本/</id>
+    <published>2017-11-14T14:43:45.000Z</published>
+    <updated>2017-11-14T15:06:55.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>实现ssh免密登录及jdk的自动安装</p>
+<h1 id="boot-sh"><a href="#boot-sh" class="headerlink" title="boot.sh"></a>boot.sh</h1><p>免密登录 及复制安装脚本到目标机器<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">SERVERS=<span class="string">"node-3.itcast.cn node-4.itcast.cn"</span></div><div class="line">PASSWORD=123456</div><div class="line">BASE_SERVER=172.16.203.100</div><div class="line"></div><div class="line"><span class="function"><span class="title">auto_ssh_copy_id</span></span>() &#123;</div><div class="line">    expect -c <span class="string">"set timeout -1;</span></div><div class="line"><span class="string">        spawn ssh-copy-id <span class="variable">$1</span>;</span></div><div class="line"><span class="string">        expect &#123;</span></div><div class="line"><span class="string">            *(yes/no)* &#123;send -- yes\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            *assword:* &#123;send -- <span class="variable">$2</span>\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            eof        &#123;exit 0;&#125;</span></div><div class="line"><span class="string">        &#125;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">ssh_copy_id_to_all</span></span>() &#123;</div><div class="line">    <span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line">    <span class="keyword">do</span></div><div class="line">        auto_ssh_copy_id <span class="variable">$SERVER</span> <span class="variable">$PASSWORD</span></div><div class="line">    <span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">ssh_copy_id_to_all</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line"><span class="keyword">do</span></div><div class="line">    scp install.sh root@<span class="variable">$SERVER</span>:/root</div><div class="line">    ssh root@<span class="variable">$SERVER</span> /root/install.sh</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure></p>
+<h1 id="install-everyone-sh"><a href="#install-everyone-sh" class="headerlink" title="install_everyone.sh"></a>install_everyone.sh</h1><p>安装jdk<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">BASE_SERVER=mini4</div><div class="line">yum install -y wget</div><div class="line">wget <span class="variable">$BASE_SERVER</span>/soft/jdk-7u45-linux-x64.tar.gz</div><div class="line">tar -zxvf jdk-7u45-linux-x64.tar.gz -C /usr/<span class="built_in">local</span></div><div class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_45</div><div class="line"><span class="built_in">export</span> PATH=\<span class="variable">$PATH</span>:\<span class="variable">$JAVA_HOME</span>/bin</div><div class="line">EOF</div></pre></td></tr></table></figure></p>
+<p>说明:</p>
+<ul>
+<li>expect 模拟人机交互</li>
+<li>EOF临时文本输入</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;实现ssh免密登录及jdk的自动安装&lt;/p&gt;
+&lt;h1 id=&quot;boot-sh&quot;&gt;&lt;a href=&quot;#boot-sh&quot; class=&quot;headerlink&quot; title=&quot;boot.sh&quot;&gt;&lt;/a&gt;boot.sh&lt;/h1&gt;&lt;p&gt;免密登录 及复制安装脚本到目标机器&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-01-1 linux本地yum库</title>
+    <link href="https://blog.signalfire2017.com/2017/11/14/%E5%A4%A7%E6%95%B0%E6%8D%AE02-01-1-linux%E6%9C%AC%E5%9C%B0yum%E5%BA%93/"/>
+    <id>https://blog.signalfire2017.com/2017/11/14/大数据02-01-1-linux本地yum库/</id>
+    <published>2017-11-14T13:58:01.000Z</published>
+    <updated>2017-11-14T15:07:55.300Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="本地yum仓库的安装配置"><a href="#本地yum仓库的安装配置" class="headerlink" title="本地yum仓库的安装配置"></a>本地yum仓库的安装配置</h1><h2 id="两种方式："><a href="#两种方式：" class="headerlink" title="两种方式："></a>两种方式：</h2><h3 id="每一台机器都配一个本地文件系统上的yum仓库-file-packege-path"><a href="#每一台机器都配一个本地文件系统上的yum仓库-file-packege-path" class="headerlink" title="每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/"></a>每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/</h3><h3 id="在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path"><a href="#在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path" class="headerlink" title="在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http://server-base/pagekege/path/"></a>在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过<a href="http://server-base/pagekege/path/" target="_blank" rel="external">http://server-base/pagekege/path/</a></h3><a id="more"></a>
+<ul>
+<li>制作流程：  </li>
+<li>先挑选一台机器mini4，挂载一个系统光盘到本地目录/mnt/cdrom，</li>
+<li>然后启动一个httpd服务器，</li>
+<li>将/mnt/cdrom 软连接到httpd服务器的/var/www/html目录中 (cd /var/www/html; ln -s /mnt/cdrom ./centos )</li>
+<li>然后通过网页访问测试一下：  <a href="http://mini4/centos" target="_blank" rel="external">http://mini4/centos</a>   会看到光盘的目录内容</li>
+</ul>
+<p>至此：网络版yum私有仓库已经建立完毕<br>剩下就是去各台yum的客户端配置这个http地址到repo配置文件中</p>
+<h1 id="无论哪种配置，都需要先将光盘挂在到本地文件目录中"><a href="#无论哪种配置，都需要先将光盘挂在到本地文件目录中" class="headerlink" title="无论哪种配置，都需要先将光盘挂在到本地文件目录中"></a>无论哪种配置，都需要先将光盘挂在到本地文件目录中</h1><blockquote>
+<p>mount -t iso9660 /dev/cdrom   /mnt/cdrom</p>
+</blockquote>
+<p>为了避免每次重启后都要手动mount，可以在/etc/fstab中加入一行挂载配置，即可自动挂载</p>
+<pre><code>vi  /etc/fstab
+/dev/cdrom              /mnt/cdrom              iso9660 defaults        0 0
+</code></pre><h1 id="minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖"><a href="#minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖" class="headerlink" title="minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖"></a>minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖</h1><p>scp命令都没有：yum install -y openssh-clients<br>每台机器上都要安装才行</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;本地yum仓库的安装配置&quot;&gt;&lt;a href=&quot;#本地yum仓库的安装配置&quot; class=&quot;headerlink&quot; title=&quot;本地yum仓库的安装配置&quot;&gt;&lt;/a&gt;本地yum仓库的安装配置&lt;/h1&gt;&lt;h2 id=&quot;两种方式：&quot;&gt;&lt;a href=&quot;#两种方式：&quot; class=&quot;headerlink&quot; title=&quot;两种方式：&quot;&gt;&lt;/a&gt;两种方式：&lt;/h2&gt;&lt;h3 id=&quot;每一台机器都配一个本地文件系统上的yum仓库-file-packege-path&quot;&gt;&lt;a href=&quot;#每一台机器都配一个本地文件系统上的yum仓库-file-packege-path&quot; class=&quot;headerlink&quot; title=&quot;每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/&quot;&gt;&lt;/a&gt;每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/&lt;/h3&gt;&lt;h3 id=&quot;在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path&quot;&gt;&lt;a href=&quot;#在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path&quot; class=&quot;headerlink&quot; title=&quot;在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http://server-base/pagekege/path/&quot;&gt;&lt;/a&gt;在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过&lt;a href=&quot;http://server-base/pagekege/path/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://server-base/pagekege/path/&lt;/a&gt;&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-05-shell编程-awk命令</title>
+    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-05-shell%E7%BC%96%E7%A8%8B-awk%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-05-shell编程-awk命令/</id>
+    <published>2017-11-06T15:25:05.000Z</published>
+    <updated>2017-11-14T15:08:18.953Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<p>awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。</p>
+<p>awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。<br><a id="more"></a></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><blockquote>
+<p><code>awk &#39;{pattern + action}&#39; {filenames}</code></p>
+</blockquote>
+<p>尽管操作可能会很复杂，但语法总是这样，其中 pattern 表示 AWK 在数据中查找的内容，而 action 是在找到匹配内容时所执行的一系列命令。花括号（{}）不需要在程序中始终出现，但它们用于根据特定的模式对一系列指令进行分组。 pattern就是要表示的正则表达式，用斜杠括起来。</p>
+<p>awk语言的最基本功能是在文件或者字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作。完整的awk脚本通常用来格式化文本文件中的信息。</p>
+<p>通常，awk是以文件的一行为处理单位的。awk每接收文件的一行，然后执行相应的命令，来处理文本。</p>
+<h2 id="调用awk"><a href="#调用awk" class="headerlink" title="调用awk"></a>调用awk</h2><p>有三种方式调用awk</p>
+<h3 id="1-命令行方式"><a href="#1-命令行方式" class="headerlink" title="1.命令行方式"></a>1.命令行方式</h3><blockquote>
+<p>awk [-F  field-separator]  ‘commands’  input-file(s)<br>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。通常，在不指名-F域分隔符的情况下，默认的域分隔符是空格。</p>
+</blockquote>
+<h3 id="2-shell脚本方式"><a href="#2-shell脚本方式" class="headerlink" title="2.shell脚本方式"></a>2.shell脚本方式</h3><p>将所有的awk命令插入一个文件，并使awk程序可执行，然后awk命令解释器作为脚本的首行，一遍通过键入脚本名称来调用。<br>相当于shell脚本首行的：#!/bin/sh<br>可以换成：#!/bin/awk</p>
+<h3 id="3-将所有的awk命令插入一个单独文件，然后调用："><a href="#3-将所有的awk命令插入一个单独文件，然后调用：" class="headerlink" title="3.将所有的awk命令插入一个单独文件，然后调用："></a>3.将所有的awk命令插入一个单独文件，然后调用：</h3><blockquote>
+<p>awk -f awk-script-file input-file(s)<br>其中，-f选项加载awk-script-file中的awk脚本，input-file(s)跟上面的是一样的。</p>
+</blockquote>
+<p> 本章重点介绍命令行方式。</p>
+<h2 id="入门实例"><a href="#入门实例" class="headerlink" title="入门实例"></a>入门实例</h2><p>假设last -n 5的输出如下</p>
+<blockquote>
+<p>[root@www ~]# last -n 5 &lt;==仅取出前五行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">root     pts/1   192.168.1.100  Tue Feb 10 11:21   still logged in</div><div class="line">root     pts/1   192.168.1.100  Tue Feb 10 00:46 - 02:28  (01:41)</div><div class="line">root     pts/1   192.168.1.100  Mon Feb  9 11:41 - 18:30  (06:48)</div><div class="line">dmtsai   pts/1   192.168.1.100  Mon Feb  9 11:41 - 11:41  (00:00)</div><div class="line">root     tty1                   Fri Sep  5 14:09 - 14:10  (00:01)</div></pre></td></tr></table></figure>
+<p>如果只是显示最近登录的5个帐号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#last -n 5 | awk  &apos;&#123;print $1&#125;&apos;</div><div class="line">root</div><div class="line">root</div><div class="line">root</div><div class="line">dmtsai</div><div class="line">root</div></pre></td></tr></table></figure>
+<p>awk工作流程是这样的：读入有’\n’换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是”空白键” 或 “[tab]键”,所以$1表示登录用户，$3表示登录用户ip,以此类推。</p>
+<p>如果只是显示/etc/passwd的账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd |awk  -F &apos;:&apos;  &apos;&#123;print $1&#125;&apos;  </div><div class="line">root</div><div class="line">daemon</div><div class="line">bin</div><div class="line">sys</div></pre></td></tr></table></figure>
+<p>这种是awk+action的示例，每行都会执行action{print $1}。</p>
+<blockquote>
+<p>-F指定域分隔符为’:’。</p>
+</blockquote>
+<p>如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以tab键分割</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd |awk  -F &apos;:&apos;  &apos;&#123;print $1&quot;\t&quot;$7&#125;&apos;</div><div class="line">root    /bin/bash</div><div class="line">daemon  /bin/sh</div><div class="line">bin     /bin/sh</div><div class="line">sys     /bin/sh</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以逗号分割,而且在所有行添加列名name,shell,在最后一行添加&quot;blue,/bin/nosh&quot;。</div></pre></td></tr></table></figure>
+<p>cat /etc/passwd |awk  -F ‘:’  ‘BEGIN {print “name,shell”}  {print $1”,”$7} END {print “blue,/bin/nosh”}’<br>name,shell<br>root,/bin/bash<br>daemon,/bin/sh<br>bin,/bin/sh<br>sys,/bin/sh<br>….<br>blue,/bin/nosh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">awk工作流程是这样的：先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">搜索/etc/passwd有root关键字的所有行</div><div class="line"></div><div class="line">&gt; #awk -F: &apos;/root/&apos; /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">这种是pattern的使用示例，匹配了pattern(这里是root)的行才会执行action(没有指定action，默认输出每行的内容)。</div><div class="line"></div><div class="line">搜索支持正则，例如找root开头的: ```awk -F: &apos;/^root/&apos; /etc/passwd</div></pre></td></tr></table></figure>
+<p>搜索/etc/passwd有root关键字的所有行，并显示对应的shell</p>
+<blockquote>
+<h1 id="awk-F-‘-root-print-7-’-etc-passwd"><a href="#awk-F-‘-root-print-7-’-etc-passwd" class="headerlink" title="awk -F: ‘/root/{print $7}’ /etc/passwd"></a>awk -F: ‘/root/{print $7}’ /etc/passwd</h1><p>/bin/bash<br> 这里指定了action{print $7}</p>
+</blockquote>
+<h2 id="awk内置变量"><a href="#awk内置变量" class="headerlink" title="awk内置变量"></a>awk内置变量</h2><p>awk有许多内置变量用来设置环境信息，这些变量可以被改变，下面给出了最常用的一些变量。</p>
+<pre><code>ARGC               命令行参数个数
+ARGV               命令行参数排列
+ENVIRON            支持队列中系统环境变量的使用
+FILENAME           awk浏览的文件名
+FNR                浏览文件的记录数
+FS                 设置输入域分隔符，等价于命令行 -F选项
+NF                 浏览记录的域的个数
+NR                 已读的记录数
+OFS                输出域分隔符
+ORS                输出记录分隔符
+RS                 控制记录分隔符
+</code></pre><p> 此外,$0变量是指整条记录。$1表示当前行的第一个域,$2表示当前行的第二个域,……以此类推。</p>
+<p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:</p>
+<blockquote>
+<p>#awk  -F ‘:’  ‘{print “filename:” FILENAME “,linenumber:” NR “,columns:” NF “,linecontent:”$0}’ /etc/passwd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">filename:/etc/passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:/root:/bin/bash</div><div class="line">filename:/etc/passwd,linenumber:2,columns:7,linecontent:daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">filename:/etc/passwd,linenumber:3,columns:7,linecontent:bin:x:2:2:bin:/bin:/bin/sh</div><div class="line">filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/sh</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">使用printf替代print,可以让代码更加简洁，易读</div><div class="line"></div><div class="line"> &gt; awk  -F &apos;:&apos;  &apos;&#123;printf(&quot;filename:%s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&apos; /etc/passwd</div><div class="line"> </div><div class="line"></div><div class="line">## print和printf</div><div class="line">awk中同时提供了print和printf两种打印输出的函数。</div><div class="line"></div><div class="line">其中print函数的参数可以是变量、数值或者字符串。字符串必须用双引号引用，参数用逗号分隔。如果没有逗号，参数就串联在一起而无法区分。这里，逗号的作用与输出文件的分隔符的作用是一样的，只是后者是空格而已。</div><div class="line"></div><div class="line">printf函数，其用法和c语言中printf基本相似,可以格式化字符串,输出复杂时，printf更加好用，代码更易懂。</div><div class="line"></div><div class="line">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </div><div class="line"></div><div class="line">#  awk编程</div><div class="line"> 变量和赋值</div><div class="line"></div><div class="line">除了awk的内置变量，awk还可以自定义变量。</div><div class="line"></div><div class="line">## 下面统计/etc/passwd的账户人数</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>awk ‘{count++;print $0;} END{print “user count is “, count}’ /etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>……<br>user count is  40</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">count是自定义变量。之前的action&#123;&#125;里都是只有一个print,其实print只是一个语句，而action&#123;&#125;可以有多个语句，以;号隔开。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">这里没有初始化count，虽然默认是0，但是妥当的做法还是初始化为0:</div></pre></td></tr></table></figure>
+<p>awk ‘BEGIN {count=0;print “[start]user count is “, count} {count=count+1;print $0;} END{print “[end]user count is “, count}’ /etc/passwd<br>[start]user count is  0<br>root:x:0:0:root:/root:/bin/bash<br>…<br>[end]user count is  40</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">统计某个文件夹下的文件占用的字节数</div></pre></td></tr></table></figure>
+<p>ls -l |awk ‘BEGIN {size=0;} {size=size+$5;} END{print “[end]size is “, size}’<br>[end]size is  8657198</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果以M为单位显示:</div></pre></td></tr></table></figure>
+<p>ls -l |awk ‘BEGIN {size=0;} {size=size+$5;} END{print “[end]size is “, size/1024/1024,”M”}’<br>[end]size is  8.25889 M</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">注意，统计不包括文件夹的子目录。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">### 条件语句</div><div class="line"></div><div class="line"> awk中的条件语句是从C语言中借鉴来的，见如下声明方式：</div></pre></td></tr></table></figure>
+<p>if (expression) {<br>    statement;<br>    statement;<br>    … …<br>}</p>
+<p>if (expression) {<br>    statement;<br>} else {<br>    statement2;<br>}</p>
+<p>if (expression) {<br>    statement1;<br>} else if (expression1) {<br>    statement2;<br>} else {<br>    statement3;<br>}</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">统计某个文件夹下的文件占用的字节数,过滤4096大小的文件(一般都是文件夹):</div></pre></td></tr></table></figure>
+<p>ls -l |awk ‘BEGIN {size=0;print “[start]size is “, size} {if($5!=4096){size=size+$5;}} END{print “[end]size is “, size/1024/1024,”M”}’<br>[end]size is  8.22339 M</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 循环语句</div><div class="line"></div><div class="line">awk中的循环语句同样借鉴于C语言，支持while、do/while、for、break、continue，这些关键字的语义和C语言中的语义完全相同。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">### 数组</div><div class="line"></div><div class="line">  因为awk中数组的下标可以是数字和字母，数组的下标通常被称为关键字(key)。值和关键字都存储在内部的一张针对key/value应用hash的表格里。由于hash不是顺序存储，因此在显示数组内容时会发现，它们并不是按照你预料的顺序显示出来的。数组和变量一样，都是在使用时自动创建的，awk也同样会自动判断其存储的是数字还是字符串。一般而言，awk中的数组用来从记录中收集信息，可以用于计算总和、统计单词以及跟踪模板被匹配的次数等等。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">显示/etc/passwd的账户</div></pre></td></tr></table></figure>
+<p>awk -F ‘:’ ‘BEGIN {count=0;} {name[count] = $1;count++;}; END{for (i = 0; i &lt; NR; i++) print i, name[i]}’ /etc/passwd<br>0 root<br>1 daemon<br>2 bin<br>3 sys<br>4 sync<br>5 games<br>……</p>
+<p>```<br>这里使用for循环遍历数组</p>
+<p>awk编程的内容极多，这里只罗列简单常用的用法，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html" target="_blank" rel="external">http://www.gnu.org/software/gawk/manual/gawk.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。&lt;/p&gt;
+&lt;p&gt;awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。&lt;/p&gt;
+&lt;p&gt;awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-04-shell编程-sed命令</title>
+    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-04-shell%E7%BC%96%E7%A8%8B-sed%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-04-shell编程-sed命令/</id>
+    <published>2017-11-06T15:02:56.000Z</published>
+    <updated>2017-11-06T16:13:52.587Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Sed简介"><a href="#Sed简介" class="headerlink" title="Sed简介"></a>Sed简介</h1><p>sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.<br><a id="more"></a></p>
+<h2 id="定址"><a href="#定址" class="headerlink" title="定址"></a>定址</h2><p>可以通过定址来定位你所希望编辑的行，该地址用数字构成，用逗号分隔的两个行数表示以这两行为起止的行的范围（包括行数表示的那两行）。如1，3表示1，2，3行，美元符号($)表示最后一行。范围可以通过数据，正则表达式或者二者结合的方式确定 。</p>
+<h2 id="Sed命令"><a href="#Sed命令" class="headerlink" title="Sed命令"></a>Sed命令</h2><p>调用sed命令有两种形式：</p>
+<ul>
+<li>sed [options] ‘command’ file(s)</li>
+<li>sed [options] -f scriptfile file(s)<ul>
+<li>a<br>在当前行后面加入一行文本。</li>
+<li>b lable<br>分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。</li>
+<li>c<br>用新的文本改变本行的文本。</li>
+<li>d<br>从模板块（Pattern space）位置删除行。</li>
+<li>D<br>删除模板块的第一行。</li>
+<li>i<br>在当前行上面插入文本。</li>
+<li>h<br>拷贝模板块的内容到内存中的缓冲区。</li>
+<li>H<br>追加模板块的内容到内存中的缓冲区</li>
+<li>g<br>获得内存缓冲区的内容，并替代当前模板块中的文本。</li>
+<li>G<br>获得内存缓冲区的内容，并追加到当前模板块文本的后面。</li>
+<li>l<br>列表不能打印字符的清单。</li>
+<li>n<br>读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。</li>
+<li>N<br>追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。</li>
+<li>p<br>打印模板块的行。</li>
+<li>P（大写）<br>打印模板块的第一行。</li>
+<li>q<br>退出Sed。</li>
+<li>r file<br>从file中读行。</li>
+<li>t label<br>if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</li>
+<li>T label<br>错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</li>
+<li>w file<br>写并追加模板块到file末尾。</li>
+<li>W file<br>写并追加模板块的第一行到file末尾。</li>
+<li>!<br>表示后面的命令对所有没有被选定的行发生作用。</li>
+<li>s/re/string<br>用string替换正则表达式re。</li>
+<li>=<br>打印当前行号码。</li>
+<li>#把注释扩展到下一个换行符以前。<h3 id="以下的是替换标记"><a href="#以下的是替换标记" class="headerlink" title="以下的是替换标记"></a>以下的是替换标记</h3></li>
+</ul>
+</li>
+<li>g表示行内全面替换。</li>
+<li>p表示打印行。</li>
+<li>w表示把行写入一个文件。</li>
+<li>x表示互换模板块中的文本和缓冲区中的文本。</li>
+<li>y表示把一个字符翻译为另外的字符（但是不用于正则表达式）</li>
+</ul>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p><code>-e command, --expression=command</code><br>允许多台编辑。</p>
+<ul>
+<li>-h, –help<br>打印帮助，并显示bug列表的地址。</li>
+<li>-n, –quiet, –silent<br>取消默认输出。</li>
+<li>-f, –filer=script-file<br>引导sed脚本文件名。</li>
+<li>-V, –version<br>打印版本和版权信息。</li>
+</ul>
+<h2 id="元字符集"><a href="#元字符集" class="headerlink" title="元字符集^"></a>元字符集^</h2><p>锚定行的开始 如：/^sed/匹配所有以sed开头的行。<br>$</p>
+<ul>
+<li>锚定行的结束 如：/sed$/匹配所有以sed结尾的行。<br>.</li>
+<li>匹配一个非换行符的字符 如：/s.d/匹配s后接一个任意字符，然后是d。<br>*</li>
+<li>匹配零或多个字符 如：/*sed/匹配所有模板是一个或多个空格后紧跟sed的行。<br>[]</li>
+<li>匹配一个指定范围内的字符，如/[Ss]ed/匹配sed和Sed。<br>[^]</li>
+<li>匹配一个不在指定范围内的字符，如：/[^A-RT-Z]ed/匹配不包含A-R和T-Z的一个字母开头，紧跟ed的行。<br>(..)</li>
+<li>保存匹配的字符，如s/(love)able/\1rs，loveable被替换成lovers。<br>&amp;</li>
+<li>保存搜索字符用来替换其他字符，如s/love/<strong>&amp;</strong>/，love这成<strong>love</strong>。<br>\&lt;</li>
+<li>锚定单词的开始，如:/\<love 匹配包含以love开头的单词的行。="" \=""></love></li>
+<li>锚定单词的结束，如/love>/匹配包含以love结尾的单词的行。<br>x{m}</li>
+<li>重复字符x，m次，如：/o{5}/匹配包含5个o的行。<br>x{m,}</li>
+<li>重复字符x,至少m次，如：/o{5,}/匹配至少有5个o的行。<br>x{m,n}</li>
+<li>重复字符x，至少m次，不多于n次，如：/o{5,10}/匹配5–10个o的行。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="删除：d命令"><a href="#删除：d命令" class="headerlink" title="删除：d命令"></a>删除：d命令</h3></li>
+<li>$ sed ‘2d’ example—–删除example文件的第二行。</li>
+<li>$ sed ‘2,$d’ example—–删除example文件的第二行到末尾所有行。</li>
+<li>$ sed ‘$d’ example—–删除example文件的最后一行。</li>
+<li>$ sed ‘/test/‘d example—–删除example文件所有包含test的行。<h3 id="替换：s命令"><a href="#替换：s命令" class="headerlink" title="替换：s命令"></a>替换：s命令</h3></li>
+<li>$ sed ‘s/test/mytest/g’ example—–在整行范围内把test替换为mytest。如果没有g标记，则只有每行第一个匹配的test被替换成mytest。</li>
+<li>$ sed -n ‘s/^test/mytest/p’ example—–(-n)选项和p标志一起使用表示只打印那些发生替换的行。也就是说，如果某一行开头的test被替换成mytest，就打印它。</li>
+<li>$ sed ‘s/^192.168.0.1/&amp;localhost/‘ example—–&amp;符号表示替换换字符串中被找到的部份。所有以192.168.0.1开头的行都会被替换成它自已加 localhost，变成192.168.0.1localhost。</li>
+<li>$ sed -n ‘s/(love)able/\1rs/p’ example—–love被标记为1，所有loveable会被替换成lovers，而且替换的行会被打印出来。</li>
+<li>$ sed ‘s#10#100#g’ example—–不论什么字符，紧跟着s命令的都被认为是新的分隔符，所以，“#”在这里是分隔符，代替了默认的“/”分隔符。表示把所有10替换成100。<br>选定行的范围：逗号</li>
+<li>$ sed -n ‘/test/,/check/p’ example—–所有在模板test和check所确定的范围内的行都被打印。</li>
+<li>$ sed -n ‘5,/^test/p’ example—–打印从第五行开始到第一个包含以test开始的行之间的所有行。</li>
+<li>$ sed ‘/test/,/check/s/$/sed test/‘ example—–对于模板test和west之间的行，每行的末尾用字符串sed test替换。<h3 id="多点编辑：e命令"><a href="#多点编辑：e命令" class="headerlink" title="多点编辑：e命令"></a>多点编辑：e命令</h3></li>
+<li>$ sed -e ‘1,5d’ -e ‘s/test/check/‘ example—–(-e)选项允许在同一行里执行多条命令。如例子所示，第一条命令删除1至5行，第二条命令用check替换test。命令的执 行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。</li>
+<li>$ sed –expression=’s/test/check/‘ –expression=’/love/d’ example—–一个比-e更好的命令是–expression。它能给sed表达式赋值。<h3 id="从文件读入：r命令"><a href="#从文件读入：r命令" class="headerlink" title="从文件读入：r命令"></a>从文件读入：r命令</h3></li>
+<li>$ sed ‘/test/r file’ example—–file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面。<h3 id="写入文件：w命令"><a href="#写入文件：w命令" class="headerlink" title="写入文件：w命令"></a>写入文件：w命令</h3></li>
+<li><p>$ sed -n ‘/test/w file’ example—–在example中所有包含test的行都被写入file里。</p>
+<h3 id="追加命令：a命令"><a href="#追加命令：a命令" class="headerlink" title="追加命令：a命令"></a>追加命令：a命令</h3></li>
+<li><p>$ sed ‘/^test/a\—&gt;this is a example’ example    ‘—–&gt;this is a example’被追加到以test开头的行后面，sed要求命令a后面有一个反斜杠。</p>
+<h3 id="插入：i命令"><a href="#插入：i命令" class="headerlink" title="插入：i命令"></a>插入：i命令</h3></li>
+<li>$ sed ‘/test/i\<br>new line<br>————————-‘ example<br>如果test被匹配，则把反斜杠后面的文本插入到匹配行的前面。<br>下一个：n命令</li>
+<li><p>$ sed ‘/test/{ n; s/aa/bb/; }’ example—–如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续。<br>变形：y命令</p>
+</li>
+<li><p>$ sed ‘1,10y/abcde/ABCDE/‘ example—–把1–10行内所有abcde转变为大写，注意，正则表达式元字符不能使用这个命令。<br>退出：q命令</p>
+</li>
+<li>$ sed ‘10q’ example—–打印完第10行后，退出sed。<br>保持和获取：h命令和G命令</li>
+<li>$ sed -e ‘/test/h’ -e ‘$G example—–在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保 持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中 的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。<br>保持和互换：h命令和x命令</li>
+<li>$ sed -e ‘/test/h’ -e ‘/check/x’ example —–互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换。<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3>Sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Sed简介&quot;&gt;&lt;a href=&quot;#Sed简介&quot; class=&quot;headerlink&quot; title=&quot;Sed简介&quot;&gt;&lt;/a&gt;Sed简介&lt;/h1&gt;&lt;p&gt;sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-03 shell编程语法讲解</title>
+    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-03%20shell%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95%E8%AE%B2%E8%A7%A3/"/>
+    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-03 shell编程语法讲解/</id>
+    <published>2017-11-06T15:02:36.000Z</published>
+    <updated>2017-11-14T15:10:49.183Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h2><ul>
+<li>$HOME</li>
+<li>$PWD</li>
+<li>$SHELL</li>
+<li>$USER<br>显示当前shell中所有变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="用户自定义变量"><a href="#用户自定义变量" class="headerlink" title="用户自定义变量"></a>用户自定义变量</h2><p>定义变量</p>
+<blockquote>
+<p>STR=”hello world”</p>
+<p>A=9</p>
+<p>unset A 撤销变量 A</p>
+<p>readonly B=2 声明静态的变量 B=2 ，不能 unset</p>
+<p>export 变量名 可把变量提升为全局环境变量，可供其他shell程序使用</p>
+</blockquote>
+<p>将命令的返回值赋给变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A=`ls -la` 反引号，运行里面的命令，并把结果返回给变量A</div><div class="line">A=$(ls -la) 等价于反引号</div></pre></td></tr></table></figure>
+<h2 id="shell中的特殊变量"><a href="#shell中的特殊变量" class="headerlink" title="shell中的特殊变量"></a>shell中的特殊变量</h2><ul>
+<li>$? 表示上一个命令退出的状态  true 0 false 1 错误127</li>
+<li>$$ 表示当前进程编号</li>
+<li>$0 表示当前脚本名称</li>
+<li>$n 表示n位置的输入参数（n代表数字，n&gt;=1）</li>
+<li>$#     表示参数的个数，常用于循环</li>
+<li>$*和$@ 都表示参数列表 <h3 id="与-区别"><a href="#与-区别" class="headerlink" title="$*与$@区别"></a>$*与$@区别</h3></li>
+<li>$* 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号” “包含时，都以$1  $2  … $n 的形式输出所有参数  </li>
+<li>当它们被双引号” “包含时，”$*” 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数</li>
+</ul>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
+<p>格式 :expr m + n 或$((m+n)) 注意expr运算符间要有空格</p>
+</blockquote>
+<p>例如计算（2 ＋3 ）×4 的值<br>1 .分步计算    S=<code>expr 2 + 3</code>    expr $S * 4<br>2.一步完成计算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">expr `expr 2 + 3 ` \* 4</div><div class="line"><span class="built_in">echo</span> `expr \`expr 2 + 3\` \* 4`</div><div class="line">或</div><div class="line">$(((2+3)*4))</div></pre></td></tr></table></figure></p>
+<h1 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h1><h2 id="第一种："><a href="#第一种：" class="headerlink" title="第一种："></a>第一种：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> 1 2 3</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="built_in">echo</span> <span class="variable">$N</span></div><div class="line"><span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> 1 2 3; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$N</span>; <span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> &#123;1..3&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$N</span>; <span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="第二种："><a href="#第二种：" class="headerlink" title="第二种："></a>第二种：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i = 0; i &lt;= 5; i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"welcome <span class="variable">$i</span> times"</span></div><div class="line"><span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> ((i = 0; i &lt;= 5; i++)); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">"welcome <span class="variable">$i</span> times"</span>; <span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> expression</div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">command</span></div><div class="line">…</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">i=1</div><div class="line"><span class="keyword">while</span> ((i&lt;=3))</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="variable">$i</span></div><div class="line">  <span class="built_in">let</span> i++</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a>case语句</h1><p>格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></div><div class="line">start)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"starting"</span></div><div class="line">	;;</div><div class="line">stop)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"stoping"</span></div><div class="line">	;;</div><div class="line">*)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"Usage: &#123;start|stop&#125; “</span></div><div class="line"><span class="string">esac</span></div></pre></td></tr></table></figure></p>
+<h1 id="read命令"><a href="#read命令" class="headerlink" title="read命令"></a>read命令</h1><p>read -p(提示语句)-n(字符个数) -t(等待时间)<br>    read -p “please input your name: “ NAME</p>
+<p>使用示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ read -p &quot;please enter a number:&quot; numb</div><div class="line">please enter a number:1</div><div class="line">[vagrant@mysql1 ~]$ echo $numb</div><div class="line">1</div><div class="line">[vagrant@mysql1 ~]$</div></pre></td></tr></table></figure></p>
+<h1 id="if判断"><a href="#if判断" class="headerlink" title="if判断"></a>if判断</h1><p>语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> condition </div><div class="line"><span class="keyword">then</span> </div><div class="line">    statements</div><div class="line">[<span class="keyword">elif</span> condition </div><div class="line">    <span class="keyword">then</span> statements. ..] </div><div class="line">[<span class="keyword">else</span> </div><div class="line">    statements ] </div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
+<h1 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h1><p>[ condition ] <strong>(注意condition前后要有空格)</strong></p>
+<p>#非空返回true，可使用$?验证（0为true，&gt;1为false）<br>[ test ]</p>
+<p>#空返回false<br>[  ]</p>
+<blockquote>
+<p>[ condition ] &amp;&amp; echo OK || echo notok</p>
+</blockquote>
+<p>条件满足，执行后面的语句 不满足执行 || 后面的语句</p>
+<h1 id="常用判断条件"><a href="#常用判断条件" class="headerlink" title="常用判断条件"></a>常用判断条件</h1><ul>
+<li>= 字符串比较</li>
+<li>-lt 小于</li>
+<li>-le 小于等于</li>
+<li>-eq 等于</li>
+<li>-gt 大于</li>
+<li>-ge 大于等于</li>
+<li><p>-ne 不等于</p>
+</li>
+<li><p>-r 有读的权限</p>
+</li>
+<li>-w 有写的权限</li>
+<li>-x 有执行的权限</li>
+<li><strong>-f 文件存在并且是一个常规的文件</strong></li>
+<li>-s 文件存在且不为空</li>
+<li>-d 文件存在并是一个目录</li>
+<li>-b文件存在并且是一个块设备</li>
+<li>-L 文件存在并且是一个链接</li>
+</ul>
+<h1 id="Shell自定义函数"><a href="#Shell自定义函数" class="headerlink" title="Shell自定义函数"></a>Shell自定义函数</h1><p>语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> [ <span class="keyword">function</span> ] funname [()]</div><div class="line">&#123;</div><div class="line">    action;</div><div class="line">    [<span class="built_in">return</span> int;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>三种声明方式:</p>
+<ul>
+<li>function start()  </li>
+<li>function start </li>
+<li>start()</li>
+</ul>
+<p>注意</p>
+<ol>
+<li>必须在调用函数地方之前，先声明函数，shell脚本是逐行运行。不会像其它语言一样先预编译</li>
+<li>函数返回值，只能通过$? 系统变量获得，可以显示加：return 返回，如果不加，将以最后一条命令运行结果，作为返回值。 return后跟数值n(0-255)</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">fSum 3 2;</div><div class="line"><span class="keyword">function</span> fSum()</div><div class="line">&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="variable">$1</span>,<span class="variable">$2</span>;</div><div class="line">    <span class="built_in">return</span> $((<span class="variable">$1</span>+<span class="variable">$2</span>));</div><div class="line">&#125;</div><div class="line">fSum 5 7;</div><div class="line">total=$?;</div><div class="line"><span class="built_in">echo</span> <span class="variable">$total</span>,$?;</div></pre></td></tr></table></figure>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ sh test </div><div class="line">test: line 2: fSum: command not found</div><div class="line">5,7</div><div class="line">12,0</div></pre></td></tr></table></figure></p>
+<h1 id="脚本调试"><a href="#脚本调试" class="headerlink" title="脚本调试"></a>脚本调试</h1><ul>
+<li>sh -vx helloWorld.sh</li>
+<li>或者在脚本中增加set -x</li>
+</ul>
+<h1 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h1><p>cut命令可以从一个文本文件或者文本流中提取文本列。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cut -d&apos;分隔字符&apos; -f fields &lt;==用于有特定分隔字符</div><div class="line">cut -c 字符区间            &lt;==用于排列整齐的信息</div></pre></td></tr></table></figure>
+<ul>
+<li>-d  ：后面接分隔字符。与 -f 一起使用；</li>
+<li>-f  ：依据 -d 的分隔字符将一段信息分割成为数段，用 -f 取出第几段的意思；</li>
+<li>-c  ：以字符 (characters) 的单位取出固定字符区间；</li>
+</ul>
+<h2 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h2><h3 id="PATH-变量如下"><a href="#PATH-变量如下" class="headerlink" title="PATH 变量如下"></a>PATH 变量如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@www ~]# echo $PATH</div><div class="line">/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/X11R6/bin:/usr/games</div><div class="line"># 1 | 2       | 3   | 4       | 5            | 6            | 7</div></pre></td></tr></table></figure>
+<h3 id="将-PATH-变量取出，我要找出第五个路径。"><a href="#将-PATH-变量取出，我要找出第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第五个路径。"></a>将 PATH 变量取出，我要找出第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 5</div><div class="line">/usr/local/bin</div></pre></td></tr></table></figure>
+<h3 id="将-PATH-变量取出，我要找出第三和第五个路径。"><a href="#将-PATH-变量取出，我要找出第三和第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第三和第五个路径。"></a>将 PATH 变量取出，我要找出第三和第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 3,5</div><div class="line">/sbin:/usr/local/bin</div></pre></td></tr></table></figure>
+<h3 id="将-PATH-变量取出，我要找出第三到最后一个路径。"><a href="#将-PATH-变量取出，我要找出第三到最后一个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第三到最后一个路径。"></a>将 PATH 变量取出，我要找出第三到最后一个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $PATH | cut -d &apos;:&apos; -f 3-</div><div class="line">/sbin:/usr/sbin:/usr/local/bin:/usr/X11R6/bin:/usr/games</div></pre></td></tr></table></figure>
+<h3 id="将-PATH-变量取出，我要找出第一到第三个路径。"><a href="#将-PATH-变量取出，我要找出第一到第三个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第一到第三个路径。"></a>将 PATH 变量取出，我要找出第一到第三个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 1-3</div><div class="line">/bin:/usr/bin:/sbin:</div></pre></td></tr></table></figure>
+<h3 id="将-PATH-变量取出，我要找出第一到第三，还有第五个路径。"><a href="#将-PATH-变量取出，我要找出第一到第三，还有第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第一到第三，还有第五个路径。"></a>将 PATH 变量取出，我要找出第一到第三，还有第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $PATH | cut -d &apos;:&apos; -f 1-3,5</div><div class="line">/bin:/usr/bin:/sbin:/usr/local/bin</div></pre></td></tr></table></figure>
+<h2 id="实用例子-只显示-etc-passwd的用户和shell"><a href="#实用例子-只显示-etc-passwd的用户和shell" class="headerlink" title="实用例子:只显示/etc/passwd的用户和shell"></a>实用例子:只显示/etc/passwd的用户和shell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd | cut -d &apos;:&apos; -f 1,7 </div><div class="line">root:/bin/bash</div><div class="line">daemon:/bin/sh</div><div class="line">bin:/bin/sh</div></pre></td></tr></table></figure>
+<h1 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h1><p>sort 命令对 File 参数指定的文件中的行排序，并将结果写到标准输出。如果 File 参数指定多个文件，那么 sort 命令将这些文件连接起来，并当作一个文件进行排序。</p>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><p><code>[root@www ~]# sort [-fbMnrtuk] [file or stdin]</code><br>选项与参数：</p>
+<ul>
+<li>-f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；</li>
+<li>-b  ：忽略最前面的空格符部分；</li>
+<li>-M  ：以月份的名字来排序，例如 JAN, DEC 等等的排序方法；</li>
+<li>-n  ：使用『纯数字』进行排序(默认是以文字型态来排序的)；</li>
+<li>-r  ：反向排序；</li>
+<li>-u  ：就是 uniq ，相同的数据中，仅出现一行代表；</li>
+<li>-t  ：分隔符，默认是用 [tab] 键来分隔；</li>
+<li>-k  ：以那个区间 (field) 来进行排序的意思</li>
+</ul>
+<h2 id="对-etc-passwd-的账号进行排序"><a href="#对-etc-passwd-的账号进行排序" class="headerlink" title="对/etc/passwd 的账号进行排序"></a>对/etc/passwd 的账号进行排序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@www ~]<span class="comment"># cat /etc/passwd | sort</span></div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">apache:x:48:48:Apache:/var/www:/sbin/nologin</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div></pre></td></tr></table></figure>
+<p>sort 是默认以第一个数据来排序，而且默认是以字符串形式来排序,所以由字母 a 开始升序排序。</p>
+<h2 id="etc-passwd-内容是以-来分隔的，我想以第三栏来排序，该如何"><a href="#etc-passwd-内容是以-来分隔的，我想以第三栏来排序，该如何" class="headerlink" title="/etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何"></a>/etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@www ~]# cat /etc/passwd | sort -t &apos;:&apos; -k 3</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin</div><div class="line">operator:x:11:0:operator:/root:/sbin/nologin</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">games:x:12:100:games:/usr/games:/sbin/nologin</div></pre></td></tr></table></figure>
+<h2 id="默认是以字符串来排序的，如果想要使用数字排序："><a href="#默认是以字符串来排序的，如果想要使用数字排序：" class="headerlink" title="默认是以字符串来排序的，如果想要使用数字排序："></a>默认是以字符串来排序的，如果想要使用数字排序：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | sort -t &apos;:&apos; -k 3n</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">bin:x:2:2:bin:/bin:/bin/sh</div></pre></td></tr></table></figure>
+<h2 id="默认是升序排序，如果要倒序排序，如下"><a href="#默认是升序排序，如果要倒序排序，如下" class="headerlink" title="默认是升序排序，如果要倒序排序，如下"></a>默认是升序排序，如果要倒序排序，如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | sort -t &apos;:&apos; -k 3nr</div><div class="line">nobody:x:65534:65534:nobody:/nonexistent:/bin/sh</div><div class="line">ntp:x:106:113::/home/ntp:/bin/false</div><div class="line">messagebus:x:105:109::/var/run/dbus:/bin/false</div><div class="line">sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin</div></pre></td></tr></table></figure>
+<h2 id="如果要对-etc-passwd-先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。"><a href="#如果要对-etc-passwd-先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。" class="headerlink" title="如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。"></a>如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd |  sort -t&apos;:&apos; -k 6.2,6.4 -k 1r      </div><div class="line">sync:x:4:65534:sync:/bin:/bin/sync</div><div class="line">proxy:x:13:13:proxy:/bin:/bin/sh</div><div class="line">bin:x:2:2:bin:/bin:/bin/sh</div><div class="line">sys:x:3:3:sys:/dev:/bin/sh</div></pre></td></tr></table></figure>
+<h2 id="查看-etc-passwd有多少个shell-对-etc-passwd的第七个域进行排序，然后去重"><a href="#查看-etc-passwd有多少个shell-对-etc-passwd的第七个域进行排序，然后去重" class="headerlink" title="查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:"></a>查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd |  sort -t&apos;:&apos; -k 7 -u</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">syslog:x:101:102::/home/syslog:/bin/false</div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">sync:x:4:65534:sync:/bin:/bin/sync</div><div class="line">sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin</div></pre></td></tr></table></figure>
+<h1 id="uniq去重命令"><a href="#uniq去重命令" class="headerlink" title="uniq去重命令"></a>uniq去重命令</h1><p> uniq命令可以去除排序过的文件中的重复行，因此uniq经常和sort合用。也就是说，为了使uniq起作用，所有的重复行必须是相邻的。</p>
+<h2 id="uniq语法"><a href="#uniq语法" class="headerlink" title="uniq语法"></a>uniq语法</h2><p><code>[root@www ~]# uniq [-icu]</code><br>选项与参数：</p>
+<ul>
+<li>-i   ：忽略大小写字符的不同；</li>
+<li>-c  ：进行计数</li>
+<li>-u  ：只显示唯一的行</li>
+</ul>
+<p>testfile的内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cat testfile</div><div class="line">hello</div><div class="line">world</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div><div class="line">hello</div></pre></td></tr></table></figure></p>
+<p>直接删除未经排序的文件，将会发现没有任何行被删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#uniq testfile  </div><div class="line">hello</div><div class="line">world</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div><div class="line">hello</div></pre></td></tr></table></figure></p>
+<p>排序文件，默认是去重<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cat testfile | sort |uniq</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div></pre></td></tr></table></figure></p>
+<p>排序之后删除了重复行，同时在行首位置输出该行重复的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#sort testfile | uniq -c</div><div class="line">1 friend</div><div class="line">3 hello</div><div class="line">2 world</div></pre></td></tr></table></figure></p>
+<p>仅显示存在重复的行，并在行首显示该行重复的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sort testfile | uniq -dc</div><div class="line">3 hello</div><div class="line">2 world</div></pre></td></tr></table></figure></p>
+<p>仅显示不重复的行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sort testfile | uniq -u</div><div class="line">friend</div></pre></td></tr></table></figure></p>
+<h1 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h1><h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><p><code>[root@www ~]# wc [-lwm]</code><br>选项与参数：</p>
+<ul>
+<li>-l  ：仅列出行；</li>
+<li>-w  ：仅列出多少字(英文单字)；</li>
+<li>-m  ：多少字符；<h2 id="默认使用wc统计-etc-passwd"><a href="#默认使用wc统计-etc-passwd" class="headerlink" title="默认使用wc统计/etc/passwd"></a>默认使用wc统计/etc/passwd</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#wc /etc/passwd</div><div class="line">40   45 1719 /etc/passwd</div><div class="line">40是行数，45是单词数，1719是字节数</div></pre></td></tr></table></figure>
+<p>wc的命令比较简单使用，每个参数使用如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#wc -l /etc/passwd   #统计行数，在对记录数时，很常用</div><div class="line">40 /etc/passwd       #表示系统有40个账户</div><div class="line"></div><div class="line">#wc -w /etc/passwd  #统计单词出现次数</div><div class="line">45 /etc/passwd</div><div class="line"></div><div class="line">#wc -m /etc/passwd  #统计文件的字符数</div><div class="line">1719</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;h2 id=&quot;系统变量&quot;&gt;&lt;a href=&quot;#系统变量&quot; class=&quot;headerlink&quot; title=&quot;系统变量&quot;&gt;&lt;/a&gt;系统变量&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;$HOME&lt;/li&gt;
+&lt;li&gt;$PWD&lt;/li&gt;
+&lt;li&gt;$SHELL&lt;/li&gt;
+&lt;li&gt;$USER&lt;br&gt;显示当前shell中所有变量&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;set&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux笔记-修改语言</title>
+    <link href="https://blog.signalfire2017.com/2017/11/05/linux%E7%AC%94%E8%AE%B0-%E4%BF%AE%E6%94%B9%E8%AF%AD%E8%A8%80/"/>
+    <id>https://blog.signalfire2017.com/2017/11/05/linux笔记-修改语言/</id>
+    <published>2017-11-05T15:39:47.000Z</published>
+    <updated>2017-11-14T15:11:26.099Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><p>centos7</p>
+<h1 id="查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）"><a href="#查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）" class="headerlink" title="查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）"></a>查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ locale -a |grep &quot;zh_CN&quot;</div><div class="line">zh_CN</div><div class="line">zh_CN.gb18030</div><div class="line">zh_CN.gb2312</div><div class="line">zh_CN.gbk</div><div class="line">zh_CN.utf8</div></pre></td></tr></table></figure>
+<p>若发现以上几项，说明系统已安装中文语言包，无需再安装<br><a id="more"></a></p>
+<h1 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@iZj6cbstl2n6r280a27eppZ tmp]# yum groupinstall &quot;fonts&quot;</div></pre></td></tr></table></figure>
+<h1 id="修改i18n国际化和locale-conf本土化配置文件"><a href="#修改i18n国际化和locale-conf本土化配置文件" class="headerlink" title="修改i18n国际化和locale.conf本土化配置文件"></a>修改i18n国际化和locale.conf本土化配置文件</h1><h2 id="先查看系统语言环境"><a href="#先查看系统语言环境" class="headerlink" title="先查看系统语言环境"></a>先查看系统语言环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ locale</div><div class="line">LANG=en_US.UTF-8</div><div class="line">LC_CTYPE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_NUMERIC=&quot;en_US.UTF-8&quot;</div><div class="line">LC_TIME=&quot;en_US.UTF-8&quot;</div><div class="line">LC_COLLATE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MONETARY=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MESSAGES=&quot;en_US.UTF-8&quot;</div><div class="line">LC_PAPER=&quot;en_US.UTF-8&quot;</div><div class="line">LC_NAME=&quot;en_US.UTF-8&quot;</div><div class="line">LC_ADDRESS=&quot;en_US.UTF-8&quot;</div><div class="line">LC_TELEPHONE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MEASUREMENT=&quot;en_US.UTF-8&quot;</div><div class="line">LC_IDENTIFICATION=&quot;en_US.UTF-8&quot;</div><div class="line">LC_ALL=</div></pre></td></tr></table></figure>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/locale.conf </div><div class="line">或</div><div class="line">vi /etc/sysconfig/i18n (有些帖子上说修改这个,但是我的linux没有这个文件)</div></pre></td></tr></table></figure>
+<p>虽然安装了中文语言包但本机的语言环境并不是中文，先修改i18n配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# vim /etc/sysconfig/i18n</div><div class="line"></div><div class="line">LANG=&quot;zh_CN.UTF-8&quot;</div><div class="line">LC_ALL=&quot;zh_CN.UTF-8&quot;</div><div class="line"></div><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# source /etc/sysconfig/i18n</div><div class="line"></div><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# vim /etc/locale.conf</div><div class="line"></div><div class="line">LANG=&quot;zh_CN.UTF-8&quot;</div><div class="line"></div><div class="line"> [root@iZj6cbstl2n6r280a27eppZ sysconfig]# source   /etc/locale.conf</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;版本&quot;&gt;&lt;a href=&quot;#版本&quot; class=&quot;headerlink&quot; title=&quot;版本&quot;&gt;&lt;/a&gt;版本&lt;/h1&gt;&lt;p&gt;centos7&lt;/p&gt;
+&lt;h1 id=&quot;查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）&quot;&gt;&lt;a href=&quot;#查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）&quot; class=&quot;headerlink&quot; title=&quot;查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）&quot;&gt;&lt;/a&gt;查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[vagrant@mysql1 ~]$ locale -a |grep &amp;quot;zh_CN&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gb18030&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gb2312&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gbk&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.utf8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若发现以上几项，说明系统已安装中文语言包，无需再安装&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vagrant 创建virtualBox虚拟机</title>
+    <link href="https://blog.signalfire2017.com/2017/11/04/vagrant%20%E5%88%9B%E5%BB%BAvirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>https://blog.signalfire2017.com/2017/11/04/vagrant 创建virtualBox虚拟机/</id>
+    <published>2017-11-04T15:37:13.000Z</published>
+    <updated>2017-11-14T15:11:52.018Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装vagrant"><a href="#安装vagrant" class="headerlink" title="安装vagrant"></a>安装vagrant</h1><h2 id="本机环境"><a href="#本机环境" class="headerlink" title="本机环境"></a>本机环境</h2><p>系统环境 ： win10 64 系统</p>
+<h2 id="软件及镜像"><a href="#软件及镜像" class="headerlink" title="软件及镜像"></a>软件及镜像</h2><p>vagrant 官网 <a href="https://www.vagrantup.com/" target="_blank" rel="external">https://www.vagrantup.com/</a><br>vagrant 需要依赖虚拟机 我用的 virtualBox<br>virtualBox 官网 <a href="https://www.virtualbox.org/" target="_blank" rel="external">https://www.virtualbox.org/</a><br>virtualBox 镜像 在vagrant官网中可以下载</p>
+<p>由于国内下载比较慢，已分享到百度云<br><a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">分享链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">vagrant_1.9.5.msi</td>
+<td style="text-align:center">软件</td>
+<td style="text-align:center"><a href="http://pan.baidu.com/s/1kVzFP1H" target="_blank" rel="external">http://pan.baidu.com/s/1kVzFP1H</a></td>
+</tr>
+<tr>
+<td style="text-align:left">VirtualBox-5.1.22-115126-Win.exe</td>
+<td style="text-align:center">软件</td>
+<td style="text-align:center"><a href="http://pan.baidu.com/s/1jIQgl6m" target="_blank" rel="external">http://pan.baidu.com/s/1jIQgl6m</a></td>
+</tr>
+<tr>
+<td style="text-align:left">centos-7.0-x86_64.box</td>
+<td style="text-align:center">镜像文件</td>
+<td style="text-align:center"><a href="http://pan.baidu.com/s/1o7Zlspk" target="_blank" rel="external">http://pan.baidu.com/s/1o7Zlspk</a></td>
+</tr>
+<tr>
+<td style="text-align:left">gparted-live-0.28.1-1-i686.iso</td>
+<td style="text-align:center">32位分区live-cd</td>
+<td style="text-align:center"><a href="http://pan.baidu.com/s/1jISiee6" target="_blank" rel="external">http://pan.baidu.com/s/1jISiee6</a></td>
+</tr>
+<tr>
+<td style="text-align:left">gparted-live-0.28.1-1-amd64.iso</td>
+<td style="text-align:center">64位分区live-cd</td>
+<td style="text-align:center"><a href="http://pan.baidu.com/s/1dFenvvb" target="_blank" rel="external">http://pan.baidu.com/s/1dFenvvb</a></td>
+</tr>
+</tbody>
+</table>
+<p>上面的gparted iso 文件是分区用的不过没有用到，下载不容易就一块传上来了。</p>
+<h2 id="更改vagrant-存放box的位置"><a href="#更改vagrant-存放box的位置" class="headerlink" title="更改vagrant 存放box的位置"></a>更改vagrant 存放box的位置</h2><p>默认vagrant 添加的box 默认存放位置为</p>
+<blockquote>
+<p>C:\Users\当前用户名\ .vagrant.d\boxes\ </p>
+</blockquote>
+<p>可以通过添加环境变量 VAGRANT_HOME 修改存放位置</p>
+<p>例如：VAGRANT_HOME = D:\Program Files\VagrantHome</p>
+<h2 id="更改virtualBox-存放镜像目录"><a href="#更改virtualBox-存放镜像目录" class="headerlink" title="更改virtualBox 存放镜像目录"></a>更改virtualBox 存放镜像目录</h2><p>默认目录 </p>
+<blockquote>
+<p>C:\Users\当前用户名\VirtualBox VMs</p>
+</blockquote>
+<p>可以在virtualBox 软件 &gt; 管理 &gt; 全局设置 &gt; 常规 &gt; 默认虚拟电脑位置进行修改</p>
+<p>我修改为</p>
+<blockquote>
+<p>D:\VirtualBoxVMs</p>
+<h1 id="启动vagrant"><a href="#启动vagrant" class="headerlink" title="启动vagrant"></a>启动vagrant</h1><h2 id="添加box"><a href="#添加box" class="headerlink" title="添加box"></a>添加box</h2><p>vagrant box add centos7 E:\软件安装包\centos-7.0-x86_64.box</p>
+</blockquote>
+<p>查看已添加的box</p>
+<blockquote>
+<p>vagrant box list</p>
+</blockquote>
+<pre><code>D:\vagrantSpace&gt;vagrant box list
+centos7 (virtualbox, 0)
+</code></pre><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>在准备存放vagrant配置文件的文件夹中执行</p>
+<blockquote>
+<p>vagrant init </p>
+</blockquote>
+<p>会生成 Vagrantfile 文件<br>文件中包含vagrant 配置信息<br>其中有一些配置项的说明  </p>
+<pre><code>config.vm.box = &quot;base&quot; 修改base 为centos7 即 boxlist 中的名字  
+config.vm.synced_folder &quot;E:\&quot;, &quot;/vagrant_data&quot; 共享文件夹
+</code></pre><p>其他配置请自行百度</p>
+<h3 id="vagrant-配置文件"><a href="#vagrant-配置文件" class="headerlink" title="vagrant 配置文件"></a>vagrant 配置文件</h3><p>下面的是我的配置</p>
+<pre><code># -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;centos7&quot;
+  config.vm.define :java do |java|
+    java.vm.provider &quot;virtualbox&quot; do |v|
+        v.customize [&quot;modifyvm&quot;, :id, &quot;--name&quot;, &quot;java&quot;, &quot;--memory&quot;, &quot;512&quot;]
+    end
+    java.vm.box = &quot;centos7&quot;
+    java.vm.hostname = &quot;java&quot;
+    java.vm.network :private_network, ip: &quot;192.168.33.10&quot;
+  end
+  config.vm.define :linux do |linux|
+    linux.vm.provider &quot;virtualbox&quot; do |v|
+        v.customize [&quot;modifyvm&quot;, :id, &quot;--name&quot;, &quot;linux&quot;, &quot;--memory&quot;, &quot;512&quot;]
+    end
+    linux.vm.box = &quot;centos7&quot;
+    linux.vm.hostname = &quot;linux&quot;
+    linux.vm.network :private_network, ip: &quot;192.168.33.11&quot;
+  end
+end
+</code></pre><h2 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h2><blockquote>
+<p>vagrant up linux </p>
+</blockquote>
+<p>第一次会初始化虚拟机,并启动,成功后查看虚拟机运行状态</p>
+<blockquote>
+<p>vagrant global-status</p>
+</blockquote>
+<pre><code>D:\vagrantSpace&gt;vagrant global-status
+id       name   provider   state   directory
+-----------------------------------------------------------------------
+1d24610  linux  virtualbox running D:/vagrantSpace
+</code></pre><p>这个时候就可以通过ssh登录虚拟机了。默认用户和密码都是 vagrant</p>
+<hr>
+<p>下面是修改磁盘大小,如果觉得没有必要,可以不修改,直接玩就可以啦</p>
+<h1 id="修改虚拟机磁盘大小"><a href="#修改虚拟机磁盘大小" class="headerlink" title="修改虚拟机磁盘大小"></a>修改虚拟机磁盘大小</h1><p>vagrant 默认创建的磁盘 根目录下只有10G.觉得太小,修改为1T.</p>
+<ul>
+<li>关闭 linux</li>
+</ul>
+<blockquote>
+<p>vagrant halt linux</p>
+</blockquote>
+<ul>
+<li>进入到 D:\VirtualBoxVMs文件夹下 即 之前设置的virtualBox的路径,里面会有个刚才创建的linux系统的文件夹 D:\VirtualBoxVMs\linux</li>
+<li><p>加入virtualBox 安装目录加入环境变量path</p>
+<p>  安装virtualBox后会自动加入 VBOX_MSI_INSTALL_PATH 环境变量,直接把这个路径加到path后面即可. </p>
+</li>
+</ul>
+<blockquote>
+<p>%VBOX_MSI_INSTALL_PATH%</p>
+</blockquote>
+<ul>
+<li>通过下面命令 复制一份磁盘文件, .vmdk 文件直接修改大小会报错</li>
+</ul>
+<blockquote>
+<p>vboxmanage clonehd box-disk1.vmdk box.vdi –format vdi</p>
+</blockquote>
+<pre><code>D:\VirtualBoxVMs\linux&gt;vboxmanage clonehd box-disk1.vmdk box.vdi --format vdi
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Clone medium created in format &apos;vdi&apos;. UUID: 1431c156-a3b1-4374-b196-36450edecd9e
+</code></pre><ul>
+<li>修改vdi 文件大小,命令如下</li>
+</ul>
+<blockquote>
+<p>vboxmanage modifyhd box.vdi –resize 1048576</p>
+</blockquote>
+<pre><code>D:\VirtualBoxVMs\linux&gt;vboxmanage modifyhd box.vdi --resize 1048576
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+</code></pre><ul>
+<li>打开虚拟机,修改 linux 磁盘文件为 box.vdi</li>
+</ul>
+<p><img src="https://static.oschina.net/uploads/img/201707/02192036_F9Jv.jpg" alt=""></p>
+<p>修改后</p>
+<p><img src="https://static.oschina.net/uploads/img/201707/02192410_T07t.jpg" alt=""></p>
+<ul>
+<li>查看D:\VirtualBoxVMs\linux 文件夹下linux.vbox 文件<br>删除 原来的harddisk <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;HardDisk uuid=&quot;&#123;3417d3e1-fcfd-410c-8df6-adba5f8b01bb&#125;&quot; location=&quot;box-disk1.vmdk&quot; format=&quot;VMDK&quot; type=&quot;Normal&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>保留新的harddisk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;HardDisk uuid=&quot;&#123;417759f6-4e5d-4a45-9ce1-1351b15c5a7d&#125;&quot; location=&quot;box-linux.vdi&quot; format=&quot;VDI&quot; type=&quot;Normal&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>删除原来的磁盘文件, box-disk1.vmdk。这个可以以后再删除也可以，防止操作中出现什么错误。</li>
+<li>启动虚拟机<blockquote>
+<p>vagrant up linux</p>
+</blockquote>
+</li>
+</ul>
+<p>切换到root，密码为vagrant</p>
+<blockquote>
+<p>su</p>
+</blockquote>
+<p>查看磁盘</p>
+<blockquote>
+<p>fdisk -l</p>
+</blockquote>
+<pre><code>Gerät  boot.     Anfang        Ende     Blöcke   Id  System
+/dev/sda1   *        2048     1026047      512000   83  Linux
+/dev/sda2         1026048    20766719     9870336   8e  Linux LVM
+</code></pre><p>可以看到一共还是10G,并不是1T,我们需要加一个磁盘sda3</p>
+<pre><code>fdisk /dev/sda
+n
+p
+3
+回车
+回车
+</code></pre><p>更改磁盘类型为 lvm</p>
+<pre><code>t
+3
+8e
+</code></pre><p>查看磁盘</p>
+<pre><code>p
+</code></pre><p>全部操作如下</p>
+<pre><code>Befehl (m für Hilfe): n
+Partition type:
+   p   primary (2 primary, 0 extended, 2 free)
+   e   Erweiterte
+Select (default p): p
+Partitionsnummer (3,4, default 3): 3
+Erster Sektor (20766720-2147483647, Vorgabe: 20766720): 
+Benutze den Standardwert 20766720
+Last Sektor, +Sektoren or +size{K,M,G} (20766720-2147483647, Vorgabe: 2147483647): 
+Benutze den Standardwert 2147483647
+Partition 3 of type Linux and of size 1014,1 GiB is set
+
+Befehl (m für Hilfe): t
+Partitionsnummer (1-3, default 3): 3
+Hex code (type L to list all codes): 8e
+Changed type of partition &apos;Linux&apos; to &apos;Linux LVM&apos;
+
+Befehl (m für Hilfe): p
+
+Disk /dev/sda: 1099.5 GB, 1099511627776 bytes, 2147483648 sectors
+Units = Sektoren of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x00095a8e
+
+   Gerät  boot.     Anfang        Ende     Blöcke   Id  System
+/dev/sda1   *        2048     1026047      512000   83  Linux
+/dev/sda2         1026048    20766719     9870336   8e  Linux LVM
+/dev/sda3        20766720  2147483647  1063358464   8e  Linux LVM
+</code></pre><p>保存退出</p>
+<pre><code>w
+</code></pre><p>重启虚拟机</p>
+<pre><code>reboot
+</code></pre><p>查看当前 Volume Group</p>
+<pre><code>vgdisplay
+</code></pre><p>信息如下</p>
+<pre><code>[root@linux vagrant]# vgdisplay
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        1
+  Metadata Sequence No  3
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                1
+  Act PV                1
+  VG Size               9,41 GiB
+  PE Size               4,00 MiB
+  Total PE              2409
+  Alloc PE / Size       2399 / 9,37 GiB
+  Free  PE / Size       10 / 40,00 MiB
+  VG UUID               NJWfOH-An0K-Hm9Q-8Tjs-yq2x-ZWXi-L2vP7i
+</code></pre><p>名称为 centos，可调整大小（resizable），当前大小为 9,41GB。活动的 LVM 卷有</p>
+<pre><code>lvscan
+
+[root@linux vagrant]# lvscan
+ACTIVE            &apos;/dev/centos/swap&apos; [1016,00 MiB] inherit
+ACTIVE            &apos;/dev/centos/root&apos; [8,38 GiB] inherit
+</code></pre><p>先将分配过来的新磁盘空间创建为一个新的物理卷</p>
+<pre><code>pvcreate /dev/sda3
+
+[root@linux vagrant]# pvcreate /dev/sda3
+Physical volume &quot;/dev/sda3&quot; successfully created
+</code></pre><p>然后使用新的物理卷来扩展 LVM 的 centos</p>
+<pre><code>vgextend centos /dev/sda3
+
+[root@linux vagrant]# vgextend centos /dev/sda3
+Volume group &quot;centos&quot; successfully extended
+</code></pre><p>然后扩展 LVM 的逻辑卷 centos-lv_root</p>
+<pre><code>lvextend /dev/centos/root /dev/sda3
+
+[root@linux vagrant]# lvextend /dev/centos/root /dev/sda3
+Size of logical volume centos/root changed from 8,38 GiB (2145 extents) to 1022,47 GiB (261753 extents).
+Logical volume root successfully resized
+</code></pre><p>最后，调整逻辑卷文件系统的大小</p>
+<pre><code>vagrant]# resize2fs /dev/centos/root
+
+[root@linux vagrant]# resize2fs /dev/centos/root
+resize2fs 1.42.9 (28-Dec-2013)
+resize2fs: Ungültige magische Zahl im Superblock beim Versuch, /dev/centos/root zu öffnen
+Kann keinen gültigen Dateisystem-Superblock finden.
+</code></pre><p>完成。看看效果,可以看到root下变成了1T</p>
+<pre><code>lvscan
+
+[root@linux vagrant]# lvscan
+  ACTIVE            &apos;/dev/centos/swap&apos; [1016,00 MiB] inherit
+  ACTIVE            &apos;/dev/centos/root&apos; [1022,47 GiB] inherit
+</code></pre><p>但是,查看根目录下面分配大小, 跟目录还是为8.4G</p>
+<pre><code>[root@linux vagrant]# df -h
+Dateisystem             Größe Benutzt Verf. Verw% Eingehängt auf
+/dev/mapper/centos-root  8,4G    1,1G  7,4G   13% /
+devtmpfs                 236M       0  236M    0% /dev
+tmpfs                    245M       0  245M    0% /dev/shm
+tmpfs                    245M    4,3M  241M    2% /run
+tmpfs                    245M       0  245M    0% /sys/fs/cgroup
+/dev/sda1                497M    118M  379M   24% /boot  
+</code></pre><p>用 xfs_growfs 对扩容后的 LV 进行 xfs 格式大小调整</p>
+<pre><code>xfs_growfs /dev/centos/root
+
+[root@linux vagrant]# xfs_growfs /dev/centos/root
+meta-data=/dev/mapper/centos-root isize=256    agcount=4, agsize=549120 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=0        finobt=0
+data     =                       bsize=4096   blocks=2196480, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=0
+log      =Intern                 bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =keine                  extsz=4096   blocks=0, rtextents=0
+Datenblöcke von 2196480 auf 268035072 geändert.
+</code></pre><p>再查看</p>
+<pre><code>[root@linux vagrant]# df -h
+Dateisystem             Größe Benutzt Verf. Verw% Eingehängt auf
+/dev/mapper/centos-root 1023G    1,1G 1022G    1% /
+devtmpfs                 236M       0  236M    0% /dev
+tmpfs                    245M       0  245M    0% /dev/shm
+tmpfs                    245M    4,3M  241M    2% /run
+tmpfs                    245M       0  245M    0% /sys/fs/cgroup
+/dev/sda1                497M    118M  379M   24% /boot
+</code></pre><p>可以看到根目录大小已经变成1T了</p>
+<p><a href="http://pan.baidu.com/s/1dEC3ePr" target="_blank" rel="external">http://pan.baidu.com/s/1dEC3ePr</a></p>
+<p>由于不了解linux,修改磁盘大小费了很多事.完成后打了包,做成了新的box，方便以后直接使用。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="修改linux-语言"><a href="#修改linux-语言" class="headerlink" title="修改linux 语言"></a>修改linux 语言</h2><blockquote>
+<p>/etc/locale.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LANG=&apos;en_US.UTF-8&apos;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客:"></a>参考博客:</h1><h2 id="调整-VirtualBox-虚拟机的磁盘大小"><a href="#调整-VirtualBox-虚拟机的磁盘大小" class="headerlink" title="调整 VirtualBox 虚拟机的磁盘大小"></a>调整 VirtualBox 虚拟机的磁盘大小</h2><p><a href="https://cnzhx.net/blog/resizing-lvm-centos-virtualbox-guest/" target="_blank" rel="external">https://cnzhx.net/blog/resizing-lvm-centos-virtualbox-guest/</a>  </p>
+<h2 id="手把手教你给-CentOS-7-添加硬盘及扩容-LVM"><a href="#手把手教你给-CentOS-7-添加硬盘及扩容-LVM" class="headerlink" title="手把手教你给 CentOS 7 添加硬盘及扩容(LVM)"></a>手把手教你给 CentOS 7 添加硬盘及扩容(LVM)</h2><p><a href="https://aurthurxlc.github.io/Aurthur-2017/Centos-7-extend-lvm-volume.html" target="_blank" rel="external">https://aurthurxlc.github.io/Aurthur-2017/Centos-7-extend-lvm-volume.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;安装vagrant&quot;&gt;&lt;a href=&quot;#安装vagrant&quot; class=&quot;headerlink&quot; title=&quot;安装vagrant&quot;&gt;&lt;/a&gt;安装vagrant&lt;/h1&gt;&lt;h2 id=&quot;本机环境&quot;&gt;&lt;a href=&quot;#本机环境&quot; class=&quot;headerlink&quot; title=&quot;本机环境&quot;&gt;&lt;/a&gt;本机环境&lt;/h2&gt;&lt;p&gt;系统环境 ： win10 64 系统&lt;/p&gt;
+&lt;h2 id=&quot;软件及镜像&quot;&gt;&lt;a href=&quot;#软件及镜像&quot; class=&quot;headerlink&quot; title=&quot;软件及镜像&quot;&gt;&lt;/a&gt;软件及镜像&lt;/h2&gt;&lt;p&gt;vagrant 官网 &lt;a href=&quot;https://www.vagrantup.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.vagrantup.com/&lt;/a&gt;&lt;br&gt;vagrant 需要依赖虚拟机 我用的 virtualBox&lt;br&gt;virtualBox 官网 &lt;a href=&quot;https://www.virtualbox.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.virtualbox.org/&lt;/a&gt;&lt;br&gt;virtualBox 镜像 在vagrant官网中可以下载&lt;/p&gt;
+&lt;p&gt;由于国内下载比较慢，已分享到百度云&lt;br&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="vagrant" scheme="https://blog.signalfire2017.com/tags/vagrant/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos7 安装mysql-转</title>
+    <link href="https://blog.signalfire2017.com/2017/11/04/centos7-%E5%AE%89%E8%A3%85mysql-%E8%BD%AC/"/>
+    <id>https://blog.signalfire2017.com/2017/11/04/centos7-安装mysql-转/</id>
+    <published>2017-11-04T14:30:14.000Z</published>
+    <updated>2017-11-04T15:15:04.097Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/xxoome/p/5864912.html" target="_blank" rel="external">linux下安装Mysql</a></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><h3 id="本地登陆不进去"><a href="#本地登陆不进去" class="headerlink" title="本地登陆不进去"></a>本地登陆不进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#mysql -u root -p </div><div class="line">提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</div></pre></td></tr></table></figure>
+<p>我的mysql版本 </p>
+<blockquote>
+<p>mysql  Ver 14.14 Distrib 5.6.38</p>
+</blockquote>
+<p>先修改一下mysql安装目录下面my.cnf,最后一行添加 <code>skip-grant-tables</code><br>然后登陆 进去修改</p>
+<blockquote>
+<p>update mysql.user set password=password(‘mypassword’) where user=’root’; </p>
+</blockquote>
+<p>退出,修改文件删除刚加的属性,重启mysql服务</p>
+<h3 id="远程连接-ip无权限"><a href="#远程连接-ip无权限" class="headerlink" title="远程连接 ip无权限"></a>远程连接 ip无权限</h3><blockquote>
+<p>update mysql.user set host=’%’ where user=’root’;</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/xxoome/p/5864912.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;linux下安装Mysql&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; cla
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="mysql" scheme="https://blog.signalfire2017.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos7 开放端口</title>
+    <link href="https://blog.signalfire2017.com/2017/11/04/centos7-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/"/>
+    <id>https://blog.signalfire2017.com/2017/11/04/centos7-开放端口/</id>
+    <published>2017-11-04T14:15:10.000Z</published>
+    <updated>2017-11-05T10:15:25.250Z</updated>
+    
+    <content type="html"><![CDATA[<p>CentOS升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：</p>
+<p>开启端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</div></pre></td></tr></table></figure>
+<p>命令含义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--zone #作用域</div><div class="line"></div><div class="line">--add-port=80/tcp  #添加端口，格式为：端口/通讯协议</div><div class="line"></div><div class="line">--permanent  #永久生效，没有此参数重启后失效</div></pre></td></tr></table></figure>
+<p>重启防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
+<p>查看开启了那些端口</p>
+<blockquote>
+<p>/sbin/iptables -L -n</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CentOS升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：&lt;/p&gt;
+&lt;p&gt;开启端口&lt;/p&gt;
+&lt;figure cl
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-02 linux命令继续学习 yum</title>
+    <link href="https://blog.signalfire2017.com/2017/11/01/%E5%A4%A7%E6%95%B0%E6%8D%AE02-02-linux%E5%91%BD%E4%BB%A4%E7%BB%A7%E7%BB%AD%E5%AD%A6%E4%B9%A0-yum/"/>
+    <id>https://blog.signalfire2017.com/2017/11/01/大数据02-02-linux命令继续学习-yum/</id>
+    <published>2017-11-01T15:50:39.000Z</published>
+    <updated>2017-11-14T15:12:52.333Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="YUM的常用命令"><a href="#YUM的常用命令" class="headerlink" title="YUM的常用命令"></a>YUM的常用命令</h1><p>安装httpd并确认安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum instll -y httpd</div></pre></td></tr></table></figure></p>
+<p>列出所有可用的package和package组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum list</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>清除所有缓冲数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum clean all</div></pre></td></tr></table></figure></p>
+<p>列出一个包所有依赖的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum deplist httpd</div></pre></td></tr></table></figure></p>
+<p>删除httpd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum remove httpd</div></pre></td></tr></table></figure></p>
+<h1 id="配置本地yum源"><a href="#配置本地yum源" class="headerlink" title="配置本地yum源"></a>配置本地yum源</h1><p>cd /etc/yum.repos.d </p>
+<h1 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h1><p>解压安装包</p>
+<blockquote>
+<p>tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/</p>
+</blockquote>
+<p>然后修改环境变量</p>
+<blockquote>
+<p>vi /etc/profile</p>
+</blockquote>
+<p>在文件最后添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/root/apps/jdk1.7.0_45</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin</div></pre></td></tr></table></figure></p>
+<p>保存退出</p>
+<p>然后重新加载环境变量</p>
+<blockquote>
+<p>source /etc/profile</p>
+</blockquote>
+<h1 id="装mysql"><a href="#装mysql" class="headerlink" title="装mysql"></a>装mysql</h1><h1 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h1><ol>
+<li>上传tomcat包</li>
+<li>解压</li>
+<li>启动</li>
+<li>测试访问</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;YUM的常用命令&quot;&gt;&lt;a href=&quot;#YUM的常用命令&quot; class=&quot;headerlink&quot; title=&quot;YUM的常用命令&quot;&gt;&lt;/a&gt;YUM的常用命令&lt;/h1&gt;&lt;p&gt;安装httpd并确认安装&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum instll -y httpd&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;列出所有可用的package和package组&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum list&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo next 搜索 algolia</title>
+    <link href="https://blog.signalfire2017.com/2017/10/30/hexo-next-%E6%90%9C%E7%B4%A2-algolia/"/>
+    <id>https://blog.signalfire2017.com/2017/10/30/hexo-next-搜索-algolia/</id>
+    <published>2017-10-30T14:48:47.000Z</published>
+    <updated>2017-11-14T16:18:06.015Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="目的-添加搜索功能"><a href="#目的-添加搜索功能" class="headerlink" title="目的:添加搜索功能"></a>目的:添加搜索功能</h1><p>algolia似乎是试用一段时间就不能用了,建议使用本地搜索<br><a href="/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/#more">hexo-next 本地搜索</a>  </p>
+<p>#next版本<br>我的版本号是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Theme version</div><div class="line">version: <span class="number">5.1</span>.2</div></pre></td></tr></table></figure></p>
+<p>next5.0+版本集成了algolia 这样使配置algolia更简单</p>
+<h1 id="algolia账号申请"><a href="#algolia账号申请" class="headerlink" title="algolia账号申请"></a>algolia账号申请</h1><p><a href="https://www.algolia.com/" target="_blank" rel="external">Algolia官网</a><br><a id="more"></a></p>
+<ul>
+<li>直接用github账号注册就好啦</li>
+<li>创建index空间 输入一个名称,填写你自己站点的网址</li>
+</ul>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220402.jpg" alt="1"></p>
+<ul>
+<li>创建两个key   <ol>
+<li>空间创建好后默认会有一个只有搜索权限的key  </li>
+<li>需要另建一个有修改记录等权限的key(这个供我们提交索引到空间使用)  </li>
+<li>创建key的时候要选择授权的空间</li>
+</ol>
+</li>
+</ul>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220635.jpg" alt="3"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220735.jpg" alt="2"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220846.jpg" alt="4"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220920.jpg" alt="5"></p>
+<ul>
+<li>记录  <ol>
+<li>Application ID  </li>
+<li>两个key建</li>
+</ol>
+</li>
+</ul>
+<h1 id="安装hexo-algolia"><a href="#安装hexo-algolia" class="headerlink" title="安装hexo-algolia"></a>安装hexo-algolia</h1><p>用git-bash在hexo工程根目录下执行</p>
+<pre><code>npm install hexo-algolia --save
+</code></pre><h1 id="配置algolia"><a href="#配置algolia" class="headerlink" title="配置algolia"></a>配置algolia</h1><ul>
+<li>在Hexo工程根目录的_config.yml中加入如下配置，注意改成前面API Keys页面相应配置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">algolia:</div><div class="line">    applicationID: <span class="string">'你的Application ID'</span></div><div class="line">    apiKey: <span class="string">'只有搜索权限的key'</span></div><div class="line">    adminApiKey: <span class="string">''</span></div><div class="line">    indexName: <span class="string">'你的index空间名称'</span></div><div class="line">    chunkSize: <span class="number">5000</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>修改themes&gt;next&gt;_config.yml </p>
+<p>  搜索 algolia_search 修改enable 为true<br>  其他字体提示可以自己随意修改<br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030223530.jpg" alt="2"></p>
+<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>我的电脑&gt;右键属性&gt;高级设置&gt;环境变量&gt;新建&gt;填写变量名称和变量值</p>
+<p>  变量名称 : HEXO_ALGOLIA_INDEXING_KEY<br>  变量值: 在algolia新建的有修改权限的key<br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222934.jpg" alt="1"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222951.jpg" alt="2"></p>
+<h1 id="生成index上传到algolia"><a href="#生成index上传到algolia" class="headerlink" title="生成index上传到algolia"></a>生成index上传到algolia</h1><p>在hexo根目录执行,<strong>注意确保命令行面板已经重新载入新加的环境变量</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo algolia</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>不报错就可以啦</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/luzheqi/article/details/52798557" target="_blank" rel="external">NexT主题集成Algolia搜索插件</a><br><a href="https://jobbym.github.io/2017/01/16/Hexo%E9%9B%86%E6%88%90Algolia%E6%90%9C%E7%B4%A2%E6%8F%92%E4%BB%B6/" target="_blank" rel="external">Hexo集成Algolia搜索插件</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;目的-添加搜索功能&quot;&gt;&lt;a href=&quot;#目的-添加搜索功能&quot; class=&quot;headerlink&quot; title=&quot;目的:添加搜索功能&quot;&gt;&lt;/a&gt;目的:添加搜索功能&lt;/h1&gt;&lt;p&gt;algolia似乎是试用一段时间就不能用了,建议使用本地搜索&lt;br&gt;&lt;a href=&quot;/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/#more&quot;&gt;hexo-next 本地搜索&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;#next版本&lt;br&gt;我的版本号是&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# Theme version&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;version: &lt;span class=&quot;number&quot;&gt;5.1&lt;/span&gt;.2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;next5.0+版本集成了algolia 这样使配置algolia更简单&lt;/p&gt;
+&lt;h1 id=&quot;algolia账号申请&quot;&gt;&lt;a href=&quot;#algolia账号申请&quot; class=&quot;headerlink&quot; title=&quot;algolia账号申请&quot;&gt;&lt;/a&gt;algolia账号申请&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.algolia.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Algolia官网&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="hexo" scheme="https://blog.signalfire2017.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据01-linux安装及基本命令.md</title>
+    <link href="https://blog.signalfire2017.com/2017/10/30/%E5%A4%A7%E6%95%B0%E6%8D%AE01-linux%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.signalfire2017.com/2017/10/30/大数据01-linux安装及基本命令/</id>
+    <published>2017-10-30T14:30:38.000Z</published>
+    <updated>2017-11-14T15:13:50.941Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="linux-文件目录"><a href="#linux-文件目录" class="headerlink" title="linux 文件目录"></a>linux 文件目录</h1><blockquote>
+<p>约定俗成</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>可执行文件</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>系统可执行文件</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>跟启动相关的东西</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>设备 硬件</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>配置文件 </td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>依赖包</td>
+</tr>
+<tr>
+<td>/lib64</td>
+<td>依赖包</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>一些外接设备</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>挂载</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>用户目录</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>user share resource 公用的一些软件</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>临时文件</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h1 id="linux-网络相关"><a href="#linux-网络相关" class="headerlink" title="linux 网络相关"></a>linux 网络相关</h1><h2 id="网卡相关"><a href="#网卡相关" class="headerlink" title="网卡相关:"></a>网卡相关:</h2><ol>
+<li>ip ：一般 1 给网关  255是广播地址</li>
+<li>gateway ： 网关</li>
+<li>netmask ： 子网掩码</li>
+<li>dns ：</li>
+</ol>
+<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>是用来判断自己属于哪个网段</p>
+<p>网段的计算:<br>将IP地址的二进制 &amp; 子网掩码的二进制 = 网段地址<br>例如：192.168.33.2 &amp; 255.255.255.0 = 192.168.33.0</p>
+<h3 id="dns-域名解析"><a href="#dns-域名解析" class="headerlink" title="dns 域名解析"></a>dns 域名解析</h3><ol>
+<li>从本地hosts中寻找域名 -&gt; ip映射信息</li>
+<li>如果没有则去服务器找</li>
+<li>访问服务器</li>
+</ol>
+<p>填写:</p>
+<ol>
+<li>网关地址</li>
+<li>dns服务器</li>
+</ol>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="域名工作流程"></p>
+<p>linux dns配置文件</p>
+<blockquote>
+<p>/etc/hosts</p>
+</blockquote>
+<h2 id="网络模式"><a href="#网络模式" class="headerlink" title="网络模式"></a>网络模式</h2><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/NAT虚拟网络配置.png" alt="NAT模式图">  </p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="桥接模式图"></p>
+<h3 id="HOST-only"><a href="#HOST-only" class="headerlink" title="HOST only"></a>HOST only</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/%E6%A1%A5%E6%8E%A5%E5%92%8Chostonly%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE.png" alt="host only"></p>
+<h2 id="修改linux-ip"><a href="#修改linux-ip" class="headerlink" title="修改linux ip"></a>修改linux ip</h2><p>修改主机名:  </p>
+<blockquote>
+<p>vi /etc/sysconfig/network<br>    NETWORKING=yes<br>    HOSTNAME=server1.itcast.cn</p>
+</blockquote>
+<p>修改IP地址<br>vi /etc/sysconfig/network-scripts/ifcfg-eth0  </p>
+<pre><code>DEVICE=eth0
+TYPE=Ethernet
+ONBOOT=yes          #是否开机启用
+BOOTPROTO=static    #ip地址设置为静态
+IPADDR=192.168.0.101
+NETMASK=255.255.255.0
+</code></pre><p>修改ip地址和主机名的映射关系<br>vi /etc/hosts  </p>
+<pre><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.0.101 server1.itcast.cn
+</code></pre><p>关闭iptables并设置其开机启动/不启动  </p>
+<pre><code>service iptables stop
+chkconfig iptables on
+chkconfig iptables off
+</code></pre><h1 id="linux-简单命令"><a href="#linux-简单命令" class="headerlink" title="linux 简单命令"></a>linux 简单命令</h1><p>创建文件<br>touch somefile.1 创建一个空文本<br>echo “i love u” <strong>&gt;</strong> somefile.2 利用重定向写入 覆盖原文件<br>echo “i love u” <strong>&gt;&gt;</strong> somefile.2 追加</p>
+<p>ctrl+v进入块选择模式<br>shift+v 进入行选择模式</p>
+<p>:%s/key/newword 查找并替换</p>
+<h2 id="文件权限操作"><a href="#文件权限操作" class="headerlink" title="文件权限操作"></a>文件权限操作</h2><p>drw-r–r–</p>
+<p>d：标识节点类型（d 文件夹 - 文件 l 链接)<br>r 可读 w可写 x可执行<br>拥有者 所属组 其他用户</p>
+<p>方式1 :<br>chmod g-rw somefile.1</p>
+<p>g 组 o 其他 u用户  +-(增加/删除权限)  rwx</p>
+<p>方式2 :<br>chmod 700 somfile.1</p>
+<p>文件夹及下面文件</p>
+<p>chmod -R 770 aaa/</p>
+<p>修改所有者(必须要root用户)<br>chown angela:angela aaa/   组/用户</p>
+<h2 id="基本的用户管理"><a href="#基本的用户管理" class="headerlink" title="基本的用户管理"></a>基本的用户管理</h2><p>添加用户</p>
+<p>useradd nagela<br>修改密码<br>passwd nagela 按提示输入密码即可</p>
+<p>sudo useradd xiaobai</p>
+<p>为用户配置sudo权限<br>用root编辑<br>vi /etc/sudoers<br>在文件如下位置,为hadoop添加一行即可<br>root ALL=(ALL) ALL<br>hadoop ALL=(ALL) ALL  </p>
+<h2 id="系统管理操作"><a href="#系统管理操作" class="headerlink" title="系统管理操作"></a>系统管理操作</h2><p>1.查看主机名<br>hostname</p>
+<p>2.修改主机名(重启后无效)<br>hostname hadoop</p>
+<p>3.修改主机名(重启后永久生效)<br>vi /ect/sysconfig/network</p>
+<p>4.修改IP(重启后无效)<br>ifconfig eth0 192.168.12.22</p>
+<p>5.修改IP(重启后永久生效)<br>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p>6.查看系统信息<br>uname -a<br>uname -r</p>
+<p>7.查看ID命令<br>id -u<br>id -g</p>
+<p>8.日期<br>date<br>date +%Y-%m-%d<br>date +%T<br>date +%Y-%m-%d” “%T</p>
+<p>9.日历<br>cal 2012</p>
+<p>10.查看文件信息<br>file filename</p>
+<p>11.挂载硬盘<br>mount<br>umount<br>加载windows共享<br>mount -t cifs //192.168.1.100/tools /mnt</p>
+<p>挂载cdrom 里面是iso镜像文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom</div><div class="line">[root@server1 mnt]# ll cdrom/</div><div class="line">total 654</div><div class="line">-rw-r--r-- 1 root root     14 Dec  5  2016 CentOS_BuildTag</div><div class="line">drwxr-xr-x 3 root root   2048 Dec  5  2016 EFI</div><div class="line">-rw-r--r-- 1 root root    215 Dec  9  2015 EULA</div><div class="line">-rw-r--r-- 1 root root  18009 Dec  9  2015 GPL</div><div class="line">drwxr-xr-x 3 root root   2048 Dec  5  2016 images</div><div class="line">drwxr-xr-x 2 root root   2048 Dec  5  2016 isolinux</div><div class="line">drwxr-xr-x 2 root root   2048 Dec  5  2016 LiveOS</div><div class="line">drwxrwxr-x 2 root root 630784 Dec  5  2016 Packages</div><div class="line">drwxrwxr-x 2 root root   4096 Dec  5  2016 repodata</div><div class="line">-rw-r--r-- 1 root root   1690 Dec  9  2015 RPM-GPG-KEY-CentOS-7</div><div class="line">-rw-r--r-- 1 root root   1690 Dec  9  2015 RPM-GPG-KEY-CentOS-Testing-7</div><div class="line">-r--r--r-- 1 root root   2883 Dec  5  2016 TRANS.TBL</div></pre></td></tr></table></figure></p>
+<p>12.查看文件大小<br>du -h<br>du -ah</p>
+<p>13.查看分区<br>df -h</p>
+<p>14.ssh<br>ssh hadoop@192.168.1.1</p>
+<p>15.关机<br>shutdown -h now /init 0<br>shutdown -r now /reboot</p>
+<h1 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h1><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt=""></p>
+<p>假如 A  要登陆  B<br>在A上操作：<br>首先生成密钥对</p>
+<pre><code>ssh-keygen   (提示时，直接回车即可)
+</code></pre><p>再将A自己的公钥拷贝并追加到B的授权列表文件authorized_keys中</p>
+<pre><code>ssh-copy-id   B
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;linux-文件目录&quot;&gt;&lt;a href=&quot;#linux-文件目录&quot; class=&quot;headerlink&quot; title=&quot;linux 文件目录&quot;&gt;&lt;/a&gt;linux 文件目录&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;约定俗成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;目录&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;/bin&lt;/td&gt;
+&lt;td&gt;可执行文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/sbin&lt;/td&gt;
+&lt;td&gt;系统可执行文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/boot&lt;/td&gt;
+&lt;td&gt;跟启动相关的东西&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/dev&lt;/td&gt;
+&lt;td&gt;设备 硬件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc&lt;/td&gt;
+&lt;td&gt;配置文件 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/lib&lt;/td&gt;
+&lt;td&gt;依赖包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/lib64&lt;/td&gt;
+&lt;td&gt;依赖包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/media&lt;/td&gt;
+&lt;td&gt;一些外接设备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/mnt&lt;/td&gt;
+&lt;td&gt;挂载&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/home&lt;/td&gt;
+&lt;td&gt;用户目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/usr&lt;/td&gt;
+&lt;td&gt;user share resource 公用的一些软件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/tmp&lt;/td&gt;
+&lt;td&gt;临时文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="大数据学习笔记" scheme="https://blog.signalfire2017.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据02-01 linux命令继续学习.md</title>
+    <link href="https://blog.signalfire2017.com/2017/10/29/%E5%A4%A7%E6%95%B0%E6%8D%AE02-01%20linux%E5%91%BD%E4%BB%A4%E7%BB%A7%E7%BB%AD%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://blog.signalfire2017.com/2017/10/29/大数据02-01 linux命令继续学习/</id>
+    <published>2017-10-29T14:30:38.000Z</published>
+    <updated>2017-11-14T15:15:02.319Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="vmare克隆后修改地址问题"><a href="#vmare克隆后修改地址问题" class="headerlink" title="vmare克隆后修改地址问题"></a>vmare克隆后修改地址问题</h1><p>解决克隆后eth0不见的问题</p>
+<p>直接修改  /etc/sysconfig/network-script/ifcfg-eth0<br>删掉UUID  HWADDR<br>配置静态地址<br>然后：<br>修改 /etc/udev/rules.d/70-persistent-net.rules<br>然后 reboot<br><a id="more"></a></p>
+<h1 id="linux命令继续学习"><a href="#linux命令继续学习" class="headerlink" title="linux命令继续学习"></a>linux命令继续学习</h1><h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p>cat    somefile    一次性将文件内容全部输出（控制台）<br>more   somefile     可以翻页查看, 下翻一页(空格)    上翻一页（b）   退出（q）<br>less   somefile      可以翻页查看,下翻一页(空格)    上翻一页（b），上翻一行(↑)  下翻一行（↓）  可以搜索关键字（/keyword）</p>
+<p>tail -10  install.log   查看文件尾部的10行<br>tail -f install.log    小f跟踪文件的唯一inode号，就算文件改名后，还是跟踪原来这个inode表示的文件<br>tail -F install.log    大F按照文件名来跟踪</p>
+<p>head -10  install.log   查看文件头部的10行</p>
+<h2 id="后台服务管理"><a href="#后台服务管理" class="headerlink" title="后台服务管理"></a>后台服务管理</h2><p>service network status   查看指定服务的状态<br>service network stop     停止指定服务<br>service network start    启动指定服务<br>service network restart  重启指定服务<br>service –status-all  查看系统中所有的后台服务</p>
+<h2 id="设置后台服务的自启配置"><a href="#设置后台服务的自启配置" class="headerlink" title="设置后台服务的自启配置"></a>设置后台服务的自启配置</h2><p>chkconfig   查看所有服务器自启配置<br>chkconfig iptables off   关掉指定服务的自动启动<br>chkconfig iptables on   开启指定服务的自动启动</p>
+<h2 id="系统启动级别管理"><a href="#系统启动级别管理" class="headerlink" title="系统启动级别管理"></a>系统启动级别管理</h2><p>vi  /etc/inittab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure></p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="如何上传安装包到服务器"><a href="#如何上传安装包到服务器" class="headerlink" title="如何上传安装包到服务器"></a>如何上传安装包到服务器</h2><ul>
+<li>可以使用图形化工具，如： filezilla</li>
+<li>可以使用sftp工具：  alt+p 调出后，用put命令上传<br>上传（如果不cd指定目录，则上传到当前用户的主目录）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp&gt; cd /home/   </div><div class="line">sftp&gt; put C:\Users\Administrator\Desktop\day02\soft\jdk-7u45-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>下载（lcd[local cd]指定下载到本地的目标路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp&gt; lcd d:/                            </div><div class="line">sftp&gt; get /home/jdk-7u45-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
+<ul>
+<li>lrzsz</li>
+</ul>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><h3 id="压缩解压缩的相关命令"><a href="#压缩解压缩的相关命令" class="headerlink" title="压缩解压缩的相关命令"></a>压缩解压缩的相关命令</h3><p>压缩解压缩</p>
+<pre><code>root@mini1 ~]# gzip access.log 
+[root@mini1 ~]# ll
+总用量 134892
+-rw-r--r--. 1 root root        68 4月   3 17:37 access.log.gz
+</code></pre><p>解压gz文件：  <figure class="highlight plain"><figcaption><span>-d access.log.gz```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打包解包</div></pre></td></tr></table></figure></p>
+<p>[root@mini1 ~]# tar -cvf myfirsttarball.tar aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解包：</div></pre></td></tr></table></figure></p>
+<p>[root@mini1 ~]# tar -xvf myfirsttarball.tar<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 一次性完成打包&amp;&amp;压缩的操作</div><div class="line">产生压缩包：</div></pre></td></tr></table></figure></p>
+<p>[root@mini1 ~]# tar -zcvf my.tar.gz aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">解压缩包：</div></pre></td></tr></table></figure></p>
+<p>[root@mini1 ~]# tar -zxvf my.tar.gz<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br>```</p>
+<h3 id="安装jdk的过程："><a href="#安装jdk的过程：" class="headerlink" title="安装jdk的过程："></a>安装jdk的过程：</h3><ul>
+<li><p>解压安装包</p>
+<p>  tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/</p>
+</li>
+<li><p>然后修改环境变量</p>
+<p>  vi /etc/profile<br>  在文件最后添加<br>  export JAVA_HOME=/root/apps/jdk1.7.0_45<br>  export PATH=$PATH:$JAVA_HOME/bin<br>  保存退出</p>
+</li>
+<li><p>然后重新加载环境变量 </p>
+<p>  source /etc/profile</p>
+</li>
+</ul>
+<h2 id="安装rpm包软件，如mysql"><a href="#安装rpm包软件，如mysql" class="headerlink" title="安装rpm包软件，如mysql"></a>安装rpm包软件，如mysql</h2><h3 id="查看系统中安装的rpm包"><a href="#查看系统中安装的rpm包" class="headerlink" title="查看系统中安装的rpm包"></a>查看系统中安装的rpm包</h3><pre><code>rpm -qa | grep mysql
+</code></pre><h3 id="上传rpm安装包"><a href="#上传rpm安装包" class="headerlink" title="上传rpm安装包"></a>上传rpm安装包</h3><pre><code>MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
+per * .rpm
+</code></pre><h3 id="安装perl依赖"><a href="#安装perl依赖" class="headerlink" title="安装perl依赖"></a>安装perl依赖</h3><pre><code>rpm -ivh perl*
+</code></pre><p><em>可能会提示有包冲突，解决： rpm -e 冲突包名 –nodeps</em></p>
+<h3 id="安装server"><a href="#安装server" class="headerlink" title="安装server"></a>安装server</h3><pre><code>rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
+</code></pre><p>如果成功，会看到进度条，最后，有关于root密码设置的提示，一定要记下来<br>这个版本的提示是，先启动server</p>
+<pre><code>service mysql start
+</code></pre><p>然后<code>/usr/bin/mysql_secure_installation</code> 命令去交互式修改root密码</p>
+<h3 id="修改密码时，提示需要先安装client"><a href="#修改密码时，提示需要先安装client" class="headerlink" title="修改密码时，提示需要先安装client"></a>修改密码时，提示需要先安装client</h3><pre><code>rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+</code></pre><p>客户端安装成功后，记得还要用/usr/bin/mysql_secure_installation 命令去交互式修改root密码</p>
+<h3 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h3><pre><code>mysql -uroot -proot
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;vmare克隆后修改地址问题&quot;&gt;&lt;a href=&quot;#vmare克隆后修改地址问题&quot; class=&quot;headerlink&quot; title=&quot;vmare克隆后修改地址问题&quot;&gt;&lt;/a&gt;vmare克隆后修改地址问题&lt;/h1&gt;&lt;p&gt;解决克隆后eth0不见的问题&lt;/p&gt;
+&lt;p&gt;直接修改  /etc/sysconfig/network-script/ifcfg-eth0&lt;br&gt;删掉UUID  HWADDR&lt;br&gt;配置静态地址&lt;br&gt;然后：&lt;br&gt;修改 /etc/udev/rules.d/70-persistent-net.rules&lt;br&gt;然后 reboot&lt;br&gt;
+    
+    </summary>
+    
+      <category term="大数据学习笔记" scheme="https://blog.signalfire2017.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
+    
+      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode快捷键记录</title>
+    <link href="https://blog.signalfire2017.com/2017/09/11/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.signalfire2017.com/2017/09/11/vscode快捷键记录/</id>
+    <published>2017-09-10T16:07:26.000Z</published>
+    <updated>2017-09-10T16:28:16.129Z</updated>
+    
+    <content type="html"><![CDATA[<p>分屏预览<br>ctrl+k v<br>ctrl+B 唤出侧边栏   </p>
+<p>切换分屏<br>ctrl+1<br>ctrl+2<br>ctrl+3  </p>
+<a id="more"></a>
+<p>alt+z  开启/取消自动换行<br>ctrl+` 打开/关闭控制台</p>
+<p>文本编辑<br>alt+↑/↓ 挪动行<br>alt+shift+↑/↓ 向上/下复制行<br>ctrl+enter 下方新建行<br>ctrl+shift+enter 上方新建行<br>ctrl+shift+k 删除当前行  </p>
+<p>ctrl+x 剪切行(光标没选中的时候)<br>ctrl+k z 编辑区域最大化  </p>
+<p>切换窗口<br>ctrl+e 最近打开的文件<br>ctrl+r 打开的工作空间  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;分屏预览&lt;br&gt;ctrl+k v&lt;br&gt;ctrl+B 唤出侧边栏   &lt;/p&gt;
+&lt;p&gt;切换分屏&lt;br&gt;ctrl+1&lt;br&gt;ctrl+2&lt;br&gt;ctrl+3  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="快捷键" scheme="https://blog.signalfire2017.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+      <category term="vscode" scheme="https://blog.signalfire2017.com/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea快捷键记录</title>
+    <link href="https://blog.signalfire2017.com/2017/09/03/idea%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.signalfire2017.com/2017/09/03/idea快捷键记录/</id>
+    <published>2017-09-03T15:37:13.000Z</published>
+    <updated>2017-09-10T16:23:29.507Z</updated>
+    
+    <content type="html"><![CDATA[<p>查找方法,这个用于看源码的时候感觉很好用记录一下</p>
+<blockquote>
+<p>ctrl+shift+alt+n</p>
+</blockquote>
+<p>//———————————–</p>
+<p>Navigate | Call Hierarchy命令查看一个Java方法调用树（caller和callee两个方向）</p>
+<blockquote>
+<p>ctrl+alt+H</p>
+</blockquote>
+<p>Analyze | Dataflow from/to Here两个命令查看表达式、变量和方法参数的传递关系树。</p>
+<blockquote>
+<p>Analyze | Data Flow  to Here<br>Analyze | Data Flow  from Here</p>
+</blockquote>
+<a id="more"></a>
+<p>“Find Usage”可以查看一个Java类、方法或变量的直接使用情况。 </p>
+<blockquote>
+<p>alt+F7</p>
+</blockquote>
+<p>Navigate | File Structure 查看文件的结构</p>
+<blockquote>
+<p>ctrl+F12</p>
+</blockquote>
+<p><a href="http://www.cnblogs.com/huaxingtianxia/p/5728847.html" target="_blank" rel="external">http://www.cnblogs.com/huaxingtianxia/p/5728847.html</a></p>
+<p>//———————————–</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;查找方法,这个用于看源码的时候感觉很好用记录一下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ctrl+shift+alt+n&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;//———————————–&lt;/p&gt;
+&lt;p&gt;Navigate | Call Hierarchy命令查看一个Java方法调用树（caller和callee两个方向）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ctrl+alt+H&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Analyze | Dataflow from/to Here两个命令查看表达式、变量和方法参数的传递关系树。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Analyze | Data Flow  to Here&lt;br&gt;Analyze | Data Flow  from Here&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="idea" scheme="https://blog.signalfire2017.com/tags/idea/"/>
+    
+      <category term="快捷键" scheme="https://blog.signalfire2017.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录下hexo常用命令自己方便看</title>
+    <link href="https://blog.signalfire2017.com/2017/09/03/%E8%AE%B0%E5%BD%95%E4%B8%8Bhexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%87%AA%E5%B7%B1%E6%96%B9%E4%BE%BF%E7%9C%8B/"/>
+    <id>https://blog.signalfire2017.com/2017/09/03/记录下hexo常用命令自己方便看/</id>
+    <published>2017-09-03T14:02:00.000Z</published>
+    <updated>2017-09-03T15:30:32.771Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Hexo常用命令：</div><div class="line"></div><div class="line">    hexo new &quot;postName&quot;       #新建文章</div><div class="line">    hexo new page &quot;pageName&quot;  #新建页面</div><div class="line">    hexo generate             #生成静态页面至public目录</div><div class="line">    hexo server               #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">    hexo deploy               #将.deploy目录部署到GitHub</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
+<p>复合命令</p>
+<pre><code>hexo deploy -g
+hexo server -g
+</code></pre><p>有时候生成的网页出错了，而生成的rss其实没有清除，那么用下面的命令，在重新生成吧</p>
+<pre><code>hexo clean
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Hexo常用命令：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hexo new &amp;quot;postName&amp;quot;       #新建文章&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hexo new page &amp;quot;pageName&amp;quot;  #新建页面&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hexo generate             #生成静态页面至public目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hexo server               #开启预览访问端口（默认端口4000，&amp;apos;ctrl + c&amp;apos;关闭server）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hexo deploy               #将.deploy目录部署到GitHub&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="hexo" scheme="https://blog.signalfire2017.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>终于有了自己的博客</title>
+    <link href="https://blog.signalfire2017.com/2017/08/27/%E7%BB%88%E4%BA%8E%E6%9C%89%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://blog.signalfire2017.com/2017/08/27/终于有了自己的博客/</id>
+    <published>2017-08-27T06:05:14.000Z</published>
+    <updated>2017-09-03T15:22:52.890Z</updated>
+    
+    <content type="html"><![CDATA[<p>  终于有了自己的博客。感谢网络，感谢爱分享的人。<br>  搭建博客时候参考的帖子：<br>  <a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/" target="_blank" rel="external">hexo从零开始到搭建完整</a><br>  <a href="http://www.jianshu.com/p/b7886271e21a" target="_blank" rel="external">Hexo安装和配置</a><br>  <a href="http://www.jianshu.com/p/35e197cb1273" target="_blank" rel="external">Hexo搭建Github-Pages博客填坑教程</a><br>  <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">主题nexT使用指南</a></p>
+<p>  自己碰到的坑  </p>
+<ul>
+<li>安装hexo后启动时,访问localhost:4000网页没反应 <code>替换端口号后解决了</code></li>
+<li>rss 链接出现问题,在<a href="http://www.jianshu.com/p/35e197cb1273" target="_blank" rel="external">Hexo搭建Github-Pages博客填坑教程</a> 中找到了解决办法</li>
+<li>hueman 主题下载后启动错误,这个没解决,替换找别的主题了。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  终于有了自己的博客。感谢网络，感谢爱分享的人。&lt;br&gt;  搭建博客时候参考的帖子：&lt;br&gt;  &lt;a href=&quot;http://visugar.com/2017/05/04/20170504SetUpHexoBlog/&quot; target=&quot;_blank&quot; rel=&quot;exte
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://blog.signalfire2017.com/categories/essay/"/>
+    
+    
+  </entry>
+  
+</feed>
