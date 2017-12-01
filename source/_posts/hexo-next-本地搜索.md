@@ -2,9 +2,7 @@
 title: hexo-next 本地搜索
 categories: 学习
 tags:
-  - 大数据
-  - linux
-  - centos7
+  - hexo
 toc: true
 date: 2017-11-14 23:46:14
 scaffolds:

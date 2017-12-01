@@ -16,8 +16,9 @@ tags: [vagrant]
 
 vagrant 官网 https://www.vagrantup.com/  
 vagrant 需要依赖虚拟机 我用的 virtualBox  
-virtualBox 官网 https://www.virtualbox.org/  
-virtualBox 镜像 在vagrant官网中可以下载
+virtualBox 官网 https://www.virtualbox.org/   
+virtualBox 镜像 在vagrant官网中可以下载  
+镜像下载 http://www.vagrantbox.es/
 
 由于国内下载比较慢，已分享到百度云
 <!-- more -->
