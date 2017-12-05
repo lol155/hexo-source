@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2017-12-01T15:55:48.066Z</updated>
+  <updated>2017-12-05T15:50:19.436Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,19 +16,237 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>大数据0401java高级特性增强</title>
-    <link href="https://blog.signalfire2017.com/2017/12/01/%E5%A4%A7%E6%95%B0%E6%8D%AE0401java%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7%E5%A2%9E%E5%BC%BA/"/>
-    <id>https://blog.signalfire2017.com/2017/12/01/大数据0401java高级特性增强/</id>
+    <title>大数据0406-javaJVM技术</title>
+    <link href="https://blog.signalfire2017.com/2017/12/05/%E5%A4%A7%E6%95%B0%E6%8D%AE0406-javaJVM%E6%8A%80%E6%9C%AF/"/>
+    <id>https://blog.signalfire2017.com/2017/12/05/大数据0406-javaJVM技术/</id>
+    <published>2017-12-05T14:44:14.000Z</published>
+    <updated>2017-12-05T15:50:19.436Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="监控工具的使用"><a href="#监控工具的使用" class="headerlink" title="监控工具的使用"></a>监控工具的使用</h1><h2 id="jconsole"><a href="#jconsole" class="headerlink" title="jconsole"></a>jconsole</h2><p>可以分析jvm的内存使用情况和线程等信息。</p>
+<h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><p><code>JDK/bin</code> 目录下 <code>jconsole.exe</code>将自动搜索出本机运行的所有JVM进程，不需要用户使用jps来查询了，双击其中一个进程即可开始监控。也可以“远程连接服务器，进行远程虚拟机的监控。”</p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231152.png" alt="2017125231152"></p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231222.png" alt="2017125231222"></p>
+<h2 id="jvisualvm"><a href="#jvisualvm" class="headerlink" title="jvisualvm"></a>jvisualvm</h2><p>提供了和jconsole的功能类似，提供了一大堆的插件。<br>插件中，Visual GC（可视化GC）还是比较好用的，可视化GC可以看到内存的具体使用情况。</p>
+<h1 id="java内存模型"><a href="#java内存模型" class="headerlink" title="java内存模型"></a>java内存模型</h1><h2 id="内存模型图解"><a href="#内存模型图解" class="headerlink" title="内存模型图解"></a>内存模型图解</h2><p>Java虚拟机在执行Java程序的过程中，会把它所管理的内存划分为若干个不同的数据区。这些区域有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有的区域则依赖用户线程的启动和结束而建立和销毁，我们可以将这些区域统称为Java运行时数据区域。<br>如下图是一个内存模型的关系图（详情见图：内存划分.png）：<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231537.png" alt="2017125231537"></p>
+<p>Java虚拟机运行时数据区域被分为五个区域：<code>堆(Heap)、栈(Stack)、本地方法栈(Native Stack)、方法区(Method Area)、程序计数器(Program Count Register)</code>。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125232329.png" alt="2017125232329"></p>
+<h2 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h2><p>对于大多数应用来说，<code>Java Heap</code>是Java虚拟机管理的内存的最大一块，这块区域<code>随着虚拟机的启动而创建</code>。在实际的运用中，我们创建的<code>对象</code>和<code>数组</code>就是存放在堆里面。如果你听说线程安全的问题，就会很明确的知道Java Heap是一块<code>共享的区域</code>，操作共享区域的成员就有了锁和同步。<br>与Java Heap相关的还有Java的垃圾回收机制（GC）,Java Heap是垃圾回收器管理的主要区域。程序猿所熟悉的<code>新生代</code>、<code>老生代</code>、<code>永久代</code>的概念就是在堆里面，现在大多数的GC基本都采用了<code>分代收集算法</code>。如果再细致一点，Java Heap还有<code>Eden空间</code>，<code>From Survivor空间</code>,<code>To Survivor空间</code>等。<br>Java Heap可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125233020.png" alt="2017125233020"></p>
+<h2 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h2><p>相对于Java Heap来讲，<code>Java Stack</code>是<code>线程私有</code>的，她的<code>生命周期与线程相同</code>。Java Stack描述的是Java方法执行时的内存模型，<code>每个方法执行时都会创建一个栈帧</code>（Stack Frame）用语存储局部变量表、操作数栈、动态链接、方法出口等信息。从下图从可以看到，每个线程在执行一个方法时，都意味着有一个栈帧在当前线程对应的栈帧中入栈和出栈。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125233212.png" alt="2017125233212"></p>
+<p>图中可以看到每一个栈帧中都有局部变量表。局部变量表存放了编译期间的各种基本数据类型，对象引用等信息。</p>
+<h2 id="本地方法栈（Native-Stack）"><a href="#本地方法栈（Native-Stack）" class="headerlink" title="本地方法栈（Native Stack）"></a>本地方法栈（Native Stack）</h2><p>本地方法栈（Native Stack）与Java虚拟机站（Java Stack）所发挥的作用非常相似，他们之间的区别在于虚拟机栈为虚拟机栈执行java方法（也就是字节码）服务，而本地方法栈则为使用到Native方法服务。</p>
+<h2 id="方法区（Method-Area）"><a href="#方法区（Method-Area）" class="headerlink" title="方法区（Method Area）"></a>方法区（Method Area）</h2><p>方法区（Method Area）与堆（Java Heap）一样，是<code>各个线程共享的内存区域</code>，它用于存储虚拟机加载的<code>类信息</code>，<code>常量</code>，<code>静态变量</code>，<code>即时编译器编译后的代码</code>等数据。虽然Java虚拟机规范把方法区描述为堆的一个逻辑部分，但是她却有一个别名叫做非堆（Non-Heap）。分析下Java虚拟机规范，之所以把方法区描述为堆的一个逻辑部分，应该觉得她们都是存储数据的角度出发的。一个存储对象数据（堆），一个存储静态信息(方法区)。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="线程私有的数据区域有："><a href="#线程私有的数据区域有：" class="headerlink" title="线程私有的数据区域有："></a>线程私有的数据区域有：</h3><p>Java虚拟机栈（Java Stack）<br>本地方法栈（Native Stack）  </p>
+<h3 id="线程共有的数据区域有："><a href="#线程共有的数据区域有：" class="headerlink" title="线程共有的数据区域有："></a>线程共有的数据区域有：</h3><p>堆（Java Heap）<br>方法区  </p>
+<h1 id="JVM参数列表"><a href="#JVM参数列表" class="headerlink" title="JVM参数列表"></a>JVM参数列表</h1><p>java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m  -XX:MaxTenuringThreshold=0<br><code>-Xmx3550m</code>：最大堆内存为3550M。<br><code>-Xms3550m</code>：初始堆内存为3550m。<br>此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。<br><code>-Xmn2g</code>：设置年轻代大小为2G。<br>整个堆大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。<br><code>-Xss128k</code>：设置每个线程的堆栈大小。<br>JDK5.0以后每个线程堆栈大小为1M，在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在 3000~5000左右。<br><code>-XX:NewRatio=4</code>:设置年轻代（包括Eden和两个Survivor区）与年老代的比值（除去持久代）。设置为4，则年轻代与年老代所占比值为1：4，年轻代占整个堆栈的1/5<br><code>-XX:SurvivorRatio=4</code>：设置年轻代中Eden区与Survivor区的大小比值。<br>设置为4，则两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的1/6<br><code>-XX:MaxPermSize=16m</code>:设置持久代大小为16m。<br><code>-XX:MaxTenuringThreshold=0</code>：设置垃圾最大年龄。<br>如果设置为0的话，则年轻代对象不经过Survivor区，直 接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象 再年轻代的存活时间，增加在年轻代即被回收的概论。  </p>
+<p>收集器设置<br>-XX:+UseSerialGC:设置串行收集器<br>-XX:+UseParallelGC:设置并行收集器<br>-XX:+UseParalledlOldGC:设置并行年老代收集器<br>-XX:+UseConcMarkSweepGC:设置并发收集器<br>垃圾回收统计信息<br>-XX:+PrintGC<br>-XX:+PrintGCDetails<br>-XX:+PrintGCTimeStamps<br>-Xloggc:filename<br>并行收集器设置<br>-XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。<br>-XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间<br>-XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)<br>并发收集器设置<br>-XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。<br>-XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。  </p>
+<h1 id="jvm案例演示"><a href="#jvm案例演示" class="headerlink" title="jvm案例演示"></a>jvm案例演示</h1><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>Jconsole的内存标签相当于可视化的jstat命令，用于监视收集器管理的虚拟机内存（java堆和永久代）的变化趋势。<br>我们通过下面的一段代码体验一下它的监视功能。运行时设置的虚拟机参数为：-Xms100m -Xmx100m -XX:+UseSerialGC，这段代码的作用是以64kb/50毫秒的速度往java堆内存中填充数据。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMemory</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">OOMObject</span> </span>&#123;</div><div class="line">		<span class="keyword">public</span> <span class="keyword">byte</span>[] placeholder = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">64</span> * <span class="number">1024</span>];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fillHeap</span><span class="params">(<span class="keyword">int</span> num)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		ArrayList&lt;OOMObject&gt; list = <span class="keyword">new</span> ArrayList&lt;OOMObject&gt;();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</div><div class="line">			Thread.sleep(<span class="number">50</span>);</div><div class="line">			list.add(<span class="keyword">new</span> OOMObject());</div><div class="line">		&#125;</div><div class="line">		System.gc();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		fillHeap(<span class="number">1000</span>);</div><div class="line">		Thread.sleep(<span class="number">500000</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234140.png" alt="2017125234140"></p>
+<p>从图中可以看出，运行轨迹成曲线增长，循环1000次后，虽然整个新生代Eden和Survivor区都基本上被清空了，但是老年代仍然保持峰值状态，这说明，填充的数据在GC后仍然存活，因为list的作用域没有结束。如果把System.gc();移到fillHeap(1000);后，就可以全部回收掉。</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>jconsole线程标签相当于可视化了jstack命令，遇到线程停顿时，可以使用这个也签进行监控分析。线程长时间停顿的主要原因有：等待外部资源（数据库连接等），死循环、锁等待。下面的代码将演示这几种情况：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.java.jvm;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 死循环演示</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createBusyThread</span><span class="params">()</span> </span>&#123;</div><div class="line">		Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"createBusyThread"</span>);</div><div class="line">				<span class="keyword">while</span> (<span class="keyword">true</span>)</div><div class="line">					;</div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="string">"testBusyThread"</span>);</div><div class="line">		thread.start();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 线程锁等待</span></div><div class="line"><span class="comment">	 * </span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createLockThread</span><span class="params">(<span class="keyword">final</span> Object lock)</span> </span>&#123;</div><div class="line">		Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"createLockThread"</span>);</div><div class="line">				<span class="keyword">synchronized</span> (lock) &#123;</div><div class="line">					<span class="keyword">try</span> &#123;</div><div class="line">						lock.wait();</div><div class="line">					&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">						e.printStackTrace();</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="string">"testLockThread"</span>);</div><div class="line">		thread.start();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</div><div class="line">		br.readLine();</div><div class="line">		createBusyThread();</div><div class="line">		br.readLine();</div><div class="line">		Object object = <span class="keyword">new</span> Object();</div><div class="line">		createLockThread(object);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>main线程：追踪到需要键盘录入<br>testBusyThread线程：线程阻塞在18行的while（true），直到线程切换，很耗性能<br>testLockThread线程：出于waitting状态，等待notify  </p>
+<p>死锁：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.java.jvm;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDeadThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> a, b;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TestDeadThread</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.a = a;</div><div class="line">		<span class="keyword">this</span>.b = b;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"createDeadThread"</span>);</div><div class="line">		<span class="keyword">synchronized</span> (Integer.valueOf(a)) &#123;</div><div class="line">			<span class="keyword">synchronized</span> (Integer.valueOf(b)) &#123;</div><div class="line">				System.out.println(a + b);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDeadThread(<span class="number">1</span>, <span class="number">2</span>)).start();</div><div class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDeadThread(<span class="number">2</span>, <span class="number">1</span>)).start();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>点击检查死锁，会出现死锁的详情。</p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234810.png" alt="2017125234810"></p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234928.png" alt="2017125234928"></p>
+<p>thread-5的锁被thread-10持有，相反亦是，造成死锁。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;监控工具的使用&quot;&gt;&lt;a href=&quot;#监控工具的使用&quot; class=&quot;headerlink&quot; title=&quot;监控工具的使用&quot;&gt;&lt;/a&gt;监控工具的使用&lt;/h1&gt;&lt;h2 id=&quot;jconsole&quot;&gt;&lt;a href=&quot;#jconsole&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
+      <category term="JVM" scheme="https://blog.signalfire2017.com/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据0405-java-socket</title>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0405-java-socket/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据0405-java-socket/</id>
+    <published>2017-12-03T15:14:47.000Z</published>
+    <updated>2017-12-03T15:17:24.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接上代码吧<br><a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.bigdata.socket;</div><div class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</div><div class="line"><span class="keyword">import</span> java.net.ServerSocket;</div><div class="line"><span class="keyword">import</span> java.net.Socket;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceServer</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="comment">// 创建一个serversocket，绑定到本机的8899端口上</span></div><div class="line">		ServerSocket server = <span class="keyword">new</span> ServerSocket();</div><div class="line">		server.bind(<span class="keyword">new</span> InetSocketAddress(<span class="string">"localhost"</span>, <span class="number">8899</span>));</div><div class="line">		<span class="comment">// 接受客户端的连接请求;accept是一个阻塞方法，会一直等待，到有客户端请求连接才返回</span></div><div class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">			Socket socket = server.accept();</div><div class="line">			<span class="keyword">new</span> Thread(<span class="keyword">new</span> ServiceServerTask(socket)).start();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">======================</div><div class="line"><span class="keyword">package</span> cn.itcast.bigdata.socket;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.io.OutputStream;</div><div class="line"><span class="keyword">import</span> java.io.PrintWriter;</div><div class="line"><span class="keyword">import</span> java.net.Socket;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceClient</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="comment">/*ServiceIterface service = ProxyUtils.getProxy(ServiceIterface.class,"methodA",hostname,port);</span></div><div class="line"><span class="comment">		Result = service.methodA(parameters);*/</span></div><div class="line">		<span class="comment">// 向服务器发出请求建立连接</span></div><div class="line">		Socket socket = <span class="keyword">new</span> Socket(<span class="string">"localhost"</span>, <span class="number">8899</span>);</div><div class="line">		<span class="comment">// 从socket中获取输入输出流</span></div><div class="line">		InputStream inputStream = socket.getInputStream();</div><div class="line">		OutputStream outputStream = socket.getOutputStream();</div><div class="line">		PrintWriter pw = <span class="keyword">new</span> PrintWriter(outputStream);</div><div class="line">		pw.println(<span class="string">"hello"</span>);</div><div class="line">		pw.flush();</div><div class="line">		BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(inputStream));</div><div class="line">		String result = br.readLine();</div><div class="line">		System.out.println(result);</div><div class="line">		inputStream.close();</div><div class="line">		outputStream.close();</div><div class="line">		socket.close();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">======================</div><div class="line"><span class="keyword">package</span> cn.itcast.bigdata.socket;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetDataServiceImpl</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getData</span><span class="params">(String param)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"ok-"</span>+param;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">=======================</div><div class="line"><span class="keyword">package</span> cn.itcast.bigdata.socket;</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.io.OutputStream;</div><div class="line"><span class="keyword">import</span> java.io.PrintWriter;</div><div class="line"><span class="keyword">import</span> java.net.Socket;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceServerTask</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</div><div class="line">	Socket socket ;</div><div class="line">	InputStream in=<span class="keyword">null</span>;</div><div class="line">	OutputStream out = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ServiceServerTask</span><span class="params">(Socket socket)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.socket = socket;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//业务逻辑：跟客户端进行数据交互</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		 <span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//从socket连接中获取到与client之间的网络通信输入输出流 </span></div><div class="line">			in = socket.getInputStream();</div><div class="line">			out = socket.getOutputStream();</div><div class="line">			BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</div><div class="line">			<span class="comment">//从网络通信输入流中读取客户端发送过来的数据</span></div><div class="line">			<span class="comment">//注意：socketinputstream的读数据的方法都是阻塞的 </span></div><div class="line">			String param = br.readLine();</div><div class="line">			<span class="comment">/**</span></div><div class="line"><span class="comment">			 * 作业：</span></div><div class="line"><span class="comment">			 * 将以下业务调用逻辑写成更加通用的：可以根据客户端发过来的调用类名、调用方法名、调用该参数来灵活调用</span></div><div class="line"><span class="comment">			 * </span></div><div class="line"><span class="comment">			 * 《反射》</span></div><div class="line"><span class="comment">			 * </span></div><div class="line"><span class="comment">			 */</span></div><div class="line">			GetDataServiceImpl getDataServiceImpl = <span class="keyword">new</span> GetDataServiceImpl();</div><div class="line">			String result = getDataServiceImpl.getData(param);</div><div class="line">			<span class="comment">//将调用结果写到sokect的输出流中，以发送给客户端</span></div><div class="line">			PrintWriter pw = <span class="keyword">new</span> PrintWriter(out);</div><div class="line">			pw.println(result);</div><div class="line">			pw.flush();</div><div class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;<span class="keyword">finally</span>&#123;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				in.close();</div><div class="line">				out.close();</div><div class="line">				socket.close();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;直接上代码吧&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
+      <category term="socket" scheme="https://blog.signalfire2017.com/tags/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据0404-java动态代理</title>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0404-java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据0404-java动态代理/</id>
+    <published>2017-12-03T10:18:16.000Z</published>
+    <updated>2017-12-03T10:30:22.149Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><p>在之前的代码调用阶段，我们用action调用service的方法实现业务即可。<br>由于之前在service中实现的业务可能不能够满足当先客户的要求，需要我们重新修改service中的方法，但是service的方法不只在我们这个模块使用，在其他模块也在调用，其他模块调用的时候，现有的service方法已经能够满足业务需求，所以我们不能只为了我们的业务而修改service，导致其他模块授影响。<br>那怎么办呢？<br>可以通过动态代理的方式，扩展我们的service中的方法实现，使得在原有的方法中增加更多的业务，而不是实际修改service中的方法，这种实现技术就叫做动态代理。<br>动态代理：在不修改原业务的基础上，基于原业务方法，进行重新的扩展，实现新的业务。  </p>
+<h2 id="例如下面的例子："><a href="#例如下面的例子：" class="headerlink" title="例如下面的例子："></a>例如下面的例子：</h2><ul>
+<li>旧业务<br>买家调用action，购买衣服，衣服在数据库的标价为50元，购买流程就是简单的调用。</li>
+<li>新业务<br>在原先的价格上可以使用优惠券，但是这个功能在以前没有实现过，我们通过代理类，代理了原先的接口方法，在这个方法的基础上，修改了返回值。</li>
+</ul>
+<p>代理实现流程：</p>
+<ol>
+<li>书写代理类和代理方法，在代理方法中实现代理Proxy.newProxyInstance</li>
+<li>代理中需要的参数分别为：被代理的类的类加载器soneObjectclass.getClassLoader()，被代理类的所有实现接口new Class[] { Interface.class }，句柄方法new InvocationHandler()</li>
+<li>在句柄方法中复写invoke方法，invoke方法的输入有3个参数Object proxy（代理类对象）, Method method（被代理类的方法）,Object[] args（被代理类方法的传入参数），在这个方法中，我们可以定制化的开发新的业务。</li>
+<li>获取代理类，强转成被代理的接口</li>
+<li>最后，我们可以像没被代理一样，调用接口的认可方法，方法被调用后，方法名和参数列表将被传入代理类的invoke方法中，进行新业务的逻辑流程。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">原业务接口IBoss=================================</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 这是一个业务的接口，这个接口中的业务就是返回衣服的价格</span></div><div class="line"><span class="comment"> * <span class="doctag">@author</span> wilson</span></div><div class="line"><span class="comment"> *</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IBoss</span> </span>&#123;<span class="comment">//接口</span></div><div class="line">	<span class="function"><span class="keyword">int</span> <span class="title">yifu</span><span class="params">(String size)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">原业务实现类====================================</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boss</span> <span class="keyword">implements</span> <span class="title">IBoss</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">yifu</span><span class="params">(String size)</span></span>&#123;</div><div class="line">		System.err.println(<span class="string">"天猫小强旗舰店，老板给客户发快递----衣服型号："</span>+size);</div><div class="line">		<span class="comment">//这件衣服的价钱，从数据库读取</span></div><div class="line">		<span class="keyword">return</span> <span class="number">50</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">kuzi</span><span class="params">()</span></span>&#123;</div><div class="line">		System.err.println(<span class="string">"天猫小强旗舰店，老板给客户发快递----裤子"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">原业务调用====================================</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SaleAction</span> </span>&#123;</div><div class="line">		<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleByBossSelf</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		IBoss boss = <span class="keyword">new</span> Boss();</div><div class="line">		System.out.println(<span class="string">"老板自营！"</span>);</div><div class="line">		<span class="keyword">int</span> money = boss.yifu(<span class="string">"xxl"</span>);</div><div class="line">		System.out.println(<span class="string">"衣服成交价："</span> + money);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">代理类========================================</div><div class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyBoss</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 对接口方法进行代理</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getProxy</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> discountCoupon,</span></span></div><div class="line"><span class="function"><span class="params">			<span class="keyword">final</span> Class&lt;?&gt; interfaceClass, <span class="keyword">final</span> Class&lt;?&gt; implementsClass)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="keyword">return</span> (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),</div><div class="line">				<span class="keyword">new</span> Class[] &#123; interfaceClass &#125;, <span class="keyword">new</span> InvocationHandler() &#123;</div><div class="line">					<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method,</span></span></div><div class="line"><span class="function"><span class="params">							Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">						Integer returnValue = (Integer) method.invoke(</div><div class="line">								implementsClass.newInstance(), args);<span class="comment">// 调用原始对象以后返回的值</span></div><div class="line">						<span class="keyword">return</span> returnValue - discountCoupon;</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">新业务调用=======================================</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> cn.itcast_05_proxy.proxyclass.ProxyBoss;</div><div class="line"><span class="keyword">import</span> cn.itcast_05_proxy.service.IBoss;</div><div class="line"><span class="keyword">import</span> cn.itcast_05_proxy.service.impl.Boss;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 什么是动态代理？ 简单的写一个模板接口，剩下的个性化工作，好给动态代理来完成！</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxySaleAction</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *使用代理，在这个代理中，只代理了Boss的yifu方法</span></div><div class="line"><span class="comment">	 *定制化业务，可以改变原接口的参数、返回值等</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleByProxy</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		IBoss boss = ProxyBoss.getProxy(<span class="number">10</span>,IBoss.class,Boss.class);<span class="comment">// 将代理的方法实例化成接口</span></div><div class="line">		<span class="comment">//IBoss boss = new Boss();// 将代理的方法实例化成接口</span></div><div class="line">		System.out.println(<span class="string">"代理经营！"</span>);</div><div class="line">		<span class="keyword">int</span> money = boss.yifu(<span class="string">"xxl"</span>);<span class="comment">// 调用接口的方法，实际上调用方式没有变</span></div><div class="line">		System.out.println(<span class="string">"衣服成交价："</span> + money);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;动态代理&quot;&gt;&lt;a href=&quot;#动态代理&quot; class=&quot;headerlink&quot; title=&quot;动态代理&quot;&gt;&lt;/a&gt;动态代理&lt;/h1&gt;&lt;p&gt;在之前的代码调用阶段，我们用action调用service的方法实现业务即可。&lt;br&gt;由于之前在service中实现的业务可
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
+      <category term="动态代理" scheme="https://blog.signalfire2017.com/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据0403-java反射</title>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0403-java%E5%8F%8D%E5%B0%84/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据0403-java反射/</id>
+    <published>2017-12-03T08:34:00.000Z</published>
+    <updated>2017-12-03T10:30:25.769Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过反射的方式可以获取class对象中的属性、方法、构造函数等:<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast_04_reflect;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Field;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReflect</span> </span>&#123;</div><div class="line">	<span class="keyword">public</span> String className = <span class="keyword">null</span>;</div><div class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"rawtypes"</span>)</div><div class="line">	<span class="keyword">public</span> Class personClass = <span class="keyword">null</span>;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * 反射Person类</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception </span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Before</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		className = <span class="string">"cn.itcast_04_reflect.Person"</span>;</div><div class="line">		personClass = Class.forName(className);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获取某个class文件对象</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getClassName</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(personClass);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获取某个class文件对象的另一种方式</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getClassName2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(Person.class);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *创建一个class文件表示的实例对象，底层会调用空参数的构造方法</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getNewInstance</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(personClass.newInstance());</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获取非私有的构造函数</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(&#123; <span class="string">"rawtypes"</span>, <span class="string">"unchecked"</span> &#125;)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPublicConstructor</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		Constructor  constructor  = personClass.getConstructor(Long.class,String.class);</div><div class="line">		Person person = (Person)constructor.newInstance(<span class="number">100L</span>,<span class="string">"zhangsan"</span>);</div><div class="line">		System.out.println(person.getId());</div><div class="line">		System.out.println(person.getName());</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获得私有的构造函数</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(&#123; <span class="string">"rawtypes"</span>, <span class="string">"unchecked"</span> &#125;)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPrivateConstructor</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		Constructor con = personClass.getDeclaredConstructor(String.class);</div><div class="line">		con.setAccessible(<span class="keyword">true</span>);<span class="comment">//强制取消Java的权限检测</span></div><div class="line">		Person person2 = (Person)con.newInstance(<span class="string">"zhangsan"</span>);</div><div class="line">		System.out.println(<span class="string">"**"</span>+person2.getName());</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *访问非私有的成员变量</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(&#123; <span class="string">"rawtypes"</span>, <span class="string">"unchecked"</span> &#125;)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getNotPrivateField</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		Constructor  constructor  = personClass.getConstructor(Long.class,String.class);</div><div class="line">		Object obj = constructor.newInstance(<span class="number">100L</span>,<span class="string">"zhangsan"</span>);</div><div class="line">		</div><div class="line">		Field field = personClass.getField(<span class="string">"name"</span>);</div><div class="line">		field.set(obj, <span class="string">"lisi"</span>);</div><div class="line">		System.out.println(field.get(obj));</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *访问私有的成员变量</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(&#123; <span class="string">"rawtypes"</span>, <span class="string">"unchecked"</span> &#125;)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPrivateField</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		Constructor  constructor  = personClass.getConstructor(Long.class);</div><div class="line">		Object obj = constructor.newInstance(<span class="number">100L</span>);</div><div class="line">		</div><div class="line">		Field field2 = personClass.getDeclaredField(<span class="string">"id"</span>);</div><div class="line">		field2.setAccessible(<span class="keyword">true</span>);<span class="comment">//强制取消Java的权限检测</span></div><div class="line">		field2.set(obj,<span class="number">10000L</span>);</div><div class="line">		System.out.println(field2.get(obj));</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获取非私有的成员函数</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(&#123; <span class="string">"unchecked"</span> &#125;)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getNotPrivateMethod</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		System.out.println(personClass.getMethod(<span class="string">"toString"</span>));</div><div class="line">		</div><div class="line">		Object obj = personClass.newInstance();<span class="comment">//获取空参的构造函数</span></div><div class="line">		Method toStringMethod = personClass.getMethod(<span class="string">"toString"</span>);</div><div class="line">		Object object = toStringMethod.invoke(obj);</div><div class="line">		System.out.println(object);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *获取私有的成员函数</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPrivateMethod</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		Object obj = personClass.newInstance();<span class="comment">//获取空参的构造函数</span></div><div class="line">		Method method = personClass.getDeclaredMethod(<span class="string">"getSomeThing"</span>);</div><div class="line">		method.setAccessible(<span class="keyword">true</span>);</div><div class="line">		Object value = method.invoke(obj);</div><div class="line">		System.out.println(value);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 *</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">otherMethod</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="comment">//当前加载这个class文件的那个类加载器对象</span></div><div class="line">		System.out.println(personClass.getClassLoader());</div><div class="line">		<span class="comment">//获取某个类实现的所有接口</span></div><div class="line">		Class[] interfaces = personClass.getInterfaces();</div><div class="line">		<span class="keyword">for</span> (Class class1 : interfaces) &#123;</div><div class="line">			System.out.println(class1);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//反射当前这个类的直接父类</span></div><div class="line">		System.out.println(personClass.getGenericSuperclass());</div><div class="line">		<span class="comment">/**</span></div><div class="line"><span class="comment">		 * getResourceAsStream这个方法可以获取到一个输入流，这个输入流会关联到name所表示的那个文件上。</span></div><div class="line"><span class="comment">		 */</span></div><div class="line">		<span class="comment">//path 不以’/'开头时默认是从此类所在的包下取资源，以’/'开头则是从ClassPath根下获取。其只是通过path构造一个绝对路径，最终还是由ClassLoader获取资源。</span></div><div class="line">		System.out.println(personClass.getResourceAsStream(<span class="string">"/log4j.properties"</span>));</div><div class="line">		System.out.println(personClass.getResourceAsStream(<span class="string">"log4j.properties"</span>));</div><div class="line">		</div><div class="line">		<span class="comment">//判断当前的Class对象表示是否是数组</span></div><div class="line">		System.out.println(personClass.isArray());</div><div class="line">		System.out.println(<span class="keyword">new</span> String[<span class="number">3</span>].getClass().isArray());</div><div class="line">		</div><div class="line">		<span class="comment">//判断当前的Class对象表示是否是枚举类</span></div><div class="line">		System.out.println(personClass.isEnum());</div><div class="line">		System.out.println(Class.forName(<span class="string">"cn.itcast_04_reflect.City"</span>).isEnum());</div><div class="line">		</div><div class="line">		<span class="comment">//判断当前的Class对象表示是否是接口</span></div><div class="line">		System.out.println(personClass.isInterface());</div><div class="line">		System.out.println(Class.forName(<span class="string">"cn.itcast_04_reflect.TestInterface"</span>).isInterface());</div><div class="line">		</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过反射的方式可以获取class对象中的属性、方法、构造函数等:&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
+      <category term="反射" scheme="https://blog.signalfire2017.com/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据0402-JMS activeMQ</title>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0402-JMS%20activeMQ/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据0402-JMS activeMQ/</id>
+    <published>2017-12-03T06:57:03.000Z</published>
+    <updated>2017-12-03T10:30:08.487Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="java-JMS技术"><a href="#java-JMS技术" class="headerlink" title="java JMS技术"></a>java JMS技术</h1><h2 id="什么是JMS"><a href="#什么是JMS" class="headerlink" title="什么是JMS"></a>什么是JMS</h2><p>JMS即Java<font color="red">消息服务（Java Message Service）</font>应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。<br>JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Java Database Connectivity)：这里，JDBC 是可以用来访问许多不同关系数据库的 API，而 JMS 则提供同样与厂商无关的访问方法，以访问消息收发服务。许多厂商都支持 JMS，包括 IBM 的 MQSeries、BEA的 Weblogic JMS service和 Progress 的 SonicMQ，这只是几个例子。 JMS 使您能够通过消息收发服务（有时称为消息中介程序或路由器）从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS 中的一种类型对象，由两部分组成：报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带：简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。</p>
+<h2 id="JMS规范"><a href="#JMS规范" class="headerlink" title="JMS规范"></a>JMS规范</h2><h3 id="专业技术规范"><a href="#专业技术规范" class="headerlink" title="专业技术规范"></a>专业技术规范</h3><p>JMS（Java Messaging Service）是Java平台上有关面向消息中间件(MOM)的技术规范，它便于消息系统中的Java应用程序进行消息交换,并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。</p>
+<h3 id="体系架构"><a href="#体系架构" class="headerlink" title="体系架构"></a>体系架构</h3><p>JMS由以下元素组成。</p>
+<ul>
+<li>JMS提供者provider：连接面向消息中间件的，JMS接口的一个实现。提供者可以是Java平台的JMS实现，也可以是非Java平台的面向消息中间件的适配器。</li>
+<li>JMS客户：生产或消费基于消息的Java的应用程序或对象。</li>
+<li>JMS生产者：创建并发送消息的JMS客户。</li>
+<li>JMS消费者：接收消息的JMS客户。</li>
+<li>JMS消息：包括可以在JMS客户之间传递的数据的对象</li>
+<li>JMS队列：一个容纳那些被发送的等待阅读的消息的区域。与队列名字所暗示的意思不同，消息的接受顺序并不一定要与消息的发送顺序相同。一旦一个消息被阅读，该消息将被从队列中移走。</li>
+<li>JMS主题：一种支持发送消息给多个订阅者的机制。</li>
+</ul>
+<h3 id="Java消息服务应用程序结构支持两种模型"><a href="#Java消息服务应用程序结构支持两种模型" class="headerlink" title="Java消息服务应用程序结构支持两种模型"></a>Java消息服务应用程序结构支持两种模型</h3><h4 id="点对点或队列模型"><a href="#点对点或队列模型" class="headerlink" title="点对点或队列模型"></a>点对点或队列模型</h4><p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png" alt="201712315592"><br>这种模式被概括为：  </p>
+<ul>
+<li>只有一个消费者将获得消息</li>
+<li>生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态。</li>
+<li>每一个成功处理的消息都由接收者签收</li>
+</ul>
+<h4 id="发布者-订阅者模型"><a href="#发布者-订阅者模型" class="headerlink" title="发布者/订阅者模型"></a>发布者/订阅者模型</h4><p>发布者/订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png" alt="2017123155942"><br>这种模式被概括为：</p>
+<ul>
+<li>多个消费者可以获得消息</li>
+<li>在发布者和订阅者之间存在时间依赖性。发布者需要建立一个订阅（subscription），以便客户能够订阅。订阅者必须保持持续的活动状态以接收消息，除非订阅者建立了持久的订阅。在那种情况下，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布。</li>
+</ul>
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><h2 id="下载ActiveMQ"><a href="#下载ActiveMQ" class="headerlink" title="下载ActiveMQ"></a>下载ActiveMQ</h2><p>去官方网站下载：<a href="http://activemq.apache.org/" target="_blank" rel="external">http://activemq.apache.org/</a></p>
+<h2 id="运行ActiveMQ"><a href="#运行ActiveMQ" class="headerlink" title="运行ActiveMQ"></a>运行ActiveMQ</h2><p>解压缩apache-activemq-5.5.1-bin.zip，<br>修改配置文件activeMQ.xml，将0.0.0.0修改为localhost<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transportConnectors</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"openwire"</span> <span class="attr">uri</span>=<span class="string">"tcp://localhost:61616"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"ssl"</span>     <span class="attr">uri</span>=<span class="string">"ssl://localhost:61617"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"stomp"</span>   <span class="attr">uri</span>=<span class="string">"stomp://localhost:61613"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"http://localhost:8081"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"udp://localhost:61618"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后双击apache-activemq-5.5.1\bin\activemq.bat运行ActiveMQ程序。<br>启动ActiveMQ以后，登陆：<a href="http://localhost:8161/admin/，创建一个Queue，命名为FirstQueue。" target="_blank" rel="external">http://localhost:8161/admin/，创建一个Queue，命名为FirstQueue。</a>  </p>
+<h1 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h1><h2 id="常用的JMS实现"><a href="#常用的JMS实现" class="headerlink" title="常用的JMS实现"></a>常用的JMS实现</h2><p>要使用Java消息服务，你必须要有一个JMS提供者，管理会话和队列。既有开源的提供者也有专有的提供者。<br>开源的提供者包括：</p>
+<ul>
+<li>Apache ActiveMQ</li>
+<li>JBoss 社区所研发的 HornetQ</li>
+<li>Joram</li>
+<li>Coridan的MantaRay</li>
+<li>The OpenJMS Group的OpenJMS</li>
+<li>专有的提供者包括：</li>
+<li>BEA的BEA WebLogic Server JMS</li>
+<li>TIBCO Software的EMS</li>
+<li>GigaSpaces Technologies的GigaSpaces</li>
+<li>Softwired 2006的iBus</li>
+<li>IONA Technologies的IONA JMS</li>
+<li>SeeBeyond的IQManager（2005年8月被Sun Microsystems并购）</li>
+<li>webMethods的JMS+ -</li>
+<li>my-channels的Nirvana</li>
+<li>Sonic Software的SonicMQ</li>
+<li>SwiftMQ的SwiftMQ</li>
+<li>IBM的WebSphere MQ</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast_03_mq.topic;</div><div class="line"><span class="keyword">import</span> javax.jms.Connection;      </div><div class="line"><span class="keyword">import</span> javax.jms.DeliveryMode;      </div><div class="line"><span class="keyword">import</span> javax.jms.Destination;      </div><div class="line"><span class="keyword">import</span> javax.jms.JMSException;      </div><div class="line"><span class="keyword">import</span> javax.jms.MessageProducer;      </div><div class="line"><span class="keyword">import</span> javax.jms.Session;      </div><div class="line"><span class="keyword">import</span> javax.jms.TextMessage;      </div><div class="line">     </div><div class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnection;      </div><div class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnectionFactory;      </div><div class="line">     </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProducerTool</span> </span>&#123;        </div><div class="line">    <span class="keyword">private</span> String user = ActiveMQConnection.DEFAULT_USER;         </div><div class="line">    <span class="keyword">private</span> String password = ActiveMQConnection.DEFAULT_PASSWORD;       </div><div class="line">    <span class="keyword">private</span> String url = ActiveMQConnection.DEFAULT_BROKER_URL;       </div><div class="line">    <span class="keyword">private</span> String subject = <span class="string">"mytopic"</span>;      </div><div class="line">    <span class="keyword">private</span> Destination destination = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> Connection connection = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> Session session = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> MessageProducer producer = <span class="keyword">null</span>;</div><div class="line">    <span class="comment">// 初始化      </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> <span class="keyword">throws</span> JMSException, Exception </span>&#123;      </div><div class="line">        ActiveMQConnectionFactory connectionFactory = <span class="keyword">new</span> ActiveMQConnectionFactory(      </div><div class="line">                user, password, url);      </div><div class="line">        connection = connectionFactory.createConnection();      </div><div class="line">        session = connection.createSession(<span class="keyword">false</span>, Session.AUTO_ACKNOWLEDGE);      </div><div class="line">        destination = session.createTopic(subject);      </div><div class="line">        producer = session.createProducer(destination);      </div><div class="line">        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);      </div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 发送消息      </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produceMessage</span><span class="params">(String message)</span> <span class="keyword">throws</span> JMSException, Exception </span>&#123;      </div><div class="line">        initialize();      </div><div class="line">        TextMessage msg = session.createTextMessage(message);      </div><div class="line">        connection.start();      </div><div class="line">        System.out.println(<span class="string">"Producer:-&gt;Sending message: "</span> + message);      </div><div class="line">        producer.send(msg);      </div><div class="line">        System.out.println(<span class="string">"Producer:-&gt;Message sent complete!"</span>);      </div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 关闭连接      </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> JMSException </span>&#123;      </div><div class="line">        System.out.println(<span class="string">"Producer:-&gt;Closing connection"</span>);      </div><div class="line">        <span class="keyword">if</span> (producer != <span class="keyword">null</span>)      </div><div class="line">            producer.close();      </div><div class="line">        <span class="keyword">if</span> (session != <span class="keyword">null</span>)      </div><div class="line">            session.close();      </div><div class="line">        <span class="keyword">if</span> (connection != <span class="keyword">null</span>)      </div><div class="line">            connection.close();      </div><div class="line">    &#125;      </div><div class="line">&#125;        </div><div class="line"></div><div class="line">----------------------------------------------------------</div><div class="line"><span class="keyword">package</span> cn.itcast_03_mq.topic;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.jms.JMSException;      </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProducerTest</span> </span>&#123;      </div><div class="line">     </div><div class="line">    <span class="comment">/**    </span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> args    </span></div><div class="line"><span class="comment">     */</span>     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> JMSException, Exception </span>&#123;      </div><div class="line">        ProducerTool producer = <span class="keyword">new</span> ProducerTool(); </div><div class="line">        Random random = <span class="keyword">new</span> Random();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)&#123;</div><div class="line">        	</div><div class="line">        	Thread.sleep(random.nextInt(<span class="number">10</span>)*<span class="number">1000</span>);</div><div class="line">        	</div><div class="line">        	producer.produceMessage(<span class="string">"Hello, world!--"</span>+i);      </div><div class="line">        	producer.close();</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;      </div><div class="line">&#125;      </div><div class="line"></div><div class="line">----------------------------------------------------------</div><div class="line"><span class="keyword">package</span> cn.itcast_03_mq.topic;</div><div class="line"><span class="keyword">import</span> javax.jms.Connection;      </div><div class="line"><span class="keyword">import</span> javax.jms.Destination;      </div><div class="line"><span class="keyword">import</span> javax.jms.ExceptionListener;</div><div class="line"><span class="keyword">import</span> javax.jms.JMSException;      </div><div class="line"><span class="keyword">import</span> javax.jms.MessageConsumer;      </div><div class="line"><span class="keyword">import</span> javax.jms.Session;      </div><div class="line"><span class="keyword">import</span> javax.jms.MessageListener;      </div><div class="line"><span class="keyword">import</span> javax.jms.Message;      </div><div class="line"><span class="keyword">import</span> javax.jms.TextMessage;      </div><div class="line">     </div><div class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnection;      </div><div class="line"><span class="keyword">import</span> org.apache.activemq.ActiveMQConnectionFactory;      </div><div class="line">     </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsumerTool</span> <span class="keyword">implements</span> <span class="title">MessageListener</span>,<span class="title">ExceptionListener</span> </span>&#123;      </div><div class="line">    <span class="keyword">private</span> String user = ActiveMQConnection.DEFAULT_USER;      </div><div class="line">    <span class="keyword">private</span> String password = ActiveMQConnection.DEFAULT_PASSWORD;      </div><div class="line">    <span class="keyword">private</span> String url =ActiveMQConnection.DEFAULT_BROKER_URL;      </div><div class="line">    <span class="keyword">private</span> String subject = <span class="string">"mytopic"</span>;      </div><div class="line">    <span class="keyword">private</span> Destination destination = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> Connection connection = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> Session session = <span class="keyword">null</span>;      </div><div class="line">    <span class="keyword">private</span> MessageConsumer consumer = <span class="keyword">null</span>;  </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Boolean isconnection=<span class="keyword">false</span>;</div><div class="line">    <span class="comment">// 初始化      </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> <span class="keyword">throws</span> JMSException, Exception </span>&#123;      </div><div class="line">        ActiveMQConnectionFactory connectionFactory = <span class="keyword">new</span> ActiveMQConnectionFactory(      </div><div class="line">                user, password, url);      </div><div class="line">        connection = connectionFactory.createConnection();      </div><div class="line">        session = connection.createSession(<span class="keyword">false</span>, Session.AUTO_ACKNOWLEDGE);      </div><div class="line">        destination = session.createTopic(subject);      </div><div class="line">        consumer = session.createConsumer(destination);     </div><div class="line">    &#125;      </div><div class="line">     </div><div class="line">    <span class="comment">// 消费消息      </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">consumeMessage</span><span class="params">()</span> <span class="keyword">throws</span> JMSException, Exception </span>&#123;      </div><div class="line">        initialize();      </div><div class="line">        connection.start();</div><div class="line">        consumer.setMessageListener(<span class="keyword">this</span>);    </div><div class="line">        connection.setExceptionListener(<span class="keyword">this</span>);</div><div class="line">        isconnection=<span class="keyword">true</span>;</div><div class="line">        System.out.println(<span class="string">"Consumer:-&gt;Begin listening..."</span>);      </div><div class="line">        <span class="comment">// 开始监听  </span></div><div class="line">        <span class="comment">// Message message = consumer.receive();      </span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 关闭连接      </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> JMSException </span>&#123;      </div><div class="line">        System.out.println(<span class="string">"Consumer:-&gt;Closing connection"</span>);      </div><div class="line">        <span class="keyword">if</span> (consumer != <span class="keyword">null</span>)      </div><div class="line">            consumer.close();      </div><div class="line">        <span class="keyword">if</span> (session != <span class="keyword">null</span>)      </div><div class="line">            session.close();      </div><div class="line">        <span class="keyword">if</span> (connection != <span class="keyword">null</span>)      </div><div class="line">            connection.close();      </div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 消息处理函数      </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(Message message)</span> </span>&#123;      </div><div class="line">        <span class="keyword">try</span> &#123;      </div><div class="line">            <span class="keyword">if</span> (message <span class="keyword">instanceof</span> TextMessage) &#123;      </div><div class="line">                TextMessage txtMsg = (TextMessage) message;      </div><div class="line">                String msg = txtMsg.getText();      </div><div class="line">                System.out.println(<span class="string">"Consumer:-&gt;Received: "</span> + msg);      </div><div class="line">            &#125; <span class="keyword">else</span> &#123;      </div><div class="line">                System.out.println(<span class="string">"Consumer:-&gt;Received: "</span> + message);      </div><div class="line">            &#125;      </div><div class="line">        &#125; <span class="keyword">catch</span> (JMSException e) &#123;      </div><div class="line">            <span class="comment">// TODO Auto-generated catch block      </span></div><div class="line">            e.printStackTrace();      </div><div class="line">        &#125;      </div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onException</span><span class="params">(JMSException arg0)</span> </span>&#123;</div><div class="line">		isconnection=<span class="keyword">false</span>;</div><div class="line">	&#125;      </div><div class="line">&#125;      </div><div class="line">----------------------------------------------------------     </div><div class="line"><span class="keyword">package</span> cn.itcast_03_mq.topic;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.jms.JMSException;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsumerTest</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> Thread t1 = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> args</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> InterruptedException</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> InterruptedException</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> JMSException</span></div><div class="line"><span class="comment">	 * <span class="doctag">@throws</span> InterruptedException</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line"></div><div class="line">		t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> ConsumerTest());</div><div class="line">		t1.setDaemon(<span class="keyword">false</span>);</div><div class="line">		t1.start();</div><div class="line">		<span class="comment">/**</span></div><div class="line"><span class="comment">		 * 如果发生异常，则重启consumer</span></div><div class="line"><span class="comment">		 */</span></div><div class="line">		<span class="comment">/*while (true) &#123;</span></div><div class="line"><span class="comment">			System.out.println(t1.isAlive());</span></div><div class="line"><span class="comment">			if (!t1.isAlive()) &#123;</span></div><div class="line"><span class="comment">				t1 = new Thread(new ConsumerTest());</span></div><div class="line"><span class="comment">				t1.start();</span></div><div class="line"><span class="comment">				System.out.println("重新启动");</span></div><div class="line"><span class="comment">			&#125;</span></div><div class="line"><span class="comment">			Thread.sleep(5000);</span></div><div class="line"><span class="comment">		&#125;*/</span></div><div class="line">		<span class="comment">// 延时500毫秒之后停止接受消息</span></div><div class="line">		<span class="comment">// Thread.sleep(500);</span></div><div class="line">		<span class="comment">// consumer.close();</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			ConsumerTool consumer = <span class="keyword">new</span> ConsumerTool();</div><div class="line">			consumer.consumeMessage();</div><div class="line">			<span class="keyword">while</span> (ConsumerTool.isconnection) &#123;	</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;java-JMS技术&quot;&gt;&lt;a href=&quot;#java-JMS技术&quot; class=&quot;headerlink&quot; title=&quot;java JMS技术&quot;&gt;&lt;/a&gt;java JMS技术&lt;/h1&gt;&lt;h2 id=&quot;什么是JMS&quot;&gt;&lt;a href=&quot;#什么是JMS&quot; class=&quot;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
+      <category term="JMS" scheme="https://blog.signalfire2017.com/tags/JMS/"/>
+    
+      <category term="activeMQ" scheme="https://blog.signalfire2017.com/tags/activeMQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大数据0401-java多线程并发</title>
+    <link href="https://blog.signalfire2017.com/2017/12/01/%E5%A4%A7%E6%95%B0%E6%8D%AE0401-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91/"/>
+    <id>https://blog.signalfire2017.com/2017/12/01/大数据0401-java多线程并发/</id>
     <published>2017-12-01T14:59:38.000Z</published>
-    <updated>2017-12-01T15:55:48.066Z</updated>
+    <updated>2017-12-03T08:23:15.948Z</updated>
     
     <content type="html"><![CDATA[<p>内容包含</p>
 <ol>
 <li>掌握多线程</li>
 <li>掌握并发包下的队列</li>
-<li>了解JMS</li>
-<li>掌握JVM技术</li>
-<li>掌握反射和动态代理</li>
 </ol>
 <p>做个笔记，方便查看<br><a id="more"></a></p>
 <h1 id="java多线程增强"><a href="#java多线程增强" class="headerlink" title="java多线程增强"></a>java多线程增强</h1><h2 id="进程介绍"><a href="#进程介绍" class="headerlink" title="进程介绍"></a>进程介绍</h2><p>不管是我们开发的应用程序，还是我们运行的其他的应用程序，都需要先把程序安装在本地的硬盘上。然后找到这个程序的启动文件，启动程序的时候，其实是电脑把当前的这个程序加载到内存中，在<font color="red">内存中需要给当前的程序分配一段独立的运行空间</font>。这片空间就专门负责当前这个程序的运行。  </p>
@@ -167,9 +385,6 @@
 &lt;ol&gt;
 &lt;li&gt;掌握多线程&lt;/li&gt;
 &lt;li&gt;掌握并发包下的队列&lt;/li&gt;
-&lt;li&gt;了解JMS&lt;/li&gt;
-&lt;li&gt;掌握JVM技术&lt;/li&gt;
-&lt;li&gt;掌握反射和动态代理&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;做个笔记，方便查看&lt;br&gt;
     
@@ -1367,475 +1582,6 @@ tmpfs                    245M       0  245M    0% /sys/fs/cgroup
       <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
     
       <category term="mysql" scheme="https://blog.signalfire2017.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos7 开放端口</title>
-    <link href="https://blog.signalfire2017.com/2017/11/04/centos7-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/"/>
-    <id>https://blog.signalfire2017.com/2017/11/04/centos7-开放端口/</id>
-    <published>2017-11-04T14:15:10.000Z</published>
-    <updated>2017-11-05T10:15:25.250Z</updated>
-    
-    <content type="html"><![CDATA[<p>CentOS升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：</p>
-<p>开启端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</div></pre></td></tr></table></figure>
-<p>命令含义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--zone #作用域</div><div class="line"></div><div class="line">--add-port=80/tcp  #添加端口，格式为：端口/通讯协议</div><div class="line"></div><div class="line">--permanent  #永久生效，没有此参数重启后失效</div></pre></td></tr></table></figure>
-<p>重启防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --reload</div></pre></td></tr></table></figure>
-<p>查看开启了那些端口</p>
-<blockquote>
-<p>/sbin/iptables -L -n</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CentOS升级到7之后，发现无法使用iptables控制Linuxs的端口，google之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：&lt;/p&gt;
-&lt;p&gt;开启端口&lt;/p&gt;
-&lt;figure cl
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-02 linux命令继续学习 yum</title>
-    <link href="https://blog.signalfire2017.com/2017/11/01/%E5%A4%A7%E6%95%B0%E6%8D%AE02-02-linux%E5%91%BD%E4%BB%A4%E7%BB%A7%E7%BB%AD%E5%AD%A6%E4%B9%A0-yum/"/>
-    <id>https://blog.signalfire2017.com/2017/11/01/大数据02-02-linux命令继续学习-yum/</id>
-    <published>2017-11-01T15:50:39.000Z</published>
-    <updated>2017-11-14T15:12:52.333Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="YUM的常用命令"><a href="#YUM的常用命令" class="headerlink" title="YUM的常用命令"></a>YUM的常用命令</h1><p>安装httpd并确认安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum instll -y httpd</div></pre></td></tr></table></figure></p>
-<p>列出所有可用的package和package组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum list</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>清除所有缓冲数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum clean all</div></pre></td></tr></table></figure></p>
-<p>列出一个包所有依赖的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum deplist httpd</div></pre></td></tr></table></figure></p>
-<p>删除httpd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum remove httpd</div></pre></td></tr></table></figure></p>
-<h1 id="配置本地yum源"><a href="#配置本地yum源" class="headerlink" title="配置本地yum源"></a>配置本地yum源</h1><p>cd /etc/yum.repos.d </p>
-<h1 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h1><p>解压安装包</p>
-<blockquote>
-<p>tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/</p>
-</blockquote>
-<p>然后修改环境变量</p>
-<blockquote>
-<p>vi /etc/profile</p>
-</blockquote>
-<p>在文件最后添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/root/apps/jdk1.7.0_45</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin</div></pre></td></tr></table></figure></p>
-<p>保存退出</p>
-<p>然后重新加载环境变量</p>
-<blockquote>
-<p>source /etc/profile</p>
-</blockquote>
-<h1 id="装mysql"><a href="#装mysql" class="headerlink" title="装mysql"></a>装mysql</h1><h1 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h1><ol>
-<li>上传tomcat包</li>
-<li>解压</li>
-<li>启动</li>
-<li>测试访问</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;YUM的常用命令&quot;&gt;&lt;a href=&quot;#YUM的常用命令&quot; class=&quot;headerlink&quot; title=&quot;YUM的常用命令&quot;&gt;&lt;/a&gt;YUM的常用命令&lt;/h1&gt;&lt;p&gt;安装httpd并确认安装&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum instll -y httpd&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;列出所有可用的package和package组&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum list&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo next 搜索 algolia</title>
-    <link href="https://blog.signalfire2017.com/2017/10/30/hexo-next-%E6%90%9C%E7%B4%A2-algolia/"/>
-    <id>https://blog.signalfire2017.com/2017/10/30/hexo-next-搜索-algolia/</id>
-    <published>2017-10-30T14:48:47.000Z</published>
-    <updated>2017-11-14T16:18:06.015Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="目的-添加搜索功能"><a href="#目的-添加搜索功能" class="headerlink" title="目的:添加搜索功能"></a>目的:添加搜索功能</h1><p>algolia似乎是试用一段时间就不能用了,建议使用本地搜索<br><a href="/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/#more">hexo-next 本地搜索</a>  </p>
-<p>#next版本<br>我的版本号是<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Theme version</div><div class="line">version: <span class="number">5.1</span>.2</div></pre></td></tr></table></figure></p>
-<p>next5.0+版本集成了algolia 这样使配置algolia更简单</p>
-<h1 id="algolia账号申请"><a href="#algolia账号申请" class="headerlink" title="algolia账号申请"></a>algolia账号申请</h1><p><a href="https://www.algolia.com/" target="_blank" rel="external">Algolia官网</a><br><a id="more"></a></p>
-<ul>
-<li>直接用github账号注册就好啦</li>
-<li>创建index空间 输入一个名称,填写你自己站点的网址</li>
-</ul>
-<p><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220402.jpg" alt="1"></p>
-<ul>
-<li>创建两个key   <ol>
-<li>空间创建好后默认会有一个只有搜索权限的key  </li>
-<li>需要另建一个有修改记录等权限的key(这个供我们提交索引到空间使用)  </li>
-<li>创建key的时候要选择授权的空间</li>
-</ol>
-</li>
-</ul>
-<p><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220635.jpg" alt="3"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220735.jpg" alt="2"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220846.jpg" alt="4"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220920.jpg" alt="5"></p>
-<ul>
-<li>记录  <ol>
-<li>Application ID  </li>
-<li>两个key建</li>
-</ol>
-</li>
-</ul>
-<h1 id="安装hexo-algolia"><a href="#安装hexo-algolia" class="headerlink" title="安装hexo-algolia"></a>安装hexo-algolia</h1><p>用git-bash在hexo工程根目录下执行</p>
-<pre><code>npm install hexo-algolia --save
-</code></pre><h1 id="配置algolia"><a href="#配置algolia" class="headerlink" title="配置algolia"></a>配置algolia</h1><ul>
-<li>在Hexo工程根目录的_config.yml中加入如下配置，注意改成前面API Keys页面相应配置</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">algolia:</div><div class="line">    applicationID: <span class="string">'你的Application ID'</span></div><div class="line">    apiKey: <span class="string">'只有搜索权限的key'</span></div><div class="line">    adminApiKey: <span class="string">''</span></div><div class="line">    indexName: <span class="string">'你的index空间名称'</span></div><div class="line">    chunkSize: <span class="number">5000</span></div></pre></td></tr></table></figure>
-<ul>
-<li><p>修改themes&gt;next&gt;_config.yml </p>
-<p>  搜索 algolia_search 修改enable 为true<br>  其他字体提示可以自己随意修改<br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030223530.jpg" alt="2"></p>
-<h1 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h1><p>我的电脑&gt;右键属性&gt;高级设置&gt;环境变量&gt;新建&gt;填写变量名称和变量值</p>
-<p>  变量名称 : HEXO_ALGOLIA_INDEXING_KEY<br>  变量值: 在algolia新建的有修改权限的key<br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222934.jpg" alt="1"><br><img src="http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222951.jpg" alt="2"></p>
-<h1 id="生成index上传到algolia"><a href="#生成index上传到algolia" class="headerlink" title="生成index上传到algolia"></a>生成index上传到algolia</h1><p>在hexo根目录执行,<strong>注意确保命令行面板已经重新载入新加的环境变量</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo algolia</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>不报错就可以啦</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/luzheqi/article/details/52798557" target="_blank" rel="external">NexT主题集成Algolia搜索插件</a><br><a href="https://jobbym.github.io/2017/01/16/Hexo%E9%9B%86%E6%88%90Algolia%E6%90%9C%E7%B4%A2%E6%8F%92%E4%BB%B6/" target="_blank" rel="external">Hexo集成Algolia搜索插件</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;目的-添加搜索功能&quot;&gt;&lt;a href=&quot;#目的-添加搜索功能&quot; class=&quot;headerlink&quot; title=&quot;目的:添加搜索功能&quot;&gt;&lt;/a&gt;目的:添加搜索功能&lt;/h1&gt;&lt;p&gt;algolia似乎是试用一段时间就不能用了,建议使用本地搜索&lt;br&gt;&lt;a href=&quot;/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/#more&quot;&gt;hexo-next 本地搜索&lt;/a&gt;  &lt;/p&gt;
-&lt;p&gt;#next版本&lt;br&gt;我的版本号是&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# Theme version&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;version: &lt;span class=&quot;number&quot;&gt;5.1&lt;/span&gt;.2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;next5.0+版本集成了algolia 这样使配置algolia更简单&lt;/p&gt;
-&lt;h1 id=&quot;algolia账号申请&quot;&gt;&lt;a href=&quot;#algolia账号申请&quot; class=&quot;headerlink&quot; title=&quot;algolia账号申请&quot;&gt;&lt;/a&gt;algolia账号申请&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.algolia.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Algolia官网&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="hexo" scheme="https://blog.signalfire2017.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据01-linux安装及基本命令.md</title>
-    <link href="https://blog.signalfire2017.com/2017/10/30/%E5%A4%A7%E6%95%B0%E6%8D%AE01-linux%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>https://blog.signalfire2017.com/2017/10/30/大数据01-linux安装及基本命令/</id>
-    <published>2017-10-30T14:30:38.000Z</published>
-    <updated>2017-11-14T15:13:50.941Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="linux-文件目录"><a href="#linux-文件目录" class="headerlink" title="linux 文件目录"></a>linux 文件目录</h1><blockquote>
-<p>约定俗成</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/bin</td>
-<td>可执行文件</td>
-</tr>
-<tr>
-<td>/sbin</td>
-<td>系统可执行文件</td>
-</tr>
-<tr>
-<td>/boot</td>
-<td>跟启动相关的东西</td>
-</tr>
-<tr>
-<td>/dev</td>
-<td>设备 硬件</td>
-</tr>
-<tr>
-<td>/etc</td>
-<td>配置文件 </td>
-</tr>
-<tr>
-<td>/lib</td>
-<td>依赖包</td>
-</tr>
-<tr>
-<td>/lib64</td>
-<td>依赖包</td>
-</tr>
-<tr>
-<td>/media</td>
-<td>一些外接设备</td>
-</tr>
-<tr>
-<td>/mnt</td>
-<td>挂载</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>用户目录</td>
-</tr>
-<tr>
-<td>/usr</td>
-<td>user share resource 公用的一些软件</td>
-</tr>
-<tr>
-<td>/tmp</td>
-<td>临时文件</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<h1 id="linux-网络相关"><a href="#linux-网络相关" class="headerlink" title="linux 网络相关"></a>linux 网络相关</h1><h2 id="网卡相关"><a href="#网卡相关" class="headerlink" title="网卡相关:"></a>网卡相关:</h2><ol>
-<li>ip ：一般 1 给网关  255是广播地址</li>
-<li>gateway ： 网关</li>
-<li>netmask ： 子网掩码</li>
-<li>dns ：</li>
-</ol>
-<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><p>是用来判断自己属于哪个网段</p>
-<p>网段的计算:<br>将IP地址的二进制 &amp; 子网掩码的二进制 = 网段地址<br>例如：192.168.33.2 &amp; 255.255.255.0 = 192.168.33.0</p>
-<h3 id="dns-域名解析"><a href="#dns-域名解析" class="headerlink" title="dns 域名解析"></a>dns 域名解析</h3><ol>
-<li>从本地hosts中寻找域名 -&gt; ip映射信息</li>
-<li>如果没有则去服务器找</li>
-<li>访问服务器</li>
-</ol>
-<p>填写:</p>
-<ol>
-<li>网关地址</li>
-<li>dns服务器</li>
-</ol>
-<p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="域名工作流程"></p>
-<p>linux dns配置文件</p>
-<blockquote>
-<p>/etc/hosts</p>
-</blockquote>
-<h2 id="网络模式"><a href="#网络模式" class="headerlink" title="网络模式"></a>网络模式</h2><h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/NAT虚拟网络配置.png" alt="NAT模式图">  </p>
-<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="桥接模式图"></p>
-<h3 id="HOST-only"><a href="#HOST-only" class="headerlink" title="HOST only"></a>HOST only</h3><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/%E6%A1%A5%E6%8E%A5%E5%92%8Chostonly%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE.png" alt="host only"></p>
-<h2 id="修改linux-ip"><a href="#修改linux-ip" class="headerlink" title="修改linux ip"></a>修改linux ip</h2><p>修改主机名:  </p>
-<blockquote>
-<p>vi /etc/sysconfig/network<br>    NETWORKING=yes<br>    HOSTNAME=server1.itcast.cn</p>
-</blockquote>
-<p>修改IP地址<br>vi /etc/sysconfig/network-scripts/ifcfg-eth0  </p>
-<pre><code>DEVICE=eth0
-TYPE=Ethernet
-ONBOOT=yes          #是否开机启用
-BOOTPROTO=static    #ip地址设置为静态
-IPADDR=192.168.0.101
-NETMASK=255.255.255.0
-</code></pre><p>修改ip地址和主机名的映射关系<br>vi /etc/hosts  </p>
-<pre><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.0.101 server1.itcast.cn
-</code></pre><p>关闭iptables并设置其开机启动/不启动  </p>
-<pre><code>service iptables stop
-chkconfig iptables on
-chkconfig iptables off
-</code></pre><h1 id="linux-简单命令"><a href="#linux-简单命令" class="headerlink" title="linux 简单命令"></a>linux 简单命令</h1><p>创建文件<br>touch somefile.1 创建一个空文本<br>echo “i love u” <strong>&gt;</strong> somefile.2 利用重定向写入 覆盖原文件<br>echo “i love u” <strong>&gt;&gt;</strong> somefile.2 追加</p>
-<p>ctrl+v进入块选择模式<br>shift+v 进入行选择模式</p>
-<p>:%s/key/newword 查找并替换</p>
-<h2 id="文件权限操作"><a href="#文件权限操作" class="headerlink" title="文件权限操作"></a>文件权限操作</h2><p>drw-r–r–</p>
-<p>d：标识节点类型（d 文件夹 - 文件 l 链接)<br>r 可读 w可写 x可执行<br>拥有者 所属组 其他用户</p>
-<p>方式1 :<br>chmod g-rw somefile.1</p>
-<p>g 组 o 其他 u用户  +-(增加/删除权限)  rwx</p>
-<p>方式2 :<br>chmod 700 somfile.1</p>
-<p>文件夹及下面文件</p>
-<p>chmod -R 770 aaa/</p>
-<p>修改所有者(必须要root用户)<br>chown angela:angela aaa/   组/用户</p>
-<h2 id="基本的用户管理"><a href="#基本的用户管理" class="headerlink" title="基本的用户管理"></a>基本的用户管理</h2><p>添加用户</p>
-<p>useradd nagela<br>修改密码<br>passwd nagela 按提示输入密码即可</p>
-<p>sudo useradd xiaobai</p>
-<p>为用户配置sudo权限<br>用root编辑<br>vi /etc/sudoers<br>在文件如下位置,为hadoop添加一行即可<br>root ALL=(ALL) ALL<br>hadoop ALL=(ALL) ALL  </p>
-<h2 id="系统管理操作"><a href="#系统管理操作" class="headerlink" title="系统管理操作"></a>系统管理操作</h2><p>1.查看主机名<br>hostname</p>
-<p>2.修改主机名(重启后无效)<br>hostname hadoop</p>
-<p>3.修改主机名(重启后永久生效)<br>vi /ect/sysconfig/network</p>
-<p>4.修改IP(重启后无效)<br>ifconfig eth0 192.168.12.22</p>
-<p>5.修改IP(重启后永久生效)<br>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>6.查看系统信息<br>uname -a<br>uname -r</p>
-<p>7.查看ID命令<br>id -u<br>id -g</p>
-<p>8.日期<br>date<br>date +%Y-%m-%d<br>date +%T<br>date +%Y-%m-%d” “%T</p>
-<p>9.日历<br>cal 2012</p>
-<p>10.查看文件信息<br>file filename</p>
-<p>11.挂载硬盘<br>mount<br>umount<br>加载windows共享<br>mount -t cifs //192.168.1.100/tools /mnt</p>
-<p>挂载cdrom 里面是iso镜像文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom</div><div class="line">[root@server1 mnt]# ll cdrom/</div><div class="line">total 654</div><div class="line">-rw-r--r-- 1 root root     14 Dec  5  2016 CentOS_BuildTag</div><div class="line">drwxr-xr-x 3 root root   2048 Dec  5  2016 EFI</div><div class="line">-rw-r--r-- 1 root root    215 Dec  9  2015 EULA</div><div class="line">-rw-r--r-- 1 root root  18009 Dec  9  2015 GPL</div><div class="line">drwxr-xr-x 3 root root   2048 Dec  5  2016 images</div><div class="line">drwxr-xr-x 2 root root   2048 Dec  5  2016 isolinux</div><div class="line">drwxr-xr-x 2 root root   2048 Dec  5  2016 LiveOS</div><div class="line">drwxrwxr-x 2 root root 630784 Dec  5  2016 Packages</div><div class="line">drwxrwxr-x 2 root root   4096 Dec  5  2016 repodata</div><div class="line">-rw-r--r-- 1 root root   1690 Dec  9  2015 RPM-GPG-KEY-CentOS-7</div><div class="line">-rw-r--r-- 1 root root   1690 Dec  9  2015 RPM-GPG-KEY-CentOS-Testing-7</div><div class="line">-r--r--r-- 1 root root   2883 Dec  5  2016 TRANS.TBL</div></pre></td></tr></table></figure></p>
-<p>12.查看文件大小<br>du -h<br>du -ah</p>
-<p>13.查看分区<br>df -h</p>
-<p>14.ssh<br>ssh hadoop@192.168.1.1</p>
-<p>15.关机<br>shutdown -h now /init 0<br>shutdown -r now /reboot</p>
-<h1 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h1><p><img src="http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt=""></p>
-<p>假如 A  要登陆  B<br>在A上操作：<br>首先生成密钥对</p>
-<pre><code>ssh-keygen   (提示时，直接回车即可)
-</code></pre><p>再将A自己的公钥拷贝并追加到B的授权列表文件authorized_keys中</p>
-<pre><code>ssh-copy-id   B
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;linux-文件目录&quot;&gt;&lt;a href=&quot;#linux-文件目录&quot; class=&quot;headerlink&quot; title=&quot;linux 文件目录&quot;&gt;&lt;/a&gt;linux 文件目录&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;约定俗成&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;目录&lt;/th&gt;
-&lt;th&gt;功能&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;/bin&lt;/td&gt;
-&lt;td&gt;可执行文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/sbin&lt;/td&gt;
-&lt;td&gt;系统可执行文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/boot&lt;/td&gt;
-&lt;td&gt;跟启动相关的东西&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/dev&lt;/td&gt;
-&lt;td&gt;设备 硬件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/etc&lt;/td&gt;
-&lt;td&gt;配置文件 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/lib&lt;/td&gt;
-&lt;td&gt;依赖包&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/lib64&lt;/td&gt;
-&lt;td&gt;依赖包&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/media&lt;/td&gt;
-&lt;td&gt;一些外接设备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/mnt&lt;/td&gt;
-&lt;td&gt;挂载&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/home&lt;/td&gt;
-&lt;td&gt;用户目录&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/usr&lt;/td&gt;
-&lt;td&gt;user share resource 公用的一些软件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/tmp&lt;/td&gt;
-&lt;td&gt;临时文件&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-      <category term="大数据学习笔记" scheme="https://blog.signalfire2017.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-01 linux命令继续学习.md</title>
-    <link href="https://blog.signalfire2017.com/2017/10/29/%E5%A4%A7%E6%95%B0%E6%8D%AE02-01%20linux%E5%91%BD%E4%BB%A4%E7%BB%A7%E7%BB%AD%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://blog.signalfire2017.com/2017/10/29/大数据02-01 linux命令继续学习/</id>
-    <published>2017-10-29T14:30:38.000Z</published>
-    <updated>2017-11-14T15:15:02.319Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="vmare克隆后修改地址问题"><a href="#vmare克隆后修改地址问题" class="headerlink" title="vmare克隆后修改地址问题"></a>vmare克隆后修改地址问题</h1><p>解决克隆后eth0不见的问题</p>
-<p>直接修改  /etc/sysconfig/network-script/ifcfg-eth0<br>删掉UUID  HWADDR<br>配置静态地址<br>然后：<br>修改 /etc/udev/rules.d/70-persistent-net.rules<br>然后 reboot<br><a id="more"></a></p>
-<h1 id="linux命令继续学习"><a href="#linux命令继续学习" class="headerlink" title="linux命令继续学习"></a>linux命令继续学习</h1><h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p>cat    somefile    一次性将文件内容全部输出（控制台）<br>more   somefile     可以翻页查看, 下翻一页(空格)    上翻一页（b）   退出（q）<br>less   somefile      可以翻页查看,下翻一页(空格)    上翻一页（b），上翻一行(↑)  下翻一行（↓）  可以搜索关键字（/keyword）</p>
-<p>tail -10  install.log   查看文件尾部的10行<br>tail -f install.log    小f跟踪文件的唯一inode号，就算文件改名后，还是跟踪原来这个inode表示的文件<br>tail -F install.log    大F按照文件名来跟踪</p>
-<p>head -10  install.log   查看文件头部的10行</p>
-<h2 id="后台服务管理"><a href="#后台服务管理" class="headerlink" title="后台服务管理"></a>后台服务管理</h2><p>service network status   查看指定服务的状态<br>service network stop     停止指定服务<br>service network start    启动指定服务<br>service network restart  重启指定服务<br>service –status-all  查看系统中所有的后台服务</p>
-<h2 id="设置后台服务的自启配置"><a href="#设置后台服务的自启配置" class="headerlink" title="设置后台服务的自启配置"></a>设置后台服务的自启配置</h2><p>chkconfig   查看所有服务器自启配置<br>chkconfig iptables off   关掉指定服务的自动启动<br>chkconfig iptables on   开启指定服务的自动启动</p>
-<h2 id="系统启动级别管理"><a href="#系统启动级别管理" class="headerlink" title="系统启动级别管理"></a>系统启动级别管理</h2><p>vi  /etc/inittab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure></p>
-<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="如何上传安装包到服务器"><a href="#如何上传安装包到服务器" class="headerlink" title="如何上传安装包到服务器"></a>如何上传安装包到服务器</h2><ul>
-<li>可以使用图形化工具，如： filezilla</li>
-<li>可以使用sftp工具：  alt+p 调出后，用put命令上传<br>上传（如果不cd指定目录，则上传到当前用户的主目录）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp&gt; cd /home/   </div><div class="line">sftp&gt; put C:\Users\Administrator\Desktop\day02\soft\jdk-7u45-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>下载（lcd[local cd]指定下载到本地的目标路径）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp&gt; lcd d:/                            </div><div class="line">sftp&gt; get /home/jdk-7u45-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
-<ul>
-<li>lrzsz</li>
-</ul>
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><h3 id="压缩解压缩的相关命令"><a href="#压缩解压缩的相关命令" class="headerlink" title="压缩解压缩的相关命令"></a>压缩解压缩的相关命令</h3><p>压缩解压缩</p>
-<pre><code>root@mini1 ~]# gzip access.log 
-[root@mini1 ~]# ll
-总用量 134892
--rw-r--r--. 1 root root        68 4月   3 17:37 access.log.gz
-</code></pre><p>解压gz文件：  <figure class="highlight plain"><figcaption><span>-d access.log.gz```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打包解包</div></pre></td></tr></table></figure></p>
-<p>[root@mini1 ~]# tar -cvf myfirsttarball.tar aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解包：</div></pre></td></tr></table></figure></p>
-<p>[root@mini1 ~]# tar -xvf myfirsttarball.tar<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 一次性完成打包&amp;&amp;压缩的操作</div><div class="line">产生压缩包：</div></pre></td></tr></table></figure></p>
-<p>[root@mini1 ~]# tar -zcvf my.tar.gz aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">解压缩包：</div></pre></td></tr></table></figure></p>
-<p>[root@mini1 ~]# tar -zxvf my.tar.gz<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br>```</p>
-<h3 id="安装jdk的过程："><a href="#安装jdk的过程：" class="headerlink" title="安装jdk的过程："></a>安装jdk的过程：</h3><ul>
-<li><p>解压安装包</p>
-<p>  tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/</p>
-</li>
-<li><p>然后修改环境变量</p>
-<p>  vi /etc/profile<br>  在文件最后添加<br>  export JAVA_HOME=/root/apps/jdk1.7.0_45<br>  export PATH=$PATH:$JAVA_HOME/bin<br>  保存退出</p>
-</li>
-<li><p>然后重新加载环境变量 </p>
-<p>  source /etc/profile</p>
-</li>
-</ul>
-<h2 id="安装rpm包软件，如mysql"><a href="#安装rpm包软件，如mysql" class="headerlink" title="安装rpm包软件，如mysql"></a>安装rpm包软件，如mysql</h2><h3 id="查看系统中安装的rpm包"><a href="#查看系统中安装的rpm包" class="headerlink" title="查看系统中安装的rpm包"></a>查看系统中安装的rpm包</h3><pre><code>rpm -qa | grep mysql
-</code></pre><h3 id="上传rpm安装包"><a href="#上传rpm安装包" class="headerlink" title="上传rpm安装包"></a>上传rpm安装包</h3><pre><code>MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
-MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
-per * .rpm
-</code></pre><h3 id="安装perl依赖"><a href="#安装perl依赖" class="headerlink" title="安装perl依赖"></a>安装perl依赖</h3><pre><code>rpm -ivh perl*
-</code></pre><p><em>可能会提示有包冲突，解决： rpm -e 冲突包名 –nodeps</em></p>
-<h3 id="安装server"><a href="#安装server" class="headerlink" title="安装server"></a>安装server</h3><pre><code>rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
-</code></pre><p>如果成功，会看到进度条，最后，有关于root密码设置的提示，一定要记下来<br>这个版本的提示是，先启动server</p>
-<pre><code>service mysql start
-</code></pre><p>然后<code>/usr/bin/mysql_secure_installation</code> 命令去交互式修改root密码</p>
-<h3 id="修改密码时，提示需要先安装client"><a href="#修改密码时，提示需要先安装client" class="headerlink" title="修改密码时，提示需要先安装client"></a>修改密码时，提示需要先安装client</h3><pre><code>rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
-</code></pre><p>客户端安装成功后，记得还要用/usr/bin/mysql_secure_installation 命令去交互式修改root密码</p>
-<h3 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h3><pre><code>mysql -uroot -proot
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;vmare克隆后修改地址问题&quot;&gt;&lt;a href=&quot;#vmare克隆后修改地址问题&quot; class=&quot;headerlink&quot; title=&quot;vmare克隆后修改地址问题&quot;&gt;&lt;/a&gt;vmare克隆后修改地址问题&lt;/h1&gt;&lt;p&gt;解决克隆后eth0不见的问题&lt;/p&gt;
-&lt;p&gt;直接修改  /etc/sysconfig/network-script/ifcfg-eth0&lt;br&gt;删掉UUID  HWADDR&lt;br&gt;配置静态地址&lt;br&gt;然后：&lt;br&gt;修改 /etc/udev/rules.d/70-persistent-net.rules&lt;br&gt;然后 reboot&lt;br&gt;
-    
-    </summary>
-    
-      <category term="大数据学习笔记" scheme="https://blog.signalfire2017.com/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
