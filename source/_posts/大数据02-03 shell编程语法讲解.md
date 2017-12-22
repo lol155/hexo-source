@@ -18,9 +18,9 @@ scaffolds:
 * $SHELL
 * $USER
 显示当前shell中所有变量
-```
+
 set
-```
+
 <!-- more -->
 ## 用户自定义变量
 定义变量
