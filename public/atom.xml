@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2017-12-22T16:59:46.753Z</updated>
+  <updated>2017-12-31T18:10:29.078Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,13 +16,89 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>大数据0501-轻量级RPC框架开发</title>
+    <link href="https://blog.signalfire2017.com/2018/01/01/%E5%A4%A7%E6%95%B0%E6%8D%AE0501-%E8%BD%BB%E9%87%8F%E7%BA%A7RPC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91/"/>
+    <id>https://blog.signalfire2017.com/2018/01/01/大数据0501-轻量级RPC框架开发/</id>
+    <published>2017-12-31T18:08:22.000Z</published>
+    <updated>2017-12-31T18:10:29.078Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、掌握RPC原理<br>2、掌握nio操作<br>3、掌握netty简单的api<br>4、掌握自定义RPC框架<br><a id="more"></a></p>
+<h1 id="RPC原理"><a href="#RPC原理" class="headerlink" title="RPC原理"></a>RPC原理</h1><h2 id="什么是RPC"><a href="#什么是RPC" class="headerlink" title="什么是RPC"></a>什么是RPC</h2><p>RPC（Remote Procedure Call Protocol）——<code>远程过程调用协议</code>，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC协议假定某些传输协议的存在，如TCP或UDP，为通信程序之间携带信息数据。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC采用<code>客户机/服务器模式</code>。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
+<h2 id="RPC原理-1"><a href="#RPC原理-1" class="headerlink" title="RPC原理"></a>RPC原理</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png" alt="2017126231022"></p>
+<p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
+<ol>
+<li>调用客户端句柄；执行传送参数</li>
+<li>调用本地系统内核发送网络消息</li>
+<li>消息传送到远程主机</li>
+<li>服务器句柄得到消息并取得参数</li>
+<li>执行远程过程</li>
+<li>执行的过程将结果返回服务器句柄</li>
+<li>服务器句柄返回结果，调用远程系统内核</li>
+<li>消息传回本地主机</li>
+<li>客户句柄由内核接收消息</li>
+<li>客户接收句柄返回的数据</li>
+</ol>
+<h1 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h1><p>nio 是New IO 的简称，在jdk1.4 里提供的新api 。<br>Sun 官方标榜的特性如下：   </p>
+<ol>
+<li>为所有的原始类型提供(Buffer)缓存支持。字符集编码解码解决方案。 </li>
+<li>Channel ：一个新的原始I/O 抽象。 </li>
+<li>支持锁和内存映射文件的文件访问接口。 </li>
+<li>提供多路(non-bloking) 非阻塞式的高伸缩性网络I/O 。</li>
+</ol>
+<h2 id="socket-nio原理"><a href="#socket-nio原理" class="headerlink" title="socket nio原理"></a>socket nio原理</h2><h3 id="传统的I-O"><a href="#传统的I-O" class="headerlink" title="传统的I/O"></a>传统的I/O</h3><p>使用传统的I/O程序读取文件内容, 并写入到另一个文件(或Socket), 如下程序:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">File.read(fileDesc, buf, len);</div><div class="line">Socket.send(socket, buf, len);</div></pre></td></tr></table></figure></p>
+<p>会有较大的性能开销, 主要表现在一下两方面:</p>
+<ol>
+<li>上下文切换(context switch), 此处有4次用户态和内核态的切换</li>
+<li>Buffer内存开销, 一个是应用程序buffer, 另一个是系统读取buffer以及socket buffer</li>
+</ol>
+<p>其运行示意图如下<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017127225741.png" alt="2017127225741"></p>
+<ol>
+<li>先将文件内容从磁盘中拷贝到操作系统buffer</li>
+<li>再从操作系统buffer拷贝到程序应用buffer</li>
+<li>从程序buffer拷贝到socket buffer</li>
+<li>从socket buffer拷贝到协议引擎.</li>
+</ol>
+<h2 id="NIO-1"><a href="#NIO-1" class="headerlink" title="NIO"></a>NIO</h2><p>NIO技术省去了将操作系统的read buffer拷贝到程序的buffer, 以及从程序buffer拷贝到socket buffer的步骤, 直接将 read buffer 拷贝到 socket buffer. java 的 FileChannel.transferTo() 方法就是这样的实现, 这个实现是依赖于操作系统底层的sendFile()实现的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">publicvoid transferTo(long position, long count, WritableByteChannel target);</div></pre></td></tr></table></figure></p>
+<p>他的底层调用的是系统调用sendFile()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sendfile(int out_fd, int in_fd, off_t *offset, size_t count);</div></pre></td></tr></table></figure></p>
+<p>如下图<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712723052.png" alt="201712723052"></p>
+<p>参考帖子：<a href="http://blog.csdn.net/dd864140130/article/details/50299687" target="_blank" rel="external">http://blog.csdn.net/dd864140130/article/details/50299687</a></p>
+<h1 id="轻量级RPC开发"><a href="#轻量级RPC开发" class="headerlink" title="轻量级RPC开发"></a>轻量级RPC开发</h1><h2 id="轻量级RPC框架需求分析及原理分析"><a href="#轻量级RPC框架需求分析及原理分析" class="headerlink" title="轻量级RPC框架需求分析及原理分析"></a>轻量级RPC框架需求分析及原理分析</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png" alt="2017126231155"></p>
+<h2 id="大概流程"><a href="#大概流程" class="headerlink" title="大概流程"></a>大概流程</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png" alt="20181115823"></p>
+<h2 id="工程目录"><a href="#工程目录" class="headerlink" title="工程目录"></a>工程目录</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png" alt="20181115919"></p>
+<ul>
+<li>rpc-sample-server   用户服务端 业务实现类 </li>
+<li>rpc-sample-common   用户公用包 包含了业务接口</li>
+<li>rpc-sample-app      用户客户端 调用业务接口</li>
+<li>rpc-server          框架 服务包</li>
+<li>rpc-registry        框架 注册和发现 zk用的包</li>
+<li>rpc-common          框架 公共包 request response 加密 解密 序列化等公用类</li>
+<li>rpc-client          框架 客户包<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2>rpc-server 主要利用<code>反射</code>将接收到的request进行解析、执行、返回结果。<br>rpc-client 主要使用<code>动态代理</code>将接口的调用 封装进request进行请求，然后返回结果。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、掌握RPC原理&lt;br&gt;2、掌握nio操作&lt;br&gt;3、掌握netty简单的api&lt;br&gt;4、掌握自定义RPC框架&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="rpc" scheme="https://blog.signalfire2017.com/tags/rpc/"/>
+    
+  </entry>
+  
+  <entry>
     <title>北京冬天哪里好玩</title>
     <link href="https://blog.signalfire2017.com/2017/12/22/%E5%8C%97%E4%BA%AC%E5%86%AC%E5%A4%A9%E5%93%AA%E9%87%8C%E5%A5%BD%E7%8E%A9/"/>
     <id>https://blog.signalfire2017.com/2017/12/22/北京冬天哪里好玩/</id>
     <published>2017-12-22T15:55:03.000Z</published>
-    <updated>2017-12-22T16:59:46.753Z</updated>
+    <updated>2017-12-22T17:01:21.934Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://www.360doc.com/content/16/1202/06/38518105_611197220.shtml" target="_blank" rel="external">发愁冬天去哪玩？北京这10个地方好玩还不冷！周末约起~</a><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><a href="http://www.360doc.com/content/16/1202/06/38518105_611197220.shtml" target="_blank" rel="external">发愁冬天去哪玩？北京这10个地方好玩还不冷！周末约起~</a><br>转来的<br><a id="more"></a></p>
 <h1 id="古北水镇过暖冬"><a href="#古北水镇过暖冬" class="headerlink" title="古北水镇过暖冬"></a>古北水镇过暖冬</h1><p>冬日的水镇一改盛夏的浓艳，鳞次栉比的房屋，青石板的老街，悠长的胡同……让水镇更添几分宁静、祥和。这时候来古北逛逛古镇，看看夜景，泡泡温泉，真是从头到脚的舒心！</p>
 <h2 id="门票信息：180-00元（体验价80-00元）"><a href="#门票信息：180-00元（体验价80-00元）" class="headerlink" title="门票信息：180.00元（体验价80.00元）"></a>门票信息：180.00元（体验价80.00元）</h2><h2 id="自驾路线："><a href="#自驾路线：" class="headerlink" title="自驾路线："></a>自驾路线：</h2><p>上了京承高速，一直前行，路上会有古北水镇的标示牌，下了高速，基本就到停车场。从京承高速收费站到古北水镇大约有120公里的路程。<br>tips：四季皆宜。 春季碧波荡漾，水镇宛若一幅江南水墨画；夏季纳凉避暑，戏水游乐；秋季银杏落叶和古朴的建筑情景交融，摄影取材的好去处；冬季皑皑白雪的覆盖下，河面冻结，嬉雪赏冰雕……</p>
 <h1 id="首都博物馆"><a href="#首都博物馆" class="headerlink" title="首都博物馆"></a>首都博物馆</h1><p>欲了解一个地方，必去当地的博物馆！首都博物馆是咱们“老北京的博物馆”，从北京的历史文化，生活民俗，风土人文，全面的介绍北京的兴衰变迁。是深度了解北京的好地方。</p>
@@ -76,7 +152,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/16/1202/06/38518105_611197220.shtml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;发愁冬天去哪玩？北京这10个地方好玩还不冷！周末约起~&lt;/a&gt;&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/16/1202/06/38518105_611197220.shtml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;发愁冬天去哪玩？北京这10个地方好玩还不冷！周末约起~&lt;/a&gt;&lt;br&gt;转来的&lt;br&gt;
     
     </summary>
     
@@ -1270,39 +1346,6 @@ RS                 控制记录分隔符
       <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
     
       <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux笔记-修改语言</title>
-    <link href="https://blog.signalfire2017.com/2017/11/05/linux%E7%AC%94%E8%AE%B0-%E4%BF%AE%E6%94%B9%E8%AF%AD%E8%A8%80/"/>
-    <id>https://blog.signalfire2017.com/2017/11/05/linux笔记-修改语言/</id>
-    <published>2017-11-05T15:39:47.000Z</published>
-    <updated>2017-11-14T15:11:26.099Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><p>centos7</p>
-<h1 id="查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）"><a href="#查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）" class="headerlink" title="查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）"></a>查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ locale -a |grep &quot;zh_CN&quot;</div><div class="line">zh_CN</div><div class="line">zh_CN.gb18030</div><div class="line">zh_CN.gb2312</div><div class="line">zh_CN.gbk</div><div class="line">zh_CN.utf8</div></pre></td></tr></table></figure>
-<p>若发现以上几项，说明系统已安装中文语言包，无需再安装<br><a id="more"></a></p>
-<h1 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@iZj6cbstl2n6r280a27eppZ tmp]# yum groupinstall &quot;fonts&quot;</div></pre></td></tr></table></figure>
-<h1 id="修改i18n国际化和locale-conf本土化配置文件"><a href="#修改i18n国际化和locale-conf本土化配置文件" class="headerlink" title="修改i18n国际化和locale.conf本土化配置文件"></a>修改i18n国际化和locale.conf本土化配置文件</h1><h2 id="先查看系统语言环境"><a href="#先查看系统语言环境" class="headerlink" title="先查看系统语言环境"></a>先查看系统语言环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ locale</div><div class="line">LANG=en_US.UTF-8</div><div class="line">LC_CTYPE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_NUMERIC=&quot;en_US.UTF-8&quot;</div><div class="line">LC_TIME=&quot;en_US.UTF-8&quot;</div><div class="line">LC_COLLATE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MONETARY=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MESSAGES=&quot;en_US.UTF-8&quot;</div><div class="line">LC_PAPER=&quot;en_US.UTF-8&quot;</div><div class="line">LC_NAME=&quot;en_US.UTF-8&quot;</div><div class="line">LC_ADDRESS=&quot;en_US.UTF-8&quot;</div><div class="line">LC_TELEPHONE=&quot;en_US.UTF-8&quot;</div><div class="line">LC_MEASUREMENT=&quot;en_US.UTF-8&quot;</div><div class="line">LC_IDENTIFICATION=&quot;en_US.UTF-8&quot;</div><div class="line">LC_ALL=</div></pre></td></tr></table></figure>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/locale.conf </div><div class="line">或</div><div class="line">vi /etc/sysconfig/i18n (有些帖子上说修改这个,但是我的linux没有这个文件)</div></pre></td></tr></table></figure>
-<p>虽然安装了中文语言包但本机的语言环境并不是中文，先修改i18n配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# vim /etc/sysconfig/i18n</div><div class="line"></div><div class="line">LANG=&quot;zh_CN.UTF-8&quot;</div><div class="line">LC_ALL=&quot;zh_CN.UTF-8&quot;</div><div class="line"></div><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# source /etc/sysconfig/i18n</div><div class="line"></div><div class="line">[root@iZj6cbstl2n6r280a27eppZ sysconfig]# vim /etc/locale.conf</div><div class="line"></div><div class="line">LANG=&quot;zh_CN.UTF-8&quot;</div><div class="line"></div><div class="line"> [root@iZj6cbstl2n6r280a27eppZ sysconfig]# source   /etc/locale.conf</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;版本&quot;&gt;&lt;a href=&quot;#版本&quot; class=&quot;headerlink&quot; title=&quot;版本&quot;&gt;&lt;/a&gt;版本&lt;/h1&gt;&lt;p&gt;centos7&lt;/p&gt;
-&lt;h1 id=&quot;查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）&quot;&gt;&lt;a href=&quot;#查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）&quot; class=&quot;headerlink&quot; title=&quot;查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）&quot;&gt;&lt;/a&gt;查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[vagrant@mysql1 ~]$ locale -a |grep &amp;quot;zh_CN&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gb18030&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gb2312&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.gbk&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;zh_CN.utf8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;若发现以上几项，说明系统已安装中文语言包，无需再安装&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
     
   </entry>
   
