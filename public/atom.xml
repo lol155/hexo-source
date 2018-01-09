@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2017-12-31T18:10:29.078Z</updated>
+  <updated>2018-01-09T15:13:18.565Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,9 +16,420 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>微服务框架与实战-笔记02-微服务开发矿建-SpringCloud</title>
+    <link href="https://blog.signalfire2017.com/2018/01/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B002-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E7%9F%BF%E5%BB%BA-SpringCloud/"/>
+    <id>https://blog.signalfire2017.com/2018/01/09/微服务/微服务框架与实战-笔记02-微服务开发矿建-SpringCloud/</id>
+    <published>2018-01-09T15:12:17.000Z</published>
+    <updated>2018-01-09T15:13:18.565Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-Cloud-简介"><a href="#Spring-Cloud-简介" class="headerlink" title="Spring Cloud 简介"></a>Spring Cloud 简介</h1><ul>
+<li>在SpringBoot基础上构建的，用于快速构建分布式系统的通用模式工具集。</li>
+<li>程序适合在Docker或者PaaS上部署。 所以又叫<code>云原生应用</code>（Cloud Native Application）。</li>
+<li><code>云原生</code>（CloudNative）可简单理解为面向云环境的软件架构。<h1 id="Spring-Cloud-特点"><a href="#Spring-Cloud-特点" class="headerlink" title="Spring Cloud 特点"></a>Spring Cloud 特点</h1></li>
+<li>约定优于配置</li>
+<li>适用于各种环境</li>
+<li>隐藏了组件的复杂性，并提供声明式、无xml的配置方式</li>
+<li>开箱即用、快速启动</li>
+<li>轻量级组件</li>
+<li>组件丰富，功能齐全。如 配置管理，服务发现，断路器，微服务网关等</li>
+<li>选型中立、丰富。例如：支持使用Eureka、Zookeeper、Consul实现服务发现。</li>
+<li>灵活。组成部分解耦，可按需挑选技术选型。<h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1>Spring项目一般以下面这种方式命名，但<code>SpringCloud</code>并<code>没有</code>使用这种方式。可以略过。<br>主版本号.次版本号.增量版本号.里程碑版本号<br>例如：4.3.5.RELEASE</li>
+<li>主版本号：项目重大重构</li>
+<li>次版本号：新特性的添加和变化</li>
+<li>增量版本号：一般表示BUG修复</li>
+<li>里程碑版本号：某个版本号的里程碑<h2 id="版本简介"><a href="#版本简介" class="headerlink" title="版本简介"></a>版本简介</h2><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181923037.png" alt="20181923037"><br>命名方式：英文单词SRX（x为数字）<br>英文单词：release train<br>SR：service release bug修复</li>
+</ul>
+<p>Dalston SR5 表示Dalston 第5次bug修复版本</p>
+<p><a href="https://github.com/spring-cloud/spring-cloud-release/releases" target="_blank" rel="external">https://github.com/spring-cloud/spring-cloud-release/releases</a> 版本发布</p>
+<h2 id="子项目一览"><a href="#子项目一览" class="headerlink" title="子项目一览"></a>子项目一览</h2><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Camden.SR7</th>
+<th>Dalston.SR4</th>
+<th>Edgware.RELEASE</th>
+<th>Finchley.M4</th>
+<th>Finchley.BUILD-SNAPSHOT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spring-cloud-aws</td>
+<td>1.1.4.RELEASE</td>
+<td>1.2.1.RELEASE</td>
+<td>1.2.2.RELEASE</td>
+<td>2.0.0.M2</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-bus</td>
+<td>1.2.2.RELEASE</td>
+<td>1.3.1.RELEASE</td>
+<td>1.3.2.RELEASE</td>
+<td>2.0.0.M3</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-cli</td>
+<td>1.2.4.RELEASE</td>
+<td>1.3.4.RELEASE</td>
+<td>1.4.0.RELEASE</td>
+<td>2.0.0.M1</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-commons</td>
+<td>1.1.9.RELEASE</td>
+<td>1.2.4.RELEASE</td>
+<td>1.3.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-contract</td>
+<td>1.0.5.RELEASE</td>
+<td>1.1.4.RELEASE</td>
+<td>1.2.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-config</td>
+<td>1.2.3.RELEASE</td>
+<td>1.3.3.RELEASE</td>
+<td>1.4.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-netflix</td>
+<td>1.2.7.RELEASE</td>
+<td>1.3.5.RELEASE</td>
+<td>1.4.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-security</td>
+<td>1.1.4.RELEASE</td>
+<td>1.2.1.RELEASE</td>
+<td>1.2.1.RELEASE</td>
+<td>2.0.0.M1</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-cloudfoundry</td>
+<td>1.0.1.RELEASE</td>
+<td>1.1.0.RELEASE</td>
+<td>1.1.0.RELEASE</td>
+<td>2.0.0.M1</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-consul</td>
+<td>1.1.4.RELEASE</td>
+<td>1.2.1.RELEASE</td>
+<td>1.3.0.RELEASE</td>
+<td>2.0.0.M3</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-sleuth</td>
+<td>1.1.3.RELEASE</td>
+<td>1.2.5.RELEASE</td>
+<td>1.3.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-stream</td>
+<td>Brooklyn.SR3</td>
+<td>Chelsea.SR2</td>
+<td>Ditmars.RELEASE</td>
+<td>Elmhurst.M3</td>
+<td>Elmhurst.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-zookeeper</td>
+<td>1.0.4.RELEASE</td>
+<td>1.1.2.RELEASE</td>
+<td>1.2.0.RELEASE</td>
+<td>2.0.0.M3</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-boot</td>
+<td>1.4.5.RELEASE</td>
+<td>1.5.4.RELEASE</td>
+<td>1.5.8.RELEASE</td>
+<td>2.0.0.M6</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-task</td>
+<td>1.0.3.RELEASE</td>
+<td>1.1.2.RELEASE</td>
+<td>1.2.2.RELEASE</td>
+<td>2.0.0.M2</td>
+<td>2.0.0.RELEASE</td>
+</tr>
+<tr>
+<td>spring-cloud-vault</td>
+<td></td>
+<td>1.0.2.RELEASE</td>
+<td>1.1.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+<tr>
+<td>spring-cloud-gateway</td>
+<td></td>
+<td></td>
+<td>1.0.0.RELEASE</td>
+<td>2.0.0.M4</td>
+<td>2.0.0.BUILD-SNAPSHOT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spring-cloud-spring-boot-版本兼容性"><a href="#spring-cloud-spring-boot-版本兼容性" class="headerlink" title="spring cloud / spring boot 版本兼容性"></a>spring cloud / spring boot 版本兼容性</h2><ul>
+<li>Finchley使用Spring Boot 2.0.x构建和运行，并且不希望与Spring Boot 1.5.x一起使用。</li>
+<li>Dalston和Edgware发行版建立在Spring Boot 1.5.x之上，并且不希望与Spring Boot 2.0.x一起使用。</li>
+<li>Camden发行版基于Spring Boot 1.4.x，但也使用1.5.x进行测试。</li>
+</ul>
+<p><a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="external">http://projects.spring.io/spring-cloud/</a> 更具体的额可以看这里</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Spring-Cloud-简介&quot;&gt;&lt;a href=&quot;#Spring-Cloud-简介&quot; class=&quot;headerlink&quot; title=&quot;Spring Cloud 简介&quot;&gt;&lt;/a&gt;Spring Cloud 简介&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;在SpringBoot基
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用多个git账户</title>
+    <link href="https://blog.signalfire2017.com/2018/01/07/%E6%9D%82%E8%AE%B0/%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E6%88%B7/"/>
+    <id>https://blog.signalfire2017.com/2018/01/07/杂记/使用多个git账户/</id>
+    <published>2018-01-07T09:36:01.000Z</published>
+    <updated>2018-01-07T09:40:55.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="生成两个SSH-key"><a href="#生成两个SSH-key" class="headerlink" title="生成两个SSH key"></a>生成两个SSH key</h1><p>为了举例方便，这里使用“one”和“two”两个账户。下同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;one@gmail.com&quot;</div><div class="line"></div><div class="line">$ ssh-keygen -t rsa -C &quot;two@gmail.com&quot;</div></pre></td></tr></table></figure></p>
+<p>不要一路回车，分别在第一个对话的时候输入重命名（id_rsa_one和id_rsa_two），这样会生成两份，包含私钥和公钥的4个文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">id_rsa_one</div><div class="line">id_rsa_one.pub</div><div class="line">id_rsa_two</div><div class="line">id_rsa_two.pub</div></pre></td></tr></table></figure></p>
+<h1 id="添加私钥"><a href="#添加私钥" class="headerlink" title="添加私钥"></a>添加私钥</h1><ol>
+<li><p>打开ssh-agent</p>
+<ul>
+<li><p>如果你是github官方的bash：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent -s</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果你是其它，比如msysgit：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eval $(ssh-agent -s)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>添加私钥</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-agent bash  //不执行这个会报没有权限</div><div class="line">$ ssh-add ~/.ssh/id_rsa_one</div><div class="line">$ ssh-add ~/.ssh/id_rsa_two</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="创建config文件"><a href="#创建config文件" class="headerlink" title="创建config文件"></a>创建config文件</h1><p>在.ssh下创建config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># one(one@gmail.com) </div><div class="line">Host one.github.com //自定义的映射</div><div class="line">HostName github.com //git仓库对应的地址</div><div class="line">PreferredAuthentications publickey</div><div class="line">IdentityFile ~/.ssh/id_rsa_one //对应为文件</div><div class="line">User one   //对应的用户名</div><div class="line"># two(two@ gmail.com)</div><div class="line">Host two.github.com</div><div class="line">HostName github.com   </div><div class="line">PreferredAuthentications publickey</div><div class="line">IdentityFile ~/.ssh/id_rsa_two</div><div class="line">User two</div></pre></td></tr></table></figure>
+<h1 id="部署SSH-key"><a href="#部署SSH-key" class="headerlink" title="部署SSH key"></a>部署SSH key</h1><p>在github上添加对应的ssh key</p>
+<h1 id="clone项目方法"><a href="#clone项目方法" class="headerlink" title="clone项目方法"></a>clone项目方法</h1><blockquote>
+<p>$ git clone git@<code>one.github.com</code>: <code>one的用户名</code>/learngit.git  注意是自定义的域名 和用户名（git的用户名）<br>$ git clone git@<code>two.github.com</code>: <code>two的用户名</code>/learngit.git </p>
+</blockquote>
+<h1 id="其他（与上面没有关联）"><a href="#其他（与上面没有关联）" class="headerlink" title="其他（与上面没有关联）"></a>其他（与上面没有关联）</h1><h2 id="git的三种环境变量"><a href="#git的三种环境变量" class="headerlink" title="git的三种环境变量"></a>git的三种环境变量</h2><ol>
+<li>系统变量。<ul>
+<li>存放在git的安装目录下：%Git%\etc\gitconfig。</li>
+<li>若使用 git config 时用 –system 选项，读写的就是这个文件：</li>
+<li>$ git config –system core.symlinks</li>
+<li>系统变量对所有用户都适用。</li>
+</ul>
+</li>
+<li>用户变量。<ul>
+<li>存放在用户目录下。例如windows xp存放在：C:\Documents and Settings\$USER.gitconfig。</li>
+<li>若使用 git config 时用 –global 选项，读写的就是这个文件：</li>
+<li>$ git config –global user.name</li>
+<li>用户变量只适用于该用户</li>
+</ul>
+</li>
+<li>本地项目变量<ul>
+<li>当前项目的 git 目录中的配置文件（也就是工作目录中的 .git/config 文件）。</li>
+<li>若使用git config 时用 –local 选项，读写的就是这个文件：</li>
+<li>$ git config –local remote.origin.url</li>
+<li>本地变量只对当前项目有效。</li>
+</ul>
+</li>
+</ol>
+<h2 id="查找顺序"><a href="#查找顺序" class="headerlink" title="查找顺序"></a>查找顺序</h2><p>本地 》 用户 》系统</p>
+<h2 id="其他config命令"><a href="#其他config命令" class="headerlink" title="其他config命令"></a>其他config命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --list 查看所有环境变量</div><div class="line">$ git config --system --list 查看系统环境变量</div><div class="line">$ git config --global --list 查看用户环境变量</div><div class="line">$ git config --local --list 查看本地环境变量</div><div class="line">$ git config --[system/global/local] [varname] [yourname] 编辑环境变量</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;生成两个SSH-key&quot;&gt;&lt;a href=&quot;#生成两个SSH-key&quot; class=&quot;headerlink&quot; title=&quot;生成两个SSH key&quot;&gt;&lt;/a&gt;生成两个SSH key&lt;/h1&gt;&lt;p&gt;为了举例方便，这里使用“one”和“two”两个账户。下同。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="git" scheme="https://blog.signalfire2017.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微服务框架与实战-笔记01-概述</title>
+    <link href="https://blog.signalfire2017.com/2018/01/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B001-%E6%A6%82%E8%BF%B0/"/>
+    <id>https://blog.signalfire2017.com/2018/01/05/微服务/微服务框架与实战-笔记01-概述/</id>
+    <published>2018-01-05T14:42:27.000Z</published>
+    <updated>2018-01-09T15:13:10.578Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="单体应用架构存在的问题"><a href="#单体应用架构存在的问题" class="headerlink" title="单体应用架构存在的问题"></a>单体应用架构存在的问题</h1><ol>
+<li>复杂性高  <ul>
+<li>包含模块多</li>
+<li>模块边界模糊</li>
+<li>依赖关系不清</li>
+<li>代码质量残次不齐等等</li>
+</ul>
+</li>
+<li>技术债务</li>
+<li>部署频率低  <ul>
+<li>功能变更或缺陷修复都要重新部署整个应用。</li>
+<li>全量部署 耗时长。影响范围大、风险高。</li>
+</ul>
+</li>
+<li>可靠性差  <ul>
+<li>一个bug可能会导致整个系统的崩溃</li>
+</ul>
+</li>
+<li>扩展能力受限  <ul>
+<li>只能整体扩展，无法根据业务模块进行伸缩。</li>
+</ul>
+</li>
+<li>阻碍技术创新  <ul>
+<li>一般使用统一的技术平台或方案解决所有问题。例如一个使用struts2的100万行代码的单体应用，如果想换成springMVC，成本是非常高的。</li>
+</ul>
+</li>
+</ol>
+<h1 id="微服务简介"><a href="#微服务简介" class="headerlink" title="微服务简介"></a>微服务简介</h1><p>并没有严格的定义，将一个单一应用程序开发为一组小型服务的方法。构建的是分布式系统。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
+<li>每个服务运行在自己的进程中</li>
+<li>一系列服务共同构建起整个项目</li>
+<li>服务针对独立业务，只关注某个特定功能</li>
+<li>服务间通信采用轻量级通信机制（如http资源api）</li>
+<li>可以使用不同的语言，不同的存储</li>
+<li>全自动部署机制</li>
+</ol>
+<h1 id="有点"><a href="#有点" class="headerlink" title="有点"></a>有点</h1><ol>
+<li>易于开发维护</li>
+<li>单个服务启动快</li>
+<li>局部修改易部署</li>
+<li>技术栈不受限</li>
+<li>按需伸缩</li>
+</ol>
+<h1 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h1><ul>
+<li>运维要求高<ul>
+<li>需要保证几十个甚至上百个服务的正常运行与写作</li>
+</ul>
+</li>
+<li>分布式固有的复杂性</li>
+<li>接口调整成本搞</li>
+<li>重复劳动 <ul>
+<li>重复功能不足以分解为一个微服务，可以封装为公共组件，但是多语言就不一定行得通</li>
+</ul>
+</li>
+</ul>
+<h1 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h1><ul>
+<li>单一职责原则</li>
+<li>服务自治原则 <ul>
+<li>治具备独立的业务能力、依赖与运行环境。</li>
+</ul>
+</li>
+<li>轻量级通信机制 <ul>
+<li>体量轻 </li>
+<li>跨语言 </li>
+<li>跨平台 </li>
+<li>常用的有REST AMQP STOMP MQTT</li>
+</ul>
+</li>
+<li>微服务力度</li>
+</ul>
+<p><code>康威定律</code>：设计系统的组织，其产生的设计等同于组织之内、组织之间的沟通结构。看看下面的图片（来源于互联网，侵删），再想想Apple的产品、微软的产品设计，就能形象生动的理解这句话。</p>
+<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181522357.png" alt="20181522357"></p>
+<p>用通俗的说法就是：<code>组织形式等同系统设计</code>。</p>
+<h1 id="如何实现微服务架构"><a href="#如何实现微服务架构" class="headerlink" title="如何实现微服务架构"></a>如何实现微服务架构</h1><h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>从开发和运行平台两个维度考虑：</p>
+<ul>
+<li>开发框架<ul>
+<li>spring cloud</li>
+<li>dubbo</li>
+<li>dropwizard </li>
+<li>armada</li>
+</ul>
+</li>
+<li>运行平台<ul>
+<li>并不绑定运行平台</li>
+<li>PCServer</li>
+<li>阿里云</li>
+<li>aws</li>
+<li>Docker<h1 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h1><img src="http://ovasdkxqr.bkt.clouddn.com//image/blog/201815224722.jpg" alt="201815224722"></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;单体应用架构存在的问题&quot;&gt;&lt;a href=&quot;#单体应用架构存在的问题&quot; class=&quot;headerlink&quot; title=&quot;单体应用架构存在的问题&quot;&gt;&lt;/a&gt;单体应用架构存在的问题&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;复杂性高  &lt;ul&gt;
+&lt;li&gt;包含模块多&lt;/li&gt;
+&lt;l
+    
+    </summary>
+    
+      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="微服务" scheme="https://blog.signalfire2017.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>aws-vpn</title>
+    <link href="https://blog.signalfire2017.com/2018/01/03/%E6%9D%82%E8%AE%B0/aws-vpn/"/>
+    <id>https://blog.signalfire2017.com/2018/01/03/杂记/aws-vpn/</id>
+    <published>2018-01-02T16:20:16.000Z</published>
+    <updated>2018-01-06T16:23:24.547Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="aws服务器的创建及vpn的安装"><a href="#aws服务器的创建及vpn的安装" class="headerlink" title="aws服务器的创建及vpn的安装"></a>aws服务器的创建及vpn的安装</h1><p><a href="https://www.jianshu.com/p/b0d460efca4e" target="_blank" rel="external">https://www.jianshu.com/p/b0d460efca4e</a></p>
+<h1 id="配置-IPsec-L2TP-VPN-客户端"><a href="#配置-IPsec-L2TP-VPN-客户端" class="headerlink" title="配置 IPsec/L2TP VPN 客户端"></a>配置 IPsec/L2TP VPN 客户端</h1><p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md#windows" target="_blank" rel="external">https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md#windows</a></p>
+<h2 id="注册表修改"><a href="#注册表修改" class="headerlink" title="注册表修改"></a>注册表修改</h2><p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md#windows-错误-809" target="_blank" rel="external">https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md#windows-错误-809</a> </p>
+<p>windows10注册表修改,然后需要重启才能连上vpn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;aws服务器的创建及vpn的安装&quot;&gt;&lt;a href=&quot;#aws服务器的创建及vpn的安装&quot; class=&quot;headerlink&quot; title=&quot;aws服务器的创建及vpn的安装&quot;&gt;&lt;/a&gt;aws服务器的创建及vpn的安装&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="vpn" scheme="https://blog.signalfire2017.com/tags/vpn/"/>
+    
+      <category term="aws" scheme="https://blog.signalfire2017.com/tags/aws/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大数据0501-轻量级RPC框架开发</title>
-    <link href="https://blog.signalfire2017.com/2018/01/01/%E5%A4%A7%E6%95%B0%E6%8D%AE0501-%E8%BD%BB%E9%87%8F%E7%BA%A7RPC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91/"/>
-    <id>https://blog.signalfire2017.com/2018/01/01/大数据0501-轻量级RPC框架开发/</id>
+    <link href="https://blog.signalfire2017.com/2018/01/01/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0501-%E8%BD%BB%E9%87%8F%E7%BA%A7RPC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91/"/>
+    <id>https://blog.signalfire2017.com/2018/01/01/大数据/大数据0501-轻量级RPC框架开发/</id>
     <published>2017-12-31T18:08:22.000Z</published>
     <updated>2017-12-31T18:10:29.078Z</updated>
     
@@ -93,8 +504,8 @@
   
   <entry>
     <title>北京冬天哪里好玩</title>
-    <link href="https://blog.signalfire2017.com/2017/12/22/%E5%8C%97%E4%BA%AC%E5%86%AC%E5%A4%A9%E5%93%AA%E9%87%8C%E5%A5%BD%E7%8E%A9/"/>
-    <id>https://blog.signalfire2017.com/2017/12/22/北京冬天哪里好玩/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/22/%E5%85%B6%E4%BB%96/%E5%8C%97%E4%BA%AC%E5%86%AC%E5%A4%A9%E5%93%AA%E9%87%8C%E5%A5%BD%E7%8E%A9/"/>
+    <id>https://blog.signalfire2017.com/2017/12/22/其他/北京冬天哪里好玩/</id>
     <published>2017-12-22T15:55:03.000Z</published>
     <updated>2017-12-22T17:01:21.934Z</updated>
     
@@ -169,8 +580,8 @@
   
   <entry>
     <title>记录有北京游玩的链接</title>
-    <link href="https://blog.signalfire2017.com/2017/12/22/%E8%AE%B0%E5%BD%95%E6%9C%89%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E7%9A%84%E9%93%BE%E6%8E%A5/"/>
-    <id>https://blog.signalfire2017.com/2017/12/22/记录有北京游玩的链接/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/22/%E5%85%B6%E4%BB%96/%E8%AE%B0%E5%BD%95%E6%9C%89%E5%8C%97%E4%BA%AC%E6%B8%B8%E7%8E%A9%E7%9A%84%E9%93%BE%E6%8E%A5/"/>
+    <id>https://blog.signalfire2017.com/2017/12/22/其他/记录有北京游玩的链接/</id>
     <published>2017-12-22T15:51:55.000Z</published>
     <updated>2017-12-22T15:54:43.950Z</updated>
     
@@ -194,8 +605,8 @@
   
   <entry>
     <title>大数据0406-javaJVM技术</title>
-    <link href="https://blog.signalfire2017.com/2017/12/05/%E5%A4%A7%E6%95%B0%E6%8D%AE0406-javaJVM%E6%8A%80%E6%9C%AF/"/>
-    <id>https://blog.signalfire2017.com/2017/12/05/大数据0406-javaJVM技术/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/05/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0406-javaJVM%E6%8A%80%E6%9C%AF/"/>
+    <id>https://blog.signalfire2017.com/2017/12/05/大数据/大数据0406-javaJVM技术/</id>
     <published>2017-12-05T14:44:14.000Z</published>
     <updated>2017-12-05T15:50:19.436Z</updated>
     
@@ -246,8 +657,8 @@
   
   <entry>
     <title>大数据0405-java-socket</title>
-    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0405-java-socket/"/>
-    <id>https://blog.signalfire2017.com/2017/12/03/大数据0405-java-socket/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0405-java-socket/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据/大数据0405-java-socket/</id>
     <published>2017-12-03T15:14:47.000Z</published>
     <updated>2017-12-03T15:17:24.365Z</updated>
     
@@ -274,8 +685,8 @@
   
   <entry>
     <title>大数据0404-java动态代理</title>
-    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0404-java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
-    <id>https://blog.signalfire2017.com/2017/12/03/大数据0404-java动态代理/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0404-java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据/大数据0404-java动态代理/</id>
     <published>2017-12-03T10:18:16.000Z</published>
     <updated>2017-12-03T10:30:22.149Z</updated>
     
@@ -314,8 +725,8 @@
   
   <entry>
     <title>大数据0403-java反射</title>
-    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0403-java%E5%8F%8D%E5%B0%84/"/>
-    <id>https://blog.signalfire2017.com/2017/12/03/大数据0403-java反射/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0403-java%E5%8F%8D%E5%B0%84/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据/大数据0403-java反射/</id>
     <published>2017-12-03T08:34:00.000Z</published>
     <updated>2017-12-03T10:30:25.769Z</updated>
     
@@ -341,8 +752,8 @@
   
   <entry>
     <title>大数据0402-JMS activeMQ</title>
-    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE0402-JMS%20activeMQ/"/>
-    <id>https://blog.signalfire2017.com/2017/12/03/大数据0402-JMS activeMQ/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/03/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0402-JMS%20activeMQ/"/>
+    <id>https://blog.signalfire2017.com/2017/12/03/大数据/大数据0402-JMS activeMQ/</id>
     <published>2017-12-03T06:57:03.000Z</published>
     <updated>2017-12-03T10:30:08.487Z</updated>
     
@@ -415,8 +826,8 @@
   
   <entry>
     <title>大数据0401-java多线程并发</title>
-    <link href="https://blog.signalfire2017.com/2017/12/01/%E5%A4%A7%E6%95%B0%E6%8D%AE0401-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91/"/>
-    <id>https://blog.signalfire2017.com/2017/12/01/大数据0401-java多线程并发/</id>
+    <link href="https://blog.signalfire2017.com/2017/12/01/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0401-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91/"/>
+    <id>https://blog.signalfire2017.com/2017/12/01/大数据/大数据0401-java多线程并发/</id>
     <published>2017-12-01T14:59:38.000Z</published>
     <updated>2017-12-03T08:23:15.948Z</updated>
     
@@ -578,8 +989,8 @@
   
   <entry>
     <title>大数据03-06-系统服务器上下线感知程序</title>
-    <link href="https://blog.signalfire2017.com/2017/11/26/%E5%A4%A7%E6%95%B0%E6%8D%AE03-06-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%B8%8B%E7%BA%BF%E6%84%9F%E7%9F%A5%E7%A8%8B%E5%BA%8F/"/>
-    <id>https://blog.signalfire2017.com/2017/11/26/大数据03-06-系统服务器上下线感知程序/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/26/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-06-%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%B8%8B%E7%BA%BF%E6%84%9F%E7%9F%A5%E7%A8%8B%E5%BA%8F/"/>
+    <id>https://blog.signalfire2017.com/2017/11/26/大数据/大数据03-06-系统服务器上下线感知程序/</id>
     <published>2017-11-25T17:10:58.000Z</published>
     <updated>2017-11-26T10:36:18.352Z</updated>
     
@@ -605,8 +1016,8 @@
   
   <entry>
     <title>大数据03-05-java api</title>
-    <link href="https://blog.signalfire2017.com/2017/11/26/%E5%A4%A7%E6%95%B0%E6%8D%AE03-05-java-api/"/>
-    <id>https://blog.signalfire2017.com/2017/11/26/大数据03-05-java-api/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/26/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-05-java-api/"/>
+    <id>https://blog.signalfire2017.com/2017/11/26/大数据/大数据03-05-java-api/</id>
     <published>2017-11-25T17:10:40.000Z</published>
     <updated>2017-11-26T10:37:50.160Z</updated>
     
@@ -631,8 +1042,8 @@
   
   <entry>
     <title>大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析</title>
-    <link href="https://blog.signalfire2017.com/2017/11/21/%E5%A4%A7%E6%95%B0%E6%8D%AE03-04-zookeeper%E9%9B%86%E7%BE%A4%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E5%8F%8Aexport%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E6%9E%90/"/>
-    <id>https://blog.signalfire2017.com/2017/11/21/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/21/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-04-zookeeper%E9%9B%86%E7%BE%A4%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E5%8F%8Aexport%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E8%A7%A3%E6%9E%90/"/>
+    <id>https://blog.signalfire2017.com/2017/11/21/大数据/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/</id>
     <published>2017-11-21T15:22:14.000Z</published>
     <updated>2017-11-25T17:09:36.081Z</updated>
     
@@ -672,8 +1083,8 @@
   
   <entry>
     <title>大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能</title>
-    <link href="https://blog.signalfire2017.com/2017/11/19/%E5%A4%A7%E6%95%B0%E6%8D%AE03-03-zookeeper-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%8Aznode%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E7%9B%91%E5%90%AC%E7%AD%89%E5%8A%9F%E8%83%BD/"/>
-    <id>https://blog.signalfire2017.com/2017/11/19/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-03-zookeeper-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%8Aznode%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B%E7%9B%91%E5%90%AC%E7%AD%89%E5%8A%9F%E8%83%BD/"/>
+    <id>https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/</id>
     <published>2017-11-19T15:54:06.000Z</published>
     <updated>2017-11-21T15:31:47.234Z</updated>
     
@@ -762,8 +1173,8 @@
   
   <entry>
     <title>大数据03-02-zookeeper 简介</title>
-    <link href="https://blog.signalfire2017.com/2017/11/19/%E5%A4%A7%E6%95%B0%E6%8D%AE03-02-zookeeper-%E7%AE%80%E4%BB%8B/"/>
-    <id>https://blog.signalfire2017.com/2017/11/19/大数据03-02-zookeeper-简介/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-02-zookeeper-%E7%AE%80%E4%BB%8B/"/>
+    <id>https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-02-zookeeper-简介/</id>
     <published>2017-11-19T12:22:13.000Z</published>
     <updated>2017-11-19T12:28:24.848Z</updated>
     
@@ -851,8 +1262,8 @@
   
   <entry>
     <title>hexo-next 本地搜索</title>
-    <link href="https://blog.signalfire2017.com/2017/11/14/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/"/>
-    <id>https://blog.signalfire2017.com/2017/11/14/hexo-next-本地搜索/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/14/%E6%9D%82%E8%AE%B0/hexo-next-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2/"/>
+    <id>https://blog.signalfire2017.com/2017/11/14/杂记/hexo-next-本地搜索/</id>
     <published>2017-11-14T15:46:14.000Z</published>
     <updated>2017-11-19T11:37:54.840Z</updated>
     
@@ -881,8 +1292,8 @@
   
   <entry>
     <title>大数据03-01-自动化部署脚本</title>
-    <link href="https://blog.signalfire2017.com/2017/11/14/%E5%A4%A7%E6%95%B0%E6%8D%AE03-01-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/"/>
-    <id>https://blog.signalfire2017.com/2017/11/14/大数据03-01-自动化部署脚本/</id>
+    <link href="https://blog.signalfire2017.com/2017/11/14/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-01-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/"/>
+    <id>https://blog.signalfire2017.com/2017/11/14/大数据/大数据03-01-自动化部署脚本/</id>
     <published>2017-11-14T14:43:45.000Z</published>
     <updated>2017-11-14T15:06:55.689Z</updated>
     
@@ -911,441 +1322,6 @@
       <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
     
       <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-01-1 linux本地yum库</title>
-    <link href="https://blog.signalfire2017.com/2017/11/14/%E5%A4%A7%E6%95%B0%E6%8D%AE02-01-1-linux%E6%9C%AC%E5%9C%B0yum%E5%BA%93/"/>
-    <id>https://blog.signalfire2017.com/2017/11/14/大数据02-01-1-linux本地yum库/</id>
-    <published>2017-11-14T13:58:01.000Z</published>
-    <updated>2017-11-14T15:07:55.300Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="本地yum仓库的安装配置"><a href="#本地yum仓库的安装配置" class="headerlink" title="本地yum仓库的安装配置"></a>本地yum仓库的安装配置</h1><h2 id="两种方式："><a href="#两种方式：" class="headerlink" title="两种方式："></a>两种方式：</h2><h3 id="每一台机器都配一个本地文件系统上的yum仓库-file-packege-path"><a href="#每一台机器都配一个本地文件系统上的yum仓库-file-packege-path" class="headerlink" title="每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/"></a>每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/</h3><h3 id="在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path"><a href="#在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path" class="headerlink" title="在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http://server-base/pagekege/path/"></a>在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过<a href="http://server-base/pagekege/path/" target="_blank" rel="external">http://server-base/pagekege/path/</a></h3><a id="more"></a>
-<ul>
-<li>制作流程：  </li>
-<li>先挑选一台机器mini4，挂载一个系统光盘到本地目录/mnt/cdrom，</li>
-<li>然后启动一个httpd服务器，</li>
-<li>将/mnt/cdrom 软连接到httpd服务器的/var/www/html目录中 (cd /var/www/html; ln -s /mnt/cdrom ./centos )</li>
-<li>然后通过网页访问测试一下：  <a href="http://mini4/centos" target="_blank" rel="external">http://mini4/centos</a>   会看到光盘的目录内容</li>
-</ul>
-<p>至此：网络版yum私有仓库已经建立完毕<br>剩下就是去各台yum的客户端配置这个http地址到repo配置文件中</p>
-<h1 id="无论哪种配置，都需要先将光盘挂在到本地文件目录中"><a href="#无论哪种配置，都需要先将光盘挂在到本地文件目录中" class="headerlink" title="无论哪种配置，都需要先将光盘挂在到本地文件目录中"></a>无论哪种配置，都需要先将光盘挂在到本地文件目录中</h1><blockquote>
-<p>mount -t iso9660 /dev/cdrom   /mnt/cdrom</p>
-</blockquote>
-<p>为了避免每次重启后都要手动mount，可以在/etc/fstab中加入一行挂载配置，即可自动挂载</p>
-<pre><code>vi  /etc/fstab
-/dev/cdrom              /mnt/cdrom              iso9660 defaults        0 0
-</code></pre><h1 id="minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖"><a href="#minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖" class="headerlink" title="minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖"></a>minimal安装的系统出现的问题：缺各种命令，安装软件时缺各种依赖</h1><p>scp命令都没有：yum install -y openssh-clients<br>每台机器上都要安装才行</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;本地yum仓库的安装配置&quot;&gt;&lt;a href=&quot;#本地yum仓库的安装配置&quot; class=&quot;headerlink&quot; title=&quot;本地yum仓库的安装配置&quot;&gt;&lt;/a&gt;本地yum仓库的安装配置&lt;/h1&gt;&lt;h2 id=&quot;两种方式：&quot;&gt;&lt;a href=&quot;#两种方式：&quot; class=&quot;headerlink&quot; title=&quot;两种方式：&quot;&gt;&lt;/a&gt;两种方式：&lt;/h2&gt;&lt;h3 id=&quot;每一台机器都配一个本地文件系统上的yum仓库-file-packege-path&quot;&gt;&lt;a href=&quot;#每一台机器都配一个本地文件系统上的yum仓库-file-packege-path&quot; class=&quot;headerlink&quot; title=&quot;每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/&quot;&gt;&lt;/a&gt;每一台机器都配一个本地文件系统上的yum仓库 file:///packege/path/&lt;/h3&gt;&lt;h3 id=&quot;在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path&quot;&gt;&lt;a href=&quot;#在局域网内部配置一台节点-server-base-的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http-server-base-pagekege-path&quot; class=&quot;headerlink&quot; title=&quot;在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过http://server-base/pagekege/path/&quot;&gt;&lt;/a&gt;在局域网内部配置一台节点(server-base)的本地文件系统yum仓库，然后将其发布到web服务器中，其他节点就可以通过&lt;a href=&quot;http://server-base/pagekege/path/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://server-base/pagekege/path/&lt;/a&gt;&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-05-shell编程-awk命令</title>
-    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-05-shell%E7%BC%96%E7%A8%8B-awk%E5%91%BD%E4%BB%A4/"/>
-    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-05-shell编程-awk命令/</id>
-    <published>2017-11-06T15:25:05.000Z</published>
-    <updated>2017-11-14T15:08:18.953Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
-<p>awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。</p>
-<p>awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。<br><a id="more"></a></p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><blockquote>
-<p><code>awk &#39;{pattern + action}&#39; {filenames}</code></p>
-</blockquote>
-<p>尽管操作可能会很复杂，但语法总是这样，其中 pattern 表示 AWK 在数据中查找的内容，而 action 是在找到匹配内容时所执行的一系列命令。花括号（{}）不需要在程序中始终出现，但它们用于根据特定的模式对一系列指令进行分组。 pattern就是要表示的正则表达式，用斜杠括起来。</p>
-<p>awk语言的最基本功能是在文件或者字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作。完整的awk脚本通常用来格式化文本文件中的信息。</p>
-<p>通常，awk是以文件的一行为处理单位的。awk每接收文件的一行，然后执行相应的命令，来处理文本。</p>
-<h2 id="调用awk"><a href="#调用awk" class="headerlink" title="调用awk"></a>调用awk</h2><p>有三种方式调用awk</p>
-<h3 id="1-命令行方式"><a href="#1-命令行方式" class="headerlink" title="1.命令行方式"></a>1.命令行方式</h3><blockquote>
-<p>awk [-F  field-separator]  ‘commands’  input-file(s)<br>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。通常，在不指名-F域分隔符的情况下，默认的域分隔符是空格。</p>
-</blockquote>
-<h3 id="2-shell脚本方式"><a href="#2-shell脚本方式" class="headerlink" title="2.shell脚本方式"></a>2.shell脚本方式</h3><p>将所有的awk命令插入一个文件，并使awk程序可执行，然后awk命令解释器作为脚本的首行，一遍通过键入脚本名称来调用。<br>相当于shell脚本首行的：#!/bin/sh<br>可以换成：#!/bin/awk</p>
-<h3 id="3-将所有的awk命令插入一个单独文件，然后调用："><a href="#3-将所有的awk命令插入一个单独文件，然后调用：" class="headerlink" title="3.将所有的awk命令插入一个单独文件，然后调用："></a>3.将所有的awk命令插入一个单独文件，然后调用：</h3><blockquote>
-<p>awk -f awk-script-file input-file(s)<br>其中，-f选项加载awk-script-file中的awk脚本，input-file(s)跟上面的是一样的。</p>
-</blockquote>
-<p> 本章重点介绍命令行方式。</p>
-<h2 id="入门实例"><a href="#入门实例" class="headerlink" title="入门实例"></a>入门实例</h2><p>假设last -n 5的输出如下</p>
-<blockquote>
-<p>[root@www ~]# last -n 5 &lt;==仅取出前五行</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">root     pts/1   192.168.1.100  Tue Feb 10 11:21   still logged in</div><div class="line">root     pts/1   192.168.1.100  Tue Feb 10 00:46 - 02:28  (01:41)</div><div class="line">root     pts/1   192.168.1.100  Mon Feb  9 11:41 - 18:30  (06:48)</div><div class="line">dmtsai   pts/1   192.168.1.100  Mon Feb  9 11:41 - 11:41  (00:00)</div><div class="line">root     tty1                   Fri Sep  5 14:09 - 14:10  (00:01)</div></pre></td></tr></table></figure>
-<p>如果只是显示最近登录的5个帐号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#last -n 5 | awk  &apos;&#123;print $1&#125;&apos;</div><div class="line">root</div><div class="line">root</div><div class="line">root</div><div class="line">dmtsai</div><div class="line">root</div></pre></td></tr></table></figure>
-<p>awk工作流程是这样的：读入有’\n’换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是”空白键” 或 “[tab]键”,所以$1表示登录用户，$3表示登录用户ip,以此类推。</p>
-<p>如果只是显示/etc/passwd的账户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd |awk  -F &apos;:&apos;  &apos;&#123;print $1&#125;&apos;  </div><div class="line">root</div><div class="line">daemon</div><div class="line">bin</div><div class="line">sys</div></pre></td></tr></table></figure>
-<p>这种是awk+action的示例，每行都会执行action{print $1}。</p>
-<blockquote>
-<p>-F指定域分隔符为’:’。</p>
-</blockquote>
-<p>如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以tab键分割</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd |awk  -F &apos;:&apos;  &apos;&#123;print $1&quot;\t&quot;$7&#125;&apos;</div><div class="line">root    /bin/bash</div><div class="line">daemon  /bin/sh</div><div class="line">bin     /bin/sh</div><div class="line">sys     /bin/sh</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以逗号分割,而且在所有行添加列名name,shell,在最后一行添加&quot;blue,/bin/nosh&quot;。</div></pre></td></tr></table></figure>
-<p>cat /etc/passwd |awk  -F ‘:’  ‘BEGIN {print “name,shell”}  {print $1”,”$7} END {print “blue,/bin/nosh”}’<br>name,shell<br>root,/bin/bash<br>daemon,/bin/sh<br>bin,/bin/sh<br>sys,/bin/sh<br>….<br>blue,/bin/nosh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">awk工作流程是这样的：先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">搜索/etc/passwd有root关键字的所有行</div><div class="line"></div><div class="line">&gt; #awk -F: &apos;/root/&apos; /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">这种是pattern的使用示例，匹配了pattern(这里是root)的行才会执行action(没有指定action，默认输出每行的内容)。</div><div class="line"></div><div class="line">搜索支持正则，例如找root开头的: ```awk -F: &apos;/^root/&apos; /etc/passwd</div></pre></td></tr></table></figure>
-<p>搜索/etc/passwd有root关键字的所有行，并显示对应的shell</p>
-<blockquote>
-<h1 id="awk-F-‘-root-print-7-’-etc-passwd"><a href="#awk-F-‘-root-print-7-’-etc-passwd" class="headerlink" title="awk -F: ‘/root/{print $7}’ /etc/passwd"></a>awk -F: ‘/root/{print $7}’ /etc/passwd</h1><p>/bin/bash<br> 这里指定了action{print $7}</p>
-</blockquote>
-<h2 id="awk内置变量"><a href="#awk内置变量" class="headerlink" title="awk内置变量"></a>awk内置变量</h2><p>awk有许多内置变量用来设置环境信息，这些变量可以被改变，下面给出了最常用的一些变量。</p>
-<pre><code>ARGC               命令行参数个数
-ARGV               命令行参数排列
-ENVIRON            支持队列中系统环境变量的使用
-FILENAME           awk浏览的文件名
-FNR                浏览文件的记录数
-FS                 设置输入域分隔符，等价于命令行 -F选项
-NF                 浏览记录的域的个数
-NR                 已读的记录数
-OFS                输出域分隔符
-ORS                输出记录分隔符
-RS                 控制记录分隔符
-</code></pre><p> 此外,$0变量是指整条记录。$1表示当前行的第一个域,$2表示当前行的第二个域,……以此类推。</p>
-<p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:</p>
-<blockquote>
-<p>#awk  -F ‘:’  ‘{print “filename:” FILENAME “,linenumber:” NR “,columns:” NF “,linecontent:”$0}’ /etc/passwd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">filename:/etc/passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:/root:/bin/bash</div><div class="line">filename:/etc/passwd,linenumber:2,columns:7,linecontent:daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">filename:/etc/passwd,linenumber:3,columns:7,linecontent:bin:x:2:2:bin:/bin:/bin/sh</div><div class="line">filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/sh</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">使用printf替代print,可以让代码更加简洁，易读</div><div class="line"></div><div class="line"> &gt; awk  -F &apos;:&apos;  &apos;&#123;printf(&quot;filename:%s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&apos; /etc/passwd</div><div class="line"> </div><div class="line"></div><div class="line">## print和printf</div><div class="line">awk中同时提供了print和printf两种打印输出的函数。</div><div class="line"></div><div class="line">其中print函数的参数可以是变量、数值或者字符串。字符串必须用双引号引用，参数用逗号分隔。如果没有逗号，参数就串联在一起而无法区分。这里，逗号的作用与输出文件的分隔符的作用是一样的，只是后者是空格而已。</div><div class="line"></div><div class="line">printf函数，其用法和c语言中printf基本相似,可以格式化字符串,输出复杂时，printf更加好用，代码更易懂。</div><div class="line"></div><div class="line">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </div><div class="line"></div><div class="line">#  awk编程</div><div class="line"> 变量和赋值</div><div class="line"></div><div class="line">除了awk的内置变量，awk还可以自定义变量。</div><div class="line"></div><div class="line">## 下面统计/etc/passwd的账户人数</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>awk ‘{count++;print $0;} END{print “user count is “, count}’ /etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>……<br>user count is  40</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">count是自定义变量。之前的action&#123;&#125;里都是只有一个print,其实print只是一个语句，而action&#123;&#125;可以有多个语句，以;号隔开。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">这里没有初始化count，虽然默认是0，但是妥当的做法还是初始化为0:</div></pre></td></tr></table></figure>
-<p>awk ‘BEGIN {count=0;print “[start]user count is “, count} {count=count+1;print $0;} END{print “[end]user count is “, count}’ /etc/passwd<br>[start]user count is  0<br>root:x:0:0:root:/root:/bin/bash<br>…<br>[end]user count is  40</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">统计某个文件夹下的文件占用的字节数</div></pre></td></tr></table></figure>
-<p>ls -l |awk ‘BEGIN {size=0;} {size=size+$5;} END{print “[end]size is “, size}’<br>[end]size is  8657198</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果以M为单位显示:</div></pre></td></tr></table></figure>
-<p>ls -l |awk ‘BEGIN {size=0;} {size=size+$5;} END{print “[end]size is “, size/1024/1024,”M”}’<br>[end]size is  8.25889 M</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">注意，统计不包括文件夹的子目录。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">### 条件语句</div><div class="line"></div><div class="line"> awk中的条件语句是从C语言中借鉴来的，见如下声明方式：</div></pre></td></tr></table></figure>
-<p>if (expression) {<br>    statement;<br>    statement;<br>    … …<br>}</p>
-<p>if (expression) {<br>    statement;<br>} else {<br>    statement2;<br>}</p>
-<p>if (expression) {<br>    statement1;<br>} else if (expression1) {<br>    statement2;<br>} else {<br>    statement3;<br>}</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">统计某个文件夹下的文件占用的字节数,过滤4096大小的文件(一般都是文件夹):</div></pre></td></tr></table></figure>
-<p>ls -l |awk ‘BEGIN {size=0;print “[start]size is “, size} {if($5!=4096){size=size+$5;}} END{print “[end]size is “, size/1024/1024,”M”}’<br>[end]size is  8.22339 M</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 循环语句</div><div class="line"></div><div class="line">awk中的循环语句同样借鉴于C语言，支持while、do/while、for、break、continue，这些关键字的语义和C语言中的语义完全相同。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">### 数组</div><div class="line"></div><div class="line">  因为awk中数组的下标可以是数字和字母，数组的下标通常被称为关键字(key)。值和关键字都存储在内部的一张针对key/value应用hash的表格里。由于hash不是顺序存储，因此在显示数组内容时会发现，它们并不是按照你预料的顺序显示出来的。数组和变量一样，都是在使用时自动创建的，awk也同样会自动判断其存储的是数字还是字符串。一般而言，awk中的数组用来从记录中收集信息，可以用于计算总和、统计单词以及跟踪模板被匹配的次数等等。</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">显示/etc/passwd的账户</div></pre></td></tr></table></figure>
-<p>awk -F ‘:’ ‘BEGIN {count=0;} {name[count] = $1;count++;}; END{for (i = 0; i &lt; NR; i++) print i, name[i]}’ /etc/passwd<br>0 root<br>1 daemon<br>2 bin<br>3 sys<br>4 sync<br>5 games<br>……</p>
-<p>```<br>这里使用for循环遍历数组</p>
-<p>awk编程的内容极多，这里只罗列简单常用的用法，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html" target="_blank" rel="external">http://www.gnu.org/software/gawk/manual/gawk.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。&lt;/p&gt;
-&lt;p&gt;awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。&lt;/p&gt;
-&lt;p&gt;awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-04-shell编程-sed命令</title>
-    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-04-shell%E7%BC%96%E7%A8%8B-sed%E5%91%BD%E4%BB%A4/"/>
-    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-04-shell编程-sed命令/</id>
-    <published>2017-11-06T15:02:56.000Z</published>
-    <updated>2017-11-06T16:13:52.587Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Sed简介"><a href="#Sed简介" class="headerlink" title="Sed简介"></a>Sed简介</h1><p>sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.<br><a id="more"></a></p>
-<h2 id="定址"><a href="#定址" class="headerlink" title="定址"></a>定址</h2><p>可以通过定址来定位你所希望编辑的行，该地址用数字构成，用逗号分隔的两个行数表示以这两行为起止的行的范围（包括行数表示的那两行）。如1，3表示1，2，3行，美元符号($)表示最后一行。范围可以通过数据，正则表达式或者二者结合的方式确定 。</p>
-<h2 id="Sed命令"><a href="#Sed命令" class="headerlink" title="Sed命令"></a>Sed命令</h2><p>调用sed命令有两种形式：</p>
-<ul>
-<li>sed [options] ‘command’ file(s)</li>
-<li>sed [options] -f scriptfile file(s)<ul>
-<li>a<br>在当前行后面加入一行文本。</li>
-<li>b lable<br>分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。</li>
-<li>c<br>用新的文本改变本行的文本。</li>
-<li>d<br>从模板块（Pattern space）位置删除行。</li>
-<li>D<br>删除模板块的第一行。</li>
-<li>i<br>在当前行上面插入文本。</li>
-<li>h<br>拷贝模板块的内容到内存中的缓冲区。</li>
-<li>H<br>追加模板块的内容到内存中的缓冲区</li>
-<li>g<br>获得内存缓冲区的内容，并替代当前模板块中的文本。</li>
-<li>G<br>获得内存缓冲区的内容，并追加到当前模板块文本的后面。</li>
-<li>l<br>列表不能打印字符的清单。</li>
-<li>n<br>读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。</li>
-<li>N<br>追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。</li>
-<li>p<br>打印模板块的行。</li>
-<li>P（大写）<br>打印模板块的第一行。</li>
-<li>q<br>退出Sed。</li>
-<li>r file<br>从file中读行。</li>
-<li>t label<br>if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</li>
-<li>T label<br>错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</li>
-<li>w file<br>写并追加模板块到file末尾。</li>
-<li>W file<br>写并追加模板块的第一行到file末尾。</li>
-<li>!<br>表示后面的命令对所有没有被选定的行发生作用。</li>
-<li>s/re/string<br>用string替换正则表达式re。</li>
-<li>=<br>打印当前行号码。</li>
-<li>#把注释扩展到下一个换行符以前。<h3 id="以下的是替换标记"><a href="#以下的是替换标记" class="headerlink" title="以下的是替换标记"></a>以下的是替换标记</h3></li>
-</ul>
-</li>
-<li>g表示行内全面替换。</li>
-<li>p表示打印行。</li>
-<li>w表示把行写入一个文件。</li>
-<li>x表示互换模板块中的文本和缓冲区中的文本。</li>
-<li>y表示把一个字符翻译为另外的字符（但是不用于正则表达式）</li>
-</ul>
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p><code>-e command, --expression=command</code><br>允许多台编辑。</p>
-<ul>
-<li>-h, –help<br>打印帮助，并显示bug列表的地址。</li>
-<li>-n, –quiet, –silent<br>取消默认输出。</li>
-<li>-f, –filer=script-file<br>引导sed脚本文件名。</li>
-<li>-V, –version<br>打印版本和版权信息。</li>
-</ul>
-<h2 id="元字符集"><a href="#元字符集" class="headerlink" title="元字符集^"></a>元字符集^</h2><p>锚定行的开始 如：/^sed/匹配所有以sed开头的行。<br>$</p>
-<ul>
-<li>锚定行的结束 如：/sed$/匹配所有以sed结尾的行。<br>.</li>
-<li>匹配一个非换行符的字符 如：/s.d/匹配s后接一个任意字符，然后是d。<br>*</li>
-<li>匹配零或多个字符 如：/*sed/匹配所有模板是一个或多个空格后紧跟sed的行。<br>[]</li>
-<li>匹配一个指定范围内的字符，如/[Ss]ed/匹配sed和Sed。<br>[^]</li>
-<li>匹配一个不在指定范围内的字符，如：/[^A-RT-Z]ed/匹配不包含A-R和T-Z的一个字母开头，紧跟ed的行。<br>(..)</li>
-<li>保存匹配的字符，如s/(love)able/\1rs，loveable被替换成lovers。<br>&amp;</li>
-<li>保存搜索字符用来替换其他字符，如s/love/<strong>&amp;</strong>/，love这成<strong>love</strong>。<br>\&lt;</li>
-<li>锚定单词的开始，如:/\<love 匹配包含以love开头的单词的行。="" \=""></love></li>
-<li>锚定单词的结束，如/love>/匹配包含以love结尾的单词的行。<br>x{m}</li>
-<li>重复字符x，m次，如：/o{5}/匹配包含5个o的行。<br>x{m,}</li>
-<li>重复字符x,至少m次，如：/o{5,}/匹配至少有5个o的行。<br>x{m,n}</li>
-<li>重复字符x，至少m次，不多于n次，如：/o{5,10}/匹配5–10个o的行。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="删除：d命令"><a href="#删除：d命令" class="headerlink" title="删除：d命令"></a>删除：d命令</h3></li>
-<li>$ sed ‘2d’ example—–删除example文件的第二行。</li>
-<li>$ sed ‘2,$d’ example—–删除example文件的第二行到末尾所有行。</li>
-<li>$ sed ‘$d’ example—–删除example文件的最后一行。</li>
-<li>$ sed ‘/test/‘d example—–删除example文件所有包含test的行。<h3 id="替换：s命令"><a href="#替换：s命令" class="headerlink" title="替换：s命令"></a>替换：s命令</h3></li>
-<li>$ sed ‘s/test/mytest/g’ example—–在整行范围内把test替换为mytest。如果没有g标记，则只有每行第一个匹配的test被替换成mytest。</li>
-<li>$ sed -n ‘s/^test/mytest/p’ example—–(-n)选项和p标志一起使用表示只打印那些发生替换的行。也就是说，如果某一行开头的test被替换成mytest，就打印它。</li>
-<li>$ sed ‘s/^192.168.0.1/&amp;localhost/‘ example—–&amp;符号表示替换换字符串中被找到的部份。所有以192.168.0.1开头的行都会被替换成它自已加 localhost，变成192.168.0.1localhost。</li>
-<li>$ sed -n ‘s/(love)able/\1rs/p’ example—–love被标记为1，所有loveable会被替换成lovers，而且替换的行会被打印出来。</li>
-<li>$ sed ‘s#10#100#g’ example—–不论什么字符，紧跟着s命令的都被认为是新的分隔符，所以，“#”在这里是分隔符，代替了默认的“/”分隔符。表示把所有10替换成100。<br>选定行的范围：逗号</li>
-<li>$ sed -n ‘/test/,/check/p’ example—–所有在模板test和check所确定的范围内的行都被打印。</li>
-<li>$ sed -n ‘5,/^test/p’ example—–打印从第五行开始到第一个包含以test开始的行之间的所有行。</li>
-<li>$ sed ‘/test/,/check/s/$/sed test/‘ example—–对于模板test和west之间的行，每行的末尾用字符串sed test替换。<h3 id="多点编辑：e命令"><a href="#多点编辑：e命令" class="headerlink" title="多点编辑：e命令"></a>多点编辑：e命令</h3></li>
-<li>$ sed -e ‘1,5d’ -e ‘s/test/check/‘ example—–(-e)选项允许在同一行里执行多条命令。如例子所示，第一条命令删除1至5行，第二条命令用check替换test。命令的执 行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。</li>
-<li>$ sed –expression=’s/test/check/‘ –expression=’/love/d’ example—–一个比-e更好的命令是–expression。它能给sed表达式赋值。<h3 id="从文件读入：r命令"><a href="#从文件读入：r命令" class="headerlink" title="从文件读入：r命令"></a>从文件读入：r命令</h3></li>
-<li>$ sed ‘/test/r file’ example—–file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面。<h3 id="写入文件：w命令"><a href="#写入文件：w命令" class="headerlink" title="写入文件：w命令"></a>写入文件：w命令</h3></li>
-<li><p>$ sed -n ‘/test/w file’ example—–在example中所有包含test的行都被写入file里。</p>
-<h3 id="追加命令：a命令"><a href="#追加命令：a命令" class="headerlink" title="追加命令：a命令"></a>追加命令：a命令</h3></li>
-<li><p>$ sed ‘/^test/a\—&gt;this is a example’ example    ‘—–&gt;this is a example’被追加到以test开头的行后面，sed要求命令a后面有一个反斜杠。</p>
-<h3 id="插入：i命令"><a href="#插入：i命令" class="headerlink" title="插入：i命令"></a>插入：i命令</h3></li>
-<li>$ sed ‘/test/i\<br>new line<br>————————-‘ example<br>如果test被匹配，则把反斜杠后面的文本插入到匹配行的前面。<br>下一个：n命令</li>
-<li><p>$ sed ‘/test/{ n; s/aa/bb/; }’ example—–如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续。<br>变形：y命令</p>
-</li>
-<li><p>$ sed ‘1,10y/abcde/ABCDE/‘ example—–把1–10行内所有abcde转变为大写，注意，正则表达式元字符不能使用这个命令。<br>退出：q命令</p>
-</li>
-<li>$ sed ‘10q’ example—–打印完第10行后，退出sed。<br>保持和获取：h命令和G命令</li>
-<li>$ sed -e ‘/test/h’ -e ‘$G example—–在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保 持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中 的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。<br>保持和互换：h命令和x命令</li>
-<li>$ sed -e ‘/test/h’ -e ‘/check/x’ example —–互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换。<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3>Sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Sed简介&quot;&gt;&lt;a href=&quot;#Sed简介&quot; class=&quot;headerlink&quot; title=&quot;Sed简介&quot;&gt;&lt;/a&gt;Sed简介&lt;/h1&gt;&lt;p&gt;sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据02-03 shell编程语法讲解</title>
-    <link href="https://blog.signalfire2017.com/2017/11/06/%E5%A4%A7%E6%95%B0%E6%8D%AE02-03%20shell%E7%BC%96%E7%A8%8B%E8%AF%AD%E6%B3%95%E8%AE%B2%E8%A7%A3/"/>
-    <id>https://blog.signalfire2017.com/2017/11/06/大数据02-03 shell编程语法讲解/</id>
-    <published>2017-11-06T15:02:36.000Z</published>
-    <updated>2017-12-05T16:01:22.799Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h2><ul>
-<li>$HOME</li>
-<li>$PWD</li>
-<li>$SHELL</li>
-<li>$USER<br>显示当前shell中所有变量</li>
-</ul>
-<p>set</p>
-<a id="more"></a>
-<h2 id="用户自定义变量"><a href="#用户自定义变量" class="headerlink" title="用户自定义变量"></a>用户自定义变量</h2><p>定义变量</p>
-<blockquote>
-<p>STR=”hello world”</p>
-<p>A=9</p>
-<p>unset A 撤销变量 A</p>
-<p>readonly B=2 声明静态的变量 B=2 ，不能 unset</p>
-<p>export 变量名 可把变量提升为全局环境变量，可供其他shell程序使用</p>
-</blockquote>
-<p>将命令的返回值赋给变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A=`ls -la` 反引号，运行里面的命令，并把结果返回给变量A</div><div class="line">A=$(ls -la) 等价于反引号</div></pre></td></tr></table></figure>
-<h2 id="shell中的特殊变量"><a href="#shell中的特殊变量" class="headerlink" title="shell中的特殊变量"></a>shell中的特殊变量</h2><ul>
-<li>$? 表示上一个命令退出的状态  true 0 false 1 错误127</li>
-<li>$$ 表示当前进程编号</li>
-<li>$0 表示当前脚本名称</li>
-<li>$n 表示n位置的输入参数（n代表数字，n&gt;=1）</li>
-<li>$#     表示参数的个数，常用于循环</li>
-<li>$*和$@ 都表示参数列表 <h3 id="与-区别"><a href="#与-区别" class="headerlink" title="$*与$@区别"></a>$*与$@区别</h3></li>
-<li>$* 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号” “包含时，都以$1  $2  … $n 的形式输出所有参数  </li>
-<li>当它们被双引号” “包含时，”$*” 会将所有的参数作为一个整体，以”$1 $2 … $n”的形式输出所有参数；”$@” 会将各个参数分开，以”$1” “$2” … “$n” 的形式输出所有参数</li>
-</ul>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
-<p>格式 :expr m + n 或$((m+n)) 注意expr运算符间要有空格</p>
-</blockquote>
-<p>例如计算（2 ＋3 ）×4 的值<br>1 .分步计算    S=<code>expr 2 + 3</code>    expr $S * 4<br>2.一步完成计算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">expr `expr 2 + 3 ` \* 4</div><div class="line"><span class="built_in">echo</span> `expr \`expr 2 + 3\` \* 4`</div><div class="line">或</div><div class="line">$(((2+3)*4))</div></pre></td></tr></table></figure></p>
-<h1 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h1><h2 id="第一种："><a href="#第一种：" class="headerlink" title="第一种："></a>第一种：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> 1 2 3</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="built_in">echo</span> <span class="variable">$N</span></div><div class="line"><span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> 1 2 3; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$N</span>; <span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> N <span class="keyword">in</span> &#123;1..3&#125;; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$N</span>; <span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h2 id="第二种："><a href="#第二种：" class="headerlink" title="第二种："></a>第二种：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i = 0; i &lt;= 5; i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"welcome <span class="variable">$i</span> times"</span></div><div class="line"><span class="keyword">done</span></div><div class="line">或</div><div class="line"><span class="keyword">for</span> ((i = 0; i &lt;= 5; i++)); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">"welcome <span class="variable">$i</span> times"</span>; <span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> expression</div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">command</span></div><div class="line">…</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h2 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">i=1</div><div class="line"><span class="keyword">while</span> ((i&lt;=3))</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="variable">$i</span></div><div class="line">  <span class="built_in">let</span> i++</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a>case语句</h1><p>格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></div><div class="line">start)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"starting"</span></div><div class="line">	;;</div><div class="line">stop)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"stoping"</span></div><div class="line">	;;</div><div class="line">*)</div><div class="line">	<span class="built_in">echo</span> <span class="string">"Usage: &#123;start|stop&#125; “</span></div><div class="line"><span class="string">esac</span></div></pre></td></tr></table></figure></p>
-<h1 id="read命令"><a href="#read命令" class="headerlink" title="read命令"></a>read命令</h1><p>read -p(提示语句)-n(字符个数) -t(等待时间)<br>    read -p “please input your name: “ NAME</p>
-<p>使用示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ read -p &quot;please enter a number:&quot; numb</div><div class="line">please enter a number:1</div><div class="line">[vagrant@mysql1 ~]$ echo $numb</div><div class="line">1</div><div class="line">[vagrant@mysql1 ~]$</div></pre></td></tr></table></figure></p>
-<h1 id="if判断"><a href="#if判断" class="headerlink" title="if判断"></a>if判断</h1><p>语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> condition </div><div class="line"><span class="keyword">then</span> </div><div class="line">    statements</div><div class="line">[<span class="keyword">elif</span> condition </div><div class="line">    <span class="keyword">then</span> statements. ..] </div><div class="line">[<span class="keyword">else</span> </div><div class="line">    statements ] </div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
-<h1 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h1><p>[ condition ] <strong>(注意condition前后要有空格)</strong></p>
-<p>#非空返回true，可使用$?验证（0为true，&gt;1为false）<br>[ test ]</p>
-<p>#空返回false<br>[  ]</p>
-<blockquote>
-<p>[ condition ] &amp;&amp; echo OK || echo notok</p>
-</blockquote>
-<p>条件满足，执行后面的语句 不满足执行 || 后面的语句</p>
-<h1 id="常用判断条件"><a href="#常用判断条件" class="headerlink" title="常用判断条件"></a>常用判断条件</h1><ul>
-<li>= 字符串比较</li>
-<li>-lt 小于</li>
-<li>-le 小于等于</li>
-<li>-eq 等于</li>
-<li>-gt 大于</li>
-<li>-ge 大于等于</li>
-<li><p>-ne 不等于</p>
-</li>
-<li><p>-r 有读的权限</p>
-</li>
-<li>-w 有写的权限</li>
-<li>-x 有执行的权限</li>
-<li><strong>-f 文件存在并且是一个常规的文件</strong></li>
-<li>-s 文件存在且不为空</li>
-<li>-d 文件存在并是一个目录</li>
-<li>-b文件存在并且是一个块设备</li>
-<li>-L 文件存在并且是一个链接</li>
-</ul>
-<h1 id="Shell自定义函数"><a href="#Shell自定义函数" class="headerlink" title="Shell自定义函数"></a>Shell自定义函数</h1><p>语法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> [ <span class="keyword">function</span> ] funname [()]</div><div class="line">&#123;</div><div class="line">    action;</div><div class="line">    [<span class="built_in">return</span> int;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>三种声明方式:</p>
-<ul>
-<li>function start()  </li>
-<li>function start </li>
-<li>start()</li>
-</ul>
-<p>注意</p>
-<ol>
-<li>必须在调用函数地方之前，先声明函数，shell脚本是逐行运行。不会像其它语言一样先预编译</li>
-<li>函数返回值，只能通过$? 系统变量获得，可以显示加：return 返回，如果不加，将以最后一条命令运行结果，作为返回值。 return后跟数值n(0-255)</li>
-</ol>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">fSum 3 2;</div><div class="line"><span class="keyword">function</span> fSum()</div><div class="line">&#123;</div><div class="line">    <span class="built_in">echo</span> <span class="variable">$1</span>,<span class="variable">$2</span>;</div><div class="line">    <span class="built_in">return</span> $((<span class="variable">$1</span>+<span class="variable">$2</span>));</div><div class="line">&#125;</div><div class="line">fSum 5 7;</div><div class="line">total=$?;</div><div class="line"><span class="built_in">echo</span> <span class="variable">$total</span>,$?;</div></pre></td></tr></table></figure>
-<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ sh test </div><div class="line">test: line 2: fSum: command not found</div><div class="line">5,7</div><div class="line">12,0</div></pre></td></tr></table></figure></p>
-<h1 id="脚本调试"><a href="#脚本调试" class="headerlink" title="脚本调试"></a>脚本调试</h1><ul>
-<li>sh -vx helloWorld.sh</li>
-<li>或者在脚本中增加set -x</li>
-</ul>
-<h1 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h1><p>cut命令可以从一个文本文件或者文本流中提取文本列。</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cut -d&apos;分隔字符&apos; -f fields &lt;==用于有特定分隔字符</div><div class="line">cut -c 字符区间            &lt;==用于排列整齐的信息</div></pre></td></tr></table></figure>
-<ul>
-<li>-d  ：后面接分隔字符。与 -f 一起使用；</li>
-<li>-f  ：依据 -d 的分隔字符将一段信息分割成为数段，用 -f 取出第几段的意思；</li>
-<li>-c  ：以字符 (characters) 的单位取出固定字符区间；</li>
-</ul>
-<h2 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h2><h3 id="PATH-变量如下"><a href="#PATH-变量如下" class="headerlink" title="PATH 变量如下"></a>PATH 变量如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@www ~]# echo $PATH</div><div class="line">/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/X11R6/bin:/usr/games</div><div class="line"># 1 | 2       | 3   | 4       | 5            | 6            | 7</div></pre></td></tr></table></figure>
-<h3 id="将-PATH-变量取出，我要找出第五个路径。"><a href="#将-PATH-变量取出，我要找出第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第五个路径。"></a>将 PATH 变量取出，我要找出第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 5</div><div class="line">/usr/local/bin</div></pre></td></tr></table></figure>
-<h3 id="将-PATH-变量取出，我要找出第三和第五个路径。"><a href="#将-PATH-变量取出，我要找出第三和第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第三和第五个路径。"></a>将 PATH 变量取出，我要找出第三和第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 3,5</div><div class="line">/sbin:/usr/local/bin</div></pre></td></tr></table></figure>
-<h3 id="将-PATH-变量取出，我要找出第三到最后一个路径。"><a href="#将-PATH-变量取出，我要找出第三到最后一个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第三到最后一个路径。"></a>将 PATH 变量取出，我要找出第三到最后一个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $PATH | cut -d &apos;:&apos; -f 3-</div><div class="line">/sbin:/usr/sbin:/usr/local/bin:/usr/X11R6/bin:/usr/games</div></pre></td></tr></table></figure>
-<h3 id="将-PATH-变量取出，我要找出第一到第三个路径。"><a href="#将-PATH-变量取出，我要找出第一到第三个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第一到第三个路径。"></a>将 PATH 变量取出，我要找出第一到第三个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#echo $PATH | cut -d &apos;:&apos; -f 1-3</div><div class="line">/bin:/usr/bin:/sbin:</div></pre></td></tr></table></figure>
-<h3 id="将-PATH-变量取出，我要找出第一到第三，还有第五个路径。"><a href="#将-PATH-变量取出，我要找出第一到第三，还有第五个路径。" class="headerlink" title="将 PATH 变量取出，我要找出第一到第三，还有第五个路径。"></a>将 PATH 变量取出，我要找出第一到第三，还有第五个路径。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo $PATH | cut -d &apos;:&apos; -f 1-3,5</div><div class="line">/bin:/usr/bin:/sbin:/usr/local/bin</div></pre></td></tr></table></figure>
-<h2 id="实用例子-只显示-etc-passwd的用户和shell"><a href="#实用例子-只显示-etc-passwd的用户和shell" class="headerlink" title="实用例子:只显示/etc/passwd的用户和shell"></a>实用例子:只显示/etc/passwd的用户和shell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cat /etc/passwd | cut -d &apos;:&apos; -f 1,7 </div><div class="line">root:/bin/bash</div><div class="line">daemon:/bin/sh</div><div class="line">bin:/bin/sh</div></pre></td></tr></table></figure>
-<h1 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h1><p>sort 命令对 File 参数指定的文件中的行排序，并将结果写到标准输出。如果 File 参数指定多个文件，那么 sort 命令将这些文件连接起来，并当作一个文件进行排序。</p>
-<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><p><code>[root@www ~]# sort [-fbMnrtuk] [file or stdin]</code><br>选项与参数：</p>
-<ul>
-<li>-f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；</li>
-<li>-b  ：忽略最前面的空格符部分；</li>
-<li>-M  ：以月份的名字来排序，例如 JAN, DEC 等等的排序方法；</li>
-<li>-n  ：使用『纯数字』进行排序(默认是以文字型态来排序的)；</li>
-<li>-r  ：反向排序；</li>
-<li>-u  ：就是 uniq ，相同的数据中，仅出现一行代表；</li>
-<li>-t  ：分隔符，默认是用 [tab] 键来分隔；</li>
-<li>-k  ：以那个区间 (field) 来进行排序的意思</li>
-</ul>
-<h2 id="对-etc-passwd-的账号进行排序"><a href="#对-etc-passwd-的账号进行排序" class="headerlink" title="对/etc/passwd 的账号进行排序"></a>对/etc/passwd 的账号进行排序</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@www ~]<span class="comment"># cat /etc/passwd | sort</span></div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">apache:x:48:48:Apache:/var/www:/sbin/nologin</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div></pre></td></tr></table></figure>
-<p>sort 是默认以第一个数据来排序，而且默认是以字符串形式来排序,所以由字母 a 开始升序排序。</p>
-<h2 id="etc-passwd-内容是以-来分隔的，我想以第三栏来排序，该如何"><a href="#etc-passwd-内容是以-来分隔的，我想以第三栏来排序，该如何" class="headerlink" title="/etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何"></a>/etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@www ~]# cat /etc/passwd | sort -t &apos;:&apos; -k 3</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin</div><div class="line">operator:x:11:0:operator:/root:/sbin/nologin</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">games:x:12:100:games:/usr/games:/sbin/nologin</div></pre></td></tr></table></figure>
-<h2 id="默认是以字符串来排序的，如果想要使用数字排序："><a href="#默认是以字符串来排序的，如果想要使用数字排序：" class="headerlink" title="默认是以字符串来排序的，如果想要使用数字排序："></a>默认是以字符串来排序的，如果想要使用数字排序：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | sort -t &apos;:&apos; -k 3n</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">bin:x:2:2:bin:/bin:/bin/sh</div></pre></td></tr></table></figure>
-<h2 id="默认是升序排序，如果要倒序排序，如下"><a href="#默认是升序排序，如果要倒序排序，如下" class="headerlink" title="默认是升序排序，如果要倒序排序，如下"></a>默认是升序排序，如果要倒序排序，如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd | sort -t &apos;:&apos; -k 3nr</div><div class="line">nobody:x:65534:65534:nobody:/nonexistent:/bin/sh</div><div class="line">ntp:x:106:113::/home/ntp:/bin/false</div><div class="line">messagebus:x:105:109::/var/run/dbus:/bin/false</div><div class="line">sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin</div></pre></td></tr></table></figure>
-<h2 id="如果要对-etc-passwd-先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。"><a href="#如果要对-etc-passwd-先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。" class="headerlink" title="如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。"></a>如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd |  sort -t&apos;:&apos; -k 6.2,6.4 -k 1r      </div><div class="line">sync:x:4:65534:sync:/bin:/bin/sync</div><div class="line">proxy:x:13:13:proxy:/bin:/bin/sh</div><div class="line">bin:x:2:2:bin:/bin:/bin/sh</div><div class="line">sys:x:3:3:sys:/dev:/bin/sh</div></pre></td></tr></table></figure>
-<h2 id="查看-etc-passwd有多少个shell-对-etc-passwd的第七个域进行排序，然后去重"><a href="#查看-etc-passwd有多少个shell-对-etc-passwd的第七个域进行排序，然后去重" class="headerlink" title="查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:"></a>查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cat /etc/passwd |  sort -t&apos;:&apos; -k 7 -u</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">syslog:x:101:102::/home/syslog:/bin/false</div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh</div><div class="line">sync:x:4:65534:sync:/bin:/bin/sync</div><div class="line">sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin</div></pre></td></tr></table></figure>
-<h1 id="uniq去重命令"><a href="#uniq去重命令" class="headerlink" title="uniq去重命令"></a>uniq去重命令</h1><p> uniq命令可以去除排序过的文件中的重复行，因此uniq经常和sort合用。也就是说，为了使uniq起作用，所有的重复行必须是相邻的。</p>
-<h2 id="uniq语法"><a href="#uniq语法" class="headerlink" title="uniq语法"></a>uniq语法</h2><p><code>[root@www ~]# uniq [-icu]</code><br>选项与参数：</p>
-<ul>
-<li>-i   ：忽略大小写字符的不同；</li>
-<li>-c  ：进行计数</li>
-<li>-u  ：只显示唯一的行</li>
-</ul>
-<p>testfile的内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cat testfile</div><div class="line">hello</div><div class="line">world</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div><div class="line">hello</div></pre></td></tr></table></figure></p>
-<p>直接删除未经排序的文件，将会发现没有任何行被删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#uniq testfile  </div><div class="line">hello</div><div class="line">world</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div><div class="line">hello</div></pre></td></tr></table></figure></p>
-<p>排序文件，默认是去重<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#cat testfile | sort |uniq</div><div class="line">friend</div><div class="line">hello</div><div class="line">world</div></pre></td></tr></table></figure></p>
-<p>排序之后删除了重复行，同时在行首位置输出该行重复的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#sort testfile | uniq -c</div><div class="line">1 friend</div><div class="line">3 hello</div><div class="line">2 world</div></pre></td></tr></table></figure></p>
-<p>仅显示存在重复的行，并在行首显示该行重复的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#sort testfile | uniq -dc</div><div class="line">3 hello</div><div class="line">2 world</div></pre></td></tr></table></figure></p>
-<p>仅显示不重复的行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sort testfile | uniq -u</div><div class="line">friend</div></pre></td></tr></table></figure></p>
-<h1 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h1><h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><p><code>[root@www ~]# wc [-lwm]</code><br>选项与参数：</p>
-<ul>
-<li>-l  ：仅列出行；</li>
-<li>-w  ：仅列出多少字(英文单字)；</li>
-<li>-m  ：多少字符；<h2 id="默认使用wc统计-etc-passwd"><a href="#默认使用wc统计-etc-passwd" class="headerlink" title="默认使用wc统计/etc/passwd"></a>默认使用wc统计/etc/passwd</h2></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#wc /etc/passwd</div><div class="line">40   45 1719 /etc/passwd</div><div class="line">40是行数，45是单词数，1719是字节数</div></pre></td></tr></table></figure>
-<p>wc的命令比较简单使用，每个参数使用如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#wc -l /etc/passwd   #统计行数，在对记录数时，很常用</div><div class="line">40 /etc/passwd       #表示系统有40个账户</div><div class="line"></div><div class="line">#wc -w /etc/passwd  #统计单词出现次数</div><div class="line">45 /etc/passwd</div><div class="line"></div><div class="line">#wc -m /etc/passwd  #统计文件的字符数</div><div class="line">1719</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;h2 id=&quot;系统变量&quot;&gt;&lt;a href=&quot;#系统变量&quot; class=&quot;headerlink&quot; title=&quot;系统变量&quot;&gt;&lt;/a&gt;系统变量&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;$HOME&lt;/li&gt;
-&lt;li&gt;$PWD&lt;/li&gt;
-&lt;li&gt;$SHELL&lt;/li&gt;
-&lt;li&gt;$USER&lt;br&gt;显示当前shell中所有变量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;set&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-      <category term="centos7" scheme="https://blog.signalfire2017.com/tags/centos7/"/>
-    
-      <category term="linux命令" scheme="https://blog.signalfire2017.com/tags/linux%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
