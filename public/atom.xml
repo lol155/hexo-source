@@ -75,9 +75,131 @@
     <link href="https://blog.signalfire2017.com/2018/01/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%80%BB%E4%BD%93%E6%A6%82%E8%A7%88/"/>
     <id>https://blog.signalfire2017.com/2018/01/21/微服务/微服务框架与实战-总体概览/</id>
     <published>2018-01-21T15:49:54.000Z</published>
-    <updated>2018-01-21T15:51:39.768Z</updated>
+    <updated>2018-01-21T16:09:40.501Z</updated>
     
-    <content type="html"><![CDATA[<p>这本书整体的看了一遍，具体细节还没有实践。先做个骨架，用的时候再丰富下。书中按照下面的顺序进行整合。<br><a id="more"></a><br> 序号 | 所属章 | 组件 | 功能 | 描述 | 相似组件<br>———-|———-|———-|————|————-|—————–<br> 1| 3|spring-boot             | 基础业务开发 |<br> 2| ||spring-boot-actuator    | 提供很多监控端点 |<br> 3| 4|Eureka   | 服务的注册与发现 | 集成于spring-cloud-netflix <br>是Netflix开源的服务发现组件<br>基于REST的服务 | Zookeeper，Consul<br> 4| 5|Ribbon   | 客户端测负载均衡 | Netflix发布的负载均衡器<br>有助于控制HTTP和TCP客户端的行为。<br> 5| |Feign    | 实现声明式REST调用 | Netflix开发的声明式、模板化的HTTP客户端。<br> 6| |Hystrix  | 服务容错处理 |<br> 7| |Turbine  | 聚合Hystrix监控数据的工具 | 将所有相关 /hystrix.stream 端点的数据聚合到一个聚合的/turbine.stream中<br>让集群的监控更加方便<br> 8| |RabbitMQ | 消息中间件 | 解决网络故障问题（例如微服务与Turbine网络不通）<br> 9| 8|Zuul | 构建微服务网关 | Netflix开源的微服务网关<br>可以和Eureka、Ribbon、Hystrix等组件配合使用<br>核心是一系列的过滤器<br> 10| |Sidecar | 整合非JVM微服务 |<br> 11|9|spring-cloud-Config | 统一管理微服务配置 |<br> 12|10|spring-cloud-sleuth | 微服务跟踪 | 分布式跟踪的解决方案<br> 13||ELK | 日志分析系统 |<br> 14||Zipkin | Twitter开源的分布式跟踪系统 | 可与Sleuth配合使用<br>收集系统的时序数据<br>追踪微服务框架的系统延时等问题<br>提供友好的界面，帮助分析追踪数据。<br> 15|12|Docker | 开源容器引擎<br>有助于更快地交付应用 | 可将应用程序和基础设施层隔离<br>能将基础设置当做程序一样进行管理<br>可更快地打包、测试以及部署应用程序<br>缩短从编写到部署运行代码的周期<br> 16|14|Docker Compose | 编排微服务 | 用于定义和运行多容器Docker应用程序的工具<br>前身是Fig<br>非常适合用在开发、测试、构建CI工作流等场景</p>
+    <content type="html"><![CDATA[<p>这本书整体的看了一遍，具体细节还没有实践。先做个骨架，用的时候再丰富下。书中按照下面的顺序进行整合。<br><a id="more"></a></p>
+<style>
+table th:first-of-type {
+    width: 15px;
+}
+
+table th:nth-of-type(2) {
+    width: 20%;
+}
+
+table th:nth-of-type(3) {
+    width: 30%;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th>章</th>
+<th>组件</th>
+<th>功能</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 3</td>
+<td>spring-boot</td>
+<td>基础业务开发</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>spring-boot-actuator</td>
+<td>提供很多监控端点</td>
+<td></td>
+</tr>
+<tr>
+<td> 4</td>
+<td>Eureka</td>
+<td>服务的注册与发现</td>
+<td>集成于spring-cloud-netflix <br>是Netflix开源的服务发现组件<br>基于REST的服务<br>相似组件： Zookeeper，Consul</td>
+</tr>
+<tr>
+<td> 5</td>
+<td>Ribbon</td>
+<td>客户端测负载均衡</td>
+<td>Netflix发布的负载均衡器<br>有助于控制HTTP和TCP客户端的行为。</td>
+</tr>
+<tr>
+<td></td>
+<td>Feign</td>
+<td>实现声明式REST调用</td>
+<td>Netflix开发的声明式、模板化的HTTP客户端。</td>
+</tr>
+<tr>
+<td></td>
+<td>Hystrix</td>
+<td>服务容错处理</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Turbine</td>
+<td>聚合Hystrix监控数据的工具</td>
+<td>将所有相关 /hystrix.stream 端点的数据聚合到一个聚合的/turbine.stream中<br>让集群的监控更加方便</td>
+</tr>
+<tr>
+<td></td>
+<td>RabbitMQ</td>
+<td>消息中间件</td>
+<td>解决网络故障问题（例如微服务与Turbine网络不通）</td>
+</tr>
+<tr>
+<td> 8</td>
+<td>Zuul</td>
+<td>构建微服务网关</td>
+<td>Netflix开源的微服务网关<br>可以和Eureka、Ribbon、Hystrix等组件配合使用<br>核心是一系列的过滤器</td>
+</tr>
+<tr>
+<td></td>
+<td>Sidecar</td>
+<td>整合非JVM微服务</td>
+<td></td>
+</tr>
+<tr>
+<td> 9</td>
+<td>spring-cloud-Config</td>
+<td>统一管理微服务配置</td>
+<td></td>
+</tr>
+<tr>
+<td> 10</td>
+<td>spring-cloud-sleuth</td>
+<td>微服务跟踪</td>
+<td>分布式跟踪的解决方案</td>
+</tr>
+<tr>
+<td></td>
+<td>ELK</td>
+<td>日志分析系统</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zipkin</td>
+<td>Twitter开源的分布式跟踪系统</td>
+<td>可与Sleuth配合使用<br>收集系统的时序数据<br>追踪微服务框架的系统延时等问题<br>提供友好的界面，帮助分析追踪数据。</td>
+</tr>
+<tr>
+<td> 12</td>
+<td>Docker</td>
+<td>开源容器引擎<br>有助于更快地交付应用</td>
+<td>可将应用程序和基础设施层隔离<br>能将基础设置当做程序一样进行管理<br>可更快地打包、测试以及部署应用程序<br>缩短从编写到部署运行代码的周期</td>
+</tr>
+<tr>
+<td> 14</td>
+<td>Docker Compose</td>
+<td>编排微服务</td>
+<td>用于定义和运行多容器Docker应用程序的工具<br>前身是Fig<br>非常适合用在开发、测试、构建CI工作流等场景</td>
+</tr>
+</tbody>
+</table>
 <p>雪崩效应：</p>
 <ul>
 <li>我们常把 “基础服务故障” 导致 “级联故障” 的现象成为雪崩效应。</li>

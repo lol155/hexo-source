@@ -2,7 +2,7 @@
 title: 微服务框架与实战-笔记03-开始使用SpringCloud实战微服务
 categories: 学习
 tags:
-  - 大数据
+  - 微服务
 toc: true
 date: 2018-01-21 23:50:00
 scaffolds:
