@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2018-01-21T15:51:04.450Z</updated>
+  <updated>2018-01-24T07:03:54.137Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>js心跳请求</title>
+    <link href="https://blog.signalfire2017.com/2018/01/24/js%E5%BF%83%E8%B7%B3%E8%AF%B7%E6%B1%82/"/>
+    <id>https://blog.signalfire2017.com/2018/01/24/js心跳请求/</id>
+    <published>2018-01-24T07:03:02.000Z</published>
+    <updated>2018-01-24T07:03:54.137Z</updated>
+    
+    <content type="html"><![CDATA[<p>示例代码,mark一下<br>var timer = setInterval (function(){},time)<br>clearInterval(timer)<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timer;</div><div class="line">timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    Common.ajax.execute(&#123;</div><div class="line">        <span class="string">'url'</span>: Common.url.getBaseURL() + <span class="string">'/flow/get-trusteeship.do'</span>,</div><div class="line">        <span class="string">'data'</span>: &#123;</div><div class="line">            <span class="string">"programId"</span>: $(<span class="string">"#programId"</span>).val(),</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'success'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (data.result == <span class="string">'success'</span> &amp;&amp; data.trusteeship) &#123;</div><div class="line">                <span class="keyword">if</span>(data.trusteeship.status == <span class="number">3</span>)&#123;</div><div class="line">                    clearInterval(timer);</div><div class="line">                    EmayPagination.action.skipToCurrentPage($(<span class="string">'#trusteeshipListQueryPaginationContainer'</span>),</div><div class="line">                        $(<span class="string">'#trusteeshipListQueryPaginationContainer .pagination-node.active'</span>).attr(<span class="string">'data-current-page-number'</span>));</div><div class="line">                    Trusteeship.dom.setStep(<span class="number">3</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'error'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            Messager.action.error(<span class="string">'操作异常。'</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;,<span class="number">5000</span>);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;示例代码,mark一下&lt;br&gt;var timer = setInterval (function(){},time)&lt;br&gt;clearInterval(timer)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="简单记录" scheme="https://blog.signalfire2017.com/categories/%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.signalfire2017.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微服务框架与实战-笔记03-开始使用SpringCloud实战微服务</title>
     <link href="https://blog.signalfire2017.com/2018/01/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B003-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8SpringCloud%E5%AE%9E%E6%88%98%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     <id>https://blog.signalfire2017.com/2018/01/21/微服务/微服务框架与实战-笔记03-开始使用SpringCloud实战微服务/</id>
     <published>2018-01-21T15:50:00.000Z</published>
-    <updated>2018-01-21T15:51:04.450Z</updated>
+    <updated>2018-01-21T16:17:09.085Z</updated>
     
     <content type="html"><![CDATA[<p>配套代码</p>
 <ul>
@@ -66,7 +89,7 @@
       <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+      <category term="微服务" scheme="https://blog.signalfire2017.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
@@ -75,7 +98,7 @@
     <link href="https://blog.signalfire2017.com/2018/01/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%80%BB%E4%BD%93%E6%A6%82%E8%A7%88/"/>
     <id>https://blog.signalfire2017.com/2018/01/21/微服务/微服务框架与实战-总体概览/</id>
     <published>2018-01-21T15:49:54.000Z</published>
-    <updated>2018-01-21T16:09:40.501Z</updated>
+    <updated>2018-01-21T16:16:54.403Z</updated>
     
     <content type="html"><![CDATA[<p>这本书整体的看了一遍，具体细节还没有实践。先做个骨架，用的时候再丰富下。书中按照下面的顺序进行整合。<br><a id="more"></a></p>
 <style>
@@ -775,11 +798,11 @@ table th:nth-of-type(3) {
       <category term="玩" scheme="https://blog.signalfire2017.com/categories/%E7%8E%A9/"/>
     
     
+      <category term="生活" scheme="https://blog.signalfire2017.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
       <category term="北京" scheme="https://blog.signalfire2017.com/tags/%E5%8C%97%E4%BA%AC/"/>
     
       <category term="游玩" scheme="https://blog.signalfire2017.com/tags/%E6%B8%B8%E7%8E%A9/"/>
-    
-      <category term="生活" scheme="https://blog.signalfire2017.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
@@ -1021,11 +1044,11 @@ table th:nth-of-type(3) {
     
       <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
+      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
+    
       <category term="JMS" scheme="https://blog.signalfire2017.com/tags/JMS/"/>
     
       <category term="activeMQ" scheme="https://blog.signalfire2017.com/tags/activeMQ/"/>
-    
-      <category term="java" scheme="https://blog.signalfire2017.com/tags/java/"/>
     
   </entry>
   
@@ -1364,95 +1387,6 @@ table th:nth-of-type(3) {
 &lt;li&gt;数据更新原子性，一次数据更新要么成功，要么失败&lt;/li&gt;
 &lt;li&gt;实时性，在一定时间范围内，client能读到最新数据&lt;/li&gt;
 &lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="zookeeper" scheme="https://blog.signalfire2017.com/tags/zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据03-02-zookeeper 简介</title>
-    <link href="https://blog.signalfire2017.com/2017/11/19/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE03-02-zookeeper-%E7%AE%80%E4%BB%8B/"/>
-    <id>https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-02-zookeeper-简介/</id>
-    <published>2017-11-19T12:22:13.000Z</published>
-    <updated>2017-11-19T12:28:24.848Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="学软件，框架"><a href="#学软件，框架" class="headerlink" title="学软件，框架"></a>学软件，框架</h1><p>需要明白三点</p>
-<ol>
-<li>应用场景：干什么的 在哪里用的</li>
-<li>核心工作机制流程功能：组成，角色</li>
-<li>怎么用</li>
-<li>再深一层，原理细节：选择性的深入了解，重要框架<a id="more"></a>
-</li>
-</ol>
-<h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><p>zookeeper会用</p>
-<h1 id="概念简介"><a href="#概念简介" class="headerlink" title="概念简介"></a>概念简介</h1><p>分布式<strong>协调服务</strong>，</p>
-<ul>
-<li>zookeeper是为别的分布式程序服务的</li>
-<li>Zookeeper<strong>本身就是一个分布式程序</strong>（只要有半数以上节点存活，zk就能正常服务）</li>
-<li>Zookeeper所提供的服务涵盖：主从协调、服务器节点动态上下线、统一配置管理、分布式共享锁、统一名称服务……</li>
-<li>虽然说可以提供各种服务，但是zookeeper在底层其实只提供了两个功能：<ul>
-<li><strong>管理(存储，读取)用户程序提交的数据；</strong></li>
-<li><strong>并为用户程序提供数据节点监听服务；</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="zookeeper一些应用场景"><a href="#zookeeper一些应用场景" class="headerlink" title="zookeeper一些应用场景"></a>zookeeper一些应用场景</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171118194439.png" alt="20171118194439"></p>
-<h2 id="集群角色分配原理"><a href="#集群角色分配原理" class="headerlink" title="集群角色分配原理"></a>集群角色分配原理</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171118201716.png" alt="20171118201716"></p>
-<h2 id="集群机制"><a href="#集群机制" class="headerlink" title="集群机制"></a>集群机制</h2><p>半数机制：集群中半数以上机器存活，集群可用。<br>zookeeper适合装在奇数台机器上！！！</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zookeeper-3.4.5.tar.gz</div></pre></td></tr></table></figure>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf zookeeper-3.4.5.tar.gz</div></pre></td></tr></table></figure>
-<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv zookeeper-3.4.5 zookeeper（重命名文件夹zookeeper-3.4.5为zookeeper）</div></pre></td></tr></table></figure>
-<h3 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h3><ol>
-<li>su root (切换到root用户)</li>
-<li>vi /etc/profile (修改文件)</li>
-<li><p>添加内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export ZOOKEEPER_HOME=/home/hadoop/zookeeper</div><div class="line">export PATH=$PATH:$ZOOKEEPER_HOME/bin</div></pre></td></tr></table></figure>
-</li>
-<li><p>重新编译文件：<br>source /etc/profile</p>
-</li>
-<li>注意：3台zookeeper都需要修改</li>
-<li>修改完成后切换回hadoop用户：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su - hadoop</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><ol>
-<li><p>用hadoop用户操作</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd zookeeper/conf</div><div class="line">cp zoo_sample.cfg zoo.cfg</div></pre></td></tr></table></figure>
-</li>
-<li><p>vi zoo.cfg</p>
-</li>
-<li>添加内容： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dataDir=/home/hadoop/zookeeper/data</div><div class="line">dataLogDir=/home/hadoop/zookeeper/log</div><div class="line">server.1=zk1:2888:3888 (主机名, 心跳端口、数据端口)</div><div class="line">server.2=zk2:2888:3888</div><div class="line">server.3=zk3:2888:3888</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/hadoop/zookeeper/</div><div class="line">mkdir -m 755 data</div><div class="line">mkdir -m 755 log</div></pre></td></tr></table></figure>
-<h3 id="在data文件夹下新建myid文件，myid的文件内容为："><a href="#在data文件夹下新建myid文件，myid的文件内容为：" class="headerlink" title="在data文件夹下新建myid文件，myid的文件内容为："></a>在data文件夹下新建myid文件，myid的文件内容为：</h3><p>cd data<br>vi myid<br>添加内容：（数字递增）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1</div></pre></td></tr></table></figure></p>
-<p>上面的操作都是所有机器一起操作的，如果是单台操作需要把内容复制到其他的机器上</p>
-<h4 id="将集群下发到其他机器上"><a href="#将集群下发到其他机器上" class="headerlink" title="将集群下发到其他机器上"></a>将集群下发到其他机器上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp -r /home/hadoop/zookeeper hadoop@slave2:/home/hadoop/</div><div class="line">scp -r /home/hadoop/zookeeper hadoop@slave3:/home/hadoop/</div></pre></td></tr></table></figure>
-<h4 id="修改其他机器的配置文件"><a href="#修改其他机器的配置文件" class="headerlink" title="修改其他机器的配置文件"></a>修改其他机器的配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">到slave2上：修改myid为：2</div><div class="line">到slave3上：修改myid为：3</div></pre></td></tr></table></figure>
-<h3 id="启动每台机器"><a href="#启动每台机器" class="headerlink" title="启动每台机器"></a>启动每台机器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/root/zookeeper/bin/zkServer.sh start</div></pre></td></tr></table></figure>
-<h3 id="查看集群状态"><a href="#查看集群状态" class="headerlink" title="查看集群状态"></a>查看集群状态</h3><ul>
-<li>jps（查看进程）</li>
-<li>zkServer.sh status（查看集群状态，主从信息）</li>
-</ul>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="一般集群公司内部使用的时候防火墙是关掉了，不会被外界访问"><a href="#一般集群公司内部使用的时候防火墙是关掉了，不会被外界访问" class="headerlink" title="一般集群公司内部使用的时候防火墙是关掉了，不会被外界访问"></a>一般集群公司内部使用的时候防火墙是关掉了，不会被外界访问</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service iptables stop</div><div class="line">chkconfig iptables off</div></pre></td></tr></table></figure>
-<h2 id="遇到错误启动不了"><a href="#遇到错误启动不了" class="headerlink" title="遇到错误启动不了"></a>遇到错误启动不了</h2><p>查看bin下的 zookeeper.out</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>conf/zoo.cfg中节点ID必须与myid文件中的id相对应</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;学软件，框架&quot;&gt;&lt;a href=&quot;#学软件，框架&quot; class=&quot;headerlink&quot; title=&quot;学软件，框架&quot;&gt;&lt;/a&gt;学软件，框架&lt;/h1&gt;&lt;p&gt;需要明白三点&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;应用场景：干什么的 在哪里用的&lt;/li&gt;
-&lt;li&gt;核心工作机制流程功能：组成，角色&lt;/li&gt;
-&lt;li&gt;怎么用&lt;/li&gt;
-&lt;li&gt;再深一层，原理细节：选择性的深入了解，重要框架
     
     </summary>
     
