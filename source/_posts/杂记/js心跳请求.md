@@ -1,6 +1,6 @@
 ---
 title: js心跳请求
-categories: 简单记录
+categories: 学习
 tags:
   - javascript
 toc: true

@@ -314,6 +314,455 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/26/大数据/大数据03-05-java-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="signalFire">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="名字待定">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/26/大数据/大数据03-05-java-api/" itemprop="url">大数据03-05-java api</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-26T01:10:40+08:00">
+                2017-11-26 01:10:40
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>java api</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/26/大数据/大数据03-05-java-api/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/21/大数据/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="signalFire">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="名字待定">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/21/大数据/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/" itemprop="url">大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T23:22:14+08:00">
+                2017-11-21 23:22:14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>export A=1 定义的变量，会对自己所在的shell进程及其子进程生效</li>
+<li>B=1 定义的变量，只对自己所在的shell进程生效</li>
+<li>在script.sh中定义的变量，在当前登录的shell进程中 source script.sh 时，脚本中定义的变量也会进入当前登录的进程
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/21/大数据/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="signalFire">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="名字待定">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/19/大数据/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/" itemprop="url">大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T23:54:06+08:00">
+                2017-11-19 23:54:06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="进入客户端"><a href="#进入客户端" class="headerlink" title="进入客户端"></a>进入客户端</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/zkCli.sh (连到本机)</div><div class="line">connect zk2:2181（连到zk2机器上）</div><div class="line"></div><div class="line">[zk: zk2:2181(CONNECTED) 3]</div></pre></td></tr></table></figure>
+<h1 id="zookeeper结构"><a href="#zookeeper结构" class="headerlink" title="zookeeper结构"></a>zookeeper结构</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
+<li>Zookeeper：一个leader，多个follower组成的集群</li>
+<li>全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的</li>
+<li>分布式读写，更新请求转发，由leader实施</li>
+<li>更新请求顺序进行，来自同一个client的更新请求按其发送顺序依次执行</li>
+<li>数据更新原子性，一次数据更新要么成功，要么失败</li>
+<li>实时性，在一定时间范围内，client能读到最新数据</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/19/大数据/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-02-zookeeper-简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1338,459 +1787,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/05/杂记/linux笔记-修改语言/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="signalFire">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="名字待定">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/05/杂记/linux笔记-修改语言/" itemprop="url">linux笔记-修改语言</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T23:39:47+08:00">
-                2017-11-05 23:39:47
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h1><p>centos7</p>
-<h1 id="查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）"><a href="#查看系统是否有安装中文语言包-（列出所有可用的公共语言环境的名称，包含有zh-CN）" class="headerlink" title="查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）"></a>查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[vagrant@mysql1 ~]$ locale -a |grep &quot;zh_CN&quot;</div><div class="line">zh_CN</div><div class="line">zh_CN.gb18030</div><div class="line">zh_CN.gb2312</div><div class="line">zh_CN.gbk</div><div class="line">zh_CN.utf8</div></pre></td></tr></table></figure>
-<p>若发现以上几项，说明系统已安装中文语言包，无需再安装<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/05/杂记/linux笔记-修改语言/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/04/杂记/vagrant 创建virtualBox虚拟机/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="signalFire">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="名字待定">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/04/杂记/vagrant 创建virtualBox虚拟机/" itemprop="url">vagrant 创建virtualBox虚拟机</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T23:37:13+08:00">
-                2017-11-04 23:37:13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="安装vagrant"><a href="#安装vagrant" class="headerlink" title="安装vagrant"></a>安装vagrant</h1><h2 id="本机环境"><a href="#本机环境" class="headerlink" title="本机环境"></a>本机环境</h2><p>系统环境 ： win10 64 系统</p>
-<h2 id="软件及镜像"><a href="#软件及镜像" class="headerlink" title="软件及镜像"></a>软件及镜像</h2><p>vagrant 官网 <a href="https://www.vagrantup.com/" target="_blank" rel="external">https://www.vagrantup.com/</a><br>vagrant 需要依赖虚拟机 我用的 virtualBox<br>virtualBox 官网 <a href="https://www.virtualbox.org/" target="_blank" rel="external">https://www.virtualbox.org/</a><br>virtualBox 镜像 在vagrant官网中可以下载<br>镜像下载 <a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a></p>
-<p>由于国内下载比较慢，已分享到百度云<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/04/杂记/vagrant 创建virtualBox虚拟机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2017/11/04/杂记/centos7-安装mysql-转/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="signalFire">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="名字待定">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/04/杂记/centos7-安装mysql-转/" itemprop="url">centos7 安装mysql-转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T22:30:14+08:00">
-                2017-11-04 22:30:14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          linux下安装Mysql
-其他错误本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)”
-我的mysql版本 
-
-mysql  Ver 14.14 Distrib 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/04/杂记/centos7-安装mysql-转/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1841,7 +1842,7 @@ mysql  Ver 14.14 Distrib
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1863,7 +1864,7 @@ mysql  Ver 14.14 Distrib
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
