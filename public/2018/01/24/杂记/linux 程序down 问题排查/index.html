@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -97,16 +97,20 @@
 
 
 
-<meta name="description" content="如人饮水 冷暖自知">
-<meta property="og:type" content="website">
-<meta property="og:title" content="名字待定">
-<meta property="og:url" content="https://blog.signalfire2017.com/tags/大数据/index.html">
+<meta name="description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 程序down 问题排查">
+<meta property="og:url" content="https://blog.signalfire2017.com/2018/01/24/杂记/linux 程序down 问题排查/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="如人饮水 冷暖自知">
+<meta property="og:description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png">
+<meta property="og:updated_time" content="2018-01-25T03:48:58.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="名字待定">
-<meta name="twitter:description" content="如人饮水 冷暖自知">
+<meta name="twitter:title" content="linux 程序down 问题排查">
+<meta name="twitter:description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
+<meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png">
 
 
 
@@ -136,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.signalfire2017.com/tags/大数据/"/>
+  <link rel="canonical" href="https://blog.signalfire2017.com/2018/01/24/杂记/linux 程序down 问题排查/"/>
 
 
 
 
 
-  <title>标签: 大数据 | 名字待定</title>
+  <title>linux 程序down 问题排查 | 名字待定</title>
   
 
 
@@ -161,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,310 +303,176 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>大数据<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.signalfire2017.com/2018/01/24/杂记/linux 程序down 问题排查/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="signalFire">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="名字待定">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/01/大数据/大数据0501-轻量级RPC框架开发/" itemprop="url">
-              
-                <span itemprop="name">大数据0501-轻量级RPC框架开发</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">linux 程序down 问题排查</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-01T02:08:22+08:00"
-              content="2018-01-01 02:08:22" >
-          01-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T15:03:02+08:00">
+                2018-01-24 15:03:02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/05/大数据/大数据0406-javaJVM技术/" itemprop="url">
-              
-                <span itemprop="name">大数据0406-javaJVM技术</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-05T22:44:14+08:00"
-              content="2017-12-05 22:44:14" >
-          12-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/03/大数据/大数据0405-java-socket/" itemprop="url">
-              
-                <span itemprop="name">大数据0405-java-socket</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T23:14:47+08:00"
-              content="2017-12-03 23:14:47" >
-          12-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/03/大数据/大数据0404-java动态代理/" itemprop="url">
-              
-                <span itemprop="name">大数据0404-java动态代理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T18:18:16+08:00"
-              content="2017-12-03 18:18:16" >
-          12-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/03/大数据/大数据0403-java反射/" itemprop="url">
-              
-                <span itemprop="name">大数据0403-java反射</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T16:34:00+08:00"
-              content="2017-12-03 16:34:00" >
-          12-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/03/大数据/大数据0402-JMS activeMQ/" itemprop="url">
-              
-                <span itemprop="name">大数据0402-JMS activeMQ</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-03T14:57:03+08:00"
-              content="2017-12-03 14:57:03" >
-          12-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/01/大数据/大数据0401-java多线程并发/" itemprop="url">
-              
-                <span itemprop="name">大数据0401-java多线程并发</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-01T22:59:38+08:00"
-              content="2017-12-01 22:59:38" >
-          12-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/大数据/大数据03-06-系统服务器上下线感知程序/" itemprop="url">
-              
-                <span itemprop="name">大数据03-06-系统服务器上下线感知程序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T01:10:58+08:00"
-              content="2017-11-26 01:10:58" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/26/大数据/大数据03-05-java-api/" itemprop="url">
-              
-                <span itemprop="name">大数据03-05-java api</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-26T01:10:40+08:00"
-              content="2017-11-26 01:10:40" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/21/大数据/大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析/" itemprop="url">
-              
-                <span itemprop="name">大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-21T23:22:14+08:00"
-              content="2017-11-21 23:22:14" >
-          11-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <h1 id="linux系统有自我保护机制"><a href="#linux系统有自我保护机制" class="headerlink" title="linux系统有自我保护机制"></a>linux系统有自我保护机制</h1><p>如果分配的内存用完了,会杀掉进程.<br>可以查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/log/messages</div></pre></td></tr></table></figure></p>
+<p>然后通过进程ID 进行查询  ,或者 <code>oom-killer</code> 来查询<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png" alt="linux 程序down 问题排查-20171226102834"></p>
+<h2 id="内存不够"><a href="#内存不够" class="headerlink" title="内存不够"></a>内存不够</h2><p>可以配置虚拟内存,解决内存高峰时内存不够的问题.</p>
+<h1 id="线程挂掉用jstack分析线程栈"><a href="#线程挂掉用jstack分析线程栈" class="headerlink" title="线程挂掉用jstack分析线程栈"></a>线程挂掉用jstack分析线程栈</h1><p>可以使用 jstack 查看进程信息</p>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="lsof-n-学习"><a href="#lsof-n-学习" class="headerlink" title="lsof -n (学习)"></a>lsof -n (学习)</h2>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/24/杂记/js心跳请求/" rel="next" title="js心跳请求">
+                <i class="fa fa-chevron-left"></i> js心跳请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/24/杂记/linux下安装opencv-java/" rel="prev" title="linux下安装opencv-java">
+                linux下安装opencv-java <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/大数据/page/2/">2</a><a class="page-number" href="/tags/大数据/page/3/">3</a><a class="extend next" rel="next" href="/tags/大数据/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -610,6 +480,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -632,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -705,6 +588,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux系统有自我保护机制"><span class="nav-number">1.</span> <span class="nav-text">linux系统有自我保护机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存不够"><span class="nav-number">1.1.</span> <span class="nav-text">内存不够</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程挂掉用jstack分析线程栈"><span class="nav-number">2.</span> <span class="nav-text">线程挂掉用jstack分析线程栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他命令"><span class="nav-number">3.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-n-学习"><span class="nav-number">3.1.</span> <span class="nav-text">lsof -n (学习)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -823,6 +722,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

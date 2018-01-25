@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[linux修改时间]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
-    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 参考链接 Linux服务器同步网络时间]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[tomcat+idea远程调试]]></title>
     <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Ftomcat%2Bidea%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[测试的web项目12345678910111213141516171819package com.signalfire.servlet;import javax.servlet.ServletException;import javax.servlet.ServletRequest;import javax.servlet.ServletResponse;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;import java.io.IOException;/** * Created by jk on 2017/12/12. */public class HelloServlet extends HttpServlet &#123; @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123; System.out.println("111111111111111111"); resp.getWriter().write("hello baby"); resp.getWriter().flush(); &#125;&#125; 1234567891011121314&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;&lt;web-app&gt; &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt; &lt;servlet&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;servlet-class&gt;com.signalfire.servlet.HelloServlet&lt;/servlet-class&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/servlet-mapping&gt;&lt;/web-app&gt; tomcat 打war包部署到tomcat中 使用默认配置启动tomcat调试1[root@mytest bin]# ./catalina.sh jpda start 默认情况下，远程调试的默认端口为8000，可以通过JPDA_ADDRESS进行配置，指定自定义的端口，另外，还有两个可以配置的参数 JPDA_TRANSPORT：即调试器和虚拟机之间数据的传输方式，默认值是dt_socket JPDA_SUSPEND：即JVM启动后是否立即挂起，默认是n可以在catalina.sh中进行配置：123JPDA_TRANSPORT=dt_socket JPDA_ADDRESS=5005 JPAD_SUSPEND=n idea配置远程调试配置 debug启动 结果 调试java程序在远程服务器上java启动参赛要加上调试的参数：“-Xdebug -Xrunjdwp:transport=dt_socket,address=2345,server=y,suspend=n”]]></content>
@@ -23,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[linux修改时间]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 参考链接 Linux服务器同步网络时间]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux下安装opencv-java]]></title>
     <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%B8%8B%E5%AE%89%E8%A3%85opencv-java%2F</url>
     <content type="text"><![CDATA[linux下安装opencv java 说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 linux版本centos7 安装jdk安装ant下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9.9-bin.tar.gz 解压 重命名12unzip apache-ant-1.9.9-bin.tar.gzmv apache-ant-1.9.9 ant 配置环境变量1234vim /etc/profile 在文件后加入 export ANT_HOME=/usr/local/ant export PATH=$ANT_HOME/bin:$PATH 刷新环境变量1source /etc/profile 安装OpenCV安装OpenCV依赖库1yum install -y build-essential gcc gcc-c++ cmake git pkgconfig gtk+-devel gtk2-devel python python-pip python-devel 下载可以到官网下载 选择对应版本，我这里是3.3.1https://opencv.org/releases.html 解压先解压,解压后进入目录,创建build目录,进入build目录,准备预编译123unzip opencv-3.3.1.zipcd opencv-3.3.1 mkdir build &amp;&amp; cd build/ 预编译通过cmake命令预先编译一次,编译完成后查看输出结果, 在be built```里包含java这一项就表示预编译成功12```cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local .. 可能会卡在1-- IPPICV: Download: ippicv_2017u3_lnx_intel64_general_20170822.tgz 这个文件比较大,下载时间长一点,不要着急 编译cmake完成后，在build目录直接输入make进行编译，如果服务器CPU核数比较多，可以在make后加入-j8 使用8个线程同时进行编译，加快编译速度。1make -j2 关于下面这个异常，我编译的时候并没有出现，记录一下，备用。 编译过程可能出现异常，提示： /usr/include/jasper/jas_math.h:117:22: error: ‘SIZE_MAX’ was not declared in this scope 出现这个异常，不要慌，可以通过修改/usr/include/jasper/jas_math.h 文件源码解决。在/usr/include/jasper/jas_math.h 的头部#include 的下面添加:123#if ! defined SIZE_MAX #define SIZE_MAX (4294967295U) #endif 然后重新编译就可以了。如果不行，请删除build目录下的内容，重新预编译、编译就应该没问题了 安装编译完成，就可以进行安装，安装过程是生成opencv对应的库文件，我这里是java项目需要用到，所以也会顺便生成java相关的库文件1make install 命令执行完成，会在结果中看到/usr/local/share/OpenCV/java/目录生成了两个java相关的依赖库文件 opencv-331.jar 和 libopencv_java331.so ， 当然，每个人的环境不同，可能目录也不同，具体看日志输出就行了。1234[root@opencv java]# ll /usr/local/share/OpenCV/java总用量 72012-rwxr-xr-x 1 root root 73320721 11月 8 14:05 libopencv_java331.so-rw-r--r-- 1 root root 414381 11月 8 10:03 opencv-331.jar 参考链接 opencv官方文档 Installation in Linux CentOS6 - Linux下安装OpenCV]]></content>
@@ -31,6 +31,17 @@
       </categories>
       <tags>
         <tag>opencv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux 程序down 问题排查]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -305,8 +316,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -318,8 +329,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -331,10 +342,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
-        <tag>centos7</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
@@ -345,10 +356,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
-        <tag>centos7</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
@@ -359,10 +370,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
-        <tag>centos7</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
@@ -396,8 +407,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>mysql</tag>
       </tags>
   </entry>
@@ -409,8 +420,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -434,10 +445,10 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
-        <tag>centos7</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
@@ -459,8 +470,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
       </tags>
   </entry>
@@ -472,8 +483,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
       </tags>
   </entry>
