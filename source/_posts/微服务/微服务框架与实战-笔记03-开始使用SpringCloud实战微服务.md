@@ -1,6 +1,6 @@
 ---
 title: 微服务框架与实战-笔记03-开始使用SpringCloud实战微服务
-categories: 学习
+categories: 微服务学习
 tags:
   - 微服务
 toc: true

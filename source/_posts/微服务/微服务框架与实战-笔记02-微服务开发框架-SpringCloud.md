@@ -1,6 +1,6 @@
 ---
 title: 微服务框架与实战-笔记02-微服务开发框架-SpringCloud
-categories: 学习
+categories: 微服务学习
 tags:
   - 微服务
 toc: true
