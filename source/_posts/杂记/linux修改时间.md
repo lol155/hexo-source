@@ -33,7 +33,11 @@ yum install -y ntp
 ```
 ntpdate 210.72.145.44
 ```
-
+# 其他命令
+## 设置时间
+```
+date -s 18:40:00
+```
 
 
 参考链接 [Linux服务器同步网络时间](http://www.linuxidc.com/Linux/2017-03/141745.htm)
