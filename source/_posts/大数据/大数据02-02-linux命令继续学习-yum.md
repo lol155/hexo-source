@@ -1,6 +1,6 @@
 ---
 title: 大数据02-02 linux命令继续学习 yum
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - linux
@@ -10,7 +10,7 @@ toc: true
 date: 2017-11-01 23:50:39
 scaffolds:
 ---
-# YUM的常用命令
+# 1. YUM的常用命令
 
 安装httpd并确认安装
 ```
@@ -33,10 +33,10 @@ yum deplist httpd
 ```
 yum remove httpd
 ```
-# 配置本地yum源
+# 2. 配置本地yum源
 cd /etc/yum.repos.d 
 
-# 安装jdk
+# 3. 安装jdk
 解压安装包
 > tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/
 
@@ -54,8 +54,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 然后重新加载环境变量
 > source /etc/profile
 
-# 装mysql
-# 安装tomcat
+# 4. 装mysql
+# 5. 安装tomcat
 1. 上传tomcat包
 2. 解压
 3. 启动

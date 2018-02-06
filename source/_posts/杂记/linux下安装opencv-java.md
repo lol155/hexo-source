@@ -9,54 +9,54 @@ scaffolds:
 ---
 linux下安装opencv java 
 
-# 说明
+# 1. 说明
 在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了  
 线上环境linux centos6.5
 
-# linux版本
+# 2. linux版本
 centos7
 
-# 安装jdk
-# 安装ant
-## 下载
+# 3. 安装jdk
+# 4. 安装ant
+## 4.1. 下载
 [ant官网下载](http://ant.apache.org/bindownload.cgi)http://ant.apache.org/bindownload.cgi
 ```
 apache-ant-1.9.9-bin.tar.gz
 ```
-## 解压 重命名
+## 4.2. 解压 重命名
 ```
 unzip apache-ant-1.9.9-bin.tar.gz
 mv apache-ant-1.9.9 ant
 ```
 
-## 配置环境变量
+## 4.3. 配置环境变量
 ```
 vim /etc/profile 
 在文件后加入 
 export ANT_HOME=/usr/local/ant 
 export PATH=$ANT_HOME/bin:$PATH
 ```
-## 刷新环境变量
+## 4.4. 刷新环境变量
 ```
 source /etc/profile
 ```
 
-# 安装OpenCV
-## 安装OpenCV依赖库
+# 5. 安装OpenCV
+## 5.1. 安装OpenCV依赖库
 ```
 yum install -y build-essential gcc gcc-c++ cmake git pkgconfig gtk+-devel gtk2-devel python python-pip python-devel
 ```
-## 下载
+## 5.2. 下载
 可以到[官网](https://opencv.org/releases.html)下载 选择对应版本，我这里是3.3.1
 https://opencv.org/releases.html
-## 解压
+## 5.3. 解压
 先解压,解压后进入目录,创建build目录,进入build目录,准备预编译
 ```
 unzip opencv-3.3.1.zip
 cd opencv-3.3.1 
 mkdir build && cd build/
 ```
-## 预编译
+## 5.4. 预编译
 通过cmake命令预先编译一次,编译完成后查看输出结果, 在```To be built```里包含java这一项就表示预编译成功
 ```
 cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ..
@@ -66,7 +66,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -D
 -- IPPICV: Download: ippicv_2017u3_lnx_intel64_general_20170822.tgz
 ```
 这个文件比较大,下载时间长一点,不要着急
-## 编译
+## 5.5. 编译
 cmake完成后，在build目录直接输入make进行编译，如果服务器CPU核数比较多，可以在make后加入-j8 使用8个线程同时进行编译，加快编译速度。
 ```
 make -j2
@@ -85,7 +85,7 @@ make -j2
 #endif
 ```
 然后重新编译就可以了。如果不行，请删除build目录下的内容，重新预编译、编译就应该没问题了
-## 安装
+## 5.6. 安装
 编译完成，就可以进行安装，安装过程是生成opencv对应的库文件，我这里是java项目需要用到，所以也会顺便生成java相关的库文件
 ```
 make install
@@ -97,7 +97,7 @@ make install
 -rwxr-xr-x 1 root root 73320721 11月  8 14:05 libopencv_java331.so
 -rw-r--r-- 1 root root   414381 11月  8 10:03 opencv-331.jar
 ```
-# 参考链接
+# 6. 参考链接
 *  [opencv官方文档 Installation in Linux](https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html)
 *  [CentOS6 - Linux下安装OpenCV](http://blog.csdn.net/chwshuang/article/details/78208273?locationNum=9&fps=1)
 

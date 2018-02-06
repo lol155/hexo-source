@@ -1,6 +1,6 @@
 ---
 title: 大数据03-05-java api
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - zookeeper

@@ -8,11 +8,11 @@ date: 2018-01-09 23:12:17
 scaffolds:
 ---
 
-# Spring Cloud 简介
+# 1. Spring Cloud 简介
 - 在SpringBoot基础上构建的，用于快速构建分布式系统的通用模式工具集。
 - 程序适合在Docker或者PaaS上部署。 所以又叫`云原生应用`（Cloud Native Application）。
 - `云原生`（CloudNative）可简单理解为面向云环境的软件架构。
-# Spring Cloud 特点
+# 2. Spring Cloud 特点
 - 约定优于配置
 - 适用于各种环境
 - 隐藏了组件的复杂性，并提供声明式、无xml的配置方式
@@ -21,7 +21,7 @@ scaffolds:
 - 组件丰富，功能齐全。如 配置管理，服务发现，断路器，微服务网关等
 - 选型中立、丰富。例如：支持使用Eureka、Zookeeper、Consul实现服务发现。
 - 灵活。组成部分解耦，可按需挑选技术选型。
-# 版本
+# 3. 版本
 Spring项目一般以下面这种方式命名，但`SpringCloud`并`没有`使用这种方式。可以略过。
 主版本号.次版本号.增量版本号.里程碑版本号  
 例如：4.3.5.RELEASE
@@ -29,7 +29,7 @@ Spring项目一般以下面这种方式命名，但`SpringCloud`并`没有`使�
 - 次版本号：新特性的添加和变化
 - 增量版本号：一般表示BUG修复
 - 里程碑版本号：某个版本号的里程碑
-## 版本简介
+## 3.1. 版本简介
 ![20181923037](http://ovasdkxqr.bkt.clouddn.com/image/blog/20181923037.png)
 命名方式：英文单词SRX（x为数字）
 英文单词：release train 
@@ -39,7 +39,7 @@ Dalston SR5 表示Dalston 第5次bug修复版本
 
 https://github.com/spring-cloud/spring-cloud-release/releases 版本发布
 
-## 子项目一览
+## 3.2. 子项目一览
 
 Component | Camden.SR7 | Dalston.SR4 | Edgware.RELEASE | Finchley.M4 | Finchley.BUILD-SNAPSHOT
 ----------|------------|-------------|-----------------|-------------|------------------------
@@ -62,7 +62,7 @@ spring-cloud-vault |   | 1.0.2.RELEASE | 1.1.0.RELEASE | 2.0.0.M4 | 2.0.0.BUILD-
 spring-cloud-gateway |   |   | 1.0.0.RELEASE | 2.0.0.M4 | 2.0.0.BUILD-SNAPSHOT
 
 
-## spring cloud / spring boot 版本兼容性
+## 3.3. spring cloud / spring boot 版本兼容性
 
 - Finchley使用Spring Boot 2.0.x构建和运行，并且不希望与Spring Boot 1.5.x一起使用。
 - Dalston和Edgware发行版建立在Spring Boot 1.5.x之上，并且不希望与Spring Boot 2.0.x一起使用。

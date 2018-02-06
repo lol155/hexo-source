@@ -1,6 +1,6 @@
 ---
 title: 大数据02-03 shell编程语法讲解
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - linux
@@ -11,8 +11,8 @@ date: 2017-11-06 23:02:36
 scaffolds:
 ---
 
-# 变量
-## 系统变量
+# 1. 变量
+## 1.1. 系统变量
 * $HOME
 * $PWD
 * $SHELL
@@ -22,7 +22,7 @@ scaffolds:
 set
 
 <!-- more -->
-## 用户自定义变量
+## 1.2. 用户自定义变量
 定义变量
 > STR="hello world"
 
@@ -40,18 +40,18 @@ set
 A=`ls -la` 反引号，运行里面的命令，并把结果返回给变量A
 A=$(ls -la) 等价于反引号
 ```
-## shell中的特殊变量
+## 1.3. shell中的特殊变量
 * $? 表示上一个命令退出的状态  true 0 false 1 错误127
 * $$ 表示当前进程编号
 * $0 表示当前脚本名称
 * $n 表示n位置的输入参数（n代表数字，n>=1）
 * $# 	表示参数的个数，常用于循环
 * $*和$@ 都表示参数列表 
-### $*与$@区别
+### 1.3.1. $*与$@区别
 * $* 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号" "包含时，都以$1  $2  … $n 的形式输出所有参数  
 * 当它们被双引号" "包含时，"$*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数
 
-## 运算符
+## 1.4. 运算符
 > 格式 :expr m + n 或$((m+n)) 注意expr运算符间要有空格
 
 例如计算（2 ＋3 ）×4 的值
@@ -63,9 +63,9 @@ A=$(ls -la) 等价于反引号
 	或
 	$(((2+3)*4))
 ```
-# for循环
+# 2. for循环
 
-## 第一种：
+## 2.1. 第一种：
 ```bash
 for N in 1 2 3
 do
@@ -76,7 +76,7 @@ for N in 1 2 3; do echo $N; done
 或
 for N in {1..3}; do echo $N; done
 ```
-## 第二种：
+## 2.2. 第二种：
 ```bash
 for ((i = 0; i <= 5; i++))
 do
@@ -86,9 +86,9 @@ done
 for ((i = 0; i <= 5; i++)); do echo "welcome $i times"; done
 ```
 
-# while循环
+# 3. while循环
 
-## 第一种
+## 3.1. 第一种
 ```bash
 while expression
 do
@@ -97,7 +97,7 @@ command
 done
 ```
 
-## 第二种
+## 3.2. 第二种
 ```bash
 i=1
 while ((i<=3))
@@ -106,7 +106,7 @@ do
   let i++
 done
 ```
-# case语句
+# 4. case语句
 
 格式
 ```bash
@@ -122,7 +122,7 @@ stop)
 esac
 
 ```
-# read命令
+# 5. read命令
 read -p(提示语句)-n(字符个数) -t(等待时间) 
 	read -p "please input your name: " NAME
 
@@ -135,7 +135,7 @@ please enter a number:1
 [vagrant@mysql1 ~]$ 
 ```
 
-# if判断
+# 6. if判断
 语法
 ```bash
 if condition 
@@ -148,19 +148,19 @@ then 
 fi
 
 ```
-# 判断语句
+# 7. 判断语句
 [ condition ] **(注意condition前后要有空格)**
-#非空返回true，可使用$?验证（0为true，>1为false）
+# 8. 非空返回true，可使用$?验证（0为true，>1为false）
 [ test ]
 
-#空返回false
+# 9. 空返回false
 [  ]
 
 > [ condition ] && echo OK || echo notok
 
 条件满足，执行后面的语句 不满足执行 || 后面的语句
 
-# 常用判断条件
+# 10. 常用判断条件
 * = 字符串比较
 * -lt 小于
 * -le 小于等于
@@ -178,7 +178,7 @@ fi
 * -b文件存在并且是一个块设备
 * -L 文件存在并且是一个链接
 
-# Shell自定义函数
+# 11. Shell自定义函数
 语法
 ```bash
  [ function ] funname [()]
@@ -197,7 +197,7 @@ fi
 1. 必须在调用函数地方之前，先声明函数，shell脚本是逐行运行。不会像其它语言一样先预编译
 2. 函数返回值，只能通过$? 系统变量获得，可以显示加：return 返回，如果不加，将以最后一条命令运行结果，作为返回值。 return后跟数值n(0-255)
 
-## 例子
+## 11.1. 例子
 ```bash
 #!/bin/bash
 fSum 3 2;
@@ -219,14 +219,14 @@ test: line 2: fSum: command not found
 12,0
 
 ```
-# 脚本调试
+# 12. 脚本调试
 * sh -vx helloWorld.sh
 * 或者在脚本中增加set -x
 
-# cut命令
+# 13. cut命令
 cut命令可以从一个文本文件或者文本流中提取文本列。
 
-## 语法
+## 13.1. 语法
 ```
 cut -d'分隔字符' -f fields <==用于有特定分隔字符
 cut -c 字符区间            <==用于排列整齐的信息
@@ -236,8 +236,8 @@ cut -c 字符区间            <==用于排列整齐的信息
 * -f  ：依据 -d 的分隔字符将一段信息分割成为数段，用 -f 取出第几段的意思；
 * -c  ：以字符 (characters) 的单位取出固定字符区间；
 
-## 例子
-### PATH 变量如下
+## 13.2. 例子
+### 13.2.1. PATH 变量如下
 
 ```
 [root@www ~]# echo $PATH
@@ -245,21 +245,21 @@ cut -c 字符区间            <==用于排列整齐的信息
 # 1 | 2       | 3   | 4       | 5            | 6            | 7
 
 ```
-### 将 PATH 变量取出，我要找出第五个路径。
+### 13.2.2. 将 PATH 变量取出，我要找出第五个路径。
 
 ```
 #echo $PATH | cut -d ':' -f 5
 /usr/local/bin
 
 ```
-### 将 PATH 变量取出，我要找出第三和第五个路径。
+### 13.2.3. 将 PATH 变量取出，我要找出第三和第五个路径。
 
 ```
 #echo $PATH | cut -d ':' -f 3,5
 /sbin:/usr/local/bin
 
 ```
-### 将 PATH 变量取出，我要找出第三到最后一个路径。
+### 13.2.4. 将 PATH 变量取出，我要找出第三到最后一个路径。
 
 ```
 echo $PATH | cut -d ':' -f 3-
@@ -267,21 +267,21 @@ echo $PATH | cut -d ':' -f 3-
 
 ```
 
-### 将 PATH 变量取出，我要找出第一到第三个路径。
+### 13.2.5. 将 PATH 变量取出，我要找出第一到第三个路径。
 
 ```
 #echo $PATH | cut -d ':' -f 1-3
 /bin:/usr/bin:/sbin:
 
 ```
-### 将 PATH 变量取出，我要找出第一到第三，还有第五个路径。
+### 13.2.6. 将 PATH 变量取出，我要找出第一到第三，还有第五个路径。
 
 ```
 echo $PATH | cut -d ':' -f 1-3,5
 /bin:/usr/bin:/sbin:/usr/local/bin
 ```
 
-## 实用例子:只显示/etc/passwd的用户和shell
+## 13.3. 实用例子:只显示/etc/passwd的用户和shell
 
 ```
 #cat /etc/passwd | cut -d ':' -f 1,7 
@@ -290,9 +290,9 @@ daemon:/bin/sh
 bin:/bin/sh
 ```
 
-# sort命令
+# 14. sort命令
 sort 命令对 File 参数指定的文件中的行排序，并将结果写到标准输出。如果 File 参数指定多个文件，那么 sort 命令将这些文件连接起来，并当作一个文件进行排序。
-## 语法
+## 14.1. 语法
 `[root@www ~]# sort [-fbMnrtuk] [file or stdin]`
 选项与参数：
 * -f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；
@@ -304,7 +304,7 @@ sort 命令对 File 参数指定的文件中的行排序，并将结果写到标
 * -t  ：分隔符，默认是用 [tab] 键来分隔；
 * -k  ：以那个区间 (field) 来进行排序的意思
 
-## 对/etc/passwd 的账号进行排序
+## 14.2. 对/etc/passwd 的账号进行排序
 ```bash
 [root@www ~]# cat /etc/passwd | sort
 adm:x:3:4:adm:/var/adm:/sbin/nologin
@@ -314,7 +314,7 @@ daemon:x:2:2:daemon:/sbin:/sbin/nologin
 
 ```
 sort 是默认以第一个数据来排序，而且默认是以字符串形式来排序,所以由字母 a 开始升序排序。
-## /etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何
+## 14.3. /etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何
 
 ```
 [root@www ~]# cat /etc/passwd | sort -t ':' -k 3
@@ -325,7 +325,7 @@ bin:x:1:1:bin:/bin:/sbin/nologin
 games:x:12:100:games:/usr/games:/sbin/nologin
 
 ```
-## 默认是以字符串来排序的，如果想要使用数字排序：
+## 14.4. 默认是以字符串来排序的，如果想要使用数字排序：
 ```
 cat /etc/passwd | sort -t ':' -k 3n
 root:x:0:0:root:/root:/bin/bash
@@ -333,7 +333,7 @@ daemon:x:1:1:daemon:/usr/sbin:/bin/sh
 bin:x:2:2:bin:/bin:/bin/sh
 
 ```
-## 默认是升序排序，如果要倒序排序，如下
+## 14.5. 默认是升序排序，如果要倒序排序，如下
 
 ```
 cat /etc/passwd | sort -t ':' -k 3nr
@@ -343,7 +343,7 @@ messagebus:x:105:109::/var/run/dbus:/bin/false
 sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin
 
 ```
-## 如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。
+## 14.6. 如果要对/etc/passwd,先以第六个域的第2个字符到第4个字符进行正向排序，再基于第一个域进行反向排序。
 
 ```
 cat /etc/passwd |  sort -t':' -k 6.2,6.4 -k 1r      
@@ -353,7 +353,7 @@ bin:x:2:2:bin:/bin:/bin/sh
 sys:x:3:3:sys:/dev:/bin/sh
 
 ```
-## 查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:
+## 14.7. 查看/etc/passwd有多少个shell:对/etc/passwd的第七个域进行排序，然后去重:
 ```
 cat /etc/passwd |  sort -t':' -k 7 -u
 root:x:0:0:root:/root:/bin/bash
@@ -362,10 +362,10 @@ daemon:x:1:1:daemon:/usr/sbin:/bin/sh
 sync:x:4:65534:sync:/bin:/bin/sync
 sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin
 ```
-# uniq去重命令
+# 15. uniq去重命令
  uniq命令可以去除排序过的文件中的重复行，因此uniq经常和sort合用。也就是说，为了使uniq起作用，所有的重复行必须是相邻的。
 
-## uniq语法
+## 15.1. uniq语法
 `[root@www ~]# uniq [-icu]`
 选项与参数：
 * -i   ：忽略大小写字符的不同；
@@ -419,14 +419,14 @@ friend
 ```
 
 
-# wc命令
-## 语法
+# 16. wc命令
+## 16.1. 语法
 `[root@www ~]# wc [-lwm]`
 选项与参数：
 * -l  ：仅列出行；
 * -w  ：仅列出多少字(英文单字)；
 * -m  ：多少字符；
-## 默认使用wc统计/etc/passwd
+## 16.2. 默认使用wc统计/etc/passwd
 
 ```
 #wc /etc/passwd

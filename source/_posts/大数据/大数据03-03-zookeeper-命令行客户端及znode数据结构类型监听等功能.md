@@ -1,6 +1,6 @@
 ---
 title: 大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - zookeeper
@@ -9,15 +9,15 @@ date: 2017-11-19 23:54:06
 scaffolds:
 ---
 
-# 进入客户端
+# 1. 进入客户端
 ```
 bin/zkCli.sh (连到本机)
 connect zk2:2181（连到zk2机器上）
 
 [zk: zk2:2181(CONNECTED) 3] 
 ```
-# zookeeper结构
-## 特性
+# 2. zookeeper结构
+## 2.1. 特性
 1. Zookeeper：一个leader，多个follower组成的集群
 1. 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的
 1. 分布式读写，更新请求转发，由leader实施
@@ -27,16 +27,16 @@ connect zk2:2181（连到zk2机器上）
 
 <!-- more -->
 
-## 数据结构 
+## 2.2. 数据结构 
 1. 层次化的目录结构，命名符合常规文件系统规范(见下图)
 1. 每个节点在zookeeper中叫做znode,并且其有一个唯一的路径标识
 1. 节点Znode可以包含数据和子节点（但是EPHEMERAL类型的节点不能有子节点，下一页详细讲解）
 1. 客户端应用可以在节点上设置监视器（后续详细讲解）	
 
-## 数据结构图
+## 2.3. 数据结构图
 ![20171119232757](http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png)
 
-## 节点类型
+## 2.4. 节点类型
 1. Znode有两种类型：
     - 短暂（ephemeral）（断开连接自己删除）
     - 持久（persistent）（断开连接不删除）
@@ -48,7 +48,7 @@ connect zk2:2181（连到zk2机器上）
 1. 创建znode时设置顺序标识，znode名称后会附加一个值，顺序号是一个单调递增的计数器，由父节点维护
 1. 在分布式系统中，顺序号可以被用于为所有的事件进行全局排序，这样客户端可以通过顺序号推断事件的顺序
 
-# 命令行操作
+# 3. 命令行操作
 > 运行 zkCli.sh –server <ip>进入命令行工具
 
 ```

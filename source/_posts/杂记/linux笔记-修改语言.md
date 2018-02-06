@@ -8,9 +8,9 @@ toc: true
 date: 2017-11-05 23:39:47
 scaffolds:
 ---
-# 版本
+# 1. 版本
 centos7
-# 查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）
+# 2. 查看系统是否有安装中文语言包 （列出所有可用的公共语言环境的名称，包含有zh_CN）
 ```
 [vagrant@mysql1 ~]$ locale -a |grep "zh_CN"
 zh_CN
@@ -21,12 +21,12 @@ zh_CN.utf8
 ```
 若发现以上几项，说明系统已安装中文语言包，无需再安装
 <!-- more -->
-# 安装中文包
+# 3. 安装中文包
 ```
 root@iZj6cbstl2n6r280a27eppZ tmp]# yum groupinstall "fonts"
 ```
-# 修改i18n国际化和locale.conf本土化配置文件
-## 先查看系统语言环境
+# 4. 修改i18n国际化和locale.conf本土化配置文件
+## 4.1. 先查看系统语言环境
 ```
 [vagrant@mysql1 ~]$ locale
 LANG=en_US.UTF-8
@@ -44,7 +44,7 @@ LC_MEASUREMENT="en_US.UTF-8"
 LC_IDENTIFICATION="en_US.UTF-8"
 LC_ALL=
 ```
-## 修改配置文件
+## 4.2. 修改配置文件
 ```
  vi /etc/locale.conf 
  或

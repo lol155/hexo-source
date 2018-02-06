@@ -8,7 +8,7 @@ date: 2018-01-07 17:36:01
 scaffolds:
 ---
 
-# 生成两个SSH key
+# 1. 生成两个SSH key
 为了举例方便，这里使用“one”和“two”两个账户。下同。
 ```
 $ ssh-keygen -t rsa -C "one@gmail.com"
@@ -22,7 +22,7 @@ id_rsa_one.pub
 id_rsa_two
 id_rsa_two.pub
 ```
-# 添加私钥
+# 2. 添加私钥
 
 1. 打开ssh-agent
 
@@ -42,7 +42,7 @@ id_rsa_two.pub
     $ ssh-add ~/.ssh/id_rsa_one
     $ ssh-add ~/.ssh/id_rsa_two
     ```
-# 创建config文件
+# 3. 创建config文件
 在.ssh下创建config
 
 ```
@@ -59,14 +59,14 @@ id_rsa_two.pub
     IdentityFile ~/.ssh/id_rsa_two
     User two
 ```
-# 部署SSH key
+# 4. 部署SSH key
 在github上添加对应的ssh key
-# clone项目方法
+# 5. clone项目方法
 > $ git clone git@`one.github.com`: `one的用户名`/learngit.git  注意是自定义的域名 和用户名（git的用户名）  
 > $ git clone git@`two.github.com`: `two的用户名`/learngit.git 
 
-# 其他（与上面没有关联）
-##  git的三种环境变量
+# 6. 其他（与上面没有关联）
+## 6.1. git的三种环境变量
 1. 系统变量。
     - 存放在git的安装目录下：%Git%\etc\gitconfig。
     - 若使用 git config 时用 --system 选项，读写的就是这个文件：
@@ -83,9 +83,9 @@ id_rsa_two.pub
     - $ git config --local remote.origin.url
     - 本地变量只对当前项目有效。
 
-## 查找顺序
+## 6.2. 查找顺序
 本地 》 用户 》系统
-## 其他config命令
+## 6.3. 其他config命令
 ```
 $ git config --list 查看所有环境变量
 $ git config --system --list 查看系统环境变量

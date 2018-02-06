@@ -12,9 +12,9 @@ scaffolds:
 [linux下安装Mysql](http://www.cnblogs.com/xxoome/p/5864912.html)
 
 
-# 其他
-## 错误
-### 本地登陆不进去
+# 1. 其他
+## 1.1. 错误
+### 1.1.1. 本地登陆不进去
 ```
 #mysql -u root -p 
 提示”Access denied for user ‘root’@’localhost’ (using password: YES)”
@@ -28,5 +28,5 @@ scaffolds:
 
 退出,修改文件删除刚加的属性,重启mysql服务
 
-### 远程连接 ip无权限
+### 1.1.2. 远程连接 ip无权限
 > update mysql.user set host='%' where user=’root’;

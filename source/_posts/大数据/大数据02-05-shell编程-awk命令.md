@@ -1,6 +1,6 @@
 ---
 title: 大数据02-05-shell编程-awk命令
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - linux
@@ -10,7 +10,7 @@ toc: true
 date: 2017-11-06 23:25:05
 scaffolds:
 ---
-# 简介
+# 1. 简介
 awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
 
 awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
@@ -19,7 +19,7 @@ awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Ke
 <!--more -->
  
 
-# 使用方法
+# 2. 使用方法
 > `awk '{pattern + action}' {filenames}`
 
 尽管操作可能会很复杂，但语法总是这样，其中 pattern 表示 AWK 在数据中查找的内容，而 action 是在找到匹配内容时所执行的一系列命令。花括号（{}）不需要在程序中始终出现，但它们用于根据特定的模式对一系列指令进行分组。 pattern就是要表示的正则表达式，用斜杠括起来。
@@ -29,22 +29,22 @@ awk语言的最基本功能是在文件或者字符串中基于指定规则浏�
 通常，awk是以文件的一行为处理单位的。awk每接收文件的一行，然后执行相应的命令，来处理文本。
 
  
-## 调用awk
+## 2.1. 调用awk
 
 有三种方式调用awk
 
  
-### 1.命令行方式
+### 2.1.1. 命令行方式
 > awk [-F  field-separator]  'commands'  input-file(s)
 其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。
 在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。通常，在不指名-F域分隔符的情况下，默认的域分隔符是空格。
 
-### 2.shell脚本方式
+### 2.1.2. shell脚本方式
 将所有的awk命令插入一个文件，并使awk程序可执行，然后awk命令解释器作为脚本的首行，一遍通过键入脚本名称来调用。
 相当于shell脚本首行的：#!/bin/sh
 可以换成：#!/bin/awk
 
-### 3.将所有的awk命令插入一个单独文件，然后调用：
+### 2.1.3. 将所有的awk命令插入一个单独文件，然后调用：
 > awk -f awk-script-file input-file(s)
 其中，-f选项加载awk-script-file中的awk脚本，input-file(s)跟上面的是一样的。
  
@@ -52,7 +52,7 @@ awk语言的最基本功能是在文件或者字符串中基于指定规则浏�
 
  
 
-## 入门实例
+## 2.2. 入门实例
 假设last -n 5的输出如下
 
 > [root@www ~]# last -n 5 <==仅取出前五行
@@ -144,7 +144,7 @@ root:x:0:0:root:/root:/bin/bash
 
  
 
-## awk内置变量
+## 2.3. awk内置变量
 awk有许多内置变量用来设置环境信息，这些变量可以被改变，下面给出了最常用的一些变量。
 
  
@@ -180,7 +180,7 @@ filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/
  > awk  -F ':'  '{printf("filename:%s,linenumber:%s,columns:%s,linecontent:%s\n",FILENAME,NR,NF,$0)}' /etc/passwd
  
 
-## print和printf
+## 2.4. print和printf
 awk中同时提供了print和printf两种打印输出的函数。
 
 其中print函数的参数可以是变量、数值或者字符串。字符串必须用双引号引用，参数用逗号分隔。如果没有逗号，参数就串联在一起而无法区分。这里，逗号的作用与输出文件的分隔符的作用是一样的，只是后者是空格而已。
@@ -189,12 +189,12 @@ printf函数，其用法和c语言中printf基本相似,可以格式化字符串
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-#  awk编程
+# 3. awk编程
  变量和赋值
 
 除了awk的内置变量，awk还可以自定义变量。
 
-## 下面统计/etc/passwd的账户人数
+## 3.1. 下面统计/etc/passwd的账户人数
 ```
 
 awk '{count++;print $0;} END{print "user count is ", count}' /etc/passwd
@@ -238,7 +238,7 @@ ls -l |awk 'BEGIN {size=0;} {size=size+$5;} END{print "[end]size is ", size/1024
 
  
 
-### 条件语句
+### 3.1.1. 条件语句
 
  awk中的条件语句是从C语言中借鉴来的，见如下声明方式：
 

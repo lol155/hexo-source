@@ -6,12 +6,12 @@ date: 2017-11-04 23:37:13
 scaffolds:
 tags: [vagrant]
 ---
-# 安装vagrant
-## 本机环境
+# 1. 安装vagrant
+## 1.1. 本机环境
 
 系统环境 ： win10 64 系统
 
-## 软件及镜像
+## 1.2. 软件及镜像
 
 
 vagrant 官网 https://www.vagrantup.com/  
@@ -33,7 +33,7 @@ virtualBox 镜像 在vagrant官网中可以下载
 
 上面的gparted iso 文件是分区用的不过没有用到，下载不容易就一块传上来了。
 
-## 更改vagrant 存放box的位置
+## 1.3. 更改vagrant 存放box的位置
 默认vagrant 添加的box 默认存放位置为
 > C:\Users\当前用户名\ .vagrant.d\boxes\ 
 
@@ -41,7 +41,7 @@ virtualBox 镜像 在vagrant官网中可以下载
 
 例如：VAGRANT_HOME = D:\Program Files\VagrantHome
 
-## 更改virtualBox 存放镜像目录
+## 1.4. 更改virtualBox 存放镜像目录
 默认目录 
 
 > C:\Users\当前用户名\VirtualBox VMs
@@ -50,8 +50,8 @@ virtualBox 镜像 在vagrant官网中可以下载
 
 我修改为
 > D:\VirtualBoxVMs
-# 启动vagrant
-## 添加box
+# 2. 启动vagrant
+## 2.1. 添加box
 > vagrant box add centos7 E:\软件安装包\centos-7.0-x86_64.box
 
 查看已添加的box
@@ -61,7 +61,7 @@ virtualBox 镜像 在vagrant官网中可以下载
     D:\vagrantSpace>vagrant box list
     centos7 (virtualbox, 0)
 
-## 初始化
+## 2.2. 初始化
 
 在准备存放vagrant配置文件的文件夹中执行
 
@@ -76,7 +76,7 @@ virtualBox 镜像 在vagrant官网中可以下载
     
 其他配置请自行百度
 
-### vagrant 配置文件
+### 2.2.1. vagrant 配置文件
 
 下面的是我的配置
 
@@ -102,7 +102,7 @@ virtualBox 镜像 在vagrant官网中可以下载
       end
     end
 
-## 启动虚拟机
+## 2.3. 启动虚拟机
 
 > vagrant up linux 
 
@@ -120,7 +120,7 @@ virtualBox 镜像 在vagrant官网中可以下载
 ------------------------------------
 下面是修改磁盘大小,如果觉得没有必要,可以不修改,直接玩就可以啦
 
-# 修改虚拟机磁盘大小
+# 3. 修改虚拟机磁盘大小
 
 vagrant 默认创建的磁盘 根目录下只有10G.觉得太小,修改为1T.
 
@@ -362,18 +362,18 @@ http://pan.baidu.com/s/1dEC3ePr
 
 由于不了解linux,修改磁盘大小费了很多事.完成后打了包,做成了新的box，方便以后直接使用。
 
-# 其他
-## 修改linux 语言
+# 4. 其他
+## 4.1. 修改linux 语言
 > /etc/locale.conf
 ```
 LANG='en_US.UTF-8'
 ```
 
 
-# 参考博客:  
+# 5. 参考博客:  
 
-## 调整 VirtualBox 虚拟机的磁盘大小  
+## 5.1. 调整 VirtualBox 虚拟机的磁盘大小  
 https://cnzhx.net/blog/resizing-lvm-centos-virtualbox-guest/  
 
-## 手把手教你给 CentOS 7 添加硬盘及扩容(LVM)  
+## 5.2. 手把手教你给 CentOS 7 添加硬盘及扩容(LVM)  
 https://aurthurxlc.github.io/Aurthur-2017/Centos-7-extend-lvm-volume.html

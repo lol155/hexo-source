@@ -7,7 +7,7 @@ toc: true
 date: 2018-01-24 15:03:02
 scaffolds:
 ---
-# 测试的web项目
+# 1. 测试的web项目
 ```java
 package com.signalfire.servlet;
 import javax.servlet.ServletException;
@@ -46,7 +46,7 @@ public class HelloServlet extends HttpServlet {
   </servlet-mapping>
 </web-app>
 ```
-# tomcat
+# 2. tomcat
 - 打war包部署到tomcat中
 - 使用默认配置启动tomcat调试
 ```
@@ -62,19 +62,19 @@ JPDA_ADDRESS=5005
 JPAD_SUSPEND=n  
 ```
 
-# idea配置远程调试
+# 3. idea配置远程调试
 
-## 配置  
+## 3.1. 配置  
 ![tomcat+idea远程调试-20171213104020](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104020.png)  
 ![tomcat+idea远程调试-2017121310403](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-2017121310403.png)  
-## debug启动  
+## 3.2. debug启动  
 ![tomcat+idea远程调试-20171213104146](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104146.png)
 
-## 结果
+## 3.3. 结果
 ![tomcat+idea远程调试-20171213104437](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104437.png)
 
 ![tomcat+idea远程调试-20171213104256](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104256.png)
 
-# 调试java程序
+# 4. 调试java程序
 在远程服务器上java启动参赛要加上调试的参数：  
 "-Xdebug -Xrunjdwp:transport=dt_socket,address=2345,server=y,suspend=n"

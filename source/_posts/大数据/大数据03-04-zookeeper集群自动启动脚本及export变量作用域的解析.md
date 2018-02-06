@@ -1,6 +1,6 @@
 ---
 title: 大数据03-04-zookeeper集群自动启动脚本及export变量作用域的解析
-categories: 学习
+categories: 大数据学习笔记
 tags:
   - 大数据
   - zookeeper

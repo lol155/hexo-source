@@ -6,8 +6,8 @@ toc: true
 date: 2017-11-04 22:15:10
 scaffolds:
 ---
-# FTP服务器简单创建
-## １.环境
+# 1. FTP服务器简单创建
+## 1.1. １.环境
 CentOS release 6.5 (Final)-amd64 
   
 - 查看linux版本:  
@@ -22,7 +22,7 @@ Release:	6.5
 Codename:	Final  
 
 
-## 2.安装vsftpd
+## 1.2. 安装vsftpd
 - 安装vsftpd
 	
 >yum install vsftpd
@@ -42,11 +42,11 @@ Codename:	Final
 >[root@localhost vsftpd]# **service vsftpd stop**  
 >关闭 vsftpd：                                              [确定]
 
-## 3.创建用户
+## 1.3. 创建用户
 
 　　专门创建一个ftp链接的用户，限制其只能通过ftp方式登录，只能访问指定给他的目录。
 
-### 1.创建用户
+### 1.3.1. 创建用户
 	
 - 创建分组,用于存放ftp用户(可以省略)    
 
@@ -63,19 +63,19 @@ Codename:	Final
 >chmod -R 755 /home/ftp
 
 
-### 2.设置密码
+### 1.3.2. 设置密码
 
 >passwd ftptest  
 
 　　输入两次密码
 
-### 3.设置不允许用于登录
+### 1.3.3. 设置不允许用于登录
 
 >usermod -s /sbin/nologin ftptest
 
 　　没设置这个的时候,虽然没有ssh的登录权限,但是用xshell链接的时候会进入~bash对其他文件进行操作. 
 
-## 4.配置vsftpd
+## 1.4. 配置vsftpd
 
 　　安装vsftpd之后,在/etc/vsftpd 下有三个配置文件:
 >-rw------- 1 root root  125 2月   8 14:46 **ftpusers**   
@@ -83,7 +83,7 @@ Codename:	Final
 -rw------- 1 root root 4765 2月   8 16:35 **vsftpd.conf**  
 -rwxr--r-- 1 root root  338 5月  11 2016 vsftpd_conf_migrate.sh  
 
-### 1.配置文件
+### 1.4.1. 配置文件
 
 - ftpusers 可以简单理解为黑名单,其中的用户不能访问ftp,总是生效的
 - user_list 与 vsftpd.conf中的配置userlist_enable=YES 和 userlist_deny=NO功能使用,可以设置成黑名单,白名单(只有此文件里的用户才能使用ftp),具体设置看下面
@@ -110,7 +110,7 @@ userlist_deny 为YES时user_list文件为黑名单,NO为白名单
 
 >userlist_file=/etc/vsftpd/user_list
 
-# 我的配置
+# 2. 我的配置
 
 ftpusers 不变  
 chroot_list 创建了内容为空  
@@ -267,14 +267,14 @@ vsftpd.conf修改为
 	chroot_list_enable=YES
 	chroot_list_file=/etc/vsftpd/chroot_list
 	
-# JAVA上传下载
+# 3. JAVA上传下载
 
-## java需要的jar
+## 3.1. java需要的jar
 
 commons-io-2.1.jar  
 commons-net-1.4.1.jar
 
-## java代码demo
+## 3.2. java代码demo
 
 	package ftp;
 	import java.io.File;
@@ -374,7 +374,7 @@ commons-net-1.4.1.jar
 
 
 
-## 其他（我没有用到,服务器之前就用着）
+## 3.3. 其他（我没有用到,服务器之前就用着）
 
 如果还是登陆不了ftp，那很有可能是selinux的问题，这个东西把他关掉就行
 
@@ -401,7 +401,7 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
 
 如果出现远程文件夹无法显示的情况，请使用主动模式连接，在你的ftp工具上设置。
 
-## linux下ftp配置文件详解
+## 3.4. linux下ftp配置文件详解
 
 	# 匿名用户配置   
 	anonymous_enable=YES         # 是否允许匿名ftp,如否则选择NO   
