@@ -60,7 +60,7 @@
     <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4/"/>
     <id>https://blog.signalfire2017.com/2018/01/24/杂记/linux修改时间/</id>
     <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-01-24T07:16:43.499Z</updated>
+    <updated>2018-02-06T03:01:51.907Z</updated>
     
     <content type="html"><![CDATA[<p>linux修改时间</p>
 <ul>
@@ -82,6 +82,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ntpdate 210.72.145.44</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">date -s 18:40:00</div></pre></td></tr></table></figure>
 <p>参考链接 <a href="http://www.linuxidc.com/Linux/2017-03/141745.htm" target="_blank" rel="external">Linux服务器同步网络时间</a></p>
 ]]></content>
     
