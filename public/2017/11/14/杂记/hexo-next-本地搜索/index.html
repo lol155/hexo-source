@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 local search安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
+<meta name="description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 1. local search1.1. 安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo-next 本地搜索">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/11/14/杂记/hexo-next-本地搜索/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 local search安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
+<meta property="og:description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 1. local search1.1. 安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T11:37:54.840Z">
+<meta property="og:updated_time" content="2018-02-06T07:47:52.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo-next 本地搜索">
-<meta name="twitter:description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 local search安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
+<meta name="twitter:description" content="之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。 1. local search1.1. 安装hexo-generator-searchdb在站点根目录通过gitbash安装1npm install hexo-generator-searchdb --save">
 
 
 
@@ -405,12 +405,12 @@
 
       
         <p>之前用的algolia用不了了，应该是收费。查找了帖子做了本地搜索，感觉也很不错，主要是不用担心不好使了。</p>
-<h1 id="local-search"><a href="#local-search" class="headerlink" title="local search"></a>local search</h1><h2 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装hexo-generator-searchdb</h2><p>在站点根目录通过gitbash安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure></p>
+<h1 id="1-local-search"><a href="#1-local-search" class="headerlink" title="1. local search"></a>1. local search</h1><h2 id="1-1-安装hexo-generator-searchdb"><a href="#1-1-安装hexo-generator-searchdb" class="headerlink" title="1.1. 安装hexo-generator-searchdb"></a>1.1. 安装hexo-generator-searchdb</h2><p>在站点根目录通过gitbash安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="添加search字段"><a href="#添加search字段" class="headerlink" title="添加search字段"></a>添加search字段</h2><p>在站点下_config.yml中添加search字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure></p>
-<h2 id="在themes-next-config-yml主题配置中找到"><a href="#在themes-next-config-yml主题配置中找到" class="headerlink" title="在themes\next_config.yml主题配置中找到"></a>在themes\next_config.yml主题配置中找到</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: true</div></pre></td></tr></table></figure>
+<h2 id="1-2-添加search字段"><a href="#1-2-添加search字段" class="headerlink" title="1.2. 添加search字段"></a>1.2. 添加search字段</h2><p>在站点下_config.yml中添加search字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure></p>
+<h2 id="1-3-在themes-next-config-yml主题配置中找到"><a href="#1-3-在themes-next-config-yml主题配置中找到" class="headerlink" title="1.3. 在themes\next_config.yml主题配置中找到"></a>1.3. 在themes\next_config.yml主题配置中找到</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: true</div></pre></td></tr></table></figure>
 <p>将enable的值改成true</p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/syd192/p/6074323.html" target="_blank" rel="external">Hexo的Next主题配置</a></p>
+<h1 id="2-参考链接"><a href="#2-参考链接" class="headerlink" title="2. 参考链接"></a>2. 参考链接</h1><p><a href="https://www.cnblogs.com/syd192/p/6074323.html" target="_blank" rel="external">Hexo的Next主题配置</a></p>
 
       
     </div>
@@ -537,7 +537,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,7 +548,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -559,7 +559,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -601,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#local-search"><span class="nav-number">1.</span> <span class="nav-text">local search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo-generator-searchdb"><span class="nav-number">1.1.</span> <span class="nav-text">安装hexo-generator-searchdb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加search字段"><span class="nav-number">1.2.</span> <span class="nav-text">添加search字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在themes-next-config-yml主题配置中找到"><span class="nav-number">1.3.</span> <span class="nav-text">在themes\next_config.yml主题配置中找到</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-local-search"><span class="nav-text">1. local search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-安装hexo-generator-searchdb"><span class="nav-text">1.1. 安装hexo-generator-searchdb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-添加search字段"><span class="nav-text">1.2. 添加search字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-在themes-next-config-yml主题配置中找到"><span class="nav-text">1.3. 在themes\next_config.yml主题配置中找到</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-参考链接"><span class="nav-text">2. 参考链接</span></a></li></ol></div>
             
 
           </div>

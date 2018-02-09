@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="实现ssh免密登录及jdk的自动安装 boot.sh免密登录 及复制安装脚本到目标机器">
+<meta name="description" content="实现ssh免密登录及jdk的自动安装 1. boot.sh免密登录 及复制安装脚本到目标机器">
 <meta name="keywords" content="linux,大数据,centos7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据03-01-自动化部署脚本">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/11/14/大数据/大数据03-01-自动化部署脚本/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="实现ssh免密登录及jdk的自动安装 boot.sh免密登录 及复制安装脚本到目标机器">
+<meta property="og:description" content="实现ssh免密登录及jdk的自动安装 1. boot.sh免密登录 及复制安装脚本到目标机器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-14T15:06:55.689Z">
+<meta property="og:updated_time" content="2018-02-06T07:49:14.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据03-01-自动化部署脚本">
-<meta name="twitter:description" content="实现ssh免密登录及jdk的自动安装 boot.sh免密登录 及复制安装脚本到目标机器">
+<meta name="twitter:description" content="实现ssh免密登录及jdk的自动安装 1. boot.sh免密登录 及复制安装脚本到目标机器">
 
 
 
@@ -367,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
+                  <a href="/categories/大数据学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据学习笔记</span>
                   </a>
                 </span>
 
@@ -405,8 +405,8 @@
 
       
         <p>实现ssh免密登录及jdk的自动安装</p>
-<h1 id="boot-sh"><a href="#boot-sh" class="headerlink" title="boot.sh"></a>boot.sh</h1><p>免密登录 及复制安装脚本到目标机器<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">SERVERS=<span class="string">"node-3.itcast.cn node-4.itcast.cn"</span></div><div class="line">PASSWORD=123456</div><div class="line">BASE_SERVER=172.16.203.100</div><div class="line"></div><div class="line"><span class="function"><span class="title">auto_ssh_copy_id</span></span>() &#123;</div><div class="line">    expect -c <span class="string">"set timeout -1;</span></div><div class="line"><span class="string">        spawn ssh-copy-id <span class="variable">$1</span>;</span></div><div class="line"><span class="string">        expect &#123;</span></div><div class="line"><span class="string">            *(yes/no)* &#123;send -- yes\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            *assword:* &#123;send -- <span class="variable">$2</span>\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            eof        &#123;exit 0;&#125;</span></div><div class="line"><span class="string">        &#125;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">ssh_copy_id_to_all</span></span>() &#123;</div><div class="line">    <span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line">    <span class="keyword">do</span></div><div class="line">        auto_ssh_copy_id <span class="variable">$SERVER</span> <span class="variable">$PASSWORD</span></div><div class="line">    <span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">ssh_copy_id_to_all</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line"><span class="keyword">do</span></div><div class="line">    scp install.sh root@<span class="variable">$SERVER</span>:/root</div><div class="line">    ssh root@<span class="variable">$SERVER</span> /root/install.sh</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure></p>
-<h1 id="install-everyone-sh"><a href="#install-everyone-sh" class="headerlink" title="install_everyone.sh"></a>install_everyone.sh</h1><p>安装jdk<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">BASE_SERVER=mini4</div><div class="line">yum install -y wget</div><div class="line">wget <span class="variable">$BASE_SERVER</span>/soft/jdk-7u45-linux-x64.tar.gz</div><div class="line">tar -zxvf jdk-7u45-linux-x64.tar.gz -C /usr/<span class="built_in">local</span></div><div class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_45</div><div class="line"><span class="built_in">export</span> PATH=\<span class="variable">$PATH</span>:\<span class="variable">$JAVA_HOME</span>/bin</div><div class="line">EOF</div></pre></td></tr></table></figure></p>
+<h1 id="1-boot-sh"><a href="#1-boot-sh" class="headerlink" title="1. boot.sh"></a>1. boot.sh</h1><p>免密登录 及复制安装脚本到目标机器<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">SERVERS=<span class="string">"node-3.itcast.cn node-4.itcast.cn"</span></div><div class="line">PASSWORD=123456</div><div class="line">BASE_SERVER=172.16.203.100</div><div class="line"></div><div class="line"><span class="function"><span class="title">auto_ssh_copy_id</span></span>() &#123;</div><div class="line">    expect -c <span class="string">"set timeout -1;</span></div><div class="line"><span class="string">        spawn ssh-copy-id <span class="variable">$1</span>;</span></div><div class="line"><span class="string">        expect &#123;</span></div><div class="line"><span class="string">            *(yes/no)* &#123;send -- yes\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            *assword:* &#123;send -- <span class="variable">$2</span>\r;exp_continue;&#125;</span></div><div class="line"><span class="string">            eof        &#123;exit 0;&#125;</span></div><div class="line"><span class="string">        &#125;"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="title">ssh_copy_id_to_all</span></span>() &#123;</div><div class="line">    <span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line">    <span class="keyword">do</span></div><div class="line">        auto_ssh_copy_id <span class="variable">$SERVER</span> <span class="variable">$PASSWORD</span></div><div class="line">    <span class="keyword">done</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">ssh_copy_id_to_all</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> SERVER <span class="keyword">in</span> <span class="variable">$SERVERS</span></div><div class="line"><span class="keyword">do</span></div><div class="line">    scp install.sh root@<span class="variable">$SERVER</span>:/root</div><div class="line">    ssh root@<span class="variable">$SERVER</span> /root/install.sh</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure></p>
+<h1 id="2-install-everyone-sh"><a href="#2-install-everyone-sh" class="headerlink" title="2. install_everyone.sh"></a>2. install_everyone.sh</h1><p>安装jdk<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line">BASE_SERVER=mini4</div><div class="line">yum install -y wget</div><div class="line">wget <span class="variable">$BASE_SERVER</span>/soft/jdk-7u45-linux-x64.tar.gz</div><div class="line">tar -zxvf jdk-7u45-linux-x64.tar.gz -C /usr/<span class="built_in">local</span></div><div class="line">cat &gt;&gt; /etc/profile &lt;&lt; EOF</div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/jdk1.7.0_45</div><div class="line"><span class="built_in">export</span> PATH=\<span class="variable">$PATH</span>:\<span class="variable">$JAVA_HOME</span>/bin</div><div class="line">EOF</div></pre></td></tr></table></figure></p>
 <p>说明:</p>
 <ul>
 <li>expect 模拟人机交互</li>
@@ -542,7 +542,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -553,7 +553,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -564,7 +564,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -606,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#boot-sh"><span class="nav-number">1.</span> <span class="nav-text">boot.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install-everyone-sh"><span class="nav-number">2.</span> <span class="nav-text">install_everyone.sh</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-boot-sh"><span class="nav-text">1. boot.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-install-everyone-sh"><span class="nav-text">2. install_everyone.sh</span></a></li></ol></div>
             
 
           </div>

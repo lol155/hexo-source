@@ -97,19 +97,19 @@
 
 
 
-<meta name="description" content="进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] zookeeper结构特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式读写，更新请求转发，由">
+<meta name="description" content="1. 进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] 2. zookeeper结构2.1. 特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式">
 <meta name="keywords" content="大数据,zookeeper">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/11/19/大数据/大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] zookeeper结构特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式读写，更新请求转发，由">
+<meta property="og:description" content="1. 进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] 2. zookeeper结构2.1. 特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png">
-<meta property="og:updated_time" content="2017-11-21T15:31:47.234Z">
+<meta property="og:updated_time" content="2018-02-06T07:49:23.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据03-03-zookeeper-命令行客户端及znode数据结构类型监听等功能">
-<meta name="twitter:description" content="进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] zookeeper结构特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式读写，更新请求转发，由">
+<meta name="twitter:description" content="1. 进入客户端1234bin/zkCli.sh (连到本机)connect zk2:2181（连到zk2机器上）[zk: zk2:2181(CONNECTED) 3] 2. zookeeper结构2.1. 特性 Zookeeper：一个leader，多个follower组成的集群 全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的 分布式">
 <meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png">
 
 
@@ -369,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
+                  <a href="/categories/大数据学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据学习笔记</span>
                   </a>
                 </span>
 
@@ -406,8 +406,8 @@
       
 
       
-        <h1 id="进入客户端"><a href="#进入客户端" class="headerlink" title="进入客户端"></a>进入客户端</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/zkCli.sh (连到本机)</div><div class="line">connect zk2:2181（连到zk2机器上）</div><div class="line"></div><div class="line">[zk: zk2:2181(CONNECTED) 3]</div></pre></td></tr></table></figure>
-<h1 id="zookeeper结构"><a href="#zookeeper结构" class="headerlink" title="zookeeper结构"></a>zookeeper结构</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
+        <h1 id="1-进入客户端"><a href="#1-进入客户端" class="headerlink" title="1. 进入客户端"></a>1. 进入客户端</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bin/zkCli.sh (连到本机)</div><div class="line">connect zk2:2181（连到zk2机器上）</div><div class="line"></div><div class="line">[zk: zk2:2181(CONNECTED) 3]</div></pre></td></tr></table></figure>
+<h1 id="2-zookeeper结构"><a href="#2-zookeeper结构" class="headerlink" title="2. zookeeper结构"></a>2. zookeeper结构</h1><h2 id="2-1-特性"><a href="#2-1-特性" class="headerlink" title="2.1. 特性"></a>2.1. 特性</h2><ol>
 <li>Zookeeper：一个leader，多个follower组成的集群</li>
 <li>全局数据一致：每个server保存一份相同的数据副本，client无论连接到哪个server，数据都是一致的</li>
 <li>分布式读写，更新请求转发，由leader实施</li>
@@ -416,14 +416,14 @@
 <li>实时性，在一定时间范围内，client能读到最新数据</li>
 </ol>
 <a id="more"></a>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ol>
+<h2 id="2-2-数据结构"><a href="#2-2-数据结构" class="headerlink" title="2.2. 数据结构"></a>2.2. 数据结构</h2><ol>
 <li>层次化的目录结构，命名符合常规文件系统规范(见下图)</li>
 <li>每个节点在zookeeper中叫做znode,并且其有一个唯一的路径标识</li>
 <li>节点Znode可以包含数据和子节点（但是EPHEMERAL类型的节点不能有子节点，下一页详细讲解）</li>
 <li>客户端应用可以在节点上设置监视器（后续详细讲解）    </li>
 </ol>
-<h2 id="数据结构图"><a href="#数据结构图" class="headerlink" title="数据结构图"></a>数据结构图</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png" alt="20171119232757"></p>
-<h2 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h2><ol>
+<h2 id="2-3-数据结构图"><a href="#2-3-数据结构图" class="headerlink" title="2.3. 数据结构图"></a>2.3. 数据结构图</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png" alt="20171119232757"></p>
+<h2 id="2-4-节点类型"><a href="#2-4-节点类型" class="headerlink" title="2.4. 节点类型"></a>2.4. 节点类型</h2><ol>
 <li>Znode有两种类型：<ul>
 <li>短暂（ephemeral）（断开连接自己删除）</li>
 <li>持久（persistent）（断开连接不删除）</li>
@@ -439,7 +439,7 @@
 <li>创建znode时设置顺序标识，znode名称后会附加一个值，顺序号是一个单调递增的计数器，由父节点维护</li>
 <li>在分布式系统中，顺序号可以被用于为所有的事件进行全局排序，这样客户端可以通过顺序号推断事件的顺序</li>
 </ol>
-<h1 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h1><blockquote>
+<h1 id="3-命令行操作"><a href="#3-命令行操作" class="headerlink" title="3. 命令行操作"></a>3. 命令行操作</h1><blockquote>
 <p>运行 zkCli.sh –server <ip>进入命令行工具</ip></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">[zk: zk2:2181(CONNECTED) 2] help</div><div class="line">ZooKeeper -server host:port cmd args</div><div class="line">        connect host:port</div><div class="line">        get path [watch]</div><div class="line">        ls path [watch]</div><div class="line">        set path data [version]</div><div class="line">        rmr path</div><div class="line">        delquota [-n|-b] path</div><div class="line">        quit </div><div class="line">        printwatches on|off</div><div class="line">        create [-s] [-e] path data acl</div><div class="line">        stat path [watch]</div><div class="line">        close </div><div class="line">        ls2 path [watch]</div><div class="line">        history </div><div class="line">        listquota path</div><div class="line">        setAcl path acl</div><div class="line">        getAcl path</div><div class="line">        sync path</div><div class="line">        redo cmdno</div><div class="line">        addauth scheme auth</div><div class="line">        delete path [version]</div><div class="line">        setquota -n|-b val path</div></pre></td></tr></table></figure>
@@ -592,7 +592,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,7 +603,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -614,7 +614,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -656,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入客户端"><span class="nav-number">1.</span> <span class="nav-text">进入客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zookeeper结构"><span class="nav-number">2.</span> <span class="nav-text">zookeeper结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">2.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.2.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构图"><span class="nav-number">2.3.</span> <span class="nav-text">数据结构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点类型"><span class="nav-number">2.4.</span> <span class="nav-text">节点类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行操作"><span class="nav-number">3.</span> <span class="nav-text">命令行操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-进入客户端"><span class="nav-text">1. 进入客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-zookeeper结构"><span class="nav-text">2. zookeeper结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-特性"><span class="nav-text">2.1. 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-数据结构"><span class="nav-text">2.2. 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-数据结构图"><span class="nav-text">2.3. 数据结构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-节点类型"><span class="nav-text">2.4. 节点类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-命令行操作"><span class="nav-text">3. 命令行操作</span></a></li></ol></div>
             
 
           </div>

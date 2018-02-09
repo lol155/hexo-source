@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png">
-<meta property="og:updated_time" content="2017-12-31T18:10:29.078Z">
+<meta property="og:updated_time" content="2018-02-06T07:50:13.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据0501-轻量级RPC框架开发">
 <meta name="twitter:description" content="1、掌握RPC原理2、掌握nio操作3、掌握netty简单的api4、掌握自定义RPC框架">
@@ -374,8 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
+                  <a href="/categories/大数据学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据学习笔记</span>
                   </a>
                 </span>
 
@@ -412,8 +412,8 @@
 
       
         <p>1、掌握RPC原理<br>2、掌握nio操作<br>3、掌握netty简单的api<br>4、掌握自定义RPC框架<br><a id="more"></a></p>
-<h1 id="RPC原理"><a href="#RPC原理" class="headerlink" title="RPC原理"></a>RPC原理</h1><h2 id="什么是RPC"><a href="#什么是RPC" class="headerlink" title="什么是RPC"></a>什么是RPC</h2><p>RPC（Remote Procedure Call Protocol）——<code>远程过程调用协议</code>，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC协议假定某些传输协议的存在，如TCP或UDP，为通信程序之间携带信息数据。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC采用<code>客户机/服务器模式</code>。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
-<h2 id="RPC原理-1"><a href="#RPC原理-1" class="headerlink" title="RPC原理"></a>RPC原理</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png" alt="2017126231022"></p>
+<h1 id="1-RPC原理"><a href="#1-RPC原理" class="headerlink" title="1. RPC原理"></a>1. RPC原理</h1><h2 id="1-1-什么是RPC"><a href="#1-1-什么是RPC" class="headerlink" title="1.1. 什么是RPC"></a>1.1. 什么是RPC</h2><p>RPC（Remote Procedure Call Protocol）——<code>远程过程调用协议</code>，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC协议假定某些传输协议的存在，如TCP或UDP，为通信程序之间携带信息数据。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC采用<code>客户机/服务器模式</code>。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
+<h2 id="1-2-RPC原理"><a href="#1-2-RPC原理" class="headerlink" title="1.2. RPC原理"></a>1.2. RPC原理</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png" alt="2017126231022"></p>
 <p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
 <ol>
 <li>调用客户端句柄；执行传送参数</li>
@@ -427,14 +427,14 @@
 <li>客户句柄由内核接收消息</li>
 <li>客户接收句柄返回的数据</li>
 </ol>
-<h1 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h1><p>nio 是New IO 的简称，在jdk1.4 里提供的新api 。<br>Sun 官方标榜的特性如下：   </p>
+<h1 id="2-NIO"><a href="#2-NIO" class="headerlink" title="2. NIO"></a>2. NIO</h1><p>nio 是New IO 的简称，在jdk1.4 里提供的新api 。<br>Sun 官方标榜的特性如下：   </p>
 <ol>
 <li>为所有的原始类型提供(Buffer)缓存支持。字符集编码解码解决方案。 </li>
 <li>Channel ：一个新的原始I/O 抽象。 </li>
 <li>支持锁和内存映射文件的文件访问接口。 </li>
 <li>提供多路(non-bloking) 非阻塞式的高伸缩性网络I/O 。</li>
 </ol>
-<h2 id="socket-nio原理"><a href="#socket-nio原理" class="headerlink" title="socket nio原理"></a>socket nio原理</h2><h3 id="传统的I-O"><a href="#传统的I-O" class="headerlink" title="传统的I/O"></a>传统的I/O</h3><p>使用传统的I/O程序读取文件内容, 并写入到另一个文件(或Socket), 如下程序:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">File.read(fileDesc, buf, len);</div><div class="line">Socket.send(socket, buf, len);</div></pre></td></tr></table></figure></p>
+<h2 id="2-1-socket-nio原理"><a href="#2-1-socket-nio原理" class="headerlink" title="2.1. socket nio原理"></a>2.1. socket nio原理</h2><h3 id="2-1-1-传统的I-O"><a href="#2-1-1-传统的I-O" class="headerlink" title="2.1.1. 传统的I/O"></a>2.1.1. 传统的I/O</h3><p>使用传统的I/O程序读取文件内容, 并写入到另一个文件(或Socket), 如下程序:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">File.read(fileDesc, buf, len);</div><div class="line">Socket.send(socket, buf, len);</div></pre></td></tr></table></figure></p>
 <p>会有较大的性能开销, 主要表现在一下两方面:</p>
 <ol>
 <li>上下文切换(context switch), 此处有4次用户态和内核态的切换</li>
@@ -447,13 +447,13 @@
 <li>从程序buffer拷贝到socket buffer</li>
 <li>从socket buffer拷贝到协议引擎.</li>
 </ol>
-<h2 id="NIO-1"><a href="#NIO-1" class="headerlink" title="NIO"></a>NIO</h2><p>NIO技术省去了将操作系统的read buffer拷贝到程序的buffer, 以及从程序buffer拷贝到socket buffer的步骤, 直接将 read buffer 拷贝到 socket buffer. java 的 FileChannel.transferTo() 方法就是这样的实现, 这个实现是依赖于操作系统底层的sendFile()实现的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">publicvoid transferTo(long position, long count, WritableByteChannel target);</div></pre></td></tr></table></figure></p>
+<h2 id="2-2-NIO"><a href="#2-2-NIO" class="headerlink" title="2.2. NIO"></a>2.2. NIO</h2><p>NIO技术省去了将操作系统的read buffer拷贝到程序的buffer, 以及从程序buffer拷贝到socket buffer的步骤, 直接将 read buffer 拷贝到 socket buffer. java 的 FileChannel.transferTo() 方法就是这样的实现, 这个实现是依赖于操作系统底层的sendFile()实现的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">publicvoid transferTo(long position, long count, WritableByteChannel target);</div></pre></td></tr></table></figure></p>
 <p>他的底层调用的是系统调用sendFile()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sendfile(int out_fd, int in_fd, off_t *offset, size_t count);</div></pre></td></tr></table></figure></p>
 <p>如下图<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712723052.png" alt="201712723052"></p>
 <p>参考帖子：<a href="http://blog.csdn.net/dd864140130/article/details/50299687" target="_blank" rel="external">http://blog.csdn.net/dd864140130/article/details/50299687</a></p>
-<h1 id="轻量级RPC开发"><a href="#轻量级RPC开发" class="headerlink" title="轻量级RPC开发"></a>轻量级RPC开发</h1><h2 id="轻量级RPC框架需求分析及原理分析"><a href="#轻量级RPC框架需求分析及原理分析" class="headerlink" title="轻量级RPC框架需求分析及原理分析"></a>轻量级RPC框架需求分析及原理分析</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png" alt="2017126231155"></p>
-<h2 id="大概流程"><a href="#大概流程" class="headerlink" title="大概流程"></a>大概流程</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png" alt="20181115823"></p>
-<h2 id="工程目录"><a href="#工程目录" class="headerlink" title="工程目录"></a>工程目录</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png" alt="20181115919"></p>
+<h1 id="3-轻量级RPC开发"><a href="#3-轻量级RPC开发" class="headerlink" title="3. 轻量级RPC开发"></a>3. 轻量级RPC开发</h1><h2 id="3-1-轻量级RPC框架需求分析及原理分析"><a href="#3-1-轻量级RPC框架需求分析及原理分析" class="headerlink" title="3.1. 轻量级RPC框架需求分析及原理分析"></a>3.1. 轻量级RPC框架需求分析及原理分析</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png" alt="2017126231155"></p>
+<h2 id="3-2-大概流程"><a href="#3-2-大概流程" class="headerlink" title="3.2. 大概流程"></a>3.2. 大概流程</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png" alt="20181115823"></p>
+<h2 id="3-3-工程目录"><a href="#3-3-工程目录" class="headerlink" title="3.3. 工程目录"></a>3.3. 工程目录</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png" alt="20181115919"></p>
 <ul>
 <li>rpc-sample-server   用户服务端 业务实现类 </li>
 <li>rpc-sample-common   用户公用包 包含了业务接口</li>
@@ -461,7 +461,7 @@
 <li>rpc-server          框架 服务包</li>
 <li>rpc-registry        框架 注册和发现 zk用的包</li>
 <li>rpc-common          框架 公共包 request response 加密 解密 序列化等公用类</li>
-<li>rpc-client          框架 客户包<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2>rpc-server 主要利用<code>反射</code>将接收到的request进行解析、执行、返回结果。<br>rpc-client 主要使用<code>动态代理</code>将接口的调用 封装进request进行请求，然后返回结果。</li>
+<li>rpc-client          框架 客户包<h2 id="3-4-框架"><a href="#3-4-框架" class="headerlink" title="3.4. 框架"></a>3.4. 框架</h2>rpc-server 主要利用<code>反射</code>将接收到的request进行解析、执行、返回结果。<br>rpc-client 主要使用<code>动态代理</code>将接口的调用 封装进request进行请求，然后返回结果。</li>
 </ul>
 
       
@@ -591,7 +591,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -602,7 +602,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -613,7 +613,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -655,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RPC原理"><span class="nav-number">1.</span> <span class="nav-text">RPC原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是RPC"><span class="nav-number">1.1.</span> <span class="nav-text">什么是RPC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC原理-1"><span class="nav-number">1.2.</span> <span class="nav-text">RPC原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NIO"><span class="nav-number">2.</span> <span class="nav-text">NIO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#socket-nio原理"><span class="nav-number">2.1.</span> <span class="nav-text">socket nio原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的I-O"><span class="nav-number">2.1.1.</span> <span class="nav-text">传统的I/O</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO-1"><span class="nav-number">2.2.</span> <span class="nav-text">NIO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#轻量级RPC开发"><span class="nav-number">3.</span> <span class="nav-text">轻量级RPC开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轻量级RPC框架需求分析及原理分析"><span class="nav-number">3.1.</span> <span class="nav-text">轻量级RPC框架需求分析及原理分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大概流程"><span class="nav-number">3.2.</span> <span class="nav-text">大概流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程目录"><span class="nav-number">3.3.</span> <span class="nav-text">工程目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架"><span class="nav-number">3.4.</span> <span class="nav-text">框架</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-RPC原理"><span class="nav-text">1. RPC原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-什么是RPC"><span class="nav-text">1.1. 什么是RPC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-RPC原理"><span class="nav-text">1.2. RPC原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-NIO"><span class="nav-text">2. NIO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-socket-nio原理"><span class="nav-text">2.1. socket nio原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-传统的I-O"><span class="nav-text">2.1.1. 传统的I/O</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-NIO"><span class="nav-text">2.2. NIO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-轻量级RPC开发"><span class="nav-text">3. 轻量级RPC开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-轻量级RPC框架需求分析及原理分析"><span class="nav-text">3.1. 轻量级RPC框架需求分析及原理分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-大概流程"><span class="nav-text">3.2. 大概流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-工程目录"><span class="nav-text">3.3. 工程目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-框架"><span class="nav-text">3.4. 框架</span></a></li></ol></li></ol></div>
             
 
           </div>

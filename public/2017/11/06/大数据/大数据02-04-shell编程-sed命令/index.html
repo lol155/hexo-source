@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是G">
+<meta name="description" content="1. Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍">
 <meta name="keywords" content="linux,大数据,linux命令,centos7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据02-04-shell编程-sed命令">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/11/06/大数据/大数据02-04-shell编程-sed命令/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是G">
+<meta property="og:description" content="1. Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-06T16:13:52.587Z">
+<meta property="og:updated_time" content="2018-02-06T07:49:02.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据02-04-shell编程-sed命令">
-<meta name="twitter:description" content="Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是G">
+<meta name="twitter:description" content="1. Sed简介sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍">
 
 
 
@@ -367,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
+                  <a href="/categories/大数据学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据学习笔记</span>
                   </a>
                 </span>
 
@@ -404,9 +404,9 @@
       
 
       
-        <h1 id="Sed简介"><a href="#Sed简介" class="headerlink" title="Sed简介"></a>Sed简介</h1><p>sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.<br><a id="more"></a></p>
-<h2 id="定址"><a href="#定址" class="headerlink" title="定址"></a>定址</h2><p>可以通过定址来定位你所希望编辑的行，该地址用数字构成，用逗号分隔的两个行数表示以这两行为起止的行的范围（包括行数表示的那两行）。如1，3表示1，2，3行，美元符号($)表示最后一行。范围可以通过数据，正则表达式或者二者结合的方式确定 。</p>
-<h2 id="Sed命令"><a href="#Sed命令" class="headerlink" title="Sed命令"></a>Sed命令</h2><p>调用sed命令有两种形式：</p>
+        <h1 id="1-Sed简介"><a href="#1-Sed简介" class="headerlink" title="1. Sed简介"></a>1. Sed简介</h1><p>sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容并没有 改变，除非你使用重定向存储输出。Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。以下介绍的是Gnu版本的Sed 3.02。做备份,以后速查用.<br><a id="more"></a></p>
+<h2 id="1-1-定址"><a href="#1-1-定址" class="headerlink" title="1.1. 定址"></a>1.1. 定址</h2><p>可以通过定址来定位你所希望编辑的行，该地址用数字构成，用逗号分隔的两个行数表示以这两行为起止的行的范围（包括行数表示的那两行）。如1，3表示1，2，3行，美元符号($)表示最后一行。范围可以通过数据，正则表达式或者二者结合的方式确定 。</p>
+<h2 id="1-2-Sed命令"><a href="#1-2-Sed命令" class="headerlink" title="1.2. Sed命令"></a>1.2. Sed命令</h2><p>调用sed命令有两种形式：</p>
 <ul>
 <li>sed [options] ‘command’ file(s)</li>
 <li>sed [options] -f scriptfile file(s)<ul>
@@ -434,7 +434,7 @@
 <li>!<br>表示后面的命令对所有没有被选定的行发生作用。</li>
 <li>s/re/string<br>用string替换正则表达式re。</li>
 <li>=<br>打印当前行号码。</li>
-<li>#把注释扩展到下一个换行符以前。<h3 id="以下的是替换标记"><a href="#以下的是替换标记" class="headerlink" title="以下的是替换标记"></a>以下的是替换标记</h3></li>
+<li>#把注释扩展到下一个换行符以前。<h3 id="1-2-1-以下的是替换标记"><a href="#1-2-1-以下的是替换标记" class="headerlink" title="1.2.1. 以下的是替换标记"></a>1.2.1. 以下的是替换标记</h3></li>
 </ul>
 </li>
 <li>g表示行内全面替换。</li>
@@ -443,14 +443,14 @@
 <li>x表示互换模板块中的文本和缓冲区中的文本。</li>
 <li>y表示把一个字符翻译为另外的字符（但是不用于正则表达式）</li>
 </ul>
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p><code>-e command, --expression=command</code><br>允许多台编辑。</p>
+<h2 id="1-3-选项"><a href="#1-3-选项" class="headerlink" title="1.3. 选项"></a>1.3. 选项</h2><p><code>-e command, --expression=command</code><br>允许多台编辑。</p>
 <ul>
 <li>-h, –help<br>打印帮助，并显示bug列表的地址。</li>
 <li>-n, –quiet, –silent<br>取消默认输出。</li>
 <li>-f, –filer=script-file<br>引导sed脚本文件名。</li>
 <li>-V, –version<br>打印版本和版权信息。</li>
 </ul>
-<h2 id="元字符集"><a href="#元字符集" class="headerlink" title="元字符集^"></a>元字符集^</h2><p>锚定行的开始 如：/^sed/匹配所有以sed开头的行。<br>$</p>
+<h2 id="1-4-元字符集"><a href="#1-4-元字符集" class="headerlink" title="1.4. 元字符集^"></a>1.4. 元字符集^</h2><p>锚定行的开始 如：/^sed/匹配所有以sed开头的行。<br>$</p>
 <ul>
 <li>锚定行的结束 如：/sed$/匹配所有以sed结尾的行。<br>.</li>
 <li>匹配一个非换行符的字符 如：/s.d/匹配s后接一个任意字符，然后是d。<br>*</li>
@@ -463,11 +463,11 @@
 <li>锚定单词的结束，如/love>/匹配包含以love结尾的单词的行。<br>x{m}</li>
 <li>重复字符x，m次，如：/o{5}/匹配包含5个o的行。<br>x{m,}</li>
 <li>重复字符x,至少m次，如：/o{5,}/匹配至少有5个o的行。<br>x{m,n}</li>
-<li>重复字符x，至少m次，不多于n次，如：/o{5,10}/匹配5–10个o的行。<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="删除：d命令"><a href="#删除：d命令" class="headerlink" title="删除：d命令"></a>删除：d命令</h3></li>
+<li>重复字符x，至少m次，不多于n次，如：/o{5,10}/匹配5–10个o的行。<h2 id="1-5-实例"><a href="#1-5-实例" class="headerlink" title="1.5. 实例"></a>1.5. 实例</h2><h3 id="1-5-1-删除：d命令"><a href="#1-5-1-删除：d命令" class="headerlink" title="1.5.1. 删除：d命令"></a>1.5.1. 删除：d命令</h3></li>
 <li>$ sed ‘2d’ example—–删除example文件的第二行。</li>
 <li>$ sed ‘2,$d’ example—–删除example文件的第二行到末尾所有行。</li>
 <li>$ sed ‘$d’ example—–删除example文件的最后一行。</li>
-<li>$ sed ‘/test/‘d example—–删除example文件所有包含test的行。<h3 id="替换：s命令"><a href="#替换：s命令" class="headerlink" title="替换：s命令"></a>替换：s命令</h3></li>
+<li>$ sed ‘/test/‘d example—–删除example文件所有包含test的行。<h3 id="1-5-2-替换：s命令"><a href="#1-5-2-替换：s命令" class="headerlink" title="1.5.2. 替换：s命令"></a>1.5.2. 替换：s命令</h3></li>
 <li>$ sed ‘s/test/mytest/g’ example—–在整行范围内把test替换为mytest。如果没有g标记，则只有每行第一个匹配的test被替换成mytest。</li>
 <li>$ sed -n ‘s/^test/mytest/p’ example—–(-n)选项和p标志一起使用表示只打印那些发生替换的行。也就是说，如果某一行开头的test被替换成mytest，就打印它。</li>
 <li>$ sed ‘s/^192.168.0.1/&amp;localhost/‘ example—–&amp;符号表示替换换字符串中被找到的部份。所有以192.168.0.1开头的行都会被替换成它自已加 localhost，变成192.168.0.1localhost。</li>
@@ -475,14 +475,14 @@
 <li>$ sed ‘s#10#100#g’ example—–不论什么字符，紧跟着s命令的都被认为是新的分隔符，所以，“#”在这里是分隔符，代替了默认的“/”分隔符。表示把所有10替换成100。<br>选定行的范围：逗号</li>
 <li>$ sed -n ‘/test/,/check/p’ example—–所有在模板test和check所确定的范围内的行都被打印。</li>
 <li>$ sed -n ‘5,/^test/p’ example—–打印从第五行开始到第一个包含以test开始的行之间的所有行。</li>
-<li>$ sed ‘/test/,/check/s/$/sed test/‘ example—–对于模板test和west之间的行，每行的末尾用字符串sed test替换。<h3 id="多点编辑：e命令"><a href="#多点编辑：e命令" class="headerlink" title="多点编辑：e命令"></a>多点编辑：e命令</h3></li>
+<li>$ sed ‘/test/,/check/s/$/sed test/‘ example—–对于模板test和west之间的行，每行的末尾用字符串sed test替换。<h3 id="1-5-3-多点编辑：e命令"><a href="#1-5-3-多点编辑：e命令" class="headerlink" title="1.5.3. 多点编辑：e命令"></a>1.5.3. 多点编辑：e命令</h3></li>
 <li>$ sed -e ‘1,5d’ -e ‘s/test/check/‘ example—–(-e)选项允许在同一行里执行多条命令。如例子所示，第一条命令删除1至5行，第二条命令用check替换test。命令的执 行顺序对结果有影响。如果两个命令都是替换命令，那么第一个替换命令将影响第二个替换命令的结果。</li>
-<li>$ sed –expression=’s/test/check/‘ –expression=’/love/d’ example—–一个比-e更好的命令是–expression。它能给sed表达式赋值。<h3 id="从文件读入：r命令"><a href="#从文件读入：r命令" class="headerlink" title="从文件读入：r命令"></a>从文件读入：r命令</h3></li>
-<li>$ sed ‘/test/r file’ example—–file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面。<h3 id="写入文件：w命令"><a href="#写入文件：w命令" class="headerlink" title="写入文件：w命令"></a>写入文件：w命令</h3></li>
+<li>$ sed –expression=’s/test/check/‘ –expression=’/love/d’ example—–一个比-e更好的命令是–expression。它能给sed表达式赋值。<h3 id="1-5-4-从文件读入：r命令"><a href="#1-5-4-从文件读入：r命令" class="headerlink" title="1.5.4. 从文件读入：r命令"></a>1.5.4. 从文件读入：r命令</h3></li>
+<li>$ sed ‘/test/r file’ example—–file里的内容被读进来，显示在与test匹配的行后面，如果匹配多行，则file的内容将显示在所有匹配行的下面。<h3 id="1-5-5-写入文件：w命令"><a href="#1-5-5-写入文件：w命令" class="headerlink" title="1.5.5. 写入文件：w命令"></a>1.5.5. 写入文件：w命令</h3></li>
 <li><p>$ sed -n ‘/test/w file’ example—–在example中所有包含test的行都被写入file里。</p>
-<h3 id="追加命令：a命令"><a href="#追加命令：a命令" class="headerlink" title="追加命令：a命令"></a>追加命令：a命令</h3></li>
+<h3 id="1-5-6-追加命令：a命令"><a href="#1-5-6-追加命令：a命令" class="headerlink" title="1.5.6. 追加命令：a命令"></a>1.5.6. 追加命令：a命令</h3></li>
 <li><p>$ sed ‘/^test/a\—&gt;this is a example’ example    ‘—–&gt;this is a example’被追加到以test开头的行后面，sed要求命令a后面有一个反斜杠。</p>
-<h3 id="插入：i命令"><a href="#插入：i命令" class="headerlink" title="插入：i命令"></a>插入：i命令</h3></li>
+<h3 id="1-5-7-插入：i命令"><a href="#1-5-7-插入：i命令" class="headerlink" title="1.5.7. 插入：i命令"></a>1.5.7. 插入：i命令</h3></li>
 <li>$ sed ‘/test/i\<br>new line<br>————————-‘ example<br>如果test被匹配，则把反斜杠后面的文本插入到匹配行的前面。<br>下一个：n命令</li>
 <li><p>$ sed ‘/test/{ n; s/aa/bb/; }’ example—–如果test被匹配，则移动到匹配行的下一行，替换这一行的aa，变为bb，并打印该行，然后继续。<br>变形：y命令</p>
 </li>
@@ -490,7 +490,7 @@
 </li>
 <li>$ sed ‘10q’ example—–打印完第10行后，退出sed。<br>保持和获取：h命令和G命令</li>
 <li>$ sed -e ‘/test/h’ -e ‘$G example—–在sed处理文件的时候，每一行都被保存在一个叫模式空间的临时缓冲区中，除非行被删除或者输出被取消，否则所有被处理的行都将 打印在屏幕上。接着模式空间被清空，并存入新的一行等待处理。在这个例子里，匹配test的行被找到后，将存入模式空间，h命令将其复制并存入一个称为保 持缓存区的特殊缓冲区内。第二条语句的意思是，当到达最后一行后，G命令取出保持缓冲区的行，然后把它放回模式空间中，且追加到现在已经存在于模式空间中 的行的末尾。在这个例子中就是追加到最后一行。简单来说，任何包含test的行都被复制并追加到该文件的末尾。<br>保持和互换：h命令和x命令</li>
-<li>$ sed -e ‘/test/h’ -e ‘/check/x’ example —–互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换。<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3>Sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。</li>
+<li>$ sed -e ‘/test/h’ -e ‘/check/x’ example —–互换模式空间和保持缓冲区的内容。也就是把包含test与check的行互换。<h3 id="1-5-8-脚本"><a href="#1-5-8-脚本" class="headerlink" title="1.5.8. 脚本"></a>1.5.8. 脚本</h3>Sed脚本是一个sed的命令清单，启动Sed时以-f选项引导脚本文件名。Sed对于脚本中输入的命令非常挑剔，在命令的末尾不能有任何空白或文本，如果在一行中有多个命令，要用分号分隔。以#开头的行为注释行，且不能跨行。</li>
 </ul>
 
       
@@ -624,7 +624,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -635,7 +635,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -646,7 +646,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -688,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sed简介"><span class="nav-number">1.</span> <span class="nav-text">Sed简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定址"><span class="nav-number">1.1.</span> <span class="nav-text">定址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sed命令"><span class="nav-number">1.2.</span> <span class="nav-text">Sed命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以下的是替换标记"><span class="nav-number">1.2.1.</span> <span class="nav-text">以下的是替换标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选项"><span class="nav-number">1.3.</span> <span class="nav-text">选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符集"><span class="nav-number">1.4.</span> <span class="nav-text">元字符集^</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">1.5.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除：d命令"><span class="nav-number">1.5.1.</span> <span class="nav-text">删除：d命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换：s命令"><span class="nav-number">1.5.2.</span> <span class="nav-text">替换：s命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多点编辑：e命令"><span class="nav-number">1.5.3.</span> <span class="nav-text">多点编辑：e命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从文件读入：r命令"><span class="nav-number">1.5.4.</span> <span class="nav-text">从文件读入：r命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入文件：w命令"><span class="nav-number">1.5.5.</span> <span class="nav-text">写入文件：w命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追加命令：a命令"><span class="nav-number">1.5.6.</span> <span class="nav-text">追加命令：a命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入：i命令"><span class="nav-number">1.5.7.</span> <span class="nav-text">插入：i命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本"><span class="nav-number">1.5.8.</span> <span class="nav-text">脚本</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Sed简介"><span class="nav-text">1. Sed简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-定址"><span class="nav-text">1.1. 定址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Sed命令"><span class="nav-text">1.2. Sed命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-以下的是替换标记"><span class="nav-text">1.2.1. 以下的是替换标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-选项"><span class="nav-text">1.3. 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-元字符集"><span class="nav-text">1.4. 元字符集^</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-实例"><span class="nav-text">1.5. 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-删除：d命令"><span class="nav-text">1.5.1. 删除：d命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-替换：s命令"><span class="nav-text">1.5.2. 替换：s命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-3-多点编辑：e命令"><span class="nav-text">1.5.3. 多点编辑：e命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-4-从文件读入：r命令"><span class="nav-text">1.5.4. 从文件读入：r命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-5-写入文件：w命令"><span class="nav-text">1.5.5. 写入文件：w命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-6-追加命令：a命令"><span class="nav-text">1.5.6. 追加命令：a命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-7-插入：i命令"><span class="nav-text">1.5.7. 插入：i命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-8-脚本"><span class="nav-text">1.5.8. 脚本</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

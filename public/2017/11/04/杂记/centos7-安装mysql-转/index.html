@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="linux下安装Mysql 其他错误本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行添加 skip-grant-t">
+<meta name="description" content="linux下安装Mysql 1. 其他1.1. 错误1.1.1. 本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行">
 <meta name="keywords" content="linux,大数据,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7 安装mysql-转">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/11/04/杂记/centos7-安装mysql-转/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="linux下安装Mysql 其他错误本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行添加 skip-grant-t">
+<meta property="og:description" content="linux下安装Mysql 1. 其他1.1. 错误1.1.1. 本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-04T15:15:04.097Z">
+<meta property="og:updated_time" content="2018-02-06T07:47:34.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7 安装mysql-转">
-<meta name="twitter:description" content="linux下安装Mysql 其他错误本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行添加 skip-grant-t">
+<meta name="twitter:description" content="linux下安装Mysql 1. 其他1.1. 错误1.1.1. 本地登陆不进去12#mysql -u root -p 提示”Access denied for user ‘root’@’localhost’ (using password: YES)” 我的mysql版本   mysql  Ver 14.14 Distrib 5.6.38  先修改一下mysql安装目录下面my.cnf,最后一行">
 
 
 
@@ -405,7 +405,7 @@
 
       
         <p><a href="http://www.cnblogs.com/xxoome/p/5864912.html" target="_blank" rel="external">linux下安装Mysql</a></p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><h3 id="本地登陆不进去"><a href="#本地登陆不进去" class="headerlink" title="本地登陆不进去"></a>本地登陆不进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#mysql -u root -p </div><div class="line">提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</div></pre></td></tr></table></figure>
+<h1 id="1-其他"><a href="#1-其他" class="headerlink" title="1. 其他"></a>1. 其他</h1><h2 id="1-1-错误"><a href="#1-1-错误" class="headerlink" title="1.1. 错误"></a>1.1. 错误</h2><h3 id="1-1-1-本地登陆不进去"><a href="#1-1-1-本地登陆不进去" class="headerlink" title="1.1.1. 本地登陆不进去"></a>1.1.1. 本地登陆不进去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#mysql -u root -p </div><div class="line">提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</div></pre></td></tr></table></figure>
 <p>我的mysql版本 </p>
 <blockquote>
 <p>mysql  Ver 14.14 Distrib 5.6.38</p>
@@ -415,7 +415,7 @@
 <p>update mysql.user set password=password(‘mypassword’) where user=’root’; </p>
 </blockquote>
 <p>退出,修改文件删除刚加的属性,重启mysql服务</p>
-<h3 id="远程连接-ip无权限"><a href="#远程连接-ip无权限" class="headerlink" title="远程连接 ip无权限"></a>远程连接 ip无权限</h3><blockquote>
+<h3 id="1-1-2-远程连接-ip无权限"><a href="#1-1-2-远程连接-ip无权限" class="headerlink" title="1.1.2. 远程连接 ip无权限"></a>1.1.2. 远程连接 ip无权限</h3><blockquote>
 <p>update mysql.user set host=’%’ where user=’root’;</p>
 </blockquote>
 
@@ -452,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/04/杂记/centos7-开放端口/" rel="next" title="centos7 开放端口">
-                <i class="fa fa-chevron-left"></i> centos7 开放端口
+              <a href="/2017/11/04/杂记/ftp服务器创建/" rel="next" title="FTP服务器简单创建">
+                <i class="fa fa-chevron-left"></i> FTP服务器简单创建
               </a>
             
           </div>
@@ -548,7 +548,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -559,7 +559,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -570,7 +570,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -612,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">1.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误"><span class="nav-number">1.1.</span> <span class="nav-text">错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地登陆不进去"><span class="nav-number">1.1.1.</span> <span class="nav-text">本地登陆不进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接-ip无权限"><span class="nav-number">1.1.2.</span> <span class="nav-text">远程连接 ip无权限</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-其他"><span class="nav-text">1. 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-错误"><span class="nav-text">1.1. 错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-本地登陆不进去"><span class="nav-text">1.1.1. 本地登陆不进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-远程连接-ip无权限"><span class="nav-text">1.1.2. 远程连接 ip无权限</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

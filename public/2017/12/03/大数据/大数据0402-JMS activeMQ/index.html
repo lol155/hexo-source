@@ -97,20 +97,20 @@
 
 
 
-<meta name="description" content="java JMS技术什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Ja">
+<meta name="description" content="1. java JMS技术1.1. 什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似">
 <meta name="keywords" content="大数据,java,JMS,activeMQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据0402-JMS activeMQ">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/12/03/大数据/大数据0402-JMS activeMQ/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="java JMS技术什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Ja">
+<meta property="og:description" content="1. java JMS技术1.1. 什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png">
-<meta property="og:updated_time" content="2017-12-03T10:30:08.487Z">
+<meta property="og:updated_time" content="2018-02-06T07:49:47.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据0402-JMS activeMQ">
-<meta name="twitter:description" content="java JMS技术什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Ja">
+<meta name="twitter:description" content="1. java JMS技术1.1. 什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似">
 <meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png">
 
 
@@ -370,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
+                  <a href="/categories/大数据学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据学习笔记</span>
                   </a>
                 </span>
 
@@ -407,9 +407,9 @@
       
 
       
-        <h1 id="java-JMS技术"><a href="#java-JMS技术" class="headerlink" title="java JMS技术"></a>java JMS技术</h1><h2 id="什么是JMS"><a href="#什么是JMS" class="headerlink" title="什么是JMS"></a>什么是JMS</h2><p>JMS即Java<font color="red">消息服务（Java Message Service）</font>应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。<br>JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Java Database Connectivity)：这里，JDBC 是可以用来访问许多不同关系数据库的 API，而 JMS 则提供同样与厂商无关的访问方法，以访问消息收发服务。许多厂商都支持 JMS，包括 IBM 的 MQSeries、BEA的 Weblogic JMS service和 Progress 的 SonicMQ，这只是几个例子。 JMS 使您能够通过消息收发服务（有时称为消息中介程序或路由器）从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS 中的一种类型对象，由两部分组成：报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带：简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。</p>
-<h2 id="JMS规范"><a href="#JMS规范" class="headerlink" title="JMS规范"></a>JMS规范</h2><h3 id="专业技术规范"><a href="#专业技术规范" class="headerlink" title="专业技术规范"></a>专业技术规范</h3><p>JMS（Java Messaging Service）是Java平台上有关面向消息中间件(MOM)的技术规范，它便于消息系统中的Java应用程序进行消息交换,并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。</p>
-<h3 id="体系架构"><a href="#体系架构" class="headerlink" title="体系架构"></a>体系架构</h3><p>JMS由以下元素组成。</p>
+        <h1 id="1-java-JMS技术"><a href="#1-java-JMS技术" class="headerlink" title="1. java JMS技术"></a>1. java JMS技术</h1><h2 id="1-1-什么是JMS"><a href="#1-1-什么是JMS" class="headerlink" title="1.1. 什么是JMS"></a>1.1. 什么是JMS</h2><p>JMS即Java<font color="red">消息服务（Java Message Service）</font>应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。<br>JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似于JDBC(Java Database Connectivity)：这里，JDBC 是可以用来访问许多不同关系数据库的 API，而 JMS 则提供同样与厂商无关的访问方法，以访问消息收发服务。许多厂商都支持 JMS，包括 IBM 的 MQSeries、BEA的 Weblogic JMS service和 Progress 的 SonicMQ，这只是几个例子。 JMS 使您能够通过消息收发服务（有时称为消息中介程序或路由器）从一个 JMS 客户机向另一个 JMS客户机发送消息。消息是 JMS 中的一种类型对象，由两部分组成：报头和消息主体。报头由路由信息以及有关该消息的元数据组成。消息主体则携带着应用程序的数据或有效负载。根据有效负载的类型来划分，可以将消息分为几种类型，它们分别携带：简单文本(TextMessage)、可序列化的对象 (ObjectMessage)、属性集合 (MapMessage)、字节流 (BytesMessage)、原始值流 (StreamMessage)，还有无有效负载的消息 (Message)。</p>
+<h2 id="1-2-JMS规范"><a href="#1-2-JMS规范" class="headerlink" title="1.2. JMS规范"></a>1.2. JMS规范</h2><h3 id="1-2-1-专业技术规范"><a href="#1-2-1-专业技术规范" class="headerlink" title="1.2.1. 专业技术规范"></a>1.2.1. 专业技术规范</h3><p>JMS（Java Messaging Service）是Java平台上有关面向消息中间件(MOM)的技术规范，它便于消息系统中的Java应用程序进行消息交换,并且通过提供标准的产生、发送、接收消息的接口简化企业应用的开发，翻译为Java消息服务。</p>
+<h3 id="1-2-2-体系架构"><a href="#1-2-2-体系架构" class="headerlink" title="1.2.2. 体系架构"></a>1.2.2. 体系架构</h3><p>JMS由以下元素组成。</p>
 <ul>
 <li>JMS提供者provider：连接面向消息中间件的，JMS接口的一个实现。提供者可以是Java平台的JMS实现，也可以是非Java平台的面向消息中间件的适配器。</li>
 <li>JMS客户：生产或消费基于消息的Java的应用程序或对象。</li>
@@ -419,21 +419,21 @@
 <li>JMS队列：一个容纳那些被发送的等待阅读的消息的区域。与队列名字所暗示的意思不同，消息的接受顺序并不一定要与消息的发送顺序相同。一旦一个消息被阅读，该消息将被从队列中移走。</li>
 <li>JMS主题：一种支持发送消息给多个订阅者的机制。</li>
 </ul>
-<h3 id="Java消息服务应用程序结构支持两种模型"><a href="#Java消息服务应用程序结构支持两种模型" class="headerlink" title="Java消息服务应用程序结构支持两种模型"></a>Java消息服务应用程序结构支持两种模型</h3><h4 id="点对点或队列模型"><a href="#点对点或队列模型" class="headerlink" title="点对点或队列模型"></a>点对点或队列模型</h4><p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png" alt="201712315592"><br>这种模式被概括为：  </p>
+<h3 id="1-2-3-Java消息服务应用程序结构支持两种模型"><a href="#1-2-3-Java消息服务应用程序结构支持两种模型" class="headerlink" title="1.2.3. Java消息服务应用程序结构支持两种模型"></a>1.2.3. Java消息服务应用程序结构支持两种模型</h3><h4 id="1-2-3-1-点对点或队列模型"><a href="#1-2-3-1-点对点或队列模型" class="headerlink" title="1.2.3.1. 点对点或队列模型"></a>1.2.3.1. 点对点或队列模型</h4><p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png" alt="201712315592"><br>这种模式被概括为：  </p>
 <ul>
 <li>只有一个消费者将获得消息</li>
 <li>生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态。</li>
 <li>每一个成功处理的消息都由接收者签收</li>
 </ul>
-<h4 id="发布者-订阅者模型"><a href="#发布者-订阅者模型" class="headerlink" title="发布者/订阅者模型"></a>发布者/订阅者模型</h4><p>发布者/订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png" alt="2017123155942"><br>这种模式被概括为：</p>
+<h4 id="1-2-3-2-发布者-订阅者模型"><a href="#1-2-3-2-发布者-订阅者模型" class="headerlink" title="1.2.3.2. 发布者/订阅者模型"></a>1.2.3.2. 发布者/订阅者模型</h4><p>发布者/订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png" alt="2017123155942"><br>这种模式被概括为：</p>
 <ul>
 <li>多个消费者可以获得消息</li>
 <li>在发布者和订阅者之间存在时间依赖性。发布者需要建立一个订阅（subscription），以便客户能够订阅。订阅者必须保持持续的活动状态以接收消息，除非订阅者建立了持久的订阅。在那种情况下，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布。</li>
 </ul>
-<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><h2 id="下载ActiveMQ"><a href="#下载ActiveMQ" class="headerlink" title="下载ActiveMQ"></a>下载ActiveMQ</h2><p>去官方网站下载：<a href="http://activemq.apache.org/" target="_blank" rel="external">http://activemq.apache.org/</a></p>
-<h2 id="运行ActiveMQ"><a href="#运行ActiveMQ" class="headerlink" title="运行ActiveMQ"></a>运行ActiveMQ</h2><p>解压缩apache-activemq-5.5.1-bin.zip，<br>修改配置文件activeMQ.xml，将0.0.0.0修改为localhost<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transportConnectors</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"openwire"</span> <span class="attr">uri</span>=<span class="string">"tcp://localhost:61616"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"ssl"</span>     <span class="attr">uri</span>=<span class="string">"ssl://localhost:61617"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"stomp"</span>   <span class="attr">uri</span>=<span class="string">"stomp://localhost:61613"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"http://localhost:8081"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"udp://localhost:61618"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="2-代码演示"><a href="#2-代码演示" class="headerlink" title="2. 代码演示"></a>2. 代码演示</h1><h2 id="2-1-下载ActiveMQ"><a href="#2-1-下载ActiveMQ" class="headerlink" title="2.1. 下载ActiveMQ"></a>2.1. 下载ActiveMQ</h2><p>去官方网站下载：<a href="http://activemq.apache.org/" target="_blank" rel="external">http://activemq.apache.org/</a></p>
+<h2 id="2-2-运行ActiveMQ"><a href="#2-2-运行ActiveMQ" class="headerlink" title="2.2. 运行ActiveMQ"></a>2.2. 运行ActiveMQ</h2><p>解压缩apache-activemq-5.5.1-bin.zip，<br>修改配置文件activeMQ.xml，将0.0.0.0修改为localhost<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transportConnectors</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"openwire"</span> <span class="attr">uri</span>=<span class="string">"tcp://localhost:61616"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"ssl"</span>     <span class="attr">uri</span>=<span class="string">"ssl://localhost:61617"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"stomp"</span>   <span class="attr">uri</span>=<span class="string">"stomp://localhost:61613"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"http://localhost:8081"</span>/&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">uri</span>=<span class="string">"udp://localhost:61618"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>然后双击apache-activemq-5.5.1\bin\activemq.bat运行ActiveMQ程序。<br>启动ActiveMQ以后，登陆：<a href="http://localhost:8161/admin/，创建一个Queue，命名为FirstQueue。" target="_blank" rel="external">http://localhost:8161/admin/，创建一个Queue，命名为FirstQueue。</a>  </p>
-<h1 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h1><h2 id="常用的JMS实现"><a href="#常用的JMS实现" class="headerlink" title="常用的JMS实现"></a>常用的JMS实现</h2><p>要使用Java消息服务，你必须要有一个JMS提供者，管理会话和队列。既有开源的提供者也有专有的提供者。<br>开源的提供者包括：</p>
+<h1 id="3-运行代码"><a href="#3-运行代码" class="headerlink" title="3. 运行代码"></a>3. 运行代码</h1><h2 id="3-1-常用的JMS实现"><a href="#3-1-常用的JMS实现" class="headerlink" title="3.1. 常用的JMS实现"></a>3.1. 常用的JMS实现</h2><p>要使用Java消息服务，你必须要有一个JMS提供者，管理会话和队列。既有开源的提供者也有专有的提供者。<br>开源的提供者包括：</p>
 <ul>
 <li>Apache ActiveMQ</li>
 <li>JBoss 社区所研发的 HornetQ</li>
@@ -585,7 +585,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -596,7 +596,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -607,7 +607,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -649,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java-JMS技术"><span class="nav-number">1.</span> <span class="nav-text">java JMS技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JMS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是JMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMS规范"><span class="nav-number">1.2.</span> <span class="nav-text">JMS规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#专业技术规范"><span class="nav-number">1.2.1.</span> <span class="nav-text">专业技术规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系架构"><span class="nav-number">1.2.2.</span> <span class="nav-text">体系架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java消息服务应用程序结构支持两种模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">Java消息服务应用程序结构支持两种模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#点对点或队列模型"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">点对点或队列模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布者-订阅者模型"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">发布者/订阅者模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">2.</span> <span class="nav-text">代码演示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载ActiveMQ"><span class="nav-number">2.1.</span> <span class="nav-text">下载ActiveMQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行ActiveMQ"><span class="nav-number">2.2.</span> <span class="nav-text">运行ActiveMQ</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行代码"><span class="nav-number">3.</span> <span class="nav-text">运行代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的JMS实现"><span class="nav-number">3.1.</span> <span class="nav-text">常用的JMS实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-java-JMS技术"><span class="nav-text">1. java JMS技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-什么是JMS"><span class="nav-text">1.1. 什么是JMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-JMS规范"><span class="nav-text">1.2. JMS规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-专业技术规范"><span class="nav-text">1.2.1. 专业技术规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-体系架构"><span class="nav-text">1.2.2. 体系架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-Java消息服务应用程序结构支持两种模型"><span class="nav-text">1.2.3. Java消息服务应用程序结构支持两种模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-1-点对点或队列模型"><span class="nav-text">1.2.3.1. 点对点或队列模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-3-2-发布者-订阅者模型"><span class="nav-text">1.2.3.2. 发布者/订阅者模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-代码演示"><span class="nav-text">2. 代码演示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-下载ActiveMQ"><span class="nav-text">2.1. 下载ActiveMQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-运行ActiveMQ"><span class="nav-text">2.2. 运行ActiveMQ</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-运行代码"><span class="nav-text">3. 运行代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-常用的JMS实现"><span class="nav-text">3.1. 常用的JMS实现</span></a></li></ol></li></ol></div>
             
 
           </div>

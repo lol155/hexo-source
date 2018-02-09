@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="linux下安装opencv java  说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 linux版本centos7 安装jdk安装ant下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9.9-bin.tar.gz 解压">
+<meta name="description" content="linux下安装opencv java  1. 说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 2. linux版本centos7 3. 安装jdk4. 安装ant4.1. 下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9">
 <meta name="keywords" content="opencv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下安装opencv-java">
 <meta property="og:url" content="https://blog.signalfire2017.com/2018/01/24/杂记/linux下安装opencv-java/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="linux下安装opencv java  说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 linux版本centos7 安装jdk安装ant下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9.9-bin.tar.gz 解压">
+<meta property="og:description" content="linux下安装opencv java  1. 说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 2. linux版本centos7 3. 安装jdk4. 安装ant4.1. 下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T07:16:39.236Z">
+<meta property="og:updated_time" content="2018-02-06T07:48:01.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下安装opencv-java">
-<meta name="twitter:description" content="linux下安装opencv java  说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 linux版本centos7 安装jdk安装ant下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9.9-bin.tar.gz 解压">
+<meta name="twitter:description" content="linux下安装opencv java  1. 说明在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了线上环境linux centos6.5 2. linux版本centos7 3. 安装jdk4. 安装ant4.1. 下载ant官网下载http://ant.apache.org/bindownload.cgi1apache-ant-1.9">
 
 
 
@@ -405,27 +405,27 @@
 
       
         <p>linux下安装opencv java </p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了<br>线上环境linux centos6.5</p>
-<h1 id="linux版本"><a href="#linux版本" class="headerlink" title="linux版本"></a>linux版本</h1><p>centos7</p>
-<h1 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h1><h1 id="安装ant"><a href="#安装ant" class="headerlink" title="安装ant"></a>安装ant</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">ant官网下载</a><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">http://ant.apache.org/bindownload.cgi</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache-ant-1.9.9-bin.tar.gz</div></pre></td></tr></table></figure></p>
-<h2 id="解压-重命名"><a href="#解压-重命名" class="headerlink" title="解压 重命名"></a>解压 重命名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unzip apache-ant-1.9.9-bin.tar.gz</div><div class="line">mv apache-ant-1.9.9 ant</div></pre></td></tr></table></figure>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile </div><div class="line">在文件后加入 </div><div class="line">export ANT_HOME=/usr/local/ant </div><div class="line">export PATH=$ANT_HOME/bin:$PATH</div></pre></td></tr></table></figure>
-<h2 id="刷新环境变量"><a href="#刷新环境变量" class="headerlink" title="刷新环境变量"></a>刷新环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
-<h1 id="安装OpenCV"><a href="#安装OpenCV" class="headerlink" title="安装OpenCV"></a>安装OpenCV</h1><h2 id="安装OpenCV依赖库"><a href="#安装OpenCV依赖库" class="headerlink" title="安装OpenCV依赖库"></a>安装OpenCV依赖库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y build-essential gcc gcc-c++ cmake git pkgconfig gtk+-devel gtk2-devel python python-pip python-devel</div></pre></td></tr></table></figure>
-<h2 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h2><p>可以到<a href="https://opencv.org/releases.html" target="_blank" rel="external">官网</a>下载 选择对应版本，我这里是3.3.1<br><a href="https://opencv.org/releases.html" target="_blank" rel="external">https://opencv.org/releases.html</a></p>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>先解压,解压后进入目录,创建build目录,进入build目录,准备预编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">unzip opencv-3.3.1.zip</div><div class="line">cd opencv-3.3.1 </div><div class="line">mkdir build &amp;&amp; cd build/</div></pre></td></tr></table></figure></p>
-<h2 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h2><p>通过cmake命令预先编译一次,编译完成后查看输出结果, 在<figure class="highlight plain"><figcaption><span>be built```里包含java这一项就表示预编译成功</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ..</div></pre></td></tr></table></figure></p>
+<h1 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h1><p>在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了<br>线上环境linux centos6.5</p>
+<h1 id="2-linux版本"><a href="#2-linux版本" class="headerlink" title="2. linux版本"></a>2. linux版本</h1><p>centos7</p>
+<h1 id="3-安装jdk"><a href="#3-安装jdk" class="headerlink" title="3. 安装jdk"></a>3. 安装jdk</h1><h1 id="4-安装ant"><a href="#4-安装ant" class="headerlink" title="4. 安装ant"></a>4. 安装ant</h1><h2 id="4-1-下载"><a href="#4-1-下载" class="headerlink" title="4.1. 下载"></a>4.1. 下载</h2><p><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">ant官网下载</a><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">http://ant.apache.org/bindownload.cgi</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache-ant-1.9.9-bin.tar.gz</div></pre></td></tr></table></figure></p>
+<h2 id="4-2-解压-重命名"><a href="#4-2-解压-重命名" class="headerlink" title="4.2. 解压 重命名"></a>4.2. 解压 重命名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unzip apache-ant-1.9.9-bin.tar.gz</div><div class="line">mv apache-ant-1.9.9 ant</div></pre></td></tr></table></figure>
+<h2 id="4-3-配置环境变量"><a href="#4-3-配置环境变量" class="headerlink" title="4.3. 配置环境变量"></a>4.3. 配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile </div><div class="line">在文件后加入 </div><div class="line">export ANT_HOME=/usr/local/ant </div><div class="line">export PATH=$ANT_HOME/bin:$PATH</div></pre></td></tr></table></figure>
+<h2 id="4-4-刷新环境变量"><a href="#4-4-刷新环境变量" class="headerlink" title="4.4. 刷新环境变量"></a>4.4. 刷新环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<h1 id="5-安装OpenCV"><a href="#5-安装OpenCV" class="headerlink" title="5. 安装OpenCV"></a>5. 安装OpenCV</h1><h2 id="5-1-安装OpenCV依赖库"><a href="#5-1-安装OpenCV依赖库" class="headerlink" title="5.1. 安装OpenCV依赖库"></a>5.1. 安装OpenCV依赖库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y build-essential gcc gcc-c++ cmake git pkgconfig gtk+-devel gtk2-devel python python-pip python-devel</div></pre></td></tr></table></figure>
+<h2 id="5-2-下载"><a href="#5-2-下载" class="headerlink" title="5.2. 下载"></a>5.2. 下载</h2><p>可以到<a href="https://opencv.org/releases.html" target="_blank" rel="external">官网</a>下载 选择对应版本，我这里是3.3.1<br><a href="https://opencv.org/releases.html" target="_blank" rel="external">https://opencv.org/releases.html</a></p>
+<h2 id="5-3-解压"><a href="#5-3-解压" class="headerlink" title="5.3. 解压"></a>5.3. 解压</h2><p>先解压,解压后进入目录,创建build目录,进入build目录,准备预编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">unzip opencv-3.3.1.zip</div><div class="line">cd opencv-3.3.1 </div><div class="line">mkdir build &amp;&amp; cd build/</div></pre></td></tr></table></figure></p>
+<h2 id="5-4-预编译"><a href="#5-4-预编译" class="headerlink" title="5.4. 预编译"></a>5.4. 预编译</h2><p>通过cmake命令预先编译一次,编译完成后查看输出结果, 在<figure class="highlight plain"><figcaption><span>be built```里包含java这一项就表示预编译成功</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ..</div></pre></td></tr></table></figure></p>
 <p>可能会卡在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-- IPPICV: Download: ippicv_2017u3_lnx_intel64_general_20170822.tgz</div></pre></td></tr></table></figure></p>
 <p>这个文件比较大,下载时间长一点,不要着急</p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>cmake完成后，在build目录直接输入make进行编译，如果服务器CPU核数比较多，可以在make后加入-j8 使用8个线程同时进行编译，加快编译速度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make -j2</div></pre></td></tr></table></figure></p>
+<h2 id="5-5-编译"><a href="#5-5-编译" class="headerlink" title="5.5. 编译"></a>5.5. 编译</h2><p>cmake完成后，在build目录直接输入make进行编译，如果服务器CPU核数比较多，可以在make后加入-j8 使用8个线程同时进行编译，加快编译速度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make -j2</div></pre></td></tr></table></figure></p>
 <p>关于下面这个异常，我编译的时候并没有出现，记录一下，备用。</p>
 <p>编译过程可能出现异常，提示：</p>
 <p>/usr/include/jasper/jas_math.h:117:22: error: ‘SIZE_MAX’ was not declared in this scope</p>
 <p>出现这个异常，不要慌，可以通过修改/usr/include/jasper/jas_math.h 文件源码解决。<br>在/usr/include/jasper/jas_math.h 的头部#include 的下面添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#if ! defined SIZE_MAX </div><div class="line">#define SIZE_MAX (4294967295U) </div><div class="line">#endif</div></pre></td></tr></table></figure></p>
 <p>然后重新编译就可以了。如果不行，请删除build目录下的内容，重新预编译、编译就应该没问题了</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>编译完成，就可以进行安装，安装过程是生成opencv对应的库文件，我这里是java项目需要用到，所以也会顺便生成java相关的库文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure></p>
+<h2 id="5-6-安装"><a href="#5-6-安装" class="headerlink" title="5.6. 安装"></a>5.6. 安装</h2><p>编译完成，就可以进行安装，安装过程是生成opencv对应的库文件，我这里是java项目需要用到，所以也会顺便生成java相关的库文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure></p>
 <p>命令执行完成，会在结果中看到/usr/local/share/OpenCV/java/目录生成了两个java相关的依赖库文件 opencv-331.jar 和 libopencv_java331.so ， 当然，每个人的环境不同，可能目录也不同，具体看日志输出就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@opencv java]# ll /usr/local/share/OpenCV/java</div><div class="line">总用量 72012</div><div class="line">-rwxr-xr-x 1 root root 73320721 11月  8 14:05 libopencv_java331.so</div><div class="line">-rw-r--r-- 1 root root   414381 11月  8 10:03 opencv-331.jar</div></pre></td></tr></table></figure></p>
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<h1 id="6-参考链接"><a href="#6-参考链接" class="headerlink" title="6. 参考链接"></a>6. 参考链接</h1><ul>
 <li><a href="https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html" target="_blank" rel="external">opencv官方文档 Installation in Linux</a></li>
 <li><a href="http://blog.csdn.net/chwshuang/article/details/78208273?locationNum=9&amp;fps=1" target="_blank" rel="external">CentOS6 - Linux下安装OpenCV</a></li>
 </ul>
@@ -459,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/杂记/linux 程序down 问题排查/" rel="next" title="linux 程序down 问题排查">
-                <i class="fa fa-chevron-left"></i> linux 程序down 问题排查
+              <a href="/2018/01/24/杂记/tomcat+idea远程调试/" rel="next" title="tomcat+idea远程调试">
+                <i class="fa fa-chevron-left"></i> tomcat+idea远程调试
               </a>
             
           </div>
@@ -469,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/24/杂记/linux修改时间/" rel="prev" title="linux修改时间">
-                linux修改时间 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/24/杂记/js心跳请求/" rel="prev" title="js心跳请求">
+                js心跳请求 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +555,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +566,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -577,7 +577,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -619,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux版本"><span class="nav-number">2.</span> <span class="nav-text">linux版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装jdk"><span class="nav-number">3.</span> <span class="nav-text">安装jdk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装ant"><span class="nav-number">4.</span> <span class="nav-text">安装ant</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">4.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压-重命名"><span class="nav-number">4.2.</span> <span class="nav-text">解压 重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">4.3.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷新环境变量"><span class="nav-number">4.4.</span> <span class="nav-text">刷新环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装OpenCV"><span class="nav-number">5.</span> <span class="nav-text">安装OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装OpenCV依赖库"><span class="nav-number">5.1.</span> <span class="nav-text">安装OpenCV依赖库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-1"><span class="nav-number">5.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压"><span class="nav-number">5.3.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预编译"><span class="nav-number">5.4.</span> <span class="nav-text">预编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">5.5.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">5.6.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-说明"><span class="nav-text">1. 说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-linux版本"><span class="nav-text">2. linux版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-安装jdk"><span class="nav-text">3. 安装jdk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-安装ant"><span class="nav-text">4. 安装ant</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-下载"><span class="nav-text">4.1. 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-解压-重命名"><span class="nav-text">4.2. 解压 重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-配置环境变量"><span class="nav-text">4.3. 配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-刷新环境变量"><span class="nav-text">4.4. 刷新环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-安装OpenCV"><span class="nav-text">5. 安装OpenCV</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-安装OpenCV依赖库"><span class="nav-text">5.1. 安装OpenCV依赖库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-下载"><span class="nav-text">5.2. 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-解压"><span class="nav-text">5.3. 解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-预编译"><span class="nav-text">5.4. 预编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-编译"><span class="nav-text">5.5. 编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-安装"><span class="nav-text">5.6. 安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-参考链接"><span class="nav-text">6. 参考链接</span></a></li></ol></div>
             
 
           </div>

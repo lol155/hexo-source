@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
+<meta name="description" content="1. vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
 <meta name="keywords" content="linux,大数据,linux命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据02-01 linux命令继续学习.md">
 <meta property="og:url" content="https://blog.signalfire2017.com/2017/10/29/大数据/大数据02-01 linux命令继续学习/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
+<meta property="og:description" content="1. vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-14T15:15:02.319Z">
+<meta property="og:updated_time" content="2018-02-06T07:48:38.051Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据02-01 linux命令继续学习.md">
-<meta name="twitter:description" content="vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
+<meta name="twitter:description" content="1. vmare克隆后修改地址问题解决克隆后eth0不见的问题 直接修改  /etc/sysconfig/network-script/ifcfg-eth0删掉UUID  HWADDR配置静态地址然后：修改 /etc/udev/rules.d/70-persistent-net.rules然后 reboot">
 
 
 
@@ -404,15 +404,15 @@
       
 
       
-        <h1 id="vmare克隆后修改地址问题"><a href="#vmare克隆后修改地址问题" class="headerlink" title="vmare克隆后修改地址问题"></a>vmare克隆后修改地址问题</h1><p>解决克隆后eth0不见的问题</p>
+        <h1 id="1-vmare克隆后修改地址问题"><a href="#1-vmare克隆后修改地址问题" class="headerlink" title="1. vmare克隆后修改地址问题"></a>1. vmare克隆后修改地址问题</h1><p>解决克隆后eth0不见的问题</p>
 <p>直接修改  /etc/sysconfig/network-script/ifcfg-eth0<br>删掉UUID  HWADDR<br>配置静态地址<br>然后：<br>修改 /etc/udev/rules.d/70-persistent-net.rules<br>然后 reboot<br><a id="more"></a></p>
-<h1 id="linux命令继续学习"><a href="#linux命令继续学习" class="headerlink" title="linux命令继续学习"></a>linux命令继续学习</h1><h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p>cat    somefile    一次性将文件内容全部输出（控制台）<br>more   somefile     可以翻页查看, 下翻一页(空格)    上翻一页（b）   退出（q）<br>less   somefile      可以翻页查看,下翻一页(空格)    上翻一页（b），上翻一行(↑)  下翻一行（↓）  可以搜索关键字（/keyword）</p>
+<h1 id="2-linux命令继续学习"><a href="#2-linux命令继续学习" class="headerlink" title="2. linux命令继续学习"></a>2. linux命令继续学习</h1><h2 id="2-1-查看文件内容"><a href="#2-1-查看文件内容" class="headerlink" title="2.1. 查看文件内容"></a>2.1. 查看文件内容</h2><p>cat    somefile    一次性将文件内容全部输出（控制台）<br>more   somefile     可以翻页查看, 下翻一页(空格)    上翻一页（b）   退出（q）<br>less   somefile      可以翻页查看,下翻一页(空格)    上翻一页（b），上翻一行(↑)  下翻一行（↓）  可以搜索关键字（/keyword）</p>
 <p>tail -10  install.log   查看文件尾部的10行<br>tail -f install.log    小f跟踪文件的唯一inode号，就算文件改名后，还是跟踪原来这个inode表示的文件<br>tail -F install.log    大F按照文件名来跟踪</p>
 <p>head -10  install.log   查看文件头部的10行</p>
-<h2 id="后台服务管理"><a href="#后台服务管理" class="headerlink" title="后台服务管理"></a>后台服务管理</h2><p>service network status   查看指定服务的状态<br>service network stop     停止指定服务<br>service network start    启动指定服务<br>service network restart  重启指定服务<br>service –status-all  查看系统中所有的后台服务</p>
-<h2 id="设置后台服务的自启配置"><a href="#设置后台服务的自启配置" class="headerlink" title="设置后台服务的自启配置"></a>设置后台服务的自启配置</h2><p>chkconfig   查看所有服务器自启配置<br>chkconfig iptables off   关掉指定服务的自动启动<br>chkconfig iptables on   开启指定服务的自动启动</p>
-<h2 id="系统启动级别管理"><a href="#系统启动级别管理" class="headerlink" title="系统启动级别管理"></a>系统启动级别管理</h2><p>vi  /etc/inittab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure></p>
-<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="如何上传安装包到服务器"><a href="#如何上传安装包到服务器" class="headerlink" title="如何上传安装包到服务器"></a>如何上传安装包到服务器</h2><ul>
+<h2 id="2-2-后台服务管理"><a href="#2-2-后台服务管理" class="headerlink" title="2.2. 后台服务管理"></a>2.2. 后台服务管理</h2><p>service network status   查看指定服务的状态<br>service network stop     停止指定服务<br>service network start    启动指定服务<br>service network restart  重启指定服务<br>service –status-all  查看系统中所有的后台服务</p>
+<h2 id="2-3-设置后台服务的自启配置"><a href="#2-3-设置后台服务的自启配置" class="headerlink" title="2.3. 设置后台服务的自启配置"></a>2.3. 设置后台服务的自启配置</h2><p>chkconfig   查看所有服务器自启配置<br>chkconfig iptables off   关掉指定服务的自动启动<br>chkconfig iptables on   开启指定服务的自动启动</p>
+<h2 id="2-4-系统启动级别管理"><a href="#2-4-系统启动级别管理" class="headerlink" title="2.4. 系统启动级别管理"></a>2.4. 系统启动级别管理</h2><p>vi  /etc/inittab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure></p>
+<h1 id="3-软件安装"><a href="#3-软件安装" class="headerlink" title="3. 软件安装"></a>3. 软件安装</h1><h2 id="3-1-如何上传安装包到服务器"><a href="#3-1-如何上传安装包到服务器" class="headerlink" title="3.1. 如何上传安装包到服务器"></a>3.1. 如何上传安装包到服务器</h2><ul>
 <li>可以使用图形化工具，如： filezilla</li>
 <li>可以使用sftp工具：  alt+p 调出后，用put命令上传<br>上传（如果不cd指定目录，则上传到当前用户的主目录）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sftp&gt; cd /home/   </div><div class="line">sftp&gt; put C:\Users\Administrator\Desktop\day02\soft\jdk-7u45-linux-x64.tar.gz</div></pre></td></tr></table></figure>
 </li>
@@ -421,17 +421,17 @@
 <ul>
 <li>lrzsz</li>
 </ul>
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><h3 id="压缩解压缩的相关命令"><a href="#压缩解压缩的相关命令" class="headerlink" title="压缩解压缩的相关命令"></a>压缩解压缩的相关命令</h3><p>压缩解压缩</p>
+<h2 id="3-2-安装jdk"><a href="#3-2-安装jdk" class="headerlink" title="3.2. 安装jdk"></a>3.2. 安装jdk</h2><h3 id="3-2-1-压缩解压缩的相关命令"><a href="#3-2-1-压缩解压缩的相关命令" class="headerlink" title="3.2.1. 压缩解压缩的相关命令"></a>3.2.1. 压缩解压缩的相关命令</h3><p>压缩解压缩</p>
 <pre><code>root@mini1 ~]# gzip access.log 
 [root@mini1 ~]# ll
 总用量 134892
 -rw-r--r--. 1 root root        68 4月   3 17:37 access.log.gz
-</code></pre><p>解压gz文件：  <figure class="highlight plain"><figcaption><span>-d access.log.gz```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打包解包</div></pre></td></tr></table></figure></p>
+</code></pre><p>解压gz文件：  <figure class="highlight plain"><figcaption><span>-d access.log.gz```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 3.2.2. 打包解包</div></pre></td></tr></table></figure></p>
 <p>[root@mini1 ~]# tar -cvf myfirsttarball.tar aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">解包：</div></pre></td></tr></table></figure></p>
-<p>[root@mini1 ~]# tar -xvf myfirsttarball.tar<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 一次性完成打包&amp;&amp;压缩的操作</div><div class="line">产生压缩包：</div></pre></td></tr></table></figure></p>
+<p>[root@mini1 ~]# tar -xvf myfirsttarball.tar<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 3.2.3. 一次性完成打包&amp;&amp;压缩的操作</div><div class="line">产生压缩包：</div></pre></td></tr></table></figure></p>
 <p>[root@mini1 ~]# tar -zcvf my.tar.gz aaa/<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">解压缩包：</div></pre></td></tr></table></figure></p>
 <p>[root@mini1 ~]# tar -zxvf my.tar.gz<br>aaa/<br>aaa/2.txt<br>aaa/3.txt<br>aaa/1.txt<br>```</p>
-<h3 id="安装jdk的过程："><a href="#安装jdk的过程：" class="headerlink" title="安装jdk的过程："></a>安装jdk的过程：</h3><ul>
+<h3 id="3-2-4-安装jdk的过程："><a href="#3-2-4-安装jdk的过程：" class="headerlink" title="3.2.4. 安装jdk的过程："></a>3.2.4. 安装jdk的过程：</h3><ul>
 <li><p>解压安装包</p>
 <p>  tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/</p>
 </li>
@@ -442,19 +442,19 @@
 <p>  source /etc/profile</p>
 </li>
 </ul>
-<h2 id="安装rpm包软件，如mysql"><a href="#安装rpm包软件，如mysql" class="headerlink" title="安装rpm包软件，如mysql"></a>安装rpm包软件，如mysql</h2><h3 id="查看系统中安装的rpm包"><a href="#查看系统中安装的rpm包" class="headerlink" title="查看系统中安装的rpm包"></a>查看系统中安装的rpm包</h3><pre><code>rpm -qa | grep mysql
-</code></pre><h3 id="上传rpm安装包"><a href="#上传rpm安装包" class="headerlink" title="上传rpm安装包"></a>上传rpm安装包</h3><pre><code>MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+<h2 id="3-3-安装rpm包软件，如mysql"><a href="#3-3-安装rpm包软件，如mysql" class="headerlink" title="3.3. 安装rpm包软件，如mysql"></a>3.3. 安装rpm包软件，如mysql</h2><h3 id="3-3-1-查看系统中安装的rpm包"><a href="#3-3-1-查看系统中安装的rpm包" class="headerlink" title="3.3.1. 查看系统中安装的rpm包"></a>3.3.1. 查看系统中安装的rpm包</h3><pre><code>rpm -qa | grep mysql
+</code></pre><h3 id="3-3-2-上传rpm安装包"><a href="#3-3-2-上传rpm安装包" class="headerlink" title="3.3.2. 上传rpm安装包"></a>3.3.2. 上传rpm安装包</h3><pre><code>MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
 MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
 per * .rpm
-</code></pre><h3 id="安装perl依赖"><a href="#安装perl依赖" class="headerlink" title="安装perl依赖"></a>安装perl依赖</h3><pre><code>rpm -ivh perl*
+</code></pre><h3 id="3-3-3-安装perl依赖"><a href="#3-3-3-安装perl依赖" class="headerlink" title="3.3.3. 安装perl依赖"></a>3.3.3. 安装perl依赖</h3><pre><code>rpm -ivh perl*
 </code></pre><p><em>可能会提示有包冲突，解决： rpm -e 冲突包名 –nodeps</em></p>
-<h3 id="安装server"><a href="#安装server" class="headerlink" title="安装server"></a>安装server</h3><pre><code>rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
+<h3 id="3-3-4-安装server"><a href="#3-3-4-安装server" class="headerlink" title="3.3.4. 安装server"></a>3.3.4. 安装server</h3><pre><code>rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
 </code></pre><p>如果成功，会看到进度条，最后，有关于root密码设置的提示，一定要记下来<br>这个版本的提示是，先启动server</p>
 <pre><code>service mysql start
 </code></pre><p>然后<code>/usr/bin/mysql_secure_installation</code> 命令去交互式修改root密码</p>
-<h3 id="修改密码时，提示需要先安装client"><a href="#修改密码时，提示需要先安装client" class="headerlink" title="修改密码时，提示需要先安装client"></a>修改密码时，提示需要先安装client</h3><pre><code>rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+<h3 id="3-3-5-修改密码时，提示需要先安装client"><a href="#3-3-5-修改密码时，提示需要先安装client" class="headerlink" title="3.3.5. 修改密码时，提示需要先安装client"></a>3.3.5. 修改密码时，提示需要先安装client</h3><pre><code>rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
 </code></pre><p>客户端安装成功后，记得还要用/usr/bin/mysql_secure_installation 命令去交互式修改root密码</p>
-<h3 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h3><pre><code>mysql -uroot -proot
+<h3 id="3-3-6-登录验证"><a href="#3-3-6-登录验证" class="headerlink" title="3.3.6. 登录验证"></a>3.3.6. 登录验证</h3><pre><code>mysql -uroot -proot
 </code></pre>
       
     </div>
@@ -585,7 +585,7 @@ per * .rpm
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -596,7 +596,7 @@ per * .rpm
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -607,7 +607,7 @@ per * .rpm
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -649,7 +649,7 @@ per * .rpm
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vmare克隆后修改地址问题"><span class="nav-number">1.</span> <span class="nav-text">vmare克隆后修改地址问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux命令继续学习"><span class="nav-number">2.</span> <span class="nav-text">linux命令继续学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">2.1.</span> <span class="nav-text">查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台服务管理"><span class="nav-number">2.2.</span> <span class="nav-text">后台服务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置后台服务的自启配置"><span class="nav-number">2.3.</span> <span class="nav-text">设置后台服务的自启配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统启动级别管理"><span class="nav-number">2.4.</span> <span class="nav-text">系统启动级别管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装"><span class="nav-number">3.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何上传安装包到服务器"><span class="nav-number">3.1.</span> <span class="nav-text">如何上传安装包到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装jdk"><span class="nav-number">3.2.</span> <span class="nav-text">安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压缩的相关命令"><span class="nav-number">3.2.1.</span> <span class="nav-text">压缩解压缩的相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装jdk的过程："><span class="nav-number">3.2.2.</span> <span class="nav-text">安装jdk的过程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装rpm包软件，如mysql"><span class="nav-number">3.3.</span> <span class="nav-text">安装rpm包软件，如mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看系统中安装的rpm包"><span class="nav-number">3.3.1.</span> <span class="nav-text">查看系统中安装的rpm包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传rpm安装包"><span class="nav-number">3.3.2.</span> <span class="nav-text">上传rpm安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装perl依赖"><span class="nav-number">3.3.3.</span> <span class="nav-text">安装perl依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装server"><span class="nav-number">3.3.4.</span> <span class="nav-text">安装server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码时，提示需要先安装client"><span class="nav-number">3.3.5.</span> <span class="nav-text">修改密码时，提示需要先安装client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录验证"><span class="nav-number">3.3.6.</span> <span class="nav-text">登录验证</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-vmare克隆后修改地址问题"><span class="nav-text">1. vmare克隆后修改地址问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-linux命令继续学习"><span class="nav-text">2. linux命令继续学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-查看文件内容"><span class="nav-text">2.1. 查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-后台服务管理"><span class="nav-text">2.2. 后台服务管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-设置后台服务的自启配置"><span class="nav-text">2.3. 设置后台服务的自启配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-系统启动级别管理"><span class="nav-text">2.4. 系统启动级别管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-软件安装"><span class="nav-text">3. 软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-如何上传安装包到服务器"><span class="nav-text">3.1. 如何上传安装包到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-安装jdk"><span class="nav-text">3.2. 安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-压缩解压缩的相关命令"><span class="nav-text">3.2.1. 压缩解压缩的相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-安装jdk的过程："><span class="nav-text">3.2.4. 安装jdk的过程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-安装rpm包软件，如mysql"><span class="nav-text">3.3. 安装rpm包软件，如mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-查看系统中安装的rpm包"><span class="nav-text">3.3.1. 查看系统中安装的rpm包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-上传rpm安装包"><span class="nav-text">3.3.2. 上传rpm安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-3-安装perl依赖"><span class="nav-text">3.3.3. 安装perl依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-4-安装server"><span class="nav-text">3.3.4. 安装server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5-修改密码时，提示需要先安装client"><span class="nav-text">3.3.5. 修改密码时，提示需要先安装client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-6-登录验证"><span class="nav-text">3.3.6. 登录验证</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -97,19 +97,19 @@
 
 
 
-<meta name="description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
+<meta name="description" content="1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 程序down 问题排查">
 <meta property="og:url" content="https://blog.signalfire2017.com/2018/01/24/杂记/linux 程序down 问题排查/index.html">
 <meta property="og:site_name" content="名字待定">
-<meta property="og:description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
+<meta property="og:description" content="1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png">
-<meta property="og:updated_time" content="2018-01-25T03:48:58.172Z">
+<meta property="og:updated_time" content="2018-02-06T07:47:59.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 程序down 问题排查">
-<meta name="twitter:description" content="linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 其他命令lsof -n (学习)">
+<meta name="twitter:description" content="1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询  ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)">
 <meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png">
 
 
@@ -406,11 +406,11 @@
       
 
       
-        <h1 id="linux系统有自我保护机制"><a href="#linux系统有自我保护机制" class="headerlink" title="linux系统有自我保护机制"></a>linux系统有自我保护机制</h1><p>如果分配的内存用完了,会杀掉进程.<br>可以查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/log/messages</div></pre></td></tr></table></figure></p>
+        <h1 id="1-linux系统有自我保护机制"><a href="#1-linux系统有自我保护机制" class="headerlink" title="1. linux系统有自我保护机制"></a>1. linux系统有自我保护机制</h1><p>如果分配的内存用完了,会杀掉进程.<br>可以查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/log/messages</div></pre></td></tr></table></figure></p>
 <p>然后通过进程ID 进行查询  ,或者 <code>oom-killer</code> 来查询<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png" alt="linux 程序down 问题排查-20171226102834"></p>
-<h2 id="内存不够"><a href="#内存不够" class="headerlink" title="内存不够"></a>内存不够</h2><p>可以配置虚拟内存,解决内存高峰时内存不够的问题.</p>
-<h1 id="线程挂掉用jstack分析线程栈"><a href="#线程挂掉用jstack分析线程栈" class="headerlink" title="线程挂掉用jstack分析线程栈"></a>线程挂掉用jstack分析线程栈</h1><p>可以使用 jstack 查看进程信息</p>
-<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="lsof-n-学习"><a href="#lsof-n-学习" class="headerlink" title="lsof -n (学习)"></a>lsof -n (学习)</h2>
+<h2 id="1-1-内存不够"><a href="#1-1-内存不够" class="headerlink" title="1.1. 内存不够"></a>1.1. 内存不够</h2><p>可以配置虚拟内存,解决内存高峰时内存不够的问题.</p>
+<h1 id="2-线程挂掉用jstack分析线程栈"><a href="#2-线程挂掉用jstack分析线程栈" class="headerlink" title="2. 线程挂掉用jstack分析线程栈"></a>2. 线程挂掉用jstack分析线程栈</h1><p>可以使用 jstack 查看进程信息</p>
+<h1 id="3-其他命令"><a href="#3-其他命令" class="headerlink" title="3. 其他命令"></a>3. 其他命令</h1><h2 id="3-1-lsof-n-学习"><a href="#3-1-lsof-n-学习" class="headerlink" title="3.1. lsof -n (学习)"></a>3.1. lsof -n (学习)</h2>
       
     </div>
     
@@ -450,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/24/杂记/linux下安装opencv-java/" rel="prev" title="linux下安装opencv-java">
-                linux下安装opencv-java <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/24/杂记/linux修改时间/" rel="prev" title="linux修改时间">
+                linux修改时间 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -536,7 +536,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,7 +547,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -558,7 +558,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -600,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux系统有自我保护机制"><span class="nav-number">1.</span> <span class="nav-text">linux系统有自我保护机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存不够"><span class="nav-number">1.1.</span> <span class="nav-text">内存不够</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程挂掉用jstack分析线程栈"><span class="nav-number">2.</span> <span class="nav-text">线程挂掉用jstack分析线程栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他命令"><span class="nav-number">3.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof-n-学习"><span class="nav-number">3.1.</span> <span class="nav-text">lsof -n (学习)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-linux系统有自我保护机制"><span class="nav-text">1. linux系统有自我保护机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-内存不够"><span class="nav-text">1.1. 内存不够</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线程挂掉用jstack分析线程栈"><span class="nav-text">2. 线程挂掉用jstack分析线程栈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-其他命令"><span class="nav-text">3. 其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-lsof-n-学习"><span class="nav-text">3.1. lsof -n (学习)</span></a></li></ol></li></ol></div>
             
 
           </div>
