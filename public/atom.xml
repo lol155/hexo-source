@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2018-02-09T09:54:15.921Z</updated>
+  <updated>2018-02-11T08:26:36.512Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -14,6 +14,570 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里java规约-名词.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6-%E5%90%8D%E8%AF%8D/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约-名词/</id>
+    <published>2018-02-11T09:59:39.000Z</published>
+    <updated>2018-02-11T08:26:36.512Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="名词-10"><a href="#名词-10" class="headerlink" title="名词(10)"></a>名词(10)</h1><ol>
+<li>POJO（ Plain Ordinary Java Object） : 在本手册中， POJO 专指只有 setter / getter/ toString 的简单类，包括 DO/DTO/BO/VO 等。</li>
+<li>GAV（ GroupId、 ArtifactctId、 Version） : Maven 坐标，是用来唯一标识 jar 包。</li>
+<li>OOP（ Object Oriented Programming） : 本手册泛指类、对象的编程处理方式。</li>
+<li>ORM（ Object Relation Mapping） : 对象关系映射，对象领域模型与底层数据之间的转换，本文泛指 iBATIS, mybatis 等框架。</li>
+<li>NPE（ java.lang.NullPointerException） : 空指针异常。</li>
+<li>SOA（ Service-Oriented Architecture） : 面向服务架构，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用， 有利于提升组件可重用性，可维护性。</li>
+<li>一方库: 本工程内部子项目模块依赖的库（ jar 包） 。</li>
+<li>二方库: 公司内部发布到中央仓库，可供公司内部其它应用依赖的库（ jar 包） 。</li>
+<li>三方库: 公司之外的开源库（ jar 包） 。</li>
+<li>IDE（ Integrated Development Environment） : 用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具， 本《 手册》 泛指 IntelliJ IDEA和 eclipse。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;名词-10&quot;&gt;&lt;a href=&quot;#名词-10&quot; class=&quot;headerlink&quot; title=&quot;名词(10)&quot;&gt;&lt;/a&gt;名词(10)&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;POJO（ Plain Ordinary Java Object） : 在本手册中， POJO 专指
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(六)-工程结构(3)-服务器.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(3)-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(3)-服务器/</id>
+    <published>2018-02-11T09:59:37.000Z</published>
+    <updated>2018-02-11T08:24:53.439Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="服务器-5"><a href="#服务器-5" class="headerlink" title="服务器(5)"></a>服务器(5)</h1><h2 id="推荐-4"><a href="#推荐-4" class="headerlink" title="推荐(4)"></a>推荐(4)</h2><ol>
+<li><p>【推荐】高并发服务器建议调小 TCP 协议的 time_wait 超时时间。</p>
+<ul>
+<li>说明： 操作系统默认 240 秒后，才会关闭处于 time_wait 状态的连接，在高并发访问下，服务器端会因为处于 time_wait 的连接数太多，可能无法建立新的连接，所以需要在服务器上调小此等待值。</li>
+<li>正例： 在 linux 服务器上请通过变更/etc/sysctl.conf 文件去修改该缺省值（ 秒） ：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">net.ipv4.tcp_fin_timeout = 30</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>【推荐】调大服务器所支持的最大文件句柄数（ File Descriptor，简写为 fd） 。</p>
+<ul>
+<li>说明： 主流操作系统的设计是将 TCP/UDP 连接采用与文件一样的方式去管理，即一个连接对应于一个 fd。 主流的 linux 服务器默认所支持最大 fd 数量为 1024，当并发连接数很大时很容易因为 fd 不足而出现“open too many files”错误，导致新的连接无法建立。 建议将 linux服务器所支持的最大句柄数调高数倍（ 与服务器的内存数量相关） 。</li>
+</ul>
+</li>
+<li>【推荐】给JVM 设置-XX:+HeapDumpOnOutOfMemoryError 参数，让 JVM 碰到 OOM 场景时输出dump 信息。<ul>
+<li>说明：OOM 的发生是有概率的，甚至有规律地相隔数月才出现一例，出现时的现场信息对查错非常有价值。</li>
+</ul>
+</li>
+<li>【推荐】在线上生产环境， JVM 的 Xms 和 Xmx 设置一样大小的内存容量， 避免在 GC 后调整堆大小带来的压力。</li>
+</ol>
+<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考(1)"></a>参考(1)</h2><ol>
+<li>【参考】服务器内部重定向使用 forward； 外部重定向地址使用 URL 拼装工具类来生成， 否则会带来 URL 维护不一致的问题和潜在的安全风险。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;服务器-5&quot;&gt;&lt;a href=&quot;#服务器-5&quot; class=&quot;headerlink&quot; title=&quot;服务器(5)&quot;&gt;&lt;/a&gt;服务器(5)&lt;/h1&gt;&lt;h2 id=&quot;推荐-4&quot;&gt;&lt;a href=&quot;#推荐-4&quot; class=&quot;headerlink&quot; title=&quot;推荐(
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(六)-工程结构(2)-二方库依赖.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(2)-%E4%BA%8C%E6%96%B9%E5%BA%93%E4%BE%9D%E8%B5%96/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(2)-二方库依赖/</id>
+    <published>2018-02-11T09:59:36.000Z</published>
+    <updated>2018-02-11T08:24:47.136Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="二方库依赖-10"><a href="#二方库依赖-10" class="headerlink" title="二方库依赖(10)"></a>二方库依赖(10)</h1><h2 id="强制-7"><a href="#强制-7" class="headerlink" title="强制(7)"></a>强制(7)</h2><ol>
+<li>【强制】定义 GAV 遵从以下规则：<ul>
+<li>1） GroupID 格式： com.{公司/BU }.业务线.[子业务线]，最多 4 级。<ul>
+<li>说明： {公司/BU} 例如： alibaba/taobao/tmall/aliexpress 等 BU 一级； 子业务线可选。</li>
+<li>正例： com.taobao.jstorm 或 com.alibaba.dubbo.register</li>
+</ul>
+</li>
+<li>2） ArtifactID 格式：产品线名-模块名。语义不重复不遗漏，先到中央仓库去查证一下。<ul>
+<li>正例： dubbo-client / fastjson-api / jstorm-tool</li>
+</ul>
+</li>
+<li>3） Version：详细规定参考下方。</li>
+</ul>
+</li>
+<li>【强制】二方库版本号命名方式：主版本号.次版本号.修订号<ul>
+<li>1） 主版本号： 产品方向改变， 或者大规模 API 不兼容， 或者架构不兼容升级。</li>
+<li>2） 次版本号： 保持相对兼容性，增加主要功能特性， 影响范围极小的 API 不兼容修改。</li>
+<li>3） 修订号： 保持完全兼容性， 修复 BUG、 新增次要功能特性等。</li>
+<li>说明： 注意起始版本号必须为： 1.0.0，而不是 0.0.1 正式发布的类库必须先去中央仓库进行查证，使版本号有延续性， 正式版本号不允许覆盖升级。如当前版本： 1.3.3， 那么下一个合理的版本号： 1.3.4 或 1.4.0 或 2.0.0</li>
+</ul>
+</li>
+<li>【强制】线上应用不要依赖 SNAPSHOT 版本（ 安全包除外） 。<ul>
+<li>说明： 不依赖 SNAPSHOT 版本是保证应用发布的幂等性。另外，也可以加快编译时的打包构建。</li>
+</ul>
+</li>
+<li>【强制】二方库的新增或升级，保持除功能点之外的其它 jar 包仲裁结果不变。如果有改变，必须明确评估和验证， 建议进行 dependency:resolve 前后信息比对，如果仲裁结果完全不一致，那么通过 dependency:tree 命令，找出差异点，进行<excludes>排除 jar 包。</excludes></li>
+<li>【强制】二方库里可以定义枚举类型，参数可以使用枚举类型，但是接口返回值不允许使用枚举类型或者包含枚举类型的 POJO 对象。</li>
+<li>【强制】依赖于一个二方库群时，必须定义一个统一的版本变量，避免版本号不一致。<ul>
+<li>说明： 依赖 springframework-core,-context,-beans，它们都是同一个版本，可以定义一个变量来保存版本： ${spring.version}，定义依赖的时候，引用该版本。</li>
+</ul>
+</li>
+<li>【强制】禁止在子项目的 pom 依赖中出现相同的 GroupId，相同的 ArtifactId，但是不同的Version。<ul>
+<li>说明： 在本地调试时会使用各子项目指定的版本号，但是合并成一个 war，只能有一个版本号出现在最后的 lib 目录中。 可能出现线下调试是正确的，发布到线上却出故障的问题。</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-2"><a href="#推荐-2" class="headerlink" title="推荐(2)"></a>推荐(2)</h2><ol>
+<li>【推荐】所有 pom 文件中的依赖声明放在<dependencies>语句块中，所有版本仲裁放在<dependencymanagement>语句块中。<ul>
+<li>说明： <dependencymanagement>里只是声明版本，并不实现引入，因此子项目需要显式的声明依赖， version 和 scope 都读取自父 pom。而<dependencies>所有声明在主 pom 的<dependencies>里的依赖都会自动引入，并默认被所有的子项目继承。</dependencies></dependencies></dependencymanagement></li>
+</ul>
+</dependencymanagement></dependencies></li>
+<li>【推荐】二方库不要有配置项，最低限度不要再增加配置项。</li>
+</ol>
+<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考(1)"></a>参考(1)</h2><ol>
+<li>【参考】为避免应用二方库的依赖冲突问题，二方库发布者应当遵循以下原则：<ul>
+<li>1） 精简可控原则。移除一切不必要的 API 和依赖，只包含 Service API、必要的领域模型对象、 Utils 类、常量、枚举等。如果依赖其它二方库，尽量是 provided 引入，让二方库使用者去依赖具体版本号； 无 log 具体实现，只依赖日志框架。</li>
+<li>2） 稳定可追溯原则。每个版本的变化应该被记录，二方库由谁维护，源码在哪里，都需要能方便查到。除非用户主动升级版本，否则公共二方库的行为不应该发生</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;二方库依赖-10&quot;&gt;&lt;a href=&quot;#二方库依赖-10&quot; class=&quot;headerlink&quot; title=&quot;二方库依赖(10)&quot;&gt;&lt;/a&gt;二方库依赖(10)&lt;/h1&gt;&lt;h2 id=&quot;强制-7&quot;&gt;&lt;a href=&quot;#强制-7&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(六)-工程结构(1)-应用分层.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(1)-%E5%BA%94%E7%94%A8%E5%88%86%E5%B1%82/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(1)-应用分层/</id>
+    <published>2018-02-11T09:59:35.000Z</published>
+    <updated>2018-02-11T08:24:40.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="应用分层-3"><a href="#应用分层-3" class="headerlink" title="应用分层(3)"></a>应用分层(3)</h1><h2 id="强制-1"><a href="#强制-1" class="headerlink" title="强制(1)"></a>强制(1)</h2><ol>
+<li><p>【推荐】图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于Web 层，也可以直接依赖于 Service 层，依此类推：</p>
+<p> <img src="http://ovasdkxqr.bkt.clouddn.com/image/work/阿里java规约(六" alt="阿里java规约(六)-工程结构(1)-应用分层-201821116042">-工程结构(1)-应用分层-201821116042.png)</p>
+<ul>
+<li>开放接口层：可直接封装 Service 方法暴露成 RPC 接口； 通过 Web 封装成 http 接口； 进行网关安全控制、 流量控制等。</li>
+<li>终端显示层：各个端的模板渲染并执行显示的层。 当前主要是 velocity 渲染， JS 渲染，JSP 渲染，移动端展示等。</li>
+<li>Web 层：主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等。</li>
+<li>Service 层：相对具体的业务逻辑服务层。</li>
+<li>Manager 层：通用业务处理层，它有如下特征：<ul>
+<li>1） 对第三方平台封装的层，预处理返回结果及转化异常信息；</li>
+<li>2） 对 Service 层通用能力的下沉，如缓存方案、 中间件通用处理；</li>
+<li>3） 与 DAO 层交互，对多个 DAO 的组合复用。</li>
+</ul>
+</li>
+<li>DAO 层：数据访问层，与底层 MySQL、 Oracle、 Hbase 等进行数据交互。</li>
+<li>外部接口或第三方平台：包括其它部门 RPC 开放接口，基础平台，其它公司的 HTTP 接口。</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考(2)"></a>参考(2)</h2><ol>
+<li>【参考】 （ 分层异常处理规约） 在 DAO 层，产生的异常类型有很多，无法用细粒度的异常进行 catch，使用 catch(Exception e)方式，并 throw new DAOException(e)，不需要打印日志，因为日志在 Manager/Service 层一定需要捕获并打印到日志文件中去，如果同台服务器再打日志，浪费性能和存储。在 Service 层出现异常时，必须记录出错日志到磁盘，尽可能带上参数信息，相当于保护案发现场。如果 Manager 层与 Service 同机部署，日志方式与 DAO层处理一致，如果是单独部署，则采用与 Service 一致的处理方式。 Web 层绝不应该继续往上抛异常，因为已经处于顶层，如果意识到这个异常将导致页面无法正常渲染，那么就应该直接跳转到友好错误页面， 加上用户容易理解的错误提示信息。开放接口层要将异常处理成错误码和错误信息方式返回。</li>
+<li>【参考】分层领域模型规约：<ul>
+<li>DO（ Data Object） ：与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。</li>
+<li>DTO（ Data Transfer Object） ：数据传输对象， Service 或 Manager 向外传输的对象。</li>
+<li>BO（ Business Object） ：业务对象。 由 Service 层输出的封装业务逻辑的对象。</li>
+<li>AO（ Application Object）： 应用对象。 在 Web 层与 Service 层之间抽象的复用对象模型，极为贴近展示层，复用度不高。</li>
+<li>VO（ View Object） ： 显示层对象，通常是 Web 向模板渲染引擎层传输的对象。</li>
+<li>Query：数据查询对象，各层接收上层的查询请求。 注意超过 2 个参数的查询封装，禁止使用 Map 类来传输。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;应用分层-3&quot;&gt;&lt;a href=&quot;#应用分层-3&quot; class=&quot;headerlink&quot; title=&quot;应用分层(3)&quot;&gt;&lt;/a&gt;应用分层(3)&lt;/h1&gt;&lt;h2 id=&quot;强制-1&quot;&gt;&lt;a href=&quot;#强制-1&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(五)-MySQL数据库(4)-ORM映射.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(4)-ORM%E6%98%A0%E5%B0%84/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(4)-ORM映射/</id>
+    <published>2018-02-11T09:59:34.000Z</published>
+    <updated>2018-02-11T08:24:32.019Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ORM映射-11"><a href="#ORM映射-11" class="headerlink" title="ORM映射(11)"></a>ORM映射(11)</h1><h2 id="强制-4"><a href="#强制-4" class="headerlink" title="强制(4)"></a>强制(4)</h2><ol>
+<li>【强制】在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。<ul>
+<li>说明：<ul>
+<li>1） 增加查询分析器解析成本。</li>
+<li>2） 增减字段容易与 resultMap 配置不一致。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>【强制】 POJO 类的布尔属性不能加 is，而数据库字段必须加 is_，要求在 resultMap 中进行字段与属性之间的映射。<ul>
+<li>说明： 参见定义 POJO 类以及数据库字段定义规定，在<resultmap>中增加映射，是必须的。在 MyBatis Generator 生成的代码中，需要进行对应的修改。</resultmap></li>
+</ul>
+</li>
+<li>【强制】不要用 resultClass 当返回参数，即使所有类属性名与数据库字段一一对应，也需要定义； 反过来，每一个表也必然有一个与之对应。<ul>
+<li>说明： 配置映射关系，使字段与 DO 类解耦，方便维护。</li>
+</ul>
+</li>
+<li>【强制】sql.xml 配置参数使用： #{}， #param# 不要使用${} 此种方式容易出现 SQL 注入。</li>
+<li><p>【强制】 iBATIS 自带的 queryForList(String statementName,int start,int size)不推荐使用。</p>
+<ul>
+<li>说明：其实现方式是在数据库取到 statementName对应的SQL语句的所有记录，再通过 subList取 start,size 的子集合。</li>
+<li>正例：   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">map.put(<span class="string">"start"</span>, start);</div><div class="line">map.put(<span class="string">"size"</span>, size);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>【强制】不允许直接拿 HashMap 与 Hashtable 作为查询结果集的输出。</p>
+<ul>
+<li>说明： resultClass=”Hashtable”， 会置入字段名和属性值，但是值的类型不可控。</li>
+</ul>
+</li>
+<li>【强制】更新数据表记录时，必须同时更新记录对应的 gmt_modified 字段值为当前时间。</li>
+</ol>
+<h2 id="推荐-1"><a href="#推荐-1" class="headerlink" title="推荐(1)"></a>推荐(1)</h2><ol>
+<li>【推荐】不要写一个大而全的数据更新接口。 传入为 POJO 类，不管是不是自己的目标更新字段，都进行 update table set c1=value1,c2=value2,c3=value3; 这是不对的。执行 SQL时， 不要更新无改动的字段，一是易出错； 二是效率低； 三是增加 binlog 存储。</li>
+</ol>
+<h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考(2)"></a>参考(2)</h2><ol>
+<li>【参考】 @Transactional 事务不要滥用。事务会影响数据库的 QPS，另外使用事务的地方需要考虑各方面的回滚方案，包括缓存回滚、搜索引擎回滚、消息补偿、统计修正等。</li>
+<li>【参考】 <isequal>中的 compareValue 是与属性值对比的常量，一般是数字，表示相等时带上此条件； <isnotempty>表示不为空且不为 null 时执行； <isnotnull>表示不为 null 值时执行。</isnotnull></isnotempty></isequal></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ORM映射-11&quot;&gt;&lt;a href=&quot;#ORM映射-11&quot; class=&quot;headerlink&quot; title=&quot;ORM映射(11)&quot;&gt;&lt;/a&gt;ORM映射(11)&lt;/h1&gt;&lt;h2 id=&quot;强制-4&quot;&gt;&lt;a href=&quot;#强制-4&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(五)-MySQL数据库(3)-SQL语句.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(3)-SQL%E8%AF%AD%E5%8F%A5/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(3)-SQL语句/</id>
+    <published>2018-02-11T09:59:33.000Z</published>
+    <updated>2018-02-11T08:24:23.112Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="索引规约-11"><a href="#索引规约-11" class="headerlink" title="索引规约(11)"></a>索引规约(11)</h1><h2 id="强制-4"><a href="#强制-4" class="headerlink" title="强制(4)"></a>强制(4)</h2><ol>
+<li>【强制】业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。<ul>
+<li>说明： 不要以为唯一索引影响了 insert 速度，这个速度损耗可以忽略，但提高查找速度是明显的； 另外，即使在应用层做了非常完善的校验控制，只要没有唯一索引，根据墨菲定律，必然有脏数据产生。</li>
+</ul>
+</li>
+<li>【强制】超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致； 多表关联查询时，保证被关联的字段需要有索引。<ul>
+<li>说明： 即使双表 join 也要注意表索引、 SQL 性能。</li>
+</ul>
+</li>
+<li>【强制】在 varchar 字段上建立索引时，必须指定索引长度，没必要对全字段建立索引，根据实际文本区分度决定索引长度即可。<ul>
+<li>说明： 索引的长度与区分度是一对矛盾体，一般对字符串类型数据，长度为 20 的索引，区分度会高达 90%以上，可以使用 count(distinct left(列名, 索引长度))/count(*)的区分度来确定。</li>
+</ul>
+</li>
+<li>【强制】页面搜索严禁左模糊或者全模糊，如果需要请走搜索引擎来解决。<ul>
+<li>说明： 索引文件具有 B-Tree 的最左前缀匹配特性，如果左边的值未确定，那么无法使用此索引。</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-6"><a href="#推荐-6" class="headerlink" title="推荐(6)"></a>推荐(6)</h2><ol>
+<li>【推荐】如果有 order by 的场景，请注意利用索引的有序性。 order by 最后的字段是组合索引的一部分，并且放在索引组合顺序的最后，避免出现 file_sort 的情况，影响查询性能。<ul>
+<li>正例： where a=? and b=? order by c; 索引： a_b_c</li>
+<li>反例： 索引中有范围查找，那么索引有序性无法利用，如： WHERE a&gt;10 ORDER BY b; 索引a_b 无法排序。</li>
+</ul>
+</li>
+<li>【推荐】利用覆盖索引来进行查询操作， 避免回表。<ul>
+<li>说明： 如果一本书需要知道第 11 章是什么标题，会翻开第 11 章对应的那一页吗？目录浏览一下就好，这个目录就是起到覆盖索引的作用。</li>
+<li>正例： 能够建立索引的种类分为主键索引、唯一索引、普通索引三种，而覆盖索引只是一种查询的一种效果，用 explain 的结果， extra 列会出现： using index。</li>
+</ul>
+</li>
+<li><p>【推荐】利用延迟关联或者子查询优化超多分页场景。</p>
+<ul>
+<li>说明： MySQL 并不是跳过 offset 行，而是取 offset+N 行，然后返回放弃前 offset 行，返回N 行，那当 offset 特别大的时候，效率就非常的低下，要么控制返回的总页数，要么对超过特定阈值的页数进行 SQL 改写。</li>
+<li>正例： 先快速定位需要获取的 id 段，然后再关联：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> 表 <span class="number">1</span> a, (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> 表 <span class="number">1</span> <span class="keyword">where</span> 条件 <span class="keyword">LIMIT</span> <span class="number">100000</span>,<span class="number">20</span> ) b <span class="keyword">where</span> a.id=b.id</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>【推荐】 SQL 性能优化的目标：至少要达到 range 级别， 要求是 ref 级别， 如果可以是 consts最好。</p>
+<ul>
+<li>说明：<ul>
+<li>1） consts 单表中最多只有一个匹配行（ 主键或者唯一索引） ，在优化阶段即可读取到数据。</li>
+<li>2） ref 指的是使用普通的索引（ normal index） 。</li>
+<li>3） range 对索引进行范围检索。</li>
+</ul>
+</li>
+<li>反例： explain 表的结果， type=index，索引物理文件全扫描，速度非常慢，这个 index 级别比较 range 还低，与全表扫描是小巫见大巫。</li>
+</ul>
+</li>
+<li>【推荐】建组合索引的时候，区分度最高的在最左边。<ul>
+<li>正例： 如果 where a=? and b=? ， a 列的几乎接近于唯一值，那么只需要单建 idx_a 索引即可。</li>
+<li>说明： 存在非等号和等号混合判断条件时，在建索引时，请把等号条件的列前置。如： where a&gt;? and b=? 那么即使 a 的区分度更高，也必须把 b 放在索引的最前列。</li>
+</ul>
+</li>
+<li>【推荐】 防止因字段类型不同造成的隐式转换， 导致索引失效。</li>
+<li>【参考】创建索引时避免有如下极端误解：<ul>
+<li>1） 宁滥勿缺。 认为一个查询就需要建一个索引。</li>
+<li>2） 宁缺勿滥。 认为索引会消耗空间、严重拖慢更新和新增速度。</li>
+<li>3） 抵制惟一索引。 认为业务的惟一性一律需要在应用层通过“先查后插”方式解决。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;索引规约-11&quot;&gt;&lt;a href=&quot;#索引规约-11&quot; class=&quot;headerlink&quot; title=&quot;索引规约(11)&quot;&gt;&lt;/a&gt;索引规约(11)&lt;/h1&gt;&lt;h2 id=&quot;强制-4&quot;&gt;&lt;a href=&quot;#强制-4&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(五)-MySQL数据库(2)-索引规约.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(2)-%E7%B4%A2%E5%BC%95%E8%A7%84%E7%BA%A6/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(2)-索引规约/</id>
+    <published>2018-02-11T09:49:33.000Z</published>
+    <updated>2018-02-11T05:45:31.056Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="索引规约-11"><a href="#索引规约-11" class="headerlink" title="索引规约(11)"></a>索引规约(11)</h1><h2 id="强制-4"><a href="#强制-4" class="headerlink" title="强制(4)"></a>强制(4)</h2><ol>
+<li>【强制】业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。<ul>
+<li>说明： 不要以为唯一索引影响了 insert 速度，这个速度损耗可以忽略，但提高查找速度是明显的； 另外，即使在应用层做了非常完善的校验控制，只要没有唯一索引，根据墨菲定律，必然有脏数据产生。</li>
+</ul>
+</li>
+<li>【强制】超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致； 多表关联查询时，保证被关联的字段需要有索引。<ul>
+<li>说明： 即使双表 join 也要注意表索引、 SQL 性能。</li>
+</ul>
+</li>
+<li>【强制】在 varchar 字段上建立索引时，必须指定索引长度，没必要对全字段建立索引，根据实际文本区分度决定索引长度即可。<ul>
+<li>说明： 索引的长度与区分度是一对矛盾体，一般对字符串类型数据，长度为 20 的索引，区分度会高达 90%以上，可以使用 count(distinct left(列名, 索引长度))/count(*)的区分度来确定。</li>
+</ul>
+</li>
+<li>【强制】页面搜索严禁左模糊或者全模糊，如果需要请走搜索引擎来解决。<ul>
+<li>说明： 索引文件具有 B-Tree 的最左前缀匹配特性，如果左边的值未确定，那么无法使用此索引。</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-6"><a href="#推荐-6" class="headerlink" title="推荐(6)"></a>推荐(6)</h2><ol>
+<li>【推荐】如果有 order by 的场景，请注意利用索引的有序性。 order by 最后的字段是组合索引的一部分，并且放在索引组合顺序的最后，避免出现 file_sort 的情况，影响查询性能。<ul>
+<li>正例： where a=? and b=? order by c; 索引： a_b_c</li>
+<li>反例： 索引中有范围查找，那么索引有序性无法利用，如： WHERE a&gt;10 ORDER BY b; 索引a_b 无法排序。</li>
+</ul>
+</li>
+<li>【推荐】利用覆盖索引来进行查询操作， 避免回表。<ul>
+<li>说明： 如果一本书需要知道第 11 章是什么标题，会翻开第 11 章对应的那一页吗？目录浏览一下就好，这个目录就是起到覆盖索引的作用。</li>
+<li>正例： 能够建立索引的种类分为主键索引、唯一索引、普通索引三种，而覆盖索引只是一种查询的一种效果，用 explain 的结果， extra 列会出现： using index。</li>
+</ul>
+</li>
+<li><p>【推荐】利用延迟关联或者子查询优化超多分页场景。</p>
+<ul>
+<li>说明： MySQL 并不是跳过 offset 行，而是取 offset+N 行，然后返回放弃前 offset 行，返回N 行，那当 offset 特别大的时候，效率就非常的低下，要么控制返回的总页数，要么对超过特定阈值的页数进行 SQL 改写。</li>
+<li>正例： 先快速定位需要获取的 id 段，然后再关联：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> 表 <span class="number">1</span> a, (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> 表 <span class="number">1</span> <span class="keyword">where</span> 条件 <span class="keyword">LIMIT</span> <span class="number">100000</span>,<span class="number">20</span> ) b <span class="keyword">where</span> a.id=b.id</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>【推荐】 SQL 性能优化的目标：至少要达到 range 级别， 要求是 ref 级别， 如果可以是 consts最好。</p>
+<ul>
+<li>说明：<ul>
+<li>1） consts 单表中最多只有一个匹配行（ 主键或者唯一索引） ，在优化阶段即可读取到数据。</li>
+<li>2） ref 指的是使用普通的索引（ normal index） 。</li>
+<li>3） range 对索引进行范围检索。</li>
+</ul>
+</li>
+<li>反例： explain 表的结果， type=index，索引物理文件全扫描，速度非常慢，这个 index 级别比较 range 还低，与全表扫描是小巫见大巫。</li>
+</ul>
+</li>
+<li>【推荐】建组合索引的时候，区分度最高的在最左边。<ul>
+<li>正例： 如果 where a=? and b=? ， a 列的几乎接近于唯一值，那么只需要单建 idx_a 索引即可。</li>
+<li>说明： 存在非等号和等号混合判断条件时，在建索引时，请把等号条件的列前置。如： where a&gt;? and b=? 那么即使 a 的区分度更高，也必须把 b 放在索引的最前列。</li>
+</ul>
+</li>
+<li>【推荐】 防止因字段类型不同造成的隐式转换， 导致索引失效。</li>
+<li>【参考】创建索引时避免有如下极端误解：<ul>
+<li>1） 宁滥勿缺。 认为一个查询就需要建一个索引。</li>
+<li>2） 宁缺勿滥。 认为索引会消耗空间、严重拖慢更新和新增速度。</li>
+<li>3） 抵制惟一索引。 认为业务的惟一性一律需要在应用层通过“先查后插”方式解决。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;索引规约-11&quot;&gt;&lt;a href=&quot;#索引规约-11&quot; class=&quot;headerlink&quot; title=&quot;索引规约(11)&quot;&gt;&lt;/a&gt;索引规约(11)&lt;/h1&gt;&lt;h2 id=&quot;强制-4&quot;&gt;&lt;a href=&quot;#强制-4&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(五)-MySQL数据库(1)-建表规约.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(1)-%E5%BB%BA%E8%A1%A8%E8%A7%84%E7%BA%A6/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(1)-建表规约/</id>
+    <published>2018-02-11T09:39:33.000Z</published>
+    <updated>2018-02-11T02:30:27.344Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="建表规约-15"><a href="#建表规约-15" class="headerlink" title="建表规约(15)"></a>建表规约(15)</h1><h2 id="强制-9"><a href="#强制-9" class="headerlink" title="强制(9)"></a>强制(9)</h2><ol>
+<li>【强制】表达<code>是与否</code>概念的字段，必须使用 <code>is_xxx</code> 的方式命名，数据类型是 <code>unsigned tinyint</code>（1 表示是， 0 表示否） 。<ul>
+<li>说明： 任何字段如果为非负数，必须是 unsigned。</li>
+<li>正例： 表达逻辑删除的字段名 is_deleted， 1 表示删除， 0 表示未删除。</li>
+</ul>
+</li>
+<li>【强制】表名、字段名必须使用<code>小写字母或数字</code>， <code>禁止出现数字开头</code>，<code>禁止两个下划线中间只出现数字</code>。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。<ul>
+<li>说明： MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大写字母，避免节外生枝。</li>
+<li>正例： aliyun_admin， rdc_config， level3_name</li>
+<li>反例： AliyunAdmin， rdcConfig， level_3_name</li>
+</ul>
+</li>
+<li>【强制】表名不使用复数名词。<ul>
+<li>说明： 表名应该仅仅表示表里面的实体内容，不应该表示实体数量，对应于 DO 类名也是单数形式，符合表达习惯。</li>
+</ul>
+</li>
+<li>【强制】禁用保留字，如 desc、 range、 match、 delayed 等， 请参考 MySQL 官方保留字。</li>
+<li>【强制】 <code>主键索引</code>名为 <code>pk_字段名</code>； <code>唯一索引名</code>为 <code>uk_字段名</code>； <code>普通索引</code>名则为 <code>idx_字段名</code>。<ul>
+<li>说明： pk<em> 即 primary key； uk</em> 即 unique key； idx_ 即 index 的简称。</li>
+</ul>
+</li>
+<li>【强制】小数类型为 decimal，禁止使用 float 和 double。<ul>
+<li>说明： float 和 double 在存储的时候，存在精度损失的问题，很可能在值的比较时，得到不正确的结果。如果存储的数据范围超过 decimal 的范围，建议将数据拆成整数和小数分开存储。</li>
+</ul>
+</li>
+<li>【强制】如果存储的字符串长度几乎相等，使用 char 定长字符串类型。</li>
+<li>【强制】 varchar 是可变长字符串，不预先分配存储空间，长度不要超过 5000，如果存储长度大于此值，定义字段类型为 text，独立出来一张表，用主键来对应，避免影响其它字段索引效率。</li>
+<li>【强制】表必备三字段： id, gmt_create, gmt_modified。<ul>
+<li>说明： 其中 id 必为主键，类型为 unsigned bigint、单表时自增、步长为 1。 gmt_create,gmt_modified 的类型均为 datetime 类型，前者现在时表示主动创建，后者过去分词表示被动更新。</li>
+</ul>
+</li>
+<li>【推荐】表的命名最好是加上“业务名称_表的作用”。<ul>
+<li>正例： alipay_task / force_project / trade_config</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-4"><a href="#推荐-4" class="headerlink" title="推荐(4)"></a>推荐(4)</h2><ol>
+<li>【推荐】库名与应用名称尽量一致。</li>
+<li>【推荐】如果修改字段含义或对字段表示的状态追加时，需要及时更新字段注释。</li>
+<li>【推荐】字段允许适当冗余，以提高查询性能，但必须考虑数据一致。冗余字段应遵循：<ul>
+<li>1） 不是频繁修改的字段。</li>
+<li>2） 不是 varchar 超长字段，更不能是 text 字段。</li>
+<li>正例： 商品类目名称使用频率高， 字段长度短，名称基本一成不变， 可在相关联的表中冗余存储类目名称，避免关联查询。</li>
+</ul>
+</li>
+<li>【推荐】单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表。<ul>
+<li>说明： 如果预计三年后的数据量根本达不到这个级别，请不要在创建表时就分库分表。</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考(1)"></a>参考(1)</h2><ol>
+<li><p>【参考】合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的是提升检索速度。<br>正例： 如下表，其中无符号值可以避免误存负数， 且扩大了表示范围。</p>
+<p>对象 | 年龄区间 | 类型 | 字节 | 表示范围<br>—|——|—-|—-|—–<br>人 | 150 岁之内 | unsigned tinyint | 1 | 无符号值： 0 到 255<br>龟 | 数百岁 | unsigned smallint | 2 | 无符号值： 0 到 65535<br>恐龙化石 | 数千万年 | unsigned int | 4 | 无符号值： 0 到约 42.9 亿<br>太阳 | 约 50 亿年 | unsigned bigint | 8 | 无符号值： 0 到约 10 的 19 次方</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;建表规约-15&quot;&gt;&lt;a href=&quot;#建表规约-15&quot; class=&quot;headerlink&quot; title=&quot;建表规约(15)&quot;&gt;&lt;/a&gt;建表规约(15)&lt;/h1&gt;&lt;h2 id=&quot;强制-9&quot;&gt;&lt;a href=&quot;#强制-9&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里java规约(四)-安全规约.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%9B%9B)-%E5%AE%89%E5%85%A8%E8%A7%84%E7%BA%A6/"/>
+    <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(四)-安全规约/</id>
+    <published>2018-02-11T09:29:33.000Z</published>
+    <updated>2018-02-11T02:15:54.340Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安全规约-8"><a href="#安全规约-8" class="headerlink" title="安全规约(8)"></a>安全规约(8)</h1><h2 id="强制-7"><a href="#强制-7" class="headerlink" title="强制(7)"></a>强制(7)</h2><ol>
+<li>【强制】 隶属于用户个人的页面或者功能必须进行权限控制校验。<ul>
+<li>说明： 防止没有做水平权限校验就可随意访问、 修改、删除别人的数据，比如查看他人的私信内容、修改他人的订单。</li>
+</ul>
+</li>
+<li>【强制】用户敏感数据禁止直接展示，必须对展示数据进行脱敏。<ul>
+<li>说明： 个人手机号码显示为:158<em>**</em>9119，隐藏中间 4 位，防止隐私泄露。</li>
+</ul>
+</li>
+<li>【强制】用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入，禁止字符串拼接 SQL 访问数据库。</li>
+<li>【强制】用户请求传入的任何参数必须做有效性验证。<ul>
+<li>说明： 忽略参数校验可能导致：</li>
+<li>page size 过大导致内存溢出</li>
+<li>恶意 order by 导致数据库慢查询</li>
+<li>任意重定向</li>
+<li>SQL 注入</li>
+<li>反序列化注入</li>
+<li>正则输入源串拒绝服务 ReDoS<ul>
+<li>说明： Java 代码用正则来验证客户端的输入，有些正则写法验证普通用户输入没有问题，但是如果攻击人员使用的是特殊构造的字符串来验证，有可能导致死循环的结果。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>【强制】禁止向 HTML 页面输出未经安全过滤或未正确转义的用户数据。</li>
+<li>【强制】表单、 AJAX 提交必须执行 CSRF 安全过滤。<ul>
+<li>说明： CSRF(Cross-site request forgery)跨站请求伪造是一类常见编程漏洞。对于存在CSRF 漏洞的应用/网站，攻击者可以事先构造好 URL，只要受害者用户一访问，后台便在用户不知情情况下对数据库中用户参数进行相应修改。</li>
+</ul>
+</li>
+<li>【强制】在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的防重放限制，如数量限制、疲劳度控制、验证码校验，避免被滥刷导致资损。<ul>
+<li>说明： 如注册时发送验证码到手机，如果没有限制次数和频率，那么可以利用此功能骚扰到其它用户，并造成短信平台资源浪费。</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-1"><a href="#推荐-1" class="headerlink" title="推荐(1)"></a>推荐(1)</h2><ol>
+<li>【推荐】发贴、评论、发送即时消息等用户生成内容的场景必须实现防刷、文本内容违禁词过滤等风控策略。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;安全规约-8&quot;&gt;&lt;a href=&quot;#安全规约-8&quot; class=&quot;headerlink&quot; title=&quot;安全规约(8)&quot;&gt;&lt;/a&gt;安全规约(8)&lt;/h1&gt;&lt;h2 id=&quot;强制-7&quot;&gt;&lt;a href=&quot;#强制-7&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里java规约(三)-单元测试.md</title>
@@ -110,6 +674,74 @@
   </entry>
   
   <entry>
+    <title>阿里java规约(二)-异常日志(2)-日志规约.md</title>
+    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%8C)-%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97(2)-%E6%97%A5%E5%BF%97%E8%A7%84%E7%BA%A6/"/>
+    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(二)-异常日志(2)-日志规约/</id>
+    <published>2018-02-09T08:29:33.000Z</published>
+    <updated>2018-02-09T08:57:21.501Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="日志规约-8"><a href="#日志规约-8" class="headerlink" title="日志规约(8)"></a>日志规约(8)</h1><h2 id="强制-6"><a href="#强制-6" class="headerlink" title="强制(6)"></a>强制(6)</h2><ol>
+<li><p>【强制】应用中<code>不可直接使用</code>日志系统（ Log4j、 Logback） 中的 API，而应依赖<code>使用</code>日志框架<code>SLF4J</code> 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Abc.class);</div></pre></td></tr></table></figure>
+</li>
+<li><p>【强制】日志文件推荐<code>至少</code>保存 <code>15</code> 天，因为有些异常具备以“周”为频次发生的特点。</p>
+</li>
+<li>【强制】应用中的扩展日志（ 如打点、临时监控、访问日志等） 命名方式：<ul>
+<li>appName_logType_logName.log。</li>
+<li>logType:日志类型，推荐分类有 stats/monitor/visit 等；</li>
+<li>logName:日志描述。这种命名的好处：通过文件名就可知道日志文件属于什么应用，什么类型，什么目的，也有利于归类查找。</li>
+<li>正例： mppserver 应用中单独监控时区转换异常，如：mppserver_monitor_timeZoneConvert.log</li>
+<li>说明： 推荐对日志进行分类， 如将错误日志和业务日志分开存放，便于开发人员查看，也便于通过日志对系统进行及时监控。</li>
+</ul>
+</li>
+<li><p>【强制】对 trace/debug/info 级别的日志输出，必须使用条件输出形式或者使用占位符的方式。</p>
+<ul>
+<li>说明： logger.debug(“Processing trade with id: “ + id + “ and symbol: “ + symbol);</li>
+<li>如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象，会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。</li>
+<li><p>正例： （ 条件）</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"Processing trade with id: "</span> + id + <span class="string">" and symbol: "</span> + symbol);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>正例： （ 占位符）</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.debug(<span class="string">"Processing trade with id: &#123;&#125; and symbol : &#123;&#125; "</span>, id, symbol);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>【强制】避免重复打印日志，浪费磁盘空间，务必在 log4j.xml 中设置 additivity=false。</p>
+<ul>
+<li>正例： <logger name="com.taobao.dubbo.config" additivity="false"></logger></li>
+</ul>
+</li>
+<li>【强制】异常信息应该包括两类信息：<code>案发现场信息</code>和<code>异常堆栈信息</code>。如果不处理，那么通过关键字 throws 往上抛出。<ul>
+<li>正例： logger.error(各类参数或者对象 toString + “_” + e.getMessage(), e);</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐-2"><a href="#推荐-2" class="headerlink" title="推荐(2)"></a>推荐(2)</h2><ol>
+<li>【推荐】谨慎地记录日志。生产环境禁止输出 debug 日志； 有选择地输出 info 日志； 如果使用 warn 来记录刚上线时的业务行为信息，一定要注意日志输出量的问题，避免把服务器磁盘撑爆，并记得及时删除这些观察日志。<ul>
+<li>说明： 大量地输出无效日志，不利于系统性能提升，也不利于快速定位错误点。 记录日志时请思考：这些日志真的有人看吗？看到这条日志你能做什么？能不能给问题排查带来好处？</li>
+</ul>
+</li>
+<li>【推荐】可以使用 <code>warn</code> 日志级别来记录<code>用户输入参数错误</code>的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出 error 级别，避免频繁报警。<ul>
+<li>说明： 注意日志输出的级别， error 级别只记录系统逻辑出错、异常或者重要的错误信息。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;日志规约-8&quot;&gt;&lt;a href=&quot;#日志规约-8&quot; class=&quot;headerlink&quot; title=&quot;日志规约(8)&quot;&gt;&lt;/a&gt;日志规约(8)&lt;/h1&gt;&lt;h2 id=&quot;强制-6&quot;&gt;&lt;a href=&quot;#强制-6&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+    
+      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>阿里java规约(二)-异常日志(1)-异常处理.md</title>
     <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%8C)-%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97(1)-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
     <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(二)-异常日志(1)-异常处理/</id>
@@ -188,74 +820,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;异常处理-13&quot;&gt;&lt;a href=&quot;#异常处理-13&quot; class=&quot;headerlink&quot; title=&quot;异常处理(13)&quot;&gt;&lt;/a&gt;异常处理(13)&lt;/h1&gt;&lt;h2 id=&quot;强制-8&quot;&gt;&lt;a href=&quot;#强制-8&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里java规约(二)-异常日志(2)-日志规约.md</title>
-    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%8C)-%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97(2)-%E6%97%A5%E5%BF%97%E8%A7%84%E7%BA%A6/"/>
-    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(二)-异常日志(2)-日志规约/</id>
-    <published>2018-02-09T08:29:33.000Z</published>
-    <updated>2018-02-09T08:57:21.501Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="日志规约-8"><a href="#日志规约-8" class="headerlink" title="日志规约(8)"></a>日志规约(8)</h1><h2 id="强制-6"><a href="#强制-6" class="headerlink" title="强制(6)"></a>强制(6)</h2><ol>
-<li><p>【强制】应用中<code>不可直接使用</code>日志系统（ Log4j、 Logback） 中的 API，而应依赖<code>使用</code>日志框架<code>SLF4J</code> 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一。</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Abc.class);</div></pre></td></tr></table></figure>
-</li>
-<li><p>【强制】日志文件推荐<code>至少</code>保存 <code>15</code> 天，因为有些异常具备以“周”为频次发生的特点。</p>
-</li>
-<li>【强制】应用中的扩展日志（ 如打点、临时监控、访问日志等） 命名方式：<ul>
-<li>appName_logType_logName.log。</li>
-<li>logType:日志类型，推荐分类有 stats/monitor/visit 等；</li>
-<li>logName:日志描述。这种命名的好处：通过文件名就可知道日志文件属于什么应用，什么类型，什么目的，也有利于归类查找。</li>
-<li>正例： mppserver 应用中单独监控时区转换异常，如：mppserver_monitor_timeZoneConvert.log</li>
-<li>说明： 推荐对日志进行分类， 如将错误日志和业务日志分开存放，便于开发人员查看，也便于通过日志对系统进行及时监控。</li>
-</ul>
-</li>
-<li><p>【强制】对 trace/debug/info 级别的日志输出，必须使用条件输出形式或者使用占位符的方式。</p>
-<ul>
-<li>说明： logger.debug(“Processing trade with id: “ + id + “ and symbol: “ + symbol);</li>
-<li>如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象，会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。</li>
-<li><p>正例： （ 条件）</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</div><div class="line">    logger.debug(<span class="string">"Processing trade with id: "</span> + id + <span class="string">" and symbol: "</span> + symbol);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>正例： （ 占位符）</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">logger.debug(<span class="string">"Processing trade with id: &#123;&#125; and symbol : &#123;&#125; "</span>, id, symbol);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>【强制】避免重复打印日志，浪费磁盘空间，务必在 log4j.xml 中设置 additivity=false。</p>
-<ul>
-<li>正例： <logger name="com.taobao.dubbo.config" additivity="false"></logger></li>
-</ul>
-</li>
-<li>【强制】异常信息应该包括两类信息：<code>案发现场信息</code>和<code>异常堆栈信息</code>。如果不处理，那么通过关键字 throws 往上抛出。<ul>
-<li>正例： logger.error(各类参数或者对象 toString + “_” + e.getMessage(), e);</li>
-</ul>
-</li>
-</ol>
-<h2 id="推荐-2"><a href="#推荐-2" class="headerlink" title="推荐(2)"></a>推荐(2)</h2><ol>
-<li>【推荐】谨慎地记录日志。生产环境禁止输出 debug 日志； 有选择地输出 info 日志； 如果使用 warn 来记录刚上线时的业务行为信息，一定要注意日志输出量的问题，避免把服务器磁盘撑爆，并记得及时删除这些观察日志。<ul>
-<li>说明： 大量地输出无效日志，不利于系统性能提升，也不利于快速定位错误点。 记录日志时请思考：这些日志真的有人看吗？看到这条日志你能做什么？能不能给问题排查带来好处？</li>
-</ul>
-</li>
-<li>【推荐】可以使用 <code>warn</code> 日志级别来记录<code>用户输入参数错误</code>的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出 error 级别，避免频繁报警。<ul>
-<li>说明： 注意日志输出的级别， error 级别只记录系统逻辑出错、异常或者重要的错误信息。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;日志规约-8&quot;&gt;&lt;a href=&quot;#日志规约-8&quot; class=&quot;headerlink&quot; title=&quot;日志规约(8)&quot;&gt;&lt;/a&gt;日志规约(8)&lt;/h1&gt;&lt;h2 id=&quot;强制-6&quot;&gt;&lt;a href=&quot;#强制-6&quot; class=&quot;headerlink&quot; title=
     
     </summary>
     
@@ -940,709 +1504,6 @@ A.YES.equals(B.YES)，预期是 true，但实际返回为 false，导致线上�
     
     
       <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里java规约(一)-编程规约(1)-命名风格.md</title>
-    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%B8%80)-%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6(1)-%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC/"/>
-    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(一)-编程规约(1)-命名风格/</id>
-    <published>2018-02-09T07:02:33.000Z</published>
-    <updated>2018-02-09T08:45:18.233Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="命名风格-16"><a href="#命名风格-16" class="headerlink" title="命名风格(16)"></a>命名风格(16)</h1><h2 id="强制-10"><a href="#强制-10" class="headerlink" title="强制(10)"></a>强制(10)</h2><ol>
-<li>【强制】不以<code>下划线或美元符号</code>做开头结尾</li>
-<li>【强制】禁止使用拼音与英文混合,禁止使用中文,纯拼音也尽量避免<ul>
-<li>正例： alibaba / taobao / youku / hangzhou 等国际通用的名称， 可视同英文。</li>
-</ul>
-</li>
-<li>【强制】<code>类名</code>使用 UpperCamelCase 风格，但以下情形例外： DO / BO / DTO / VO / AO / PO 等。<ul>
-<li>正例： MarcoPolo / UserDO / XmlService / TcpUdpDeal / TaPromotion</li>
-<li>反例： macroPolo / UserDo / XMLService / TCPUDPDeal / TAPromotion </li>
-</ul>
-</li>
-<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从<code>驼峰</code>形式。</li>
-<li>【强制】<code>常量命名全部大写，单词间用下划线隔开</code>，力求语义表达完整清楚，不要嫌名字长。</li>
-<li>【强制】<code>抽象类</code>命名使用 <code>Abstract</code> 或 <code>Base</code> 开头； <code>异常类</code>命名使用 <code>Exception</code> 结尾； <code>测试类</code><br>命名以它要<code>测试的类名</code>开始，以 <code>Test 结尾</code>。</li>
-<li>【强制】<code>类型与中括号紧挨</code>相连来定义数组。<ul>
-<li>正例： 定义整形数组 <code>int[]</code> arrayDemo;</li>
-<li>反例： 在 main 参数中，使用 String args[]来定义。</li>
-</ul>
-</li>
-<li>【强制】POJO 类中<code>布尔类型的变量</code>，都<code>不要加 is 前缀</code>，否则部分框架解析会引起序列化错误。</li>
-<li>【强制】<code>包名</code>统一使用<code>小写</code>，点分隔符之间有且仅有<code>一个自然语义</code>的英语单词。<code>包名</code>统一使用<code>单数形式</code>，但是<code>类名</code>如果有复数含义，类名<code>可以</code>使用<code>复数形式</code>。<ul>
-<li>正例： 应用工具类包名为 com.alibaba.ai.util、类名为 MessageUtils（ 此规则参考 spring</li>
-<li>的框架结构）</li>
-</ul>
-</li>
-<li>【强制】<code>杜绝完全不规范的缩写</code>， 避免望文不知义。<ul>
-<li>反例： AbstractClass“缩写” 命名成 AbsClass； condition“ 缩写” 命名成 condi，此类随意缩写严重降低了代码的可阅读性。</li>
-</ul>
-</li>
-</ol>
-<h2 id="推荐-4"><a href="#推荐-4" class="headerlink" title="推荐(4)"></a>推荐(4)</h2><ol>
-<li>【推荐】为了达到代码自解释的目标，任何自定义编程元素在命名时，使用<code>尽量完整</code>的单词组合来<code>表达其意</code>。<ul>
-<li>正例： 从远程仓库拉取代码的类命名为 PullCodeFromRemoteRepository。</li>
-<li>反例： 变量 int a; 的随意命名方式。</li>
-</ul>
-</li>
-<li><p>【推荐】如果模块、 接口、类、方法<code>使用了设计模式</code>，在<code>命名时体现出具体模式</code>。</p>
-<ul>
-<li>说明： 将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</li>
-<li>正例：    <pre><code>public class OrderFactory;  
-public class LoginProxy;  
-public class ResourceObserver;  
-</code></pre></li>
-</ul>
-</li>
-<li><p>【推荐】<code>接口类</code>中的<code>方法</code>和<code>属性不要加任何修饰符号</code>（ public 也不要加） ，保持代码的简洁性，并<code>加上有效的 Javadoc 注释</code>。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。</p>
-<ul>
-<li>正例：   <pre><code>接口方法签名 void f();  
-接口基础常量 String COMPANY = &quot;alibaba&quot;;  
-</code></pre></li>
-<li>反例： 接口方法定义 public abstract void f();</li>
-<li>说明： JDK8 中接口允许有默认实现，那么这个 default 方法，是对所有实现类都有价值的默认实现。</li>
-</ul>
-</li>
-<li><code>接口和实现类</code>的命名有两套规则：<ol>
-<li>【强制】对于 <code>Service</code> 和 <code>DAO</code> 类，基于 SOA 的理念，暴露出来的服务一定是接口，内部的实现类用 <code>Impl</code> 的后缀与接口区别。<ul>
-<li>正例： CacheServiceImpl 实现 CacheService 接口。</li>
-</ul>
-</li>
-<li>【推荐】 如果是形容能力的接口名称，取对应的形容词为接口名 （ 通常是<code>–able</code> 的形式）。<ul>
-<li>正例： AbstractTranslator 实现 Translatable。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考(2)"></a>参考(2)</h2><ol>
-<li>【参考】<code>枚举类</code>名建议带上 <code>Enum 后缀</code>，枚举<code>成员名称</code>需要<code>全大写</code>，单词间用<code>下划线隔开</code>。<ul>
-<li>说明： 枚举其实就是特殊的常量类，且构造方法被默认强制是私有。</li>
-<li>正例： 枚举名字为 ProcessStatusEnum 的成员名称： SUCCESS / UNKNOWN_REASON。</li>
-</ul>
-</li>
-<li>【参考】各层命名规约：<ol>
-<li>Service/DAO 层方法命名规约<ul>
-<li>获取<code>单个对象</code>的方法用 <code>get</code> 作前缀。</li>
-<li>获取<code>多个对象</code>的方法用 <code>list</code> 作前缀。</li>
-<li>获取<code>统计值</code>的方法用 <code>count</code> 作前缀。</li>
-<li><code>插入</code>的方法用 <code>save/insert</code> 作前缀。</li>
-<li><code>删除</code>的方法用 <code>remove/delete</code> 作前缀。</li>
-<li><code>修改</code>的方法用 <code>update</code> 作前缀。</li>
-</ul>
-</li>
-<li>领域模型命名规约<ul>
-<li>数据对象： xxxDO， xxx 即为数据表名。</li>
-<li>数据传输对象： xxxDTO， xxx 为业务领域相关的名称。</li>
-<li>展示对象： xxxVO， xxx 一般为网页名称。</li>
-<li>POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;命名风格-16&quot;&gt;&lt;a href=&quot;#命名风格-16&quot; class=&quot;headerlink&quot; title=&quot;命名风格(16)&quot;&gt;&lt;/a&gt;命名风格(16)&lt;/h1&gt;&lt;h2 id=&quot;强制-10&quot;&gt;&lt;a href=&quot;#强制-10&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux修改时间</title>
-    <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4/"/>
-    <id>https://blog.signalfire2017.com/2018/01/24/杂记/linux修改时间/</id>
-    <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-02-06T07:48:03.611Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux修改时间</p>
-<ul>
-<li><p>修改时区</p>
-<blockquote>
-<p>cp /usr/share/zoneinfo/UTC /etc/localtime </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime </div><div class="line">cp：是否覆盖“/etc/localtime”? y </div><div class="line">[root@localhost ~]# date </div><div class="line">2012年 11月 02日 星期五 00:07:30 UTC</div><div class="line">修改为中国的东八区</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>配置新的时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># vi /etc/sysconfig/clock</div><div class="line">ZONE=&quot;Asia/Shanghai&quot;</div><div class="line">UTC=false</div><div class="line">ARC=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>安装ntp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y ntp</div></pre></td></tr></table></figure>
-</li>
-<li><p>设置时间同步</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ntpdate 210.72.145.44</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="1-其他命令"><a href="#1-其他命令" class="headerlink" title="1. 其他命令"></a>1. 其他命令</h1><h2 id="1-1-设置时间"><a href="#1-1-设置时间" class="headerlink" title="1.1. 设置时间"></a>1.1. 设置时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">date -s 18:40:00</div></pre></td></tr></table></figure>
-<p>参考链接 <a href="http://www.linuxidc.com/Linux/2017-03/141745.htm" target="_blank" rel="external">Linux服务器同步网络时间</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux修改时间&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;修改时区&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;cp /usr/share/zoneinfo/UTC /etc/localtime &lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 程序down 问题排查</title>
-    <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/"/>
-    <id>https://blog.signalfire2017.com/2018/01/24/杂记/linux 程序down 问题排查/</id>
-    <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-02-06T07:47:59.324Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-linux系统有自我保护机制"><a href="#1-linux系统有自我保护机制" class="headerlink" title="1. linux系统有自我保护机制"></a>1. linux系统有自我保护机制</h1><p>如果分配的内存用完了,会杀掉进程.<br>可以查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/log/messages</div></pre></td></tr></table></figure></p>
-<p>然后通过进程ID 进行查询  ,或者 <code>oom-killer</code> 来查询<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png" alt="linux 程序down 问题排查-20171226102834"></p>
-<h2 id="1-1-内存不够"><a href="#1-1-内存不够" class="headerlink" title="1.1. 内存不够"></a>1.1. 内存不够</h2><p>可以配置虚拟内存,解决内存高峰时内存不够的问题.</p>
-<h1 id="2-线程挂掉用jstack分析线程栈"><a href="#2-线程挂掉用jstack分析线程栈" class="headerlink" title="2. 线程挂掉用jstack分析线程栈"></a>2. 线程挂掉用jstack分析线程栈</h1><p>可以使用 jstack 查看进程信息</p>
-<h1 id="3-其他命令"><a href="#3-其他命令" class="headerlink" title="3. 其他命令"></a>3. 其他命令</h1><h2 id="3-1-lsof-n-学习"><a href="#3-1-lsof-n-学习" class="headerlink" title="3.1. lsof -n (学习)"></a>3.1. lsof -n (学习)</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1-linux系统有自我保护机制&quot;&gt;&lt;a href=&quot;#1-linux系统有自我保护机制&quot; class=&quot;headerlink&quot; title=&quot;1. linux系统有自我保护机制&quot;&gt;&lt;/a&gt;1. linux系统有自我保护机制&lt;/h1&gt;&lt;p&gt;如果分配的内存用完了,会
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="linux" scheme="https://blog.signalfire2017.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js心跳请求</title>
-    <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/js%E5%BF%83%E8%B7%B3%E8%AF%B7%E6%B1%82/"/>
-    <id>https://blog.signalfire2017.com/2018/01/24/杂记/js心跳请求/</id>
-    <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-02-06T07:47:57.390Z</updated>
-    
-    <content type="html"><![CDATA[<p>示例代码,mark一下<br>var timer = setInterval (function(){},time)<br>clearInterval(timer)<br><a id="more"></a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timer;</div><div class="line">timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    Common.ajax.execute(&#123;</div><div class="line">        <span class="string">'url'</span>: Common.url.getBaseURL() + <span class="string">'/flow/get-trusteeship.do'</span>,</div><div class="line">        <span class="string">'data'</span>: &#123;</div><div class="line">            <span class="string">"programId"</span>: $(<span class="string">"#programId"</span>).val(),</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'success'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (data.result == <span class="string">'success'</span> &amp;&amp; data.trusteeship) &#123;</div><div class="line">                <span class="keyword">if</span>(data.trusteeship.status == <span class="number">3</span>)&#123;</div><div class="line">                    clearInterval(timer);</div><div class="line">                    EmayPagination.action.skipToCurrentPage($(<span class="string">'#trusteeshipListQueryPaginationContainer'</span>),</div><div class="line">                        $(<span class="string">'#trusteeshipListQueryPaginationContainer .pagination-node.active'</span>).attr(<span class="string">'data-current-page-number'</span>));</div><div class="line">                    Trusteeship.dom.setStep(<span class="number">3</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="string">'error'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            Messager.action.error(<span class="string">'操作异常。'</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;,<span class="number">5000</span>);</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;示例代码,mark一下&lt;br&gt;var timer = setInterval (function(){},time)&lt;br&gt;clearInterval(timer)&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="javascript" scheme="https://blog.signalfire2017.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux下安装opencv-java</title>
-    <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%E4%B8%8B%E5%AE%89%E8%A3%85opencv-java/"/>
-    <id>https://blog.signalfire2017.com/2018/01/24/杂记/linux下安装opencv-java/</id>
-    <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-02-06T07:48:01.198Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux下安装opencv java </p>
-<h1 id="1-说明"><a href="#1-说明" class="headerlink" title="1. 说明"></a>1. 说明</h1><p>在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，后来下载了310版本的opencv，可以用了<br>线上环境linux centos6.5</p>
-<h1 id="2-linux版本"><a href="#2-linux版本" class="headerlink" title="2. linux版本"></a>2. linux版本</h1><p>centos7</p>
-<h1 id="3-安装jdk"><a href="#3-安装jdk" class="headerlink" title="3. 安装jdk"></a>3. 安装jdk</h1><h1 id="4-安装ant"><a href="#4-安装ant" class="headerlink" title="4. 安装ant"></a>4. 安装ant</h1><h2 id="4-1-下载"><a href="#4-1-下载" class="headerlink" title="4.1. 下载"></a>4.1. 下载</h2><p><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">ant官网下载</a><a href="http://ant.apache.org/bindownload.cgi" target="_blank" rel="external">http://ant.apache.org/bindownload.cgi</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache-ant-1.9.9-bin.tar.gz</div></pre></td></tr></table></figure></p>
-<h2 id="4-2-解压-重命名"><a href="#4-2-解压-重命名" class="headerlink" title="4.2. 解压 重命名"></a>4.2. 解压 重命名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unzip apache-ant-1.9.9-bin.tar.gz</div><div class="line">mv apache-ant-1.9.9 ant</div></pre></td></tr></table></figure>
-<h2 id="4-3-配置环境变量"><a href="#4-3-配置环境变量" class="headerlink" title="4.3. 配置环境变量"></a>4.3. 配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile </div><div class="line">在文件后加入 </div><div class="line">export ANT_HOME=/usr/local/ant </div><div class="line">export PATH=$ANT_HOME/bin:$PATH</div></pre></td></tr></table></figure>
-<h2 id="4-4-刷新环境变量"><a href="#4-4-刷新环境变量" class="headerlink" title="4.4. 刷新环境变量"></a>4.4. 刷新环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
-<h1 id="5-安装OpenCV"><a href="#5-安装OpenCV" class="headerlink" title="5. 安装OpenCV"></a>5. 安装OpenCV</h1><h2 id="5-1-安装OpenCV依赖库"><a href="#5-1-安装OpenCV依赖库" class="headerlink" title="5.1. 安装OpenCV依赖库"></a>5.1. 安装OpenCV依赖库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y build-essential gcc gcc-c++ cmake git pkgconfig gtk+-devel gtk2-devel python python-pip python-devel</div></pre></td></tr></table></figure>
-<h2 id="5-2-下载"><a href="#5-2-下载" class="headerlink" title="5.2. 下载"></a>5.2. 下载</h2><p>可以到<a href="https://opencv.org/releases.html" target="_blank" rel="external">官网</a>下载 选择对应版本，我这里是3.3.1<br><a href="https://opencv.org/releases.html" target="_blank" rel="external">https://opencv.org/releases.html</a></p>
-<h2 id="5-3-解压"><a href="#5-3-解压" class="headerlink" title="5.3. 解压"></a>5.3. 解压</h2><p>先解压,解压后进入目录,创建build目录,进入build目录,准备预编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">unzip opencv-3.3.1.zip</div><div class="line">cd opencv-3.3.1 </div><div class="line">mkdir build &amp;&amp; cd build/</div></pre></td></tr></table></figure></p>
-<h2 id="5-4-预编译"><a href="#5-4-预编译" class="headerlink" title="5.4. 预编译"></a>5.4. 预编译</h2><p>通过cmake命令预先编译一次,编译完成后查看输出结果, 在<figure class="highlight plain"><figcaption><span>be built```里包含java这一项就表示预编译成功</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DCMAKE_INSTALL_PREFIX=/usr/local ..</div></pre></td></tr></table></figure></p>
-<p>可能会卡在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-- IPPICV: Download: ippicv_2017u3_lnx_intel64_general_20170822.tgz</div></pre></td></tr></table></figure></p>
-<p>这个文件比较大,下载时间长一点,不要着急</p>
-<h2 id="5-5-编译"><a href="#5-5-编译" class="headerlink" title="5.5. 编译"></a>5.5. 编译</h2><p>cmake完成后，在build目录直接输入make进行编译，如果服务器CPU核数比较多，可以在make后加入-j8 使用8个线程同时进行编译，加快编译速度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make -j2</div></pre></td></tr></table></figure></p>
-<p>关于下面这个异常，我编译的时候并没有出现，记录一下，备用。</p>
-<p>编译过程可能出现异常，提示：</p>
-<p>/usr/include/jasper/jas_math.h:117:22: error: ‘SIZE_MAX’ was not declared in this scope</p>
-<p>出现这个异常，不要慌，可以通过修改/usr/include/jasper/jas_math.h 文件源码解决。<br>在/usr/include/jasper/jas_math.h 的头部#include 的下面添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#if ! defined SIZE_MAX </div><div class="line">#define SIZE_MAX (4294967295U) </div><div class="line">#endif</div></pre></td></tr></table></figure></p>
-<p>然后重新编译就可以了。如果不行，请删除build目录下的内容，重新预编译、编译就应该没问题了</p>
-<h2 id="5-6-安装"><a href="#5-6-安装" class="headerlink" title="5.6. 安装"></a>5.6. 安装</h2><p>编译完成，就可以进行安装，安装过程是生成opencv对应的库文件，我这里是java项目需要用到，所以也会顺便生成java相关的库文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure></p>
-<p>命令执行完成，会在结果中看到/usr/local/share/OpenCV/java/目录生成了两个java相关的依赖库文件 opencv-331.jar 和 libopencv_java331.so ， 当然，每个人的环境不同，可能目录也不同，具体看日志输出就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@opencv java]# ll /usr/local/share/OpenCV/java</div><div class="line">总用量 72012</div><div class="line">-rwxr-xr-x 1 root root 73320721 11月  8 14:05 libopencv_java331.so</div><div class="line">-rw-r--r-- 1 root root   414381 11月  8 10:03 opencv-331.jar</div></pre></td></tr></table></figure></p>
-<h1 id="6-参考链接"><a href="#6-参考链接" class="headerlink" title="6. 参考链接"></a>6. 参考链接</h1><ul>
-<li><a href="https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html" target="_blank" rel="external">opencv官方文档 Installation in Linux</a></li>
-<li><a href="http://blog.csdn.net/chwshuang/article/details/78208273?locationNum=9&amp;fps=1" target="_blank" rel="external">CentOS6 - Linux下安装OpenCV</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux下安装opencv java &lt;/p&gt;
-&lt;h1 id=&quot;1-说明&quot;&gt;&lt;a href=&quot;#1-说明&quot; class=&quot;headerlink&quot; title=&quot;1. 说明&quot;&gt;&lt;/a&gt;1. 说明&lt;/h1&gt;&lt;p&gt;在正式环境安装的时候安装opencv时候一直编译失败，缺少文件，
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="opencv" scheme="https://blog.signalfire2017.com/tags/opencv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tomcat+idea远程调试</title>
-    <link href="https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/tomcat+idea%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"/>
-    <id>https://blog.signalfire2017.com/2018/01/24/杂记/tomcat+idea远程调试/</id>
-    <published>2018-01-24T07:03:02.000Z</published>
-    <updated>2018-02-06T07:48:07.398Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-测试的web项目"><a href="#1-测试的web项目" class="headerlink" title="1. 测试的web项目"></a>1. 测试的web项目</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.signalfire.servlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletResponse;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Created by jk on 2017/12/12.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</div><div class="line">        System.out.println(<span class="string">"111111111111111111"</span>);</div><div class="line">        resp.getWriter().write(<span class="string">"hello baby"</span>);</div><div class="line">        resp.getWriter().flush();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE web-app PUBLIC</span></div><div class="line"><span class="meta"> "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span></div><div class="line"><span class="meta"> "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.signalfire.servlet.HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
-<h1 id="2-tomcat"><a href="#2-tomcat" class="headerlink" title="2. tomcat"></a>2. tomcat</h1><ul>
-<li>打war包部署到tomcat中</li>
-<li>使用默认配置启动tomcat调试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@mytest bin]# ./catalina.sh jpda start</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>默认情况下，远程调试的默认端口为8000，可以通过JPDA_ADDRESS进行配置，指定自定义的端口，另外，还有两个可以配置的参数</p>
-<ul>
-<li>JPDA_TRANSPORT：即调试器和虚拟机之间数据的传输方式，默认值是dt_socket</li>
-<li>JPDA_SUSPEND：即JVM启动后是否立即挂起，默认是n<br>可以在catalina.sh中进行配置：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">JPDA_TRANSPORT=dt_socket  </div><div class="line">JPDA_ADDRESS=5005  </div><div class="line">JPAD_SUSPEND=n</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="3-idea配置远程调试"><a href="#3-idea配置远程调试" class="headerlink" title="3. idea配置远程调试"></a>3. idea配置远程调试</h1><h2 id="3-1-配置"><a href="#3-1-配置" class="headerlink" title="3.1. 配置"></a>3.1. 配置</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104020.png" alt="tomcat+idea远程调试-20171213104020"><br><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-2017121310403.png" alt="tomcat+idea远程调试-2017121310403">  </p>
-<h2 id="3-2-debug启动"><a href="#3-2-debug启动" class="headerlink" title="3.2. debug启动"></a>3.2. debug启动</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104146.png" alt="tomcat+idea远程调试-20171213104146"></p>
-<h2 id="3-3-结果"><a href="#3-3-结果" class="headerlink" title="3.3. 结果"></a>3.3. 结果</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104437.png" alt="tomcat+idea远程调试-20171213104437"></p>
-<p><img src="http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104256.png" alt="tomcat+idea远程调试-20171213104256"></p>
-<h1 id="4-调试java程序"><a href="#4-调试java程序" class="headerlink" title="4. 调试java程序"></a>4. 调试java程序</h1><p>在远程服务器上java启动参赛要加上调试的参数：<br>“-Xdebug -Xrunjdwp:transport=dt_socket,address=2345,server=y,suspend=n”</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1-测试的web项目&quot;&gt;&lt;a href=&quot;#1-测试的web项目&quot; class=&quot;headerlink&quot; title=&quot;1. 测试的web项目&quot;&gt;&lt;/a&gt;1. 测试的web项目&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;
-    
-    </summary>
-    
-      <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="idea" scheme="https://blog.signalfire2017.com/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务框架与实战-笔记03-开始使用SpringCloud实战微服务</title>
-    <link href="https://blog.signalfire2017.com/2018/01/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B003-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8SpringCloud%E5%AE%9E%E6%88%98%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    <id>https://blog.signalfire2017.com/2018/01/21/微服务/微服务框架与实战-笔记03-开始使用SpringCloud实战微服务/</id>
-    <published>2018-01-21T15:50:00.000Z</published>
-    <updated>2018-02-06T07:52:53.953Z</updated>
-    
-    <content type="html"><![CDATA[<p>配套代码</p>
-<ul>
-<li><a href="http://www.broadview.com.cn/book/4774" target="_blank" rel="external">http://www.broadview.com.cn/book/4774</a>  可以去勘误等</li>
-<li>1-11 章配套代码：<br><a href="https://github.com/itmuch/spring-cloud-docker-microservice-book-code" target="_blank" rel="external">https://github.com/itmuch/spring-cloud-docker-microservice-book-code</a></li>
-<li>12-14 章配套代码：<br><a href="https://github.com/itmuch/spring-cloud-docker-microservice-book-code-docker" target="_blank" rel="external">https://github.com/itmuch/spring-cloud-docker-microservice-book-code-docker</a></li>
-</ul>
-<h1 id="1-实战前提"><a href="#1-实战前提" class="headerlink" title="1. 实战前提"></a>1. 实战前提</h1><h2 id="1-1-技术储备"><a href="#1-1-技术储备" class="headerlink" title="1.1. 技术储备"></a>1.1. 技术储备</h2><ul>
-<li>语言基础：java或scala、Groovy</li>
-<li>spring boot ：</li>
-<li>项目管理和构建工具：maven gradle （可以相互转换）<h2 id="1-2-工具及软件版本"><a href="#1-2-工具及软件版本" class="headerlink" title="1.2. 工具及软件版本"></a>1.2. 工具及软件版本</h2></li>
-<li>JKD：官方建议1.8，也可以用1.7</li>
-<li>springboot： 书中使用1.4.5.RELEASE</li>
-<li>springCloud：Camden SR4</li>
-<li>IDE：Spring Tool suite 3.8.3 基于eclipse的IDE ，idea</li>
-<li>maven：3.3.9 （3.3.x运行在JDK1.8以上）<br>降低学习成本的重要方法之一:<code>少踩坑</code><h1 id="2-服务提供者、服务消费者"><a href="#2-服务提供者、服务消费者" class="headerlink" title="2. 服务提供者、服务消费者"></a>2. 服务提供者、服务消费者</h1>描述微服务之间的调用关系<br>服务提供者：被调用方<br>服务消费者：调用方<h1 id="3-编写服务提供者"><a href="#3-编写服务提供者" class="headerlink" title="3. 编写服务提供者"></a>3. 编写服务提供者</h1>Spring Data JPA作为持久层框架，H2作为数据库<h2 id="3-1-编写项目"><a href="#3-1-编写项目" class="headerlink" title="3.1. 编写项目"></a>3.1. 编写项目</h2>自己下载代码看吧，microservice-simple-provider-user<h3 id="3-1-1-pom-xml"><a href="#3-1-1-pom-xml" class="headerlink" title="3.1.1. pom.xml"></a>3.1.1. pom.xml</h3><code>spring-boot-starter-web</code>：springMVC支持<br><code>spring-boot-starter-data-jpa</code>：Spring Data JPA支持<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itmuch.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>microservice-simple-provider-user<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 引入spring boot的依赖 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">parent</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.3.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.h2database<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 引入spring cloud的依赖 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>Camden.SR4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- 添加spring-boot的maven插件 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-1-2-classpath下schema-sql-建表语句"><a href="#3-1-2-classpath下schema-sql-建表语句" class="headerlink" title="3.1.2. classpath下schema.sql 建表语句"></a>3.1.2. classpath下schema.sql 建表语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">if</span> <span class="keyword">exists</span>;</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span> (<span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">generated</span> <span class="keyword">by</span> <span class="keyword">default</span> <span class="keyword">as</span> <span class="keyword">identity</span>, username <span class="built_in">varchar</span>(<span class="number">40</span>), <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>), age <span class="built_in">int</span>(<span class="number">3</span>), balance <span class="built_in">decimal</span>(<span class="number">10</span>,<span class="number">2</span>), primary <span class="keyword">key</span> (<span class="keyword">id</span>));</div></pre></td></tr></table></figure>
-<h3 id="3-1-3-classpath下data-sql"><a href="#3-1-3-classpath下data-sql" class="headerlink" title="3.1.3. classpath下data.sql"></a>3.1.3. classpath下data.sql</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> (<span class="keyword">id</span>, username, <span class="keyword">name</span>, age, balance) <span class="keyword">values</span> (<span class="number">1</span>, <span class="string">'account1'</span>, <span class="string">'张三'</span>, <span class="number">20</span>, <span class="number">100.00</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> (<span class="keyword">id</span>, username, <span class="keyword">name</span>, age, balance) <span class="keyword">values</span> (<span class="number">2</span>, <span class="string">'account2'</span>, <span class="string">'李四'</span>, <span class="number">28</span>, <span class="number">180.00</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span> (<span class="keyword">id</span>, username, <span class="keyword">name</span>, age, balance) <span class="keyword">values</span> (<span class="number">3</span>, <span class="string">'account3'</span>, <span class="string">'王五'</span>, <span class="number">32</span>, <span class="number">280.00</span>);</div></pre></td></tr></table></figure>
-<h3 id="3-1-4-用户实体类"><a href="#3-1-4-用户实体类" class="headerlink" title="3.1.4. 用户实体类"></a>3.1.4. 用户实体类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.itmuch.cloud.study.entity;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.math.BigDecimal;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.persistence.Column;</div><div class="line"><span class="keyword">import</span> javax.persistence.Entity;</div><div class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</div><div class="line"><span class="keyword">import</span> javax.persistence.GenerationType;</div><div class="line"><span class="keyword">import</span> javax.persistence.Id;</div><div class="line"></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  <span class="meta">@Id</span></div><div class="line">  <span class="meta">@GeneratedValue</span>(strategy = GenerationType.AUTO)</div><div class="line">  <span class="keyword">private</span> Long id;</div><div class="line">  <span class="meta">@Column</span></div><div class="line">  <span class="keyword">private</span> String username;</div><div class="line">  <span class="meta">@Column</span></div><div class="line">  <span class="keyword">private</span> String name;</div><div class="line">  <span class="meta">@Column</span></div><div class="line">  <span class="keyword">private</span> Integer age;</div><div class="line">  <span class="meta">@Column</span></div><div class="line">  <span class="keyword">private</span> BigDecimal balance;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.id;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.id = id;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.username;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.username = username;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> BigDecimal <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.balance;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBalance</span><span class="params">(BigDecimal balance)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.balance = balance;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-2-DAO"><a href="#3-2-DAO" class="headerlink" title="3.2. DAO"></a>3.2. DAO</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.itmuch.cloud.study.repository;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.JpaRepository;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.itmuch.cloud.study.entity.User;</div><div class="line"></div><div class="line"><span class="meta">@Repository</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-3-controller"><a href="#3-3-controller" class="headerlink" title="3.3. controller"></a>3.3. controller</h2><p><code>@GetMapping</code> Spring4.3新注解。组合注解，等价 @RequestMapping(method=RequestMethod.GET)<br>还有<code>@PostMapping</code>、<code>@PutMapping</code>、<code>@DeleteMapping</code>、<code>@PatchMapping</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.itmuch.cloud.study.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.itmuch.cloud.study.entity.User;</div><div class="line"><span class="keyword">import</span> com.itmuch.cloud.study.repository.UserRepository;</div><div class="line"></div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</div><div class="line">  <span class="meta">@Autowired</span></div><div class="line">  <span class="keyword">private</span> UserRepository userRepository;</div><div class="line"></div><div class="line">  <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</div><div class="line">  <span class="function"><span class="keyword">public</span> User <span class="title">findById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</div><div class="line">    User findOne = <span class="keyword">this</span>.userRepository.findOne(id);</div><div class="line">    <span class="keyword">return</span> findOne;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="3-4-启动类"><a href="#3-4-启动类" class="headerlink" title="3.4. 启动类"></a>3.4. 启动类</h2><p><code>@SpringBootApplication</code> </p>
-<ul>
-<li>声明是一个Spring boot项目</li>
-<li>组合注解，整合了@Configuration、@EnableAutoConfiguration、@ComponentScan</li>
-<li>并开启了SpringBoot组件扫描和自动配置功能<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.itmuch.cloud.study;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</div><div class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderUserApplication</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    SpringApplication.run(ProviderUserApplication.class, args);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="3-5-配置文件-application-yml"><a href="#3-5-配置文件-application-yml" class="headerlink" title="3.5. 配置文件 application.yml"></a>3.5. 配置文件 application.yml</h2><p>SpringCloud、SpringBoot支持<code>properties</code>或者<code>yml格式</code>文件作为<code>配置文件</code><br><code>yml文件格式</code>：YAML（Yet Another Markup Language）编写的文件格式。<br>YAML和properties格式文件可以互相转换。<br>yml文件有<code>严格的缩进</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="attr">server:</span></div><div class="line"><span class="attr">  port:</span> <span class="number">8000</span></div><div class="line"><span class="attr">spring:</span></div><div class="line"><span class="attr">  jpa:</span></div><div class="line"><span class="attr">    generate-ddl:</span> <span class="literal">false</span></div><div class="line"><span class="attr">    show-sql:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    hibernate:</span></div><div class="line"><span class="attr">      ddl-auto:</span> <span class="string">none</span></div><div class="line"><span class="attr">  datasource:</span>                           <span class="comment"># 指定数据源</span></div><div class="line"><span class="attr">    platform:</span> <span class="string">h2</span>                        <span class="comment"># 指定数据源类型</span></div><div class="line"><span class="attr">    schema:</span> <span class="attr">classpath:schema.sql</span>        <span class="comment"># 指定h2数据库的建表脚本</span></div><div class="line"><span class="attr">    data:</span> <span class="attr">classpath:data.sql</span>            <span class="comment"># 指定h2数据库的数据脚本</span></div><div class="line"><span class="attr">logging:</span>                                <span class="comment"># 配置日志级别，让hibernate打印出执行的SQL</span></div><div class="line"><span class="attr">  level:</span></div><div class="line"><span class="attr">    root:</span> <span class="string">INFO</span></div><div class="line">    <span class="string">org.hibernate:</span> <span class="string">INFO</span></div><div class="line">    <span class="string">org.hibernate.type.descriptor.sql.BasicBinder:</span> <span class="string">TRACE</span></div><div class="line">    <span class="string">org.hibernate.type.descriptor.sql.BasicExtractor:</span> <span class="string">TRACE</span></div><div class="line">    </div><div class="line"><span class="comment">## INFO</span></div><div class="line"><span class="attr">info:</span> </div><div class="line"><span class="attr">  app:</span> </div><div class="line"><span class="attr">    name:</span> <span class="string">@project.artifactId@</span></div><div class="line"><span class="attr">    encoding:</span> <span class="string">@project.build.sourceEncoding@</span></div><div class="line"><span class="attr">    java:</span></div><div class="line"><span class="attr">      source:</span> <span class="string">@java.version@</span></div><div class="line"><span class="attr">      target:</span> <span class="string">@java.version@</span></div></pre></td></tr></table></figure></p>
-<p>测试：<a href="http://localhost:8000/1" target="_blank" rel="external">http://localhost:8000/1</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;配套代码&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.broadview.com.cn/book/4774&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.broadview.com.cn/book/4774&lt;/a
-    
-    </summary>
-    
-      <category term="微服务学习" scheme="https://blog.signalfire2017.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="微服务" scheme="https://blog.signalfire2017.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务框架与实战-总体概览</title>
-    <link href="https://blog.signalfire2017.com/2018/01/21/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%80%BB%E4%BD%93%E6%A6%82%E8%A7%88/"/>
-    <id>https://blog.signalfire2017.com/2018/01/21/微服务/微服务框架与实战-总体概览/</id>
-    <published>2018-01-21T15:49:54.000Z</published>
-    <updated>2018-02-06T07:52:42.880Z</updated>
-    
-    <content type="html"><![CDATA[<p>这本书整体的看了一遍，具体细节还没有实践。先做个骨架，用的时候再丰富下。书中按照下面的顺序进行整合。<br><a id="more"></a></p>
-<style>
-table th:first-of-type {
-    width: 15px;
-}
-
-table th:nth-of-type(2) {
-    width: 20%;
-}
-
-table th:nth-of-type(3) {
-    width: 30%;
-}
-</style>
-
-<table>
-<thead>
-<tr>
-<th>章</th>
-<th>组件</th>
-<th>功能</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> 3</td>
-<td>spring-boot</td>
-<td>基础业务开发</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>spring-boot-actuator</td>
-<td>提供很多监控端点</td>
-<td></td>
-</tr>
-<tr>
-<td> 4</td>
-<td>Eureka</td>
-<td>服务的注册与发现</td>
-<td>集成于spring-cloud-netflix <br>是Netflix开源的服务发现组件<br>基于REST的服务<br>相似组件： Zookeeper，Consul</td>
-</tr>
-<tr>
-<td> 5</td>
-<td>Ribbon</td>
-<td>客户端测负载均衡</td>
-<td>Netflix发布的负载均衡器<br>有助于控制HTTP和TCP客户端的行为。</td>
-</tr>
-<tr>
-<td></td>
-<td>Feign</td>
-<td>实现声明式REST调用</td>
-<td>Netflix开发的声明式、模板化的HTTP客户端。</td>
-</tr>
-<tr>
-<td></td>
-<td>Hystrix</td>
-<td>服务容错处理</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Turbine</td>
-<td>聚合Hystrix监控数据的工具</td>
-<td>将所有相关 /hystrix.stream 端点的数据聚合到一个聚合的/turbine.stream中<br>让集群的监控更加方便</td>
-</tr>
-<tr>
-<td></td>
-<td>RabbitMQ</td>
-<td>消息中间件</td>
-<td>解决网络故障问题（例如微服务与Turbine网络不通）</td>
-</tr>
-<tr>
-<td> 8</td>
-<td>Zuul</td>
-<td>构建微服务网关</td>
-<td>Netflix开源的微服务网关<br>可以和Eureka、Ribbon、Hystrix等组件配合使用<br>核心是一系列的过滤器</td>
-</tr>
-<tr>
-<td></td>
-<td>Sidecar</td>
-<td>整合非JVM微服务</td>
-<td></td>
-</tr>
-<tr>
-<td> 9</td>
-<td>spring-cloud-Config</td>
-<td>统一管理微服务配置</td>
-<td></td>
-</tr>
-<tr>
-<td> 10</td>
-<td>spring-cloud-sleuth</td>
-<td>微服务跟踪</td>
-<td>分布式跟踪的解决方案</td>
-</tr>
-<tr>
-<td></td>
-<td>ELK</td>
-<td>日志分析系统</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Zipkin</td>
-<td>Twitter开源的分布式跟踪系统</td>
-<td>可与Sleuth配合使用<br>收集系统的时序数据<br>追踪微服务框架的系统延时等问题<br>提供友好的界面，帮助分析追踪数据。</td>
-</tr>
-<tr>
-<td> 12</td>
-<td>Docker</td>
-<td>开源容器引擎<br>有助于更快地交付应用</td>
-<td>可将应用程序和基础设施层隔离<br>能将基础设置当做程序一样进行管理<br>可更快地打包、测试以及部署应用程序<br>缩短从编写到部署运行代码的周期</td>
-</tr>
-<tr>
-<td> 14</td>
-<td>Docker Compose</td>
-<td>编排微服务</td>
-<td>用于定义和运行多容器Docker应用程序的工具<br>前身是Fig<br>非常适合用在开发、测试、构建CI工作流等场景</td>
-</tr>
-</tbody>
-</table>
-<p>雪崩效应：</p>
-<ul>
-<li>我们常把 “基础服务故障” 导致 “级联故障” 的现象成为雪崩效应。</li>
-<li>描述的是提供者不可用导致消费者不可用，并将不可用逐渐放大的过程。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这本书整体的看了一遍，具体细节还没有实践。先做个骨架，用的时候再丰富下。书中按照下面的顺序进行整合。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="微服务学习" scheme="https://blog.signalfire2017.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="微服务" scheme="https://blog.signalfire2017.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务框架与实战-笔记02-微服务开发框架-SpringCloud</title>
-    <link href="https://blog.signalfire2017.com/2018/01/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B002-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6-SpringCloud/"/>
-    <id>https://blog.signalfire2017.com/2018/01/09/微服务/微服务框架与实战-笔记02-微服务开发框架-SpringCloud/</id>
-    <published>2018-01-09T15:12:17.000Z</published>
-    <updated>2018-02-06T07:52:49.037Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-Spring-Cloud-简介"><a href="#1-Spring-Cloud-简介" class="headerlink" title="1. Spring Cloud 简介"></a>1. Spring Cloud 简介</h1><ul>
-<li>在SpringBoot基础上构建的，用于快速构建分布式系统的通用模式工具集。</li>
-<li>程序适合在Docker或者PaaS上部署。 所以又叫<code>云原生应用</code>（Cloud Native Application）。</li>
-<li><code>云原生</code>（CloudNative）可简单理解为面向云环境的软件架构。<h1 id="2-Spring-Cloud-特点"><a href="#2-Spring-Cloud-特点" class="headerlink" title="2. Spring Cloud 特点"></a>2. Spring Cloud 特点</h1></li>
-<li>约定优于配置</li>
-<li>适用于各种环境</li>
-<li>隐藏了组件的复杂性，并提供声明式、无xml的配置方式</li>
-<li>开箱即用、快速启动</li>
-<li>轻量级组件</li>
-<li>组件丰富，功能齐全。如 配置管理，服务发现，断路器，微服务网关等</li>
-<li>选型中立、丰富。例如：支持使用Eureka、Zookeeper、Consul实现服务发现。</li>
-<li>灵活。组成部分解耦，可按需挑选技术选型。<h1 id="3-版本"><a href="#3-版本" class="headerlink" title="3. 版本"></a>3. 版本</h1>Spring项目一般以下面这种方式命名，但<code>SpringCloud</code>并<code>没有</code>使用这种方式。可以略过。<br>主版本号.次版本号.增量版本号.里程碑版本号<br>例如：4.3.5.RELEASE</li>
-<li>主版本号：项目重大重构</li>
-<li>次版本号：新特性的添加和变化</li>
-<li>增量版本号：一般表示BUG修复</li>
-<li>里程碑版本号：某个版本号的里程碑<h2 id="3-1-版本简介"><a href="#3-1-版本简介" class="headerlink" title="3.1. 版本简介"></a>3.1. 版本简介</h2><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181923037.png" alt="20181923037"><br>命名方式：英文单词SRX（x为数字）<br>英文单词：release train<br>SR：service release bug修复</li>
-</ul>
-<p>Dalston SR5 表示Dalston 第5次bug修复版本</p>
-<p><a href="https://github.com/spring-cloud/spring-cloud-release/releases" target="_blank" rel="external">https://github.com/spring-cloud/spring-cloud-release/releases</a> 版本发布</p>
-<h2 id="3-2-子项目一览"><a href="#3-2-子项目一览" class="headerlink" title="3.2. 子项目一览"></a>3.2. 子项目一览</h2><table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Camden.SR7</th>
-<th>Dalston.SR4</th>
-<th>Edgware.RELEASE</th>
-<th>Finchley.M4</th>
-<th>Finchley.BUILD-SNAPSHOT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>spring-cloud-aws</td>
-<td>1.1.4.RELEASE</td>
-<td>1.2.1.RELEASE</td>
-<td>1.2.2.RELEASE</td>
-<td>2.0.0.M2</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-bus</td>
-<td>1.2.2.RELEASE</td>
-<td>1.3.1.RELEASE</td>
-<td>1.3.2.RELEASE</td>
-<td>2.0.0.M3</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-cli</td>
-<td>1.2.4.RELEASE</td>
-<td>1.3.4.RELEASE</td>
-<td>1.4.0.RELEASE</td>
-<td>2.0.0.M1</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-commons</td>
-<td>1.1.9.RELEASE</td>
-<td>1.2.4.RELEASE</td>
-<td>1.3.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-contract</td>
-<td>1.0.5.RELEASE</td>
-<td>1.1.4.RELEASE</td>
-<td>1.2.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-config</td>
-<td>1.2.3.RELEASE</td>
-<td>1.3.3.RELEASE</td>
-<td>1.4.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-netflix</td>
-<td>1.2.7.RELEASE</td>
-<td>1.3.5.RELEASE</td>
-<td>1.4.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-security</td>
-<td>1.1.4.RELEASE</td>
-<td>1.2.1.RELEASE</td>
-<td>1.2.1.RELEASE</td>
-<td>2.0.0.M1</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-cloudfoundry</td>
-<td>1.0.1.RELEASE</td>
-<td>1.1.0.RELEASE</td>
-<td>1.1.0.RELEASE</td>
-<td>2.0.0.M1</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-consul</td>
-<td>1.1.4.RELEASE</td>
-<td>1.2.1.RELEASE</td>
-<td>1.3.0.RELEASE</td>
-<td>2.0.0.M3</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-sleuth</td>
-<td>1.1.3.RELEASE</td>
-<td>1.2.5.RELEASE</td>
-<td>1.3.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-stream</td>
-<td>Brooklyn.SR3</td>
-<td>Chelsea.SR2</td>
-<td>Ditmars.RELEASE</td>
-<td>Elmhurst.M3</td>
-<td>Elmhurst.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-zookeeper</td>
-<td>1.0.4.RELEASE</td>
-<td>1.1.2.RELEASE</td>
-<td>1.2.0.RELEASE</td>
-<td>2.0.0.M3</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-boot</td>
-<td>1.4.5.RELEASE</td>
-<td>1.5.4.RELEASE</td>
-<td>1.5.8.RELEASE</td>
-<td>2.0.0.M6</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-task</td>
-<td>1.0.3.RELEASE</td>
-<td>1.1.2.RELEASE</td>
-<td>1.2.2.RELEASE</td>
-<td>2.0.0.M2</td>
-<td>2.0.0.RELEASE</td>
-</tr>
-<tr>
-<td>spring-cloud-vault</td>
-<td></td>
-<td>1.0.2.RELEASE</td>
-<td>1.1.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-<tr>
-<td>spring-cloud-gateway</td>
-<td></td>
-<td></td>
-<td>1.0.0.RELEASE</td>
-<td>2.0.0.M4</td>
-<td>2.0.0.BUILD-SNAPSHOT</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-3-spring-cloud-spring-boot-版本兼容性"><a href="#3-3-spring-cloud-spring-boot-版本兼容性" class="headerlink" title="3.3. spring cloud / spring boot 版本兼容性"></a>3.3. spring cloud / spring boot 版本兼容性</h2><ul>
-<li>Finchley使用Spring Boot 2.0.x构建和运行，并且不希望与Spring Boot 1.5.x一起使用。</li>
-<li>Dalston和Edgware发行版建立在Spring Boot 1.5.x之上，并且不希望与Spring Boot 2.0.x一起使用。</li>
-<li>Camden发行版基于Spring Boot 1.4.x，但也使用1.5.x进行测试。</li>
-</ul>
-<p><a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="external">http://projects.spring.io/spring-cloud/</a> 更具体的额可以看这里</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;1-Spring-Cloud-简介&quot;&gt;&lt;a href=&quot;#1-Spring-Cloud-简介&quot; class=&quot;headerlink&quot; title=&quot;1. Spring Cloud 简介&quot;&gt;&lt;/a&gt;1. Spring Cloud 简介&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;在S
-    
-    </summary>
-    
-      <category term="微服务学习" scheme="https://blog.signalfire2017.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="微服务" scheme="https://blog.signalfire2017.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
