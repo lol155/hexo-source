@@ -24,16 +24,16 @@ next5.0+版本集成了algolia 这样使配置algolia更简单
 * 直接用github账号注册就好啦
 * 创建index空间 输入一个名称,填写你自己站点的网址
 
-![1](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220402.jpg)
+![1](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220402.jpg)
 * 创建两个key   
     1. 空间创建好后默认会有一个只有搜索权限的key  
     2. 需要另建一个有修改记录等权限的key(这个供我们提交索引到空间使用)  
     3. 创建key的时候要选择授权的空间
 
-![3](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220635.jpg)
-![2](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220735.jpg)
-![4](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220846.jpg)
-![5](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220920.jpg)
+![3](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220635.jpg)
+![2](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220735.jpg)
+![4](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220846.jpg)
+![5](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030220920.jpg)
 * 记录  
     1. Application ID  
     2. 两个key建
@@ -59,14 +59,14 @@ next5.0+版本集成了algolia 这样使配置algolia更简单
 
     搜索 algolia_search 修改enable 为true  
     其他字体提示可以自己随意修改
-![2](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030223530.jpg)
+![2](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030223530.jpg)
 # 6. 添加环境变量
 我的电脑>右键属性>高级设置>环境变量>新建>填写变量名称和变量值
 
     变量名称 : HEXO_ALGOLIA_INDEXING_KEY
     变量值: 在algolia新建的有修改权限的key
-![1](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222934.jpg)
-![2](http://ovasdkxqr.bkt.clouddn.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222951.jpg)
+![1](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222934.jpg)
+![2](http://blogimage.signalfire2017.com/hexo/QQ%E6%88%AA%E5%9B%BE20171030222951.jpg)
 # 7. 生成index上传到algolia
 在hexo根目录执行,**注意确保命令行面板已经重新载入新加的环境变量**
 ```java

@@ -105,13 +105,13 @@
 <meta property="og:site_name" content="名字待定">
 <meta property="og:description" content="1. java JMS技术1.1. 什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png">
-<meta property="og:updated_time" content="2018-02-06T07:49:47.616Z">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/201712315592.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/2017123155942.png">
+<meta property="og:updated_time" content="2018-12-21T07:12:11.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据0402-JMS activeMQ">
 <meta name="twitter:description" content="1. java JMS技术1.1. 什么是JMSJMS即Java消息服务（Java Message Service）应用程序接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。Java消息服务是一个与具体平台无关的API，绝大多数MOM提供商都对JMS提供支持。JMS是一种与厂商无关的 API，用来访问消息收发系统消息。它类似">
-<meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png">
+<meta name="twitter:image" content="http://blogimage.signalfire2017.com/image/blog/201712315592.png">
 
 
 
@@ -323,7 +323,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="signalFire">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+      <meta itemprop="image" content="http://blogimage.signalfire2017.com/common/head1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -419,13 +419,13 @@
 <li>JMS队列：一个容纳那些被发送的等待阅读的消息的区域。与队列名字所暗示的意思不同，消息的接受顺序并不一定要与消息的发送顺序相同。一旦一个消息被阅读，该消息将被从队列中移走。</li>
 <li>JMS主题：一种支持发送消息给多个订阅者的机制。</li>
 </ul>
-<h3 id="1-2-3-Java消息服务应用程序结构支持两种模型"><a href="#1-2-3-Java消息服务应用程序结构支持两种模型" class="headerlink" title="1.2.3. Java消息服务应用程序结构支持两种模型"></a>1.2.3. Java消息服务应用程序结构支持两种模型</h3><h4 id="1-2-3-1-点对点或队列模型"><a href="#1-2-3-1-点对点或队列模型" class="headerlink" title="1.2.3.1. 点对点或队列模型"></a>1.2.3.1. 点对点或队列模型</h4><p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712315592.png" alt="201712315592"><br>这种模式被概括为：  </p>
+<h3 id="1-2-3-Java消息服务应用程序结构支持两种模型"><a href="#1-2-3-Java消息服务应用程序结构支持两种模型" class="headerlink" title="1.2.3. Java消息服务应用程序结构支持两种模型"></a>1.2.3. Java消息服务应用程序结构支持两种模型</h3><h4 id="1-2-3-1-点对点或队列模型"><a href="#1-2-3-1-点对点或队列模型" class="headerlink" title="1.2.3.1. 点对点或队列模型"></a>1.2.3.1. 点对点或队列模型</h4><p>在点对点或队列模型下，一个生产者向一个特定的队列发布消息，一个消费者从该队列中读取消息。这里，生产者知道消费者的队列，并直接将消息发送到消费者的队列。<br><img src="http://blogimage.signalfire2017.com/image/blog/201712315592.png" alt="201712315592"><br>这种模式被概括为：  </p>
 <ul>
 <li>只有一个消费者将获得消息</li>
 <li>生产者不需要在接收者消费该消息期间处于运行状态，接收者也同样不需要在消息发送时处于运行状态。</li>
 <li>每一个成功处理的消息都由接收者签收</li>
 </ul>
-<h4 id="1-2-3-2-发布者-订阅者模型"><a href="#1-2-3-2-发布者-订阅者模型" class="headerlink" title="1.2.3.2. 发布者/订阅者模型"></a>1.2.3.2. 发布者/订阅者模型</h4><p>发布者/订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017123155942.png" alt="2017123155942"><br>这种模式被概括为：</p>
+<h4 id="1-2-3-2-发布者-订阅者模型"><a href="#1-2-3-2-发布者-订阅者模型" class="headerlink" title="1.2.3.2. 发布者/订阅者模型"></a>1.2.3.2. 发布者/订阅者模型</h4><p>发布者/订阅者模型支持向一个特定的消息主题发布消息。0或多个订阅者可能对接收来自特定消息主题的消息感兴趣。在这种模型下，发布者和订阅者彼此不知道对方。这种模式好比是匿名公告板。<br><img src="http://blogimage.signalfire2017.com/image/blog/2017123155942.png" alt="2017123155942"><br>这种模式被概括为：</p>
 <ul>
 <li>多个消费者可以获得消息</li>
 <li>在发布者和订阅者之间存在时间依赖性。发布者需要建立一个订阅（subscription），以便客户能够订阅。订阅者必须保持持续的活动状态以接收消息，除非订阅者建立了持久的订阅。在那种情况下，在订阅者未连接时发布的消息将在订阅者重新连接时重新发布。</li>
@@ -571,7 +571,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
-              src="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg"
+              src="http://blogimage.signalfire2017.com/common/head1.jpg"
               alt="signalFire" />
           
             <p class="site-author-name" itemprop="name">signalFire</p>

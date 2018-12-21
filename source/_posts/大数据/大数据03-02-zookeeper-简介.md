@@ -30,10 +30,10 @@ zookeeper会用
 
 
 ## 3.1. zookeeper一些应用场景
-![20171118194439](http://ovasdkxqr.bkt.clouddn.com/image/blog/20171118194439.png)
+![20171118194439](http://blogimage.signalfire2017.com/image/blog/20171118194439.png)
 
 ## 3.2. 集群角色分配原理
-![20171118201716](http://ovasdkxqr.bkt.clouddn.com/image/blog/20171118201716.png)
+![20171118201716](http://blogimage.signalfire2017.com/image/blog/20171118201716.png)
 
 ## 3.3. 集群机制
 半数机制：集群中半数以上机器存活，集群可用。  

@@ -14,7 +14,7 @@ scaffolds:
 /var/log/messages
 ```
 然后通过进程ID 进行查询  ,或者 `oom-killer` 来查询
-![linux 程序down 问题排查-20171226102834](http://ovasdkxqr.bkt.clouddn.com/image/work/linux%20程序down%20问题排查-20171226102834.png)
+![linux 程序down 问题排查-20171226102834](http://blogimage.signalfire2017.com/image/work/linux%20程序down%20问题排查-20171226102834.png)
 
 ## 1.1. 内存不够
 可以配置虚拟内存,解决内存高峰时内存不够的问题.

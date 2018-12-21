@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2018-02-11T08:26:36.512Z</updated>
+  <updated>2018-12-21T03:20:31.028Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6-%E5%90%8D%E8%AF%8D/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约-名词/</id>
     <published>2018-02-11T09:59:39.000Z</published>
-    <updated>2018-02-11T08:26:36.512Z</updated>
+    <updated>2018-12-21T03:20:31.028Z</updated>
     
     <content type="html"><![CDATA[<h1 id="名词-10"><a href="#名词-10" class="headerlink" title="名词(10)"></a>名词(10)</h1><ol>
 <li>POJO（ Plain Ordinary Java Object） : 在本手册中， POJO 专指只有 setter / getter/ toString 的简单类，包括 DO/DTO/BO/VO 等。</li>
@@ -171,11 +171,11 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(1)-%E5%BA%94%E7%94%A8%E5%88%86%E5%B1%82/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(1)-应用分层/</id>
     <published>2018-02-11T09:59:35.000Z</published>
-    <updated>2018-02-11T08:24:40.362Z</updated>
+    <updated>2018-12-21T07:12:11.210Z</updated>
     
     <content type="html"><![CDATA[<h1 id="应用分层-3"><a href="#应用分层-3" class="headerlink" title="应用分层(3)"></a>应用分层(3)</h1><h2 id="强制-1"><a href="#强制-1" class="headerlink" title="强制(1)"></a>强制(1)</h2><ol>
 <li><p>【推荐】图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于Web 层，也可以直接依赖于 Service 层，依此类推：</p>
-<p> <img src="http://ovasdkxqr.bkt.clouddn.com/image/work/阿里java规约(六" alt="阿里java规约(六)-工程结构(1)-应用分层-201821116042">-工程结构(1)-应用分层-201821116042.png)</p>
+<p> <img src="http://blogimage.signalfire2017.com/image/work/阿里java规约(六" alt="阿里java规约(六)-工程结构(1)-应用分层-201821116042">-工程结构(1)-应用分层-201821116042.png)</p>
 <ul>
 <li>开放接口层：可直接封装 Service 方法暴露成 RPC 接口； 通过 Web 封装成 http 接口； 进行网关安全控制、 流量控制等。</li>
 <li>终端显示层：各个端的模板渲染并执行显示的层。 当前主要是 velocity 渲染， JS 渲染，JSP 渲染，移动端展示等。</li>

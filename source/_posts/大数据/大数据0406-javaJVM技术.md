@@ -17,9 +17,9 @@ scaffolds:
 ## 1.2. 启动方式
 `JDK/bin` 目录下 `jconsole.exe`将自动搜索出本机运行的所有JVM进程，不需要用户使用jps来查询了，双击其中一个进程即可开始监控。也可以“远程连接服务器，进行远程虚拟机的监控。”
 
-![2017125231152](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231152.png)
+![2017125231152](http://blogimage.signalfire2017.com/image/blog/2017125231152.png)
 
-![2017125231222](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231222.png)
+![2017125231222](http://blogimage.signalfire2017.com/image/blog/2017125231222.png)
 
 ## 1.3. jvisualvm
 提供了和jconsole的功能类似，提供了一大堆的插件。  
@@ -28,19 +28,19 @@ scaffolds:
 ## 2.1. 内存模型图解
 Java虚拟机在执行Java程序的过程中，会把它所管理的内存划分为若干个不同的数据区。这些区域有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有的区域则依赖用户线程的启动和结束而建立和销毁，我们可以将这些区域统称为Java运行时数据区域。  
 如下图是一个内存模型的关系图（详情见图：内存划分.png）：
-![2017125231537](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125231537.png)
+![2017125231537](http://blogimage.signalfire2017.com/image/blog/2017125231537.png)
 
 Java虚拟机运行时数据区域被分为五个区域：`堆(Heap)、栈(Stack)、本地方法栈(Native Stack)、方法区(Method Area)、程序计数器(Program Count Register)`。
-![2017125232329](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125232329.png)
+![2017125232329](http://blogimage.signalfire2017.com/image/blog/2017125232329.png)
 ## 2.2. 堆（Heap）
 对于大多数应用来说，`Java Heap`是Java虚拟机管理的内存的最大一块，这块区域`随着虚拟机的启动而创建`。在实际的运用中，我们创建的`对象`和`数组`就是存放在堆里面。如果你听说线程安全的问题，就会很明确的知道Java Heap是一块`共享的区域`，操作共享区域的成员就有了锁和同步。  
 与Java Heap相关的还有Java的垃圾回收机制（GC）,Java Heap是垃圾回收器管理的主要区域。程序猿所熟悉的`新生代`、`老生代`、`永久代`的概念就是在堆里面，现在大多数的GC基本都采用了`分代收集算法`。如果再细致一点，Java Heap还有`Eden空间`，`From Survivor空间`,`To Survivor空间`等。  
 Java Heap可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可。  
-![2017125233020](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125233020.png)
+![2017125233020](http://blogimage.signalfire2017.com/image/blog/2017125233020.png)
 
 ## 2.3. 栈（Stack）
 相对于Java Heap来讲，`Java Stack`是`线程私有`的，她的`生命周期与线程相同`。Java Stack描述的是Java方法执行时的内存模型，`每个方法执行时都会创建一个栈帧`（Stack Frame）用语存储局部变量表、操作数栈、动态链接、方法出口等信息。从下图从可以看到，每个线程在执行一个方法时，都意味着有一个栈帧在当前线程对应的栈帧中入栈和出栈。  
-![2017125233212](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125233212.png)
+![2017125233212](http://blogimage.signalfire2017.com/image/blog/2017125233212.png)
 
 图中可以看到每一个栈帧中都有局部变量表。局部变量表存放了编译期间的各种基本数据类型，对象引用等信息。
 
@@ -114,7 +114,7 @@ public class TestMemory {
 	}
 }
 ```
-![2017125234140](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234140.png)
+![2017125234140](http://blogimage.signalfire2017.com/image/blog/2017125234140.png)
 
 从图中可以看出，运行轨迹成曲线增长，循环1000次后，虽然整个新生代Eden和Survivor区都基本上被清空了，但是老年代仍然保持峰值状态，这说明，填充的数据在GC后仍然存活，因为list的作用域没有结束。如果把System.gc();移到fillHeap(1000);后，就可以全部回收掉。
 
@@ -216,8 +216,8 @@ public class TestDeadThread implements Runnable {
 ```
 点击检查死锁，会出现死锁的详情。
 
-![2017125234810](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234810.png)
+![2017125234810](http://blogimage.signalfire2017.com/image/blog/2017125234810.png)
 
-![2017125234928](http://ovasdkxqr.bkt.clouddn.com/image/blog/2017125234928.png)
+![2017125234928](http://blogimage.signalfire2017.com/image/blog/2017125234928.png)
 
 thread-5的锁被thread-10持有，相反亦是，造成死锁。

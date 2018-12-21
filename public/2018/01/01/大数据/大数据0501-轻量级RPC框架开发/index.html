@@ -105,17 +105,17 @@
 <meta property="og:site_name" content="名字待定">
 <meta property="og:description" content="1、掌握RPC原理2、掌握nio操作3、掌握netty简单的api4、掌握自定义RPC框架">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017127225741.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712723052.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png">
-<meta property="og:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png">
-<meta property="og:updated_time" content="2018-02-06T07:50:13.396Z">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/2017126231022.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/2017127225741.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/201712723052.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/2017126231155.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/20181115823.png">
+<meta property="og:image" content="http://blogimage.signalfire2017.com/image/blog/20181115919.png">
+<meta property="og:updated_time" content="2018-12-21T07:12:11.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据0501-轻量级RPC框架开发">
 <meta name="twitter:description" content="1、掌握RPC原理2、掌握nio操作3、掌握netty简单的api4、掌握自定义RPC框架">
-<meta name="twitter:image" content="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png">
+<meta name="twitter:image" content="http://blogimage.signalfire2017.com/image/blog/2017126231022.png">
 
 
 
@@ -327,7 +327,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="signalFire">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg">
+      <meta itemprop="image" content="http://blogimage.signalfire2017.com/common/head1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -413,7 +413,7 @@
       
         <p>1、掌握RPC原理<br>2、掌握nio操作<br>3、掌握netty简单的api<br>4、掌握自定义RPC框架<br><a id="more"></a></p>
 <h1 id="1-RPC原理"><a href="#1-RPC原理" class="headerlink" title="1. RPC原理"></a>1. RPC原理</h1><h2 id="1-1-什么是RPC"><a href="#1-1-什么是RPC" class="headerlink" title="1.1. 什么是RPC"></a>1.1. 什么是RPC</h2><p>RPC（Remote Procedure Call Protocol）——<code>远程过程调用协议</code>，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC协议假定某些传输协议的存在，如TCP或UDP，为通信程序之间携带信息数据。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC采用<code>客户机/服务器模式</code>。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
-<h2 id="1-2-RPC原理"><a href="#1-2-RPC原理" class="headerlink" title="1.2. RPC原理"></a>1.2. RPC原理</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231022.png" alt="2017126231022"></p>
+<h2 id="1-2-RPC原理"><a href="#1-2-RPC原理" class="headerlink" title="1.2. RPC原理"></a>1.2. RPC原理</h2><p><img src="http://blogimage.signalfire2017.com/image/blog/2017126231022.png" alt="2017126231022"></p>
 <p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
 <ol>
 <li>调用客户端句柄；执行传送参数</li>
@@ -440,7 +440,7 @@
 <li>上下文切换(context switch), 此处有4次用户态和内核态的切换</li>
 <li>Buffer内存开销, 一个是应用程序buffer, 另一个是系统读取buffer以及socket buffer</li>
 </ol>
-<p>其运行示意图如下<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017127225741.png" alt="2017127225741"></p>
+<p>其运行示意图如下<br><img src="http://blogimage.signalfire2017.com/image/blog/2017127225741.png" alt="2017127225741"></p>
 <ol>
 <li>先将文件内容从磁盘中拷贝到操作系统buffer</li>
 <li>再从操作系统buffer拷贝到程序应用buffer</li>
@@ -449,11 +449,11 @@
 </ol>
 <h2 id="2-2-NIO"><a href="#2-2-NIO" class="headerlink" title="2.2. NIO"></a>2.2. NIO</h2><p>NIO技术省去了将操作系统的read buffer拷贝到程序的buffer, 以及从程序buffer拷贝到socket buffer的步骤, 直接将 read buffer 拷贝到 socket buffer. java 的 FileChannel.transferTo() 方法就是这样的实现, 这个实现是依赖于操作系统底层的sendFile()实现的.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">publicvoid transferTo(long position, long count, WritableByteChannel target);</div></pre></td></tr></table></figure></p>
 <p>他的底层调用的是系统调用sendFile()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sendfile(int out_fd, int in_fd, off_t *offset, size_t count);</div></pre></td></tr></table></figure></p>
-<p>如下图<br><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/201712723052.png" alt="201712723052"></p>
+<p>如下图<br><img src="http://blogimage.signalfire2017.com/image/blog/201712723052.png" alt="201712723052"></p>
 <p>参考帖子：<a href="http://blog.csdn.net/dd864140130/article/details/50299687" target="_blank" rel="external">http://blog.csdn.net/dd864140130/article/details/50299687</a></p>
-<h1 id="3-轻量级RPC开发"><a href="#3-轻量级RPC开发" class="headerlink" title="3. 轻量级RPC开发"></a>3. 轻量级RPC开发</h1><h2 id="3-1-轻量级RPC框架需求分析及原理分析"><a href="#3-1-轻量级RPC框架需求分析及原理分析" class="headerlink" title="3.1. 轻量级RPC框架需求分析及原理分析"></a>3.1. 轻量级RPC框架需求分析及原理分析</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/2017126231155.png" alt="2017126231155"></p>
-<h2 id="3-2-大概流程"><a href="#3-2-大概流程" class="headerlink" title="3.2. 大概流程"></a>3.2. 大概流程</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115823.png" alt="20181115823"></p>
-<h2 id="3-3-工程目录"><a href="#3-3-工程目录" class="headerlink" title="3.3. 工程目录"></a>3.3. 工程目录</h2><p><img src="http://ovasdkxqr.bkt.clouddn.com/image/blog/20181115919.png" alt="20181115919"></p>
+<h1 id="3-轻量级RPC开发"><a href="#3-轻量级RPC开发" class="headerlink" title="3. 轻量级RPC开发"></a>3. 轻量级RPC开发</h1><h2 id="3-1-轻量级RPC框架需求分析及原理分析"><a href="#3-1-轻量级RPC框架需求分析及原理分析" class="headerlink" title="3.1. 轻量级RPC框架需求分析及原理分析"></a>3.1. 轻量级RPC框架需求分析及原理分析</h2><p><img src="http://blogimage.signalfire2017.com/image/blog/2017126231155.png" alt="2017126231155"></p>
+<h2 id="3-2-大概流程"><a href="#3-2-大概流程" class="headerlink" title="3.2. 大概流程"></a>3.2. 大概流程</h2><p><img src="http://blogimage.signalfire2017.com/image/blog/20181115823.png" alt="20181115823"></p>
+<h2 id="3-3-工程目录"><a href="#3-3-工程目录" class="headerlink" title="3.3. 工程目录"></a>3.3. 工程目录</h2><p><img src="http://blogimage.signalfire2017.com/image/blog/20181115919.png" alt="20181115919"></p>
 <ul>
 <li>rpc-sample-server   用户服务端 业务实现类 </li>
 <li>rpc-sample-common   用户公用包 包含了业务接口</li>
@@ -577,7 +577,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
-              src="http://ovasdkxqr.bkt.clouddn.com/common/head1.jpg"
+              src="http://blogimage.signalfire2017.com/common/head1.jpg"
               alt="signalFire" />
           
             <p class="site-author-name" itemprop="name">signalFire</p>

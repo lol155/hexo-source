@@ -34,7 +34,7 @@ connect zk2:2181（连到zk2机器上）
 1. 客户端应用可以在节点上设置监视器（后续详细讲解）	
 
 ## 2.3. 数据结构图
-![20171119232757](http://ovasdkxqr.bkt.clouddn.com/image/blog/20171119232757.png)
+![20171119232757](http://blogimage.signalfire2017.com/image/blog/20171119232757.png)
 
 ## 2.4. 节点类型
 1. Znode有两种类型：

@@ -65,15 +65,15 @@ JPAD_SUSPEND=n
 # 3. idea配置远程调试
 
 ## 3.1. 配置  
-![tomcat+idea远程调试-20171213104020](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104020.png)  
-![tomcat+idea远程调试-2017121310403](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-2017121310403.png)  
+![tomcat+idea远程调试-20171213104020](http://blogimage.signalfire2017.com/image/work/tomcat+idea远程调试-20171213104020.png)  
+![tomcat+idea远程调试-2017121310403](http://blogimage.signalfire2017.com/image/work/tomcat+idea远程调试-2017121310403.png)  
 ## 3.2. debug启动  
-![tomcat+idea远程调试-20171213104146](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104146.png)
+![tomcat+idea远程调试-20171213104146](http://blogimage.signalfire2017.com/image/work/tomcat+idea远程调试-20171213104146.png)
 
 ## 3.3. 结果
-![tomcat+idea远程调试-20171213104437](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104437.png)
+![tomcat+idea远程调试-20171213104437](http://blogimage.signalfire2017.com/image/work/tomcat+idea远程调试-20171213104437.png)
 
-![tomcat+idea远程调试-20171213104256](http://ovasdkxqr.bkt.clouddn.com/image/work/tomcat+idea远程调试-20171213104256.png)
+![tomcat+idea远程调试-20171213104256](http://blogimage.signalfire2017.com/image/work/tomcat+idea远程调试-20171213104256.png)
 
 # 4. 调试java程序
 在远程服务器上java启动参赛要加上调试的参数：  

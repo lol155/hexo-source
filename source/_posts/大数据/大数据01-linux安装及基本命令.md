@@ -47,18 +47,18 @@ scaffolds:
 1. 网关地址
 2. dns服务器
 
-![域名工作流程](http://ovasdkxqr.bkt.clouddn.com/dashuju/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png)
+![域名工作流程](http://blogimage.signalfire2017.com/dashuju/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png)
 
 linux dns配置文件
 > /etc/hosts
 
 ## 2.2. 网络模式
 ### 2.2.1. NAT模式  
-![NAT模式图](http://ovasdkxqr.bkt.clouddn.com/dashuju/NAT虚拟网络配置.png)  
+![NAT模式图](http://blogimage.signalfire2017.com/dashuju/NAT虚拟网络配置.png)  
 ### 2.2.2. 桥接模式  
-![桥接模式图](http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![桥接模式图](http://blogimage.signalfire2017.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 ### 2.2.3. HOST only  
-![host only](http://ovasdkxqr.bkt.clouddn.com/dashuju/%E6%A1%A5%E6%8E%A5%E5%92%8Chostonly%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE.png)
+![host only](http://blogimage.signalfire2017.com/dashuju/%E6%A1%A5%E6%8E%A5%E5%92%8Chostonly%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE.png)
 
 ## 2.3. 修改linux ip
 修改主机名:  
@@ -215,7 +215,7 @@ shutdown -r now /reboot
 
 
 # 4. ssh免密登录
-![](http://ovasdkxqr.bkt.clouddn.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![](http://blogimage.signalfire2017.com/dashuju/ssh%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E6%9C%BA%E5%88%B6%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 假如 A  要登陆  B
 在A上操作：
