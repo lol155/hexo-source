@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2018-12-21T03:20:31.028Z</updated>
+  <updated>2019-01-16T04:10:28.600Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>禅道安装</title>
+    <link href="https://blog.signalfire2017.com/2019/01/16/%E6%9D%82%E8%AE%B0/%E7%A6%85%E9%81%93%E5%AE%89%E8%A3%85/"/>
+    <id>https://blog.signalfire2017.com/2019/01/16/杂记/禅道安装/</id>
+    <published>2019-01-16T04:10:00.000Z</published>
+    <updated>2019-01-16T04:10:28.600Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一下禅道安装<br>参考:</p>
+<h1 id="禅道官网"><a href="#禅道官网" class="headerlink" title="禅道官网"></a>禅道官网</h1><ul>
+<li><a href="https://www.zentao.net/" target="_blank" rel="external">https://www.zentao.net/</a></li>
+<li>查找开源版的一键安装包<ul>
+<li>Linux<ul>
+<li>64位下载：wget <a href="http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_64.tar.gz" target="_blank" rel="external">http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_64.tar.gz</a></li>
+<li>32位下载：wget <a href="http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_32.tar.gz" target="_blank" rel="external">http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_32.tar.gz</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>下载</li>
+<li>安装包中有个readMe</li>
+<li>ZBOX是Apache、Mysql、PHP的精简的集成环境。使用时，需要将其解压到/opt目录。</li>
+<li>/opt/zbox/zbox -h     可以获取帮助</li>
+<li>/opt/zbox/zbox start  启动脚本</li>
+<li>Mysql 用户名root，密码为空。</li>
+<li>禅道初始账号密码:admin 123456</li>
+<li><p>如果磁盘空间不大,可以用软链将其中的文件夹挪到别的位置<br><img src="http://blogimage.signalfire2017.com/image/work/禅道安装-2019116114439.png?imageMogr2/thumbnail/!100p" alt="禅道安装-2019116114439"></p>
+</li>
+<li><p>开机启动,修改 /etc/rc.d/rc.local 文件 加上启动命令</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一下禅道安装&lt;br&gt;参考:&lt;/p&gt;
+&lt;h1 id=&quot;禅道官网&quot;&gt;&lt;a href=&quot;#禅道官网&quot; class=&quot;headerlink&quot; title=&quot;禅道官网&quot;&gt;&lt;/a&gt;禅道官网&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zentao.net/&quot;
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.signalfire2017.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="禅道" scheme="https://blog.signalfire2017.com/tags/%E7%A6%85%E9%81%93/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里java规约-名词.md</title>
@@ -55,7 +102,7 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(3)-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(3)-服务器/</id>
     <published>2018-02-11T09:59:37.000Z</published>
-    <updated>2018-02-11T08:24:53.439Z</updated>
+    <updated>2018-02-12T06:31:01.329Z</updated>
     
     <content type="html"><![CDATA[<h1 id="服务器-5"><a href="#服务器-5" class="headerlink" title="服务器(5)"></a>服务器(5)</h1><h2 id="推荐-4"><a href="#推荐-4" class="headerlink" title="推荐(4)"></a>推荐(4)</h2><ol>
 <li><p>【推荐】高并发服务器建议调小 TCP 协议的 time_wait 超时时间。</p>
@@ -99,7 +146,7 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(2)-%E4%BA%8C%E6%96%B9%E5%BA%93%E4%BE%9D%E8%B5%96/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(2)-二方库依赖/</id>
     <published>2018-02-11T09:59:36.000Z</published>
-    <updated>2018-02-11T08:24:47.136Z</updated>
+    <updated>2018-02-12T06:31:03.085Z</updated>
     
     <content type="html"><![CDATA[<h1 id="二方库依赖-10"><a href="#二方库依赖-10" class="headerlink" title="二方库依赖(10)"></a>二方库依赖(10)</h1><h2 id="强制-7"><a href="#强制-7" class="headerlink" title="强制(7)"></a>强制(7)</h2><ol>
 <li>【强制】定义 GAV 遵从以下规则：<ul>
@@ -224,7 +271,7 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(4)-ORM%E6%98%A0%E5%B0%84/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(4)-ORM映射/</id>
     <published>2018-02-11T09:59:34.000Z</published>
-    <updated>2018-02-11T08:24:32.019Z</updated>
+    <updated>2018-02-12T06:31:04.401Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ORM映射-11"><a href="#ORM映射-11" class="headerlink" title="ORM映射(11)"></a>ORM映射(11)</h1><h2 id="强制-4"><a href="#强制-4" class="headerlink" title="强制(4)"></a>强制(4)</h2><ol>
 <li>【强制】在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。<ul>
@@ -285,7 +332,7 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%BA%94)-MySQL%E6%95%B0%E6%8D%AE%E5%BA%93(3)-SQL%E8%AF%AD%E5%8F%A5/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(五)-MySQL数据库(3)-SQL语句/</id>
     <published>2018-02-11T09:59:33.000Z</published>
-    <updated>2018-02-11T08:24:23.112Z</updated>
+    <updated>2018-02-12T06:31:05.200Z</updated>
     
     <content type="html"><![CDATA[<h1 id="索引规约-11"><a href="#索引规约-11" class="headerlink" title="索引规约(11)"></a>索引规约(11)</h1><h2 id="强制-4"><a href="#强制-4" class="headerlink" title="强制(4)"></a>强制(4)</h2><ol>
 <li>【强制】业务上具有唯一特性的字段，即使是多个字段的组合，也必须建成唯一索引。<ul>
@@ -1440,63 +1487,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;代码格式-11&quot;&gt;&lt;a href=&quot;#代码格式-11&quot; class=&quot;headerlink&quot; title=&quot;代码格式(11)&quot;&gt;&lt;/a&gt;代码格式(11)&lt;/h1&gt;&lt;h2 id=&quot;强制-9&quot;&gt;&lt;a href=&quot;#强制-9&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里java规约(一)-编程规约(2)-常量定义.md</title>
-    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%B8%80)-%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6(2)-%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89/"/>
-    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(一)-编程规约(2)-常量定义/</id>
-    <published>2018-02-09T07:03:33.000Z</published>
-    <updated>2018-02-09T08:45:20.971Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="常量定义-5"><a href="#常量定义-5" class="headerlink" title="常量定义(5)"></a>常量定义(5)</h1><h2 id="强制-2"><a href="#强制-2" class="headerlink" title="强制(2)"></a>强制(2)</h2><ol>
-<li>【强制】不允许任何魔法值（ 即未经预先定义的常量） 直接出现在代码中。</li>
-<li>【强制】 <code>long</code> 或者 <code>Long</code> 初始赋值时， <code>使用大写的 L</code>，不能是小写的 l，小写容易跟数字 1 混淆，造成误解。<ul>
-<li>说明： Long a = 2l; 写的是数字的 21，还是 Long 型的 2?</li>
-</ul>
-</li>
-</ol>
-<h2 id="推荐-3"><a href="#推荐-3" class="headerlink" title="推荐(3)"></a>推荐(3)</h2><ol>
-<li>【推荐】不要使用一个常量类维护所有常量， <code>按常量功能进行归类</code>，分开维护。<ul>
-<li>说明： 大而全的常量类，非得使用查找功能才能定位到修改的常量，不利于理解和维护。</li>
-<li>正例： 缓存相关常量放在类 CacheConsts 下； 系统配置相关常量放在类 ConfigConsts 下。</li>
-</ul>
-</li>
-<li><p>【推荐】常量的复用层次有五层：<code>跨应用</code>共享常量、<code>应用内</code>共享常量、<code>子工程</code>内共享常量、<code>包</code>内共享常量、<code>类</code>内共享常量。</p>
-<ul>
-<li>1） <code>跨应用</code>共享常量：放置在<code>二方库</code>中，通常是 client.jar 中的 constant 目录下。</li>
-<li><p>2） <code>应用内</code>共享常量：放置在<code>一方库</code>中，通常是子模块中的 constant 目录下。  </p>
-<pre><code>反例： 易懂变量也要统一定义成应用内共享常量，两位攻城师在两个类中分别定义了表示“是”的变量：  
-类 A 中： public static final String YES = &quot;yes&quot;;  
-类 B 中： public static final String YES = &quot;y&quot;;  
-A.YES.equals(B.YES)，预期是 true，但实际返回为 false，导致线上问题。
-</code></pre></li>
-<li><p>3） <code>子工程</code>内部共享常量：即在当前子工程的 constant 目录下。</p>
-</li>
-<li>4） <code>包</code>内共享常量：即在当前包下单独的 constant 目录下。</li>
-<li>5） <code>类</code>内共享常量：直接在类内部 private static final 定义。</li>
-</ul>
-</li>
-<li>【推荐】如果变量值仅在一个固定范围内变化用 enum 类型来定义。<ul>
-<li>说明： 如果存在名称之外的延伸属性使用 enum 类型，下面正例中的数字就是延伸信息，表示一年中的第几个季节。</li>
-<li>正例：<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> SeasonEnum &#123;</div><div class="line">    SPRING(<span class="number">1</span>), SUMMER(<span class="number">2</span>), AUTUMN(<span class="number">3</span>), WINTER(<span class="number">4</span>);</div><div class="line">    <span class="keyword">int</span> seq;</div><div class="line">    SeasonEnum(<span class="keyword">int</span> seq)&#123;</div><div class="line">        <span class="keyword">this</span>.seq = seq;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;常量定义-5&quot;&gt;&lt;a href=&quot;#常量定义-5&quot; class=&quot;headerlink&quot; title=&quot;常量定义(5)&quot;&gt;&lt;/a&gt;常量定义(5)&lt;/h1&gt;&lt;h2 id=&quot;强制-2&quot;&gt;&lt;a href=&quot;#强制-2&quot; class=&quot;headerlink&quot; title=
     
     </summary>
     

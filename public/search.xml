@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[禅道安装]]></title>
+    <url>%2F2019%2F01%2F16%2F%E6%9D%82%E8%AE%B0%2F%E7%A6%85%E9%81%93%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[记录一下禅道安装参考: 禅道官网 https://www.zentao.net/ 查找开源版的一键安装包 Linux 64位下载：wget http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_64.tar.gz 32位下载：wget http://dl.cnezsoft.com/zentao/9.0.1/ZenTaoPMS.9.0.1.zbox_32.tar.gz 下载 安装包中有个readMe ZBOX是Apache、Mysql、PHP的精简的集成环境。使用时，需要将其解压到/opt目录。 /opt/zbox/zbox -h 可以获取帮助 /opt/zbox/zbox start 启动脚本 Mysql 用户名root，密码为空。 禅道初始账号密码:admin 123456 如果磁盘空间不大,可以用软链将其中的文件夹挪到别的位置 开机启动,修改 /etc/rc.d/rc.local 文件 加上启动命令]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>禅道</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[阿里java规约-名词.md]]></title>
     <url>%2F2018%2F02%2F11%2F%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6%2F%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6-%E5%90%8D%E8%AF%8D%2F</url>
     <content type="text"><![CDATA[名词(10) POJO（ Plain Ordinary Java Object） : 在本手册中， POJO 专指只有 setter / getter/ toString 的简单类，包括 DO/DTO/BO/VO 等。 GAV（ GroupId、 ArtifactctId、 Version） : Maven 坐标，是用来唯一标识 jar 包。 OOP（ Object Oriented Programming） : 本手册泛指类、对象的编程处理方式。 ORM（ Object Relation Mapping） : 对象关系映射，对象领域模型与底层数据之间的转换，本文泛指 iBATIS, mybatis 等框架。 NPE（ java.lang.NullPointerException） : 空指针异常。 SOA（ Service-Oriented Architecture） : 面向服务架构，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用， 有利于提升组件可重用性，可维护性。 一方库: 本工程内部子项目模块依赖的库（ jar 包） 。 二方库: 公司内部发布到中央仓库，可供公司内部其它应用依赖的库（ jar 包） 。 三方库: 公司之外的开源库（ jar 包） 。 IDE（ Integrated Development Environment） : 用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具， 本《 手册》 泛指 IntelliJ IDEA和 eclipse。]]></content>
@@ -232,9 +243,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux 程序down 问题排查]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
-    <content type="text"><![CDATA[1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)]]></content>
+    <title><![CDATA[tomcat+idea远程调试]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Ftomcat%2Bidea%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[1. 测试的web项目12345678910111213141516171819package com.signalfire.servlet;import javax.servlet.ServletException;import javax.servlet.ServletRequest;import javax.servlet.ServletResponse;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;import java.io.IOException;/** * Created by jk on 2017/12/12. */public class HelloServlet extends HttpServlet &#123; @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123; System.out.println("111111111111111111"); resp.getWriter().write("hello baby"); resp.getWriter().flush(); &#125;&#125; 1234567891011121314&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;&lt;web-app&gt; &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt; &lt;servlet&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;servlet-class&gt;com.signalfire.servlet.HelloServlet&lt;/servlet-class&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/servlet-mapping&gt;&lt;/web-app&gt; 2. tomcat 打war包部署到tomcat中 使用默认配置启动tomcat调试1[root@mytest bin]# ./catalina.sh jpda start 默认情况下，远程调试的默认端口为8000，可以通过JPDA_ADDRESS进行配置，指定自定义的端口，另外，还有两个可以配置的参数 JPDA_TRANSPORT：即调试器和虚拟机之间数据的传输方式，默认值是dt_socket JPDA_SUSPEND：即JVM启动后是否立即挂起，默认是n可以在catalina.sh中进行配置：123JPDA_TRANSPORT=dt_socket JPDA_ADDRESS=5005 JPAD_SUSPEND=n 3. idea配置远程调试3.1. 配置 3.2. debug启动 3.3. 结果 4. 调试java程序在远程服务器上java启动参赛要加上调试的参数：“-Xdebug -Xrunjdwp:transport=dt_socket,address=2345,server=y,suspend=n”]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux修改时间]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -265,20 +287,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[tomcat+idea远程调试]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Ftomcat%2Bidea%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[1. 测试的web项目12345678910111213141516171819package com.signalfire.servlet;import javax.servlet.ServletException;import javax.servlet.ServletRequest;import javax.servlet.ServletResponse;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;import java.io.IOException;/** * Created by jk on 2017/12/12. */public class HelloServlet extends HttpServlet &#123; @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123; System.out.println("111111111111111111"); resp.getWriter().write("hello baby"); resp.getWriter().flush(); &#125;&#125; 1234567891011121314&lt;!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;&lt;web-app&gt; &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt; &lt;servlet&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;servlet-class&gt;com.signalfire.servlet.HelloServlet&lt;/servlet-class&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;my&lt;/servlet-name&gt; &lt;url-pattern&gt;/*&lt;/url-pattern&gt; &lt;/servlet-mapping&gt;&lt;/web-app&gt; 2. tomcat 打war包部署到tomcat中 使用默认配置启动tomcat调试1[root@mytest bin]# ./catalina.sh jpda start 默认情况下，远程调试的默认端口为8000，可以通过JPDA_ADDRESS进行配置，指定自定义的端口，另外，还有两个可以配置的参数 JPDA_TRANSPORT：即调试器和虚拟机之间数据的传输方式，默认值是dt_socket JPDA_SUSPEND：即JVM启动后是否立即挂起，默认是n可以在catalina.sh中进行配置：123JPDA_TRANSPORT=dt_socket JPDA_ADDRESS=5005 JPAD_SUSPEND=n 3. idea配置远程调试3.1. 配置 3.2. debug启动 3.3. 结果 4. 调试java程序在远程服务器上java启动参赛要加上调试的参数：“-Xdebug -Xrunjdwp:transport=dt_socket,address=2345,server=y,suspend=n”]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[linux修改时间]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
-    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
+    <title><![CDATA[linux 程序down 问题排查]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)]]></content>
       <categories>
         <category>学习</category>
       </categories>
