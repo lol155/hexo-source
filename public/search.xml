@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[idea getter setter 模板设置]]></title>
+    <url>%2F2019%2F04%2F03%2F%E6%9D%82%E8%AE%B0%2Fidea%2Fidea-setter-getter-%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[设置 getter12345678#if($field.modifierStatic)static ###end$field.type ###set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))get$&#123;name&#125;() &#123; return $field.name;&#125; setter1234567891011121314151617181920#set($paramName = $helper.getParamName($field, $project))public ###if($field.modifierStatic)static void ###else $classSignature ###endset$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project)))($field.type $paramName) &#123;#if ($field.name == $paramName) #if (!$field.modifierStatic) this.## #else $classname.## #end#end$field.name = $paramName;#if(!$field.modifierStatic)return this;#end&#125;]]></content>
+      <categories>
+        <category>idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[log4j打印sql语句和参数]]></title>
     <url>%2F2019%2F03%2F13%2F%E6%9D%82%E8%AE%B0%2Flog4j%E6%89%93%E5%8D%B0sql%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%8F%82%E6%95%B0%2F</url>
     <content type="text"><![CDATA[在配置文件中加入12log4j.logger.org.springframework.jdbc=debuglog4j.logger.org.springframework.jdbc.core.StatementCreatorUtils=TRACE]]></content>
@@ -255,28 +266,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[js心跳请求]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Fjs%E5%BF%83%E8%B7%B3%E8%AF%B7%E6%B1%82%2F</url>
-    <content type="text"><![CDATA[示例代码,mark一下var timer = setInterval (function(){},time)clearInterval(timer) 1234567891011121314151617181920212223var timer;timer = setInterval(function()&#123; Common.ajax.execute(&#123; 'url': Common.url.getBaseURL() + '/flow/get-trusteeship.do', 'data': &#123; "programId": $("#programId").val(), &#125;, 'success': function (data) &#123; if (data.result == 'success' &amp;&amp; data.trusteeship) &#123; if(data.trusteeship.status == 3)&#123; clearInterval(timer); EmayPagination.action.skipToCurrentPage($('#trusteeshipListQueryPaginationContainer'), $('#trusteeshipListQueryPaginationContainer .pagination-node.active').attr('data-current-page-number')); Trusteeship.dom.setStep(3); &#125; &#125; &#125;, 'error': function () &#123; Messager.action.error('操作异常。'); &#125; &#125;);&#125;,5000);]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[linux修改时间]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
-    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[linux 程序down 问题排查]]></title>
     <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
     <content type="text"><![CDATA[1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)]]></content>
@@ -307,6 +296,28 @@
       </categories>
       <tags>
         <tag>opencv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[js心跳请求]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Fjs%E5%BF%83%E8%B7%B3%E8%AF%B7%E6%B1%82%2F</url>
+    <content type="text"><![CDATA[示例代码,mark一下var timer = setInterval (function(){},time)clearInterval(timer) 1234567891011121314151617181920212223var timer;timer = setInterval(function()&#123; Common.ajax.execute(&#123; 'url': Common.url.getBaseURL() + '/flow/get-trusteeship.do', 'data': &#123; "programId": $("#programId").val(), &#125;, 'success': function (data) &#123; if (data.result == 'success' &amp;&amp; data.trusteeship) &#123; if(data.trusteeship.status == 3)&#123; clearInterval(timer); EmayPagination.action.skipToCurrentPage($('#trusteeshipListQueryPaginationContainer'), $('#trusteeshipListQueryPaginationContainer .pagination-node.active').attr('data-current-page-number')); Trusteeship.dom.setStep(3); &#125; &#125; &#125;, 'error': function () &#123; Messager.action.error('操作异常。'); &#125; &#125;);&#125;,5000);]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux修改时间]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -756,7 +767,7 @@
   </entry>
   <entry>
     <title><![CDATA[idea快捷键记录]]></title>
-    <url>%2F2017%2F09%2F03%2F%E6%9D%82%E8%AE%B0%2Fidea%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95%2F</url>
+    <url>%2F2017%2F09%2F03%2F%E6%9D%82%E8%AE%B0%2Fidea%2Fidea%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[查找方法,这个用于看源码的时候感觉很好用记录一下 ctrl+shift+alt+n //———————————– Navigate | Call Hierarchy命令查看一个Java方法调用树（caller和callee两个方向） ctrl+alt+H Analyze | Dataflow from/to Here两个命令查看表达式、变量和方法参数的传递关系树。 Analyze | Data Flow to HereAnalyze | Data Flow from Here “Find Usage”可以查看一个Java类、方法或变量的直接使用情况。 alt+F7 Navigate | File Structure 查看文件的结构 ctrl+F12 http://www.cnblogs.com/huaxingtianxia/p/5728847.html //———————————–]]></content>
       <categories>
         <category>工具</category>

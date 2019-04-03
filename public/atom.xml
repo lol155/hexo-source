@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2019-03-13T10:19:59.762Z</updated>
+  <updated>2019-04-03T06:25:23.309Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,11 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>idea getter setter 模板设置</title>
+    <link href="https://blog.signalfire2017.com/2019/04/03/%E6%9D%82%E8%AE%B0/idea/idea-setter-getter-%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://blog.signalfire2017.com/2019/04/03/杂记/idea/idea-setter-getter-模板设置/</id>
+    <published>2019-04-03T06:19:03.000Z</published>
+    <updated>2019-04-03T06:25:23.309Z</updated>
+    
+    <content type="html"><![CDATA[<p>设置<br><img src="http://blogimage.signalfire2017.com/image/work/idea-md-20194314812.png?imageMogr2/thumbnail/!100p" alt="idea-md-20194314812"></p>
+<p>getter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">$field.type ##</div><div class="line">#set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</div><div class="line">get$&#123;name&#125;() &#123;</div><div class="line">    return $field.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>setter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#set($paramName = $helper.getParamName($field, $project))</div><div class="line">public ##</div><div class="line">#if($field.modifierStatic)</div><div class="line">static void ##</div><div class="line">#else</div><div class="line">  $classSignature ##</div><div class="line">#end</div><div class="line">set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project)))($field.type $paramName) &#123;</div><div class="line">#if ($field.name == $paramName)</div><div class="line">  #if (!$field.modifierStatic)</div><div class="line">  this.##</div><div class="line">  #else</div><div class="line">    $classname.##</div><div class="line">  #end</div><div class="line">#end</div><div class="line">$field.name = $paramName;</div><div class="line">#if(!$field.modifierStatic)</div><div class="line">return this;</div><div class="line">#end</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设置&lt;br&gt;&lt;img src=&quot;http://blogimage.signalfire2017.com/image/work/idea-md-20194314812.png?imageMogr2/thumbnail/!100p&quot; alt=&quot;idea-md-201943148
+    
+    </summary>
+    
+      <category term="idea" scheme="https://blog.signalfire2017.com/categories/idea/"/>
+    
+    
+      <category term="idea" scheme="https://blog.signalfire2017.com/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
     <title>log4j打印sql语句和参数</title>
     <link href="https://blog.signalfire2017.com/2019/03/13/%E6%9D%82%E8%AE%B0/log4j%E6%89%93%E5%8D%B0sql%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%8F%82%E6%95%B0/"/>
     <id>https://blog.signalfire2017.com/2019/03/13/杂记/log4j打印sql语句和参数/</id>
     <published>2019-03-13T04:10:00.000Z</published>
-    <updated>2019-03-13T10:19:59.762Z</updated>
+    <updated>2019-03-13T10:21:16.963Z</updated>
     
     <content type="html"><![CDATA[<p>在配置文件中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">log4j.logger.org.springframework.jdbc=debug</div><div class="line">log4j.logger.org.springframework.jdbc.core.StatementCreatorUtils=TRACE</div></pre></td></tr></table></figure></p>
 ]]></content>
@@ -1296,130 +1321,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;集合处理-13&quot;&gt;&lt;a href=&quot;#集合处理-13&quot; class=&quot;headerlink&quot; title=&quot;集合处理(13)&quot;&gt;&lt;/a&gt;集合处理(13)&lt;/h1&gt;&lt;h2 id=&quot;强制-8&quot;&gt;&lt;a href=&quot;#强制-8&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里java规约(一)-编程规约(4)-OOP规约.md</title>
-    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%B8%80)-%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6(4)-OOP%E8%A7%84%E7%BA%A6/"/>
-    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(一)-编程规约(4)-OOP规约/</id>
-    <published>2018-02-09T07:04:34.000Z</published>
-    <updated>2018-02-09T08:45:13.264Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="OOP规约-20"><a href="#OOP规约-20" class="headerlink" title="OOP规约(20)"></a>OOP规约(20)</h1><h2 id="强制-12"><a href="#强制-12" class="headerlink" title="强制(12)"></a>强制(12)</h2><ol>
-<li>【强制】使用类的<code>静态变量</code>或<code>静态方法</code>，直接用<code>类名</code>访问。</li>
-<li>【强制】所有的<code>覆写</code>方法，<code>必须加@Override</code> 注解。<ul>
-<li>说明： getObject()与 get0bject()的问题。一个是字母的 O，一个是数字的 0，加@Override可以准确判断是否覆盖成功。另外，如果在抽象类中对方法签名进行修改，其实现类会马上编译报错。</li>
-</ul>
-</li>
-<li>【强制】相同参数类型，相同业务含义，才可以使用 Java 的可变参数，避免使用 Object。<ul>
-<li>说明： 可变参数必须放置在参数列表的最后。 （ 提倡同学们尽量不用可变参数编程）</li>
-<li>正例： public User getUsers(String type, Integer… ids) {…}</li>
-</ul>
-</li>
-<li>【强制】外部正在调用或者二方库依赖的接口，不允许修改方法签名， 避免对接口调用方产生影响。接口过时必须加@Deprecated 注解，并清晰地说明采用的新接口或者新服务是什么。</li>
-<li>【强制】不能使用过时的类或方法。<ul>
-<li>说明： java.net.URLDecoder 中的方法 decode(String encodeStr) 这个方法已经过时，应该使用双参数 decode(String source, String encode)。接口提供方既然明确是过时接口，那么有义务同时提供新的接口； 作为调用方来说，有义务去考证过时方法的新实现是什么。</li>
-</ul>
-</li>
-<li>【强制】 Object 的 equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals。<ul>
-<li>正例： “test”.equals(object);</li>
-<li>反例： object.equals(“test”);</li>
-<li>说明： 推荐使用 java.util.Objects#equals（ JDK7 引入的工具类）</li>
-</ul>
-</li>
-<li>【强制】所有的相同类型的包装类对象之间<code>值的比较</code>，全部使用 equals 方法比较。<ul>
-<li>说明： 对于 Integer var = ? 在<code>-128</code> 至 <code>127</code> 范围内的赋值， Integer 对象是在IntegerCache.cache 产生，会复用已有对象，这个区间内的 Integer 值可以直接使用==进行判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑，推荐使用 equals 方法进行判断。</li>
-</ul>
-</li>
-<li>关于基本数据类型与包装数据类型的使用标准如下：<ul>
-<li>1） 【强制】 所有的 POJO 类<code>属性必须使用包装数据类型</code>。</li>
-<li>2） 【强制】 RPC 方法的返回值和参数必须使用包装数据类型。</li>
-<li>3） 【推荐】 所有的<code>局部变量使用基本数据类型</code>。</li>
-<li>说明： POJO 类属性没有初值是提醒使用者在需要使用时，必须自己显式地进行赋值，任何NPE 问题，或者入库检查，都由使用者来保证。</li>
-<li>正例： 数据库的查询结果可能是 null，因为自动拆箱，用基本数据类型接收有 NPE 风险。</li>
-<li>反例： 比如显示成交总额涨跌情况，即正负 x%， x 为基本数据类型，调用的 RPC 服务，调用不成功时，返回的是默认值，页面显示为 0%，这是不合理的，应该显示成中划线。所以包装数据类型的 null 值，能够表示额外的信息，如：远程调用失败，异常退出。</li>
-</ul>
-</li>
-<li>【强制】定义 DO/DTO/VO 等 POJO 类时，不要设定任何属性<code>默认值</code>。<ul>
-<li>反例： POJO 类的 gmtCreate 默认值为 new Date();但是这个属性在数据提取时并没有置入具体值，在更新其它字段时又附带更新了此字段，导致创建时间被修改成当前时间。</li>
-</ul>
-</li>
-<li>【强制】序列化类新增属性时，请不要修改 serialVersionUID 字段，避免反序列失败； 如果完全不兼容升级，避免反序化混乱，那么请修改 serialVersionUID 值。<ul>
-<li>说明： 注意 serialVersionUID 不一致会抛出序列化运行时异常。</li>
-</ul>
-</li>
-<li>【强制】构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在 init 方法中。</li>
-<li>【强制】 POJO 类必须写 toString 方法。使用 IDE 中的工具： source&gt; generate toString时，如果继承了另一个 POJO 类，注意在前面加一下 super.toString。<ul>
-<li>说明： 在方法执行抛出异常时，可以直接调用 POJO 的 toString()方法打印其属性值，便于排查问题。</li>
-</ul>
-</li>
-</ol>
-<h2 id="推荐-8"><a href="#推荐-8" class="headerlink" title="推荐(8)"></a>推荐(8)</h2><ol>
-<li><p>【推荐】使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。</p>
-<ul>
-<li>说明：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">"a,b,c,,"</span>;</div><div class="line">String[] ary = str.split(<span class="string">","</span>);</div><div class="line"><span class="comment">// 预期大于 3，结果是 3</span></div><div class="line">System.out.println(ary.length);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>【推荐】当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读，此条规则优先于第 15 条规则。</p>
-</li>
-<li>【推荐】类内方法定义的顺序依次是：<code>公有方法或保护方法 &gt; 私有方法 &gt; getter/setter 方法</code>。<ul>
-<li>说明： 公有方法是类的调用者和维护者最关心的方法，首屏展示最好； 保护方法虽然只是子类关心，也可能是“模板设计模式”下的核心方法； 而私有方法外部一般不需要特别关心，是一个黑盒实现； 因为承载的信息价值较低，所有 Service 和 DAO 的 getter/setter 方法放在类体最后。</li>
-</ul>
-</li>
-<li><p>【推荐】 setter 方法中，参数名称与类成员变量名称一致， this.成员名 = 参数名。在getter/setter 方法中， 不要增加业务逻辑，增加排查问题的难度。</p>
-<ul>
-<li>反例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">getData</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (condition) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.data + <span class="number">100</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.data - <span class="number">100</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>【推荐】循环体内，字符串的连接方式，使用 StringBuilder 的 append 方法进行扩展。</p>
-<ul>
-<li>说明： 反编译出的字节码文件显示每次循环都会 new 出一个 StringBuilder 对象，然后进行append 操作，最后通过 toString 方法返回 String 对象，造成内存资源浪费。</li>
-<li>反例：  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">"start"</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">    str = str + <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>【推荐】 final 可以声明类、成员变量、方法、以及本地变量，下列情况使用 final 关键字：</p>
-<ul>
-<li>1） 不允许被继承的类，如： String 类。</li>
-<li>2） 不允许修改引用的域对象，如： POJO 类的域变量。</li>
-<li>3） 不允许被重写的方法，如： POJO 类的 setter 方法。</li>
-<li>4） 不允许运行过程中重新赋值的局部变量。</li>
-<li>5） 避免上下文重复使用一个变量，使用 final 描述可以强制重新定义一个变量，方便更好地进行重构。</li>
-</ul>
-</li>
-<li>【推荐】慎用 Object 的 clone 方法来拷贝对象。<ul>
-<li>说明： 对象的 clone 方法默认是浅拷贝，若想实现深拷贝需要重写 clone 方法实现属性对象的拷贝。</li>
-</ul>
-</li>
-<li>【推荐】类成员与方法访问控制从严：<ul>
-<li>1） 如果不允许外部直接通过 new 来创建对象，那么构造方法必须是 private。</li>
-<li>2） 工具类不允许有 public 或 default 构造方法。</li>
-<li>3） 类非 static 成员变量并且与子类共享，必须是 protected。</li>
-<li>4） 类非 static 成员变量并且仅在本类使用，必须是 private。</li>
-<li>5） 类 static 成员变量如果仅在本类使用，必须是 private。</li>
-<li>6） 若是 static 成员变量，必须考虑是否为 final。</li>
-<li>7） 类成员方法只供类内部调用，必须是 private。</li>
-<li>8） 类成员方法只对继承类公开，那么限制为 protected。</li>
-<li>说明： 任何类、方法、参数、变量，严控访问范围。过于宽泛的访问范围，不利于模块解耦。</li>
-<li>思考：如果是一个 private 的方法，想删除就删除，可是一个 public 的 service 成员方法或成员变量，删除一下，不得手心冒点汗吗？变量像自己的小孩，尽量在自己的视线内，变量作用域太大， 无限制的到处跑，那么你会担心的。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;OOP规约-20&quot;&gt;&lt;a href=&quot;#OOP规约-20&quot; class=&quot;headerlink&quot; title=&quot;OOP规约(20)&quot;&gt;&lt;/a&gt;OOP规约(20)&lt;/h1&gt;&lt;h2 id=&quot;强制-12&quot;&gt;&lt;a href=&quot;#强制-12&quot; class=&quot;headerli
     
     </summary>
     
