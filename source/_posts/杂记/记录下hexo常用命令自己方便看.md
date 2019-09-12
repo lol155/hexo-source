@@ -15,6 +15,7 @@ tags: hexo
         hexo generate             #生成静态页面至public目录
         hexo server               #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
         hexo deploy               #将.deploy目录部署到GitHub
+        hexo publish        #将草稿发布 _draft里面的内容
 ```
 <!-- more -->
 简写

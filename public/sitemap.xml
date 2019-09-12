@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.signalfire2017.com/2019/09/12/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-easyMock/</loc>
+    
+    <lastmod>2019-09-12T08:33:46.431Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.signalfire2017.com/2017/09/03/%E6%9D%82%E8%AE%B0/%E8%AE%B0%E5%BD%95%E4%B8%8Bhexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%87%AA%E5%B7%B1%E6%96%B9%E4%BE%BF%E7%9C%8B/</loc>
+    
+    <lastmod>2019-09-12T08:28:02.590Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.signalfire2017.com/2018/02/23/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0601-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2019-04-03T06:35:26.384Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.signalfire2017.com/2019/04/03/%E6%9D%82%E8%AE%B0/idea/idea-setter-getter-%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2019-04-03T06:25:23.309Z</lastmod>
@@ -51,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://blog.signalfire2017.com/2018/01/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B002-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6-SpringCloud/</loc>
+    <loc>https://blog.signalfire2017.com/2018/01/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B001-%E6%A6%82%E8%BF%B0/</loc>
     
     <lastmod>2018-12-21T07:12:11.338Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.signalfire2017.com/2018/01/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B001-%E6%A6%82%E8%BF%B0/</loc>
+    <loc>https://blog.signalfire2017.com/2018/01/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B002-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6-SpringCloud/</loc>
     
     <lastmod>2018-12-21T07:12:11.338Z</lastmod>
     
@@ -93,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.signalfire2017.com/2018/01/01/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0501-%E8%BD%BB%E9%87%8F%E7%BA%A7RPC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</loc>
     
     <lastmod>2018-12-21T07:12:11.116Z</lastmod>
     
@@ -107,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://blog.signalfire2017.com/2018/01/24/%E6%9D%82%E8%AE%B0/linux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</loc>
+    <loc>https://blog.signalfire2017.com/2018/01/01/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE0501-%E8%BD%BB%E9%87%8F%E7%BA%A7RPC%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91/</loc>
     
     <lastmod>2018-12-21T07:12:11.116Z</lastmod>
     
@@ -383,13 +404,6 @@
     <loc>https://blog.signalfire2017.com/2017/10/29/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE02-01%20linux%E5%91%BD%E4%BB%A4%E7%BB%A7%E7%BB%AD%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2018-02-06T07:48:38.051Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.signalfire2017.com/2017/09/03/%E6%9D%82%E8%AE%B0/%E8%AE%B0%E5%BD%95%E4%B8%8Bhexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%87%AA%E5%B7%B1%E6%96%B9%E4%BE%BF%E7%9C%8B/</loc>
-    
-    <lastmod>2018-02-06T07:48:16.583Z</lastmod>
     
   </url>
   
