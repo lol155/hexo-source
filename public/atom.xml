@@ -329,11 +329,11 @@
     <link href="https://blog.signalfire2017.com/2018/02/11/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E5%85%AD)-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84(1)-%E5%BA%94%E7%94%A8%E5%88%86%E5%B1%82/"/>
     <id>https://blog.signalfire2017.com/2018/02/11/阿里java规约/阿里java规约(六)-工程结构(1)-应用分层/</id>
     <published>2018-02-11T09:59:35.000Z</published>
-    <updated>2019-09-12T08:49:19.124Z</updated>
+    <updated>2019-09-12T08:52:40.087Z</updated>
     
     <content type="html"><![CDATA[<h1 id="应用分层-3"><a href="#应用分层-3" class="headerlink" title="应用分层(3)"></a>应用分层(3)</h1><h2 id="强制-1"><a href="#强制-1" class="headerlink" title="强制(1)"></a>强制(1)</h2><ol>
 <li><p>【推荐】图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于Web 层，也可以直接依赖于 Service 层，依此类推：</p>
-<p> <img src="http://blogimage.signalfire2017.com/image/work/阿里java规约(六" alt="阿里java规约(六)-工程结构(1)-应用分层-201821116042">工程结构(1)应用分层201821116042.png)</p>
+<p> <img src="http://blogimage.signalfire2017.com/image/work/阿里java规约(六" alt="阿里java规约(六)-工程结构(1)-应用分层-201821116042">工程结构-应用分层201821116042.png)</p>
 <ul>
 <li>开放接口层：可直接封装 Service 方法暴露成 RPC 接口； 通过 Web 封装成 http 接口； 进行网关安全控制、 流量控制等。</li>
 <li>终端显示层：各个端的模板渲染并执行显示的层。 当前主要是 velocity 渲染， JS 渲染，JSP 渲染，移动端展示等。</li>
