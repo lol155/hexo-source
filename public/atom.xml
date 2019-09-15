@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.signalfire2017.com/"/>
-  <updated>2019-09-15T12:24:40.086Z</updated>
+  <updated>2019-09-15T13:42:09.419Z</updated>
   <id>https://blog.signalfire2017.com/</id>
   
   <author>
@@ -16,11 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>flutter开发环境安装</title>
+    <link href="https://blog.signalfire2017.com/2019/09/15/flutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/"/>
+    <id>https://blog.signalfire2017.com/2019/09/15/flutter开发环境安装/</id>
+    <published>2019-09-15T13:41:36.000Z</published>
+    <updated>2019-09-15T13:42:09.419Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-开发环境安装参考视频"><a href="#1-开发环境安装参考视频" class="headerlink" title="1. 开发环境安装参考视频"></a>1. 开发环境安装参考视频</h2><p><a href="https://www.imooc.com/video/18526" target="_blank" rel="external">https://www.imooc.com/video/18526</a></p>
+<h2 id="2-遇到问题"><a href="#2-遇到问题" class="headerlink" title="2. 遇到问题"></a>2. 遇到问题</h2><h3 id="2-1-安装了MuMu模拟器"><a href="#2-1-安装了MuMu模拟器" class="headerlink" title="2.1. 安装了MuMu模拟器"></a>2.1. 安装了MuMu模拟器</h3><h4 id="2-1-1-添加环境变量"><a href="#2-1-1-添加环境变量" class="headerlink" title="2.1.1. 添加环境变量"></a>2.1.1. 添加环境变量</h4><ul>
+<li>进入Android sdk安装环境目录</li>
+<li>将 platform-tools 和 emulator 添加到环境变量中<br><img src="http://blogimage.signalfire2017.com/blog/2019-09-15-21-39-28-2019915213929.png?imageMogr2/thumbnail/!100p" alt="2019-09-15-21-39-28-2019915213929"><h4 id="2-1-2-打开模拟器"><a href="#2-1-2-打开模拟器" class="headerlink" title="2.1.2. 打开模拟器"></a>2.1.2. 打开模拟器</h4>cmd中执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb connect 127.0.0.1:7555</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-1-3-错误1"><a href="#2-1-3-错误1" class="headerlink" title="2.1.3. 错误1"></a>2.1.3. 错误1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Failed to setup Skia Gr context</div></pre></td></tr></table></figure>
+<p>flutter Failed to setup Skia Gr context导致白屏<br>添加 –enable-software-rendering 参数运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flutter run --enable-software-rendering</div></pre></td></tr></table></figure></p>
+<p>vscode debug需要添加配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    // 使用 IntelliSense 了解相关属性。 </div><div class="line">    // 悬停以查看现有属性的描述。</div><div class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</div><div class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</div><div class="line">    &quot;configurations&quot;: [</div><div class="line">        &#123;</div><div class="line">            &quot;name&quot;: &quot;Flutter&quot;,</div><div class="line">            &quot;request&quot;: &quot;launch&quot;,</div><div class="line">            &quot;type&quot;: &quot;dart&quot;,</div><div class="line">            &quot;args&quot;: [&quot;--enable-software-rendering&quot;, &quot;-d&quot;, &quot;all&quot;]</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line">![图片](https://img2018.cnblogs.com/blog/82061/201902/82061-20190201084328506-453598747.png)</div></pre></td></tr></table></figure></p>
+<h4 id="2-1-4-注意模拟器中usb调试开启-调试程序设置"><a href="#2-1-4-注意模拟器中usb调试开启-调试程序设置" class="headerlink" title="2.1.4. 注意模拟器中usb调试开启 调试程序设置"></a>2.1.4. 注意模拟器中usb调试开启 调试程序设置</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-开发环境安装参考视频&quot;&gt;&lt;a href=&quot;#1-开发环境安装参考视频&quot; class=&quot;headerlink&quot; title=&quot;1. 开发环境安装参考视频&quot;&gt;&lt;/a&gt;1. 开发环境安装参考视频&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.imooc.c
+    
+    </summary>
+    
+      <category term="flutter" scheme="https://blog.signalfire2017.com/categories/flutter/"/>
+    
+    
+      <category term="flutter" scheme="https://blog.signalfire2017.com/tags/flutter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git命令简写</title>
     <link href="https://blog.signalfire2017.com/2019/09/15/git%E5%91%BD%E4%BB%A4%E7%AE%80%E5%86%99/"/>
     <id>https://blog.signalfire2017.com/2019/09/15/git命令简写/</id>
     <published>2019-09-15T12:24:40.000Z</published>
-    <updated>2019-09-15T12:24:40.086Z</updated>
+    <updated>2019-09-15T12:27:31.709Z</updated>
     
     <content type="html"><![CDATA[<p>简单记录 git 设置简写</p>
 <a id="more"></a>
@@ -45,7 +76,7 @@
       <category term="学习" scheme="https://blog.signalfire2017.com/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="大数据" scheme="https://blog.signalfire2017.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+      <category term="git" scheme="https://blog.signalfire2017.com/tags/git/"/>
     
   </entry>
   
@@ -54,7 +85,7 @@
     <link href="https://blog.signalfire2017.com/2019/09/15/git%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/"/>
     <id>https://blog.signalfire2017.com/2019/09/15/git中文编码问题/</id>
     <published>2019-09-15T12:24:10.000Z</published>
-    <updated>2019-09-15T12:25:32.368Z</updated>
+    <updated>2019-09-15T12:27:35.340Z</updated>
     
     <content type="html"><![CDATA[<p>git中文编码问题解决<br><a id="more"></a><br>这个问题是由于git默认会被utf-8文件名进行转码，需要设置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.quotepath <span class="literal">false</span></div></pre></td></tr></table></figure>]]></content>
@@ -1035,59 +1066,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;日志规约-8&quot;&gt;&lt;a href=&quot;#日志规约-8&quot; class=&quot;headerlink&quot; title=&quot;日志规约(8)&quot;&gt;&lt;/a&gt;日志规约(8)&lt;/h1&gt;&lt;h2 id=&quot;强制-6&quot;&gt;&lt;a href=&quot;#强制-6&quot; class=&quot;headerlink&quot; title=
-    
-    </summary>
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/categories/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-    
-      <category term="阿里java规约" scheme="https://blog.signalfire2017.com/tags/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里java规约(一)-编程规约(9)-其他.md</title>
-    <link href="https://blog.signalfire2017.com/2018/02/09/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6/%E9%98%BF%E9%87%8Cjava%E8%A7%84%E7%BA%A6(%E4%B8%80)-%E7%BC%96%E7%A8%8B%E8%A7%84%E7%BA%A6(9)-%E5%85%B6%E4%BB%96/"/>
-    <id>https://blog.signalfire2017.com/2018/02/09/阿里java规约/阿里java规约(一)-编程规约(9)-其他/</id>
-    <published>2018-02-09T08:12:33.000Z</published>
-    <updated>2019-03-13T14:01:08.619Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="其他-8"><a href="#其他-8" class="headerlink" title="其他(8)"></a>其他(8)</h1><h2 id="强制-5"><a href="#强制-5" class="headerlink" title="强制(5)"></a>强制(5)</h2><ol>
-<li>【强制】在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。<ul>
-<li>说明： 不要在方法体内定义： Pattern pattern = Pattern.compile(规则);</li>
-</ul>
-</li>
-<li>【强制】 velocity 调用 POJO 类的属性时，建议直接使用属性名取值即可，模板引擎会自动按规范调用 POJO 的 getXxx()，如果是 boolean 基本数据类型变量（ boolean 命名不需要加 is前缀） ，会自动调用 isXxx()方法。<ul>
-<li>说明： 注意如果是 Boolean 包装类对象，优先调用 getXxx()的方法。</li>
-</ul>
-</li>
-<li>【强制】后台输送给页面的变量必须加$!{var}——中间的感叹号。<ul>
-<li>说明： 如果 var=null 或者不存在，那么${var}会直接显示在页面上。</li>
-</ul>
-</li>
-<li>【强制】注意 Math.random() 这个方法返回是 double 类型，注意取值的范围 0≤x&lt;1（ 能够取到零值，注意除零异常） ，如果想<code>获取整数类型的随机数</code>，不要将 x 放大 10 的若干倍然后取整，直接使用 <code>Random</code> 对象的 <code>nextInt</code> 或者 <code>nextLong</code> 方法。</li>
-<li>【强制】获取当前毫秒数 System.currentTimeMillis(); 而不是 new Date().getTime();<ul>
-<li>说明： 如果想获取更加精确的纳秒级时间值， 使用 System.nanoTime()的方式。在 JDK8 中，针对统计时间等场景，推荐使用 Instant 类。</li>
-</ul>
-</li>
-</ol>
-<h2 id="推荐-3"><a href="#推荐-3" class="headerlink" title="推荐(3)"></a>推荐(3)</h2><ol>
-<li>【推荐】 不要在视图模板中加入任何复杂的逻辑。<ul>
-<li>说明： 根据 MVC 理论，视图的职责是展示，不要抢模型和控制器的活。</li>
-</ul>
-</li>
-<li>【推荐】 任何数据结构的构造或初始化，都应指定大小，避免数据结构无限增长吃光内存。</li>
-<li>【推荐】 及时清理不再使用的代码段或配置信息。<ul>
-<li>说明： 对于垃圾代码或过时配置，坚决清理干净，避免程序过度臃肿，代码冗余。</li>
-<li>正例： 对于暂时被注释掉，后续可能恢复使用的代码片断，在注释代码上方，统一规定使用三个斜杠(///)来说明注释掉代码的理由。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;其他-8&quot;&gt;&lt;a href=&quot;#其他-8&quot; class=&quot;headerlink&quot; title=&quot;其他(8)&quot;&gt;&lt;/a&gt;其他(8)&lt;/h1&gt;&lt;h2 id=&quot;强制-5&quot;&gt;&lt;a href=&quot;#强制-5&quot; class=&quot;headerlink&quot; title=&quot;强制(5)&quot;&gt;
     
     </summary>
     

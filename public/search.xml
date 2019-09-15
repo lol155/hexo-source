@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flutter开发环境安装]]></title>
+    <url>%2F2019%2F09%2F15%2Fflutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[1. 开发环境安装参考视频https://www.imooc.com/video/18526 2. 遇到问题2.1. 安装了MuMu模拟器2.1.1. 添加环境变量 进入Android sdk安装环境目录 将 platform-tools 和 emulator 添加到环境变量中2.1.2. 打开模拟器cmd中执行1adb connect 127.0.0.1:7555 2.1.3. 错误11Failed to setup Skia Gr context flutter Failed to setup Skia Gr context导致白屏添加 –enable-software-rendering 参数运行1flutter run --enable-software-rendering vscode debug需要添加配置文件12345678910111213141516&#123; // 使用 IntelliSense 了解相关属性。 // 悬停以查看现有属性的描述。 // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387 &quot;version&quot;: &quot;0.2.0&quot;, &quot;configurations&quot;: [ &#123; &quot;name&quot;: &quot;Flutter&quot;, &quot;request&quot;: &quot;launch&quot;, &quot;type&quot;: &quot;dart&quot;, &quot;args&quot;: [&quot;--enable-software-rendering&quot;, &quot;-d&quot;, &quot;all&quot;] &#125; ]&#125;![图片](https://img2018.cnblogs.com/blog/82061/201902/82061-20190201084328506-453598747.png) 2.1.4. 注意模拟器中usb调试开启 调试程序设置]]></content>
+      <categories>
+        <category>flutter</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[git命令简写]]></title>
     <url>%2F2019%2F09%2F15%2Fgit%E5%91%BD%E4%BB%A4%E7%AE%80%E5%86%99%2F</url>
     <content type="text"><![CDATA[简单记录 git 设置简写 1. 方法一:git文件修改设置简写命令修改~/.gitconfig文件 添加12345[alias]c = checkout st = statuscm = commit -mbr = branch 2. 方法二:修改windows文件设置简写 新建 ~/.bashrc文件 编辑文档 123alias ga=&apos;git add&apos;alias gaa=&apos;git add --all&apos;alias gapa=&apos;git add --patch&apos; 保存并source ~/.bashrc即可]]></content>
@@ -8,7 +19,7 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -324,9 +335,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux修改时间]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
-    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
+    <title><![CDATA[linux 程序down 问题排查]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
+    <content type="text"><![CDATA[1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -346,9 +357,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux 程序down 问题排查]]></title>
-    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%20%E7%A8%8B%E5%BA%8Fdown%20%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%2F</url>
-    <content type="text"><![CDATA[1. linux系统有自我保护机制如果分配的内存用完了,会杀掉进程.可以查看日志1/var/log/messages 然后通过进程ID 进行查询 ,或者 oom-killer 来查询 1.1. 内存不够可以配置虚拟内存,解决内存高峰时内存不够的问题. 2. 线程挂掉用jstack分析线程栈可以使用 jstack 查看进程信息 3. 其他命令3.1. lsof -n (学习)]]></content>
+    <title><![CDATA[linux修改时间]]></title>
+    <url>%2F2018%2F01%2F24%2F%E6%9D%82%E8%AE%B0%2Flinux%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%2F</url>
+    <content type="text"><![CDATA[linux修改时间 修改时区 cp /usr/share/zoneinfo/UTC /etc/localtime 12345[root@localhost ~]# cp /usr/share/zoneinfo/UTC /etc/localtime cp：是否覆盖“/etc/localtime”? y [root@localhost ~]# date 2012年 11月 02日 星期五 00:07:30 UTC修改为中国的东八区 配置新的时间 1234# vi /etc/sysconfig/clockZONE=&quot;Asia/Shanghai&quot;UTC=falseARC=false 安装ntp 1yum install -y ntp 设置时间同步 1ntpdate 210.72.145.44 1. 其他命令1.1. 设置时间1date -s 18:40:00 参考链接 Linux服务器同步网络时间]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -628,8 +639,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -641,8 +652,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -654,8 +665,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
         <tag>centos7</tag>
       </tags>
@@ -668,8 +679,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
         <tag>centos7</tag>
       </tags>
@@ -682,8 +693,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
         <tag>centos7</tag>
       </tags>
@@ -719,8 +730,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>mysql</tag>
       </tags>
   </entry>
@@ -732,8 +743,8 @@
         <category>学习</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>centos7</tag>
       </tags>
   </entry>
@@ -757,8 +768,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
         <tag>centos7</tag>
       </tags>
@@ -782,8 +793,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
       </tags>
   </entry>
@@ -795,8 +806,8 @@
         <category>大数据学习笔记</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>linux</tag>
+        <tag>大数据</tag>
         <tag>linux命令</tag>
       </tags>
   </entry>
@@ -820,8 +831,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>idea</tag>
         <tag>快捷键</tag>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
