@@ -22,6 +22,7 @@ cmd中执行
 adb connect 127.0.0.1:7555
 ```
 #### 2.1.3. 错误1
+[参考地址](https://www.cnblogs.com/yehuabin/p/10344723.html)
 ```
 Failed to setup Skia Gr context
 ```
