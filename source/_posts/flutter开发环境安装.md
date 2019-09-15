@@ -12,6 +12,7 @@ scaffolds:
 https://www.imooc.com/video/18526
 ## 2. 遇到问题
 ### 2.1. 安装了MuMu模拟器
+[参考地址](https://www.cnblogs.com/xuexidememeda/p/9516086.html)
 #### 2.1.1. 添加环境变量
 * 进入Android sdk安装环境目录
 * 将 platform-tools 和 emulator 添加到环境变量中
